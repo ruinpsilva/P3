@@ -1,0 +1,214 @@
+body {
+	font-family: Helvetica,Arial, sans-serif;
+	background:#374343;
+	height:100%;
+    margin:0;
+    padding:0; 
+}
+
+header{
+	text-align:left;
+	color:#f7f7f7;
+	padding-left:40px;
+	font-variant: small-caps;
+}
+
+footer{
+	text-align:right;
+	font-size:x-small;
+	color:#f7f7f7;
+}
+div.main{
+	padding: 50px 100px 150px;
+	text-align:center;
+}
+#modelo,
+div.main{
+	background: #FFFFFF;
+}
+
+div.main input[type=button]{
+	padding: 10px 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	
+}
+
+/*Domain Model and Case Model Button*/
+input[type=button],
+input[type=submit],
+input[type=reset]{
+	
+	background: #f7f7f7;
+	padding:1px 5px;
+	color: #374343;
+	//font-weight: bold;
+	border:1px;
+	border-color:#374343;
+	border-style:solid;
+}
+
+/*Domain Model and Case Model Button - Hover */
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover{
+	background:#374343;
+	color:#F7F7F7;	
+	border: 1px;
+	border-color:#F7F7F7;
+	border-style:solid;	
+}
+
+/* Top Bar Menus*/
+#controlCasosUso input[type=button],
+#controloDiagramaClasses input[type=button]
+{
+	padding: 5px 10px;
+	font-weight: bold;
+	background: #f7f7f7;
+	color:#374343;
+	font-variant: small-caps;
+	font-size: small;
+	border:0px;
+	border-bottom:1px solid #374343;
+	border-radius: 2px;
+}
+
+
+
+#controlCasosUso input[type=button]:hover,
+#controloDiagramaClasses input[type=button]:hover{
+	background: #374343;
+	color: #f7f7f7;
+}
+
+a:link, a:visited{
+	color: #f7f7f7;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #777777;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+#dialogo, 
+#dialogo_actor, 
+#dialogo_casos_uso,
+#dialogo_associa_casos,
+#dialogoAlteraClasse,
+#dialogoAlteraInterface,
+#dialogoAssociaClasses,
+#dialogoMostarXMLClasses,
+#dialogoMostarXMLCasos,
+#dialogoGravarDiagrama,
+#dialogoAbreDiagrama,
+#dialogoAbreDiagramaCasosDisco,
+#dialogoAbreDiagramaClassesDisco,
+#dialogoGravaDiaClassesDisco,
+#dialogoGravaDiaCasosDisco{
+     visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     text-align:center;
+     z-index: 1000;
+}
+
+#dialogo div , 
+#dialogo_actor div:first-child,
+#dialogo_casos_uso div,
+#dialogo_associa_casos div,
+#dialogoAlteraClasse div:first-child,
+#dialogoAlteraInterface div:first-child,
+#dialogoAssociaClasses div,
+#dialogoMostarXMLClasses div,
+#dialogoMostarXMLCasos div,
+#dialogoGravarDiagrama div,
+#dialogoAbreDiagrama div,
+#dialogoAbreDiagramaCasosDisco div,
+#dialogoAbreDiagramaClassesDisco div,
+#dialogoGravaDiaClassesDisco div,
+#dialogoGravaDiaCasosDisco div
+{
+     width:320px;
+     margin: 120px auto;
+     background-color: #fff;
+     border:1px solid #000;
+     border-radius: 5px;
+     box-shadow: 5px 5px 5px #374343;
+     padding:15px;
+     text-align:center;
+}
+#dialogoMostarXMLClasses div,
+#dialogoMostarXMLCasos div{
+	 width:800px;
+}
+
+#xmlClasses,
+#xmlCasos{
+	width: 750px;
+	height:500px;
+}
+
+fieldset{
+	border-radius: 5px;
+	font-size: small;
+	text-align: left;
+}
+
+fieldset input[type=text]{
+	width: 260px;
+}
+
+fieldset select{
+	width: 100%;
+}
+
+
+#ferramentas{
+	/*position: relative;
+	left:0px;
+	top:20px;
+	width: 120px;
+	*/
+	float:left;
+	width:120px;
+	background-color:#374343;
+	color: #F7F7F7;
+	padding: 2px;
+	text-align:center;
+	font-variant: small-caps;
+	font-size: small;	
+	
+	z-index: 500;
+}
+/*
+#ferramentas p{
+	padding: 5px;
+	text-align:center;
+	font-variant: small-caps;
+	font-size: small;
+	//margin-left:auto;
+	//margin-right:auto;
+}
+
+*/
+#blackHole{
+	position:relative;
+	left:0px;
+	top:-120px;
+	width:120px;
+	height:120px;
+	border: 1px solid #374343;
+	text-align:center;
+	font-variant: small-caps;
+	font-size: small;
+}
+#blackHole p{
+	padding: 5px;
+}

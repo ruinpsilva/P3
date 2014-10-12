@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<!-- CSS -->
+		<link rel="stylesheet" href="joint/joint.css" />
+		<link rel="stylesheet" href="css/Amalia.css" />
+		
+		<!-- Bibliotecas -->
+		<script src="jQuery/jquery-1.10.2.js"></script>
+		<script src="joint/joint.js"></script>
+		<script src="joint/joint.shapes.uml.js"></script>
+		<script src="Blob.js-master/Blob.js"></script>
+		<script src="FileSaver.js-master/FileSaver.js"></script>
+		
+		<!-- Modelos -->
+		<script src="modelos/Amalia.js"></script>
+		
+		<!-- Controlador -->
+		<script src="controladores/ControladorAmalia.js"></script>
+		
+		<!-- ide -->
+		<script src="ide/ideCasosUso.js"></script>
+
+		<title>Use Case Model</title>
+		<meta name="description" content="ide para modelar casos de uso">
+		<meta name="author" content="jorge et al.">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>Use Case Model</h1>
+			</header>
+			
+			
+			<div id="controlCasosUso">
+
+			<!-- Experiência de gravar modelo -->
+					<input id="btnVoltarInicio" type="button" value="<" />
+					<input id="btnGuardarCasosUso" type="button" value="Save in Browser" /> 
+					<input id="btnRestaurarCasosUso" type="button" value="Open from Browser"/>
+										
+					<input id="btnGuardarCasosUsoDisco" type="button" value="Save in disk" />
+					<input id="btnRestaurarCasosUsoDisco" type="button" value="Open from Disk"/>
+					
+					<input id="btnApagarDiagrama" type="button" value="Delete Model" />
+					<input id="btnExportarDiagramaCasosParaXML" type="button" value="Export to XML" />
+			</div>
+			
+			
+			<!-- indicação da àrea de ferramentas-->
+			<div id="ferramentas">
+				Tool Box
+			</div>
+			<!-- Local onde é apresentado o modelo -->
+
+			<div id="modelo">
+
+			</div>
+			
+			<!-- black hole indication -->
+			<div id="blackHole">
+				<p>Drag and Drop model elements here to delete...</p>
+			</div>
+			
+			
+			<!-- Dialogo para mudar o nome do caso de uso -->
+			<div id="dialogo_casos_uso">
+     			<div>
+          			<form id="caso_uso">
+
+          				<p>
+          					<fieldset>
+          						<legend>Use Case name:</legend>
+          					<input id="nomeCasoUso" name="nomeCasoUso" type="text" placeholder="Nome do Caso de Uso" />
+          					<input id="idCaso" type="hidden" value="" />
+          					</fieldset>
+          				</p>
+          				<p>
+          					<input type="reset" value="Limpar nome" />
+          					<input id="btnCancelarAlterarNomeCasoUso" type="button" value="Cancelar" />
+          					<input type="submit" value="Alterar nome" />
+          				</p>
+          			</form>
+          			
+    			 </div>
+			</div>
+			
+			
+			<!-- Dialogo para mudar o nome do ator -->
+			<div id="dialogo_actor">
+     			<div>
+     				<form id="ator_nome">
+
+     					<fieldset>
+          						<legend>Actor name:</legend>
+     						<input id="nomeActor" name="nomeActor" type="text" placeholder="Nome do Actor" />
+     						<input id="idActor" type="hidden" value="" />
+     					</fieldset>
+     					<p>
+     						<input type="reset" value="Limpar nome" />
+     						<input id="btnCancelarAlterarNomeActor" type="button" value="Cancelar" />
+     						<input type="submit" value="Alterar nome" />
+     					</p>
+     				</form>
+    			 </div>
+			</div>
+			
+			<!-- Dialogo para definir include ou extends -->
+			<div id="dialogo_associa_casos">
+     			<div>
+     				<p> <label><input type="radio" name="ligaCasos" value="include" checked="checked" /> include </label></p>
+					<p> <label><input type="radio" name="ligaCasos" value="extends" /> extends </label></p>
+					<input id="elementoCimaId" type="hidden" name="elementoCimaId" value="" />
+					<input id="elementoBaixoId" type="hidden" name="elementoBaixoId" value="" /> 
+					<p>
+						<input id="cancelaLigacao" type="button" value="Cancelar" />
+						<input id="ligacaoCasos" type="button"  value="Associar Casos de Uso" />
+					</p>
+    			 </div>
+			</div>
+			
+			<!-- dialogo para Mostrar o XMLgerado -->
+			<div id="dialogoMostarXMLCasos">
+				<div>
+					<p>
+						<textarea id="xmlCasos"></textarea>
+					</p>
+					<input id="btnFecharXMLCasos" type="button" value="Fechar Dialogo" />
+					<input id="btnDescarregarXML" type="button" value="Descarregar" />
+				</div>
+			</div>
+			
+			<!-- Dialogo para atribuir nome ao diagrama -->
+			<div id="dialogoGravarDiagrama">
+				<div>
+					<p>Save Model in Browser</p>
+					<fieldset>
+						<legend>Name:</legend>
+						<input id="nomeDoDiagrama" type="text" name="nomeDoDiagrama" placeholder="Nome do Diagrama" />
+					</fieldset>
+					<p>
+						<input id="btnCancelaGravarDiagrama" type="button" value="Cancelar" />
+						<input id="btnGravarDiagrama" type="button"  value="Gravar Diagrama" />
+						<input id="tipoDeDiagrama" type="hidden" name="tipoDiagrama" value="" />
+					</p>
+				</div>
+			</div>
+			
+			<!-- Dialogo para recuperar um diagrama -->
+			<div id="dialogoAbreDiagrama">
+				<div>
+					<p>Open Use Case Model from Browser</p>
+					<fieldset>
+						<legend>Select Model to open:</legend>
+					<select id="diagramasDisponíveis">
+						<!-- Local onde vão ficar os diagramas disponíveis -->
+					</select>
+					</fieldset>
+					
+					<p>
+						<input id="btnCancelaAbrirDiagrama" type="button" value="Cancelar" />
+						<input id="btnAbrirDiagrama" type="button"  value="Abrir Diagrama" />
+						<input id="tipoDeDiagramaAbrir" type="hidden" name="tipoDiagrama" value="" />
+					</p>
+					
+				</div>
+			</div>
+			<!-- Dialogo para gravar ficheiro no disco -->
+			<div id="dialogoGravaDiaCasosDisco">
+				<div>
+					<p>Save Use Case Model in disk</p>
+					<fieldset>
+						<legend>File name</legend>
+						<input id="nomeDiaCasosDisco" type="text" name="nomeDiaParaDisco" placeholder="Nome para o Diagrama" />
+					</fieldset>
+					<input id="btnCancelarGravarDiscoDiaCasos" type="button" value="Cancelar"/>
+					<input id="btnGravarDiscoDiaCasos" type="button" value="Gravar" />
+				</div>
+			</div>
+			
+			<!-- Dialogo para recuperar ficheiro do disco -->
+			<div id="dialogoAbreDiagramaCasosDisco">
+				<div>
+					<p> Open Use Case Model from Disk</p>
+					<fieldset>
+						<input type="file" id="ficheiroDiagrama" />
+					</fieldset>
+					<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancelar" />
+				</div>
+			</div>
+
+			<footer>
+				<p>
+					AmaliaIDE v0.5 - 2014
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
