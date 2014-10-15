@@ -34,7 +34,7 @@ div.main input[type=button]{
 	
 }
 
-/*Domain Model and Case Model Button*/
+
 input[type=button],
 input[type=submit],
 input[type=reset]{
@@ -48,18 +48,17 @@ input[type=reset]{
 	border-style:solid;
 }
 
-/*Domain Model and Case Model Button - Hover */
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover{
 	background:#374343;
 	color:#F7F7F7;	
+	
 	border: 1px;
 	border-color:#F7F7F7;
 	border-style:solid;	
 }
 
-/* Top Bar Menus*/
 #controlCasosUso input[type=button],
 #controloDiagramaClasses input[type=button]
 {
@@ -81,6 +80,7 @@ input[type=reset]:hover{
 	background: #374343;
 	color: #f7f7f7;
 }
+
 
 a:link, a:visited{
 	color: #f7f7f7;
@@ -211,4 +211,42 @@ fieldset select{
 }
 #blackHole p{
 	padding: 5px;
+}
+
+/* Codigo elebora para a formatacao da tabela */
+table ,td, tr{
+	font-family: Helvetica,Arial, sans-serif;
+	border: 1px grey;
+    border-collapse: collapse;
+	margin-top: 100px;
+	margin-bottom:100px;
+}
+div >div{background-color:#FFFFFF;}
+.black{
+	border-left-color: 1px #000000;
+	border-collapse:collapse;
+}
+td{
+	padding: 0px;
+}
+p{
+	font-size:11px;
+	text-align:center;
+}
+.icon{
+	height: 20px;
+	width: 40px;
+}
+h2{
+	font-size:14px;
+}
+
+#td01{
+	background-color:#20653B;	
+}
+h1{
+	color:#FFFFFF;
+}
+#z01,#z03,#z05,#i01,#i03,#i05{
+	background-color:#DADADA;
 }
