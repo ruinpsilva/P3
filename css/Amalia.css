@@ -22,6 +22,7 @@ table{
 	background:#FFFBFB;
 	border: 14p;
 }
+
 footer{
 	text-align:right;
 	font-size:x-small;
@@ -225,7 +226,8 @@ fieldset select{
 }
 
 
-/* Codigo elebora para a formatacao da tabela */
+/* Codigo eleborado para a formatacao da tabela */
+
 table ,td, tr{
 	font-family: Helvetica,Arial, sans-serif;
 	border: 1px grey;
@@ -233,7 +235,9 @@ table ,td, tr{
 	/*margin-top: 50px;
 	margin-bottom:50px;*/
 }
+
 div >div{background-color:#FFFFFF;}
+
 .black{
 	border-left-color: 1px #000000;
 	border-collapse:collapse;
