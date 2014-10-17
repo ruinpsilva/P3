@@ -13,7 +13,7 @@ header{
 	background:#20653B;
 	padding-left:40px;
 	font-variant: small-caps;
-	height:0px;
+	height:75px;
 }
 table{
 		background:#FFFFFF;
@@ -224,13 +224,14 @@ fieldset select{
 	padding: 5px;
 }
 
+
 /* Codigo elebora para a formatacao da tabela */
 table ,td, tr{
 	font-family: Helvetica,Arial, sans-serif;
 	border: 1px grey;
     border-collapse: collapse;
-	margin-top: 100px;
-	margin-bottom:100px;
+	/*margin-top: 50px;
+	margin-bottom:50px;*/
 }
 div >div{background-color:#FFFFFF;}
 .black{
@@ -264,4 +265,8 @@ h1{
 
 #el{
 	height: "50px";
+}
+
+#p0h{
+	text-align: right;
 }
