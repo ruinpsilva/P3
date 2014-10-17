@@ -1,6 +1,7 @@
 body {
 	font-family: Helvetica,Arial, sans-serif;
-	background:#374343;
+	/*background:#374343;*/
+	background:#20653B;
 	height:100%;
     margin:0;
     padding:0; 
@@ -249,4 +250,8 @@ h1{
 }
 #z01,#z03,#z05,#i01,#i03,#i05{
 	background-color:#DADADA;
+}
+
+#el{
+	height: "50px";
 }
