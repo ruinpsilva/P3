@@ -10,14 +10,24 @@ body {
 header{
 	text-align:left;
 	color:#f7f7f7;
+	background:#20653B;
 	padding-left:40px;
 	font-variant: small-caps;
+	height:0px;
 }
-
+table{
+		background:#FFFFFF;
+}
+#teste{
+	background:#FFFBFB;
+	border: 14p;
+}
 footer{
 	text-align:right;
 	font-size:x-small;
+	background:#20653B;
 	color:#f7f7f7;
+	height:0px;
 }
 div.main{
 	padding: 50px 100px 150px;
