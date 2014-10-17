@@ -17,6 +17,8 @@ header{
 }
 table{
 		background:#FFFFFF;
+		margin-bottom:70px;
+		margin-top: 40px;
 }
 #teste{
 	background:#FFFBFB;
@@ -29,6 +31,7 @@ footer{
 	background:#20653B;
 	color:#f7f7f7;
 	height:0px;
+	
 }
 div.main{
 	padding: 50px 100px 150px;
