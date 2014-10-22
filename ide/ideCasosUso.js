@@ -28,18 +28,19 @@ $(document).ready(function(){
 	
 	// tamanho do paper
 	var widthPaper = Math.round(screen.availWidth);
-	var heightPaper =  Math.round(screen.availHeight *.75);
+	var heightPaper =  Math.round(screen.availHeight *.65);
 	var minWidthDiagramPaper = 0;
 	var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
+	var treeAreaWidth = 120;
 	var minHeightDiagramPaper = 0;
 	
 	
 	var paper = new joint.dia.Paper({
-	el: $('#modelo'),
-	width: widthPaper,
-	height: heightPaper,
-	gridSize: 1,
-	model: graph
+		el: $('#modelo'),
+		width: widthPaper,
+		height: heightPaper,
+		gridSize: 1,
+		model: graph
 	});
 	
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
