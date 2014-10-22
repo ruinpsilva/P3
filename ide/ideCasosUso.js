@@ -7,8 +7,8 @@
 //***************************
 function iniciarDiagramaCasosUso(graph){
 	// Gráficos do Ator e do caso de uso na posição da barra de ferramentas
-	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-50,20);
-	var ator = Amalia.dia.getGrafAtor(43,80);	
+	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
+	var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
 	//Adicionar o ator e o caso de uso à barra de ferramentas
 	graph.addCells([caso,ator]);
 }
@@ -55,7 +55,7 @@ $(document).ready(function(){
 		elemento.toFront();
 		
 		//Clonar o elemento e adicionar o clone ao gráfico se o click for na área de ferramentas
-		if (x < toolbarAreaWidth){
+		if (x > toolbarAreaWidth){
 			//obter o id do elemento que está a ser arrastado para o paper e que irá fazer parte do diagrama
 			//com elemento.id --- para implementar as funcionalidades que perimitirão o xml
 			graph.addCells([elemento.clone()]);
@@ -297,7 +297,7 @@ $(document).ready(function(){
 	// ***************************************
 	$("#blackHole").mouseenter(function(){
 		$("#blackHole").hide();
-		$("#blackHole").delay(1000).fadeIn();
+		$("#blackHole").delay(500).fadeIn();
 	});
 	
 	//Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
