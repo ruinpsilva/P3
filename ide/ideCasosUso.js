@@ -7,7 +7,7 @@
 //***************************
 function iniciarDiagramaCasosUso(graph){
 	// Gráficos do Ator e do caso de uso na posição da barra de ferramentas
-	var caso = Amalia.dia.getGrafCasoUso(10,20);
+	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-50,20);
 	var ator = Amalia.dia.getGrafAtor(43,80);	
 	//Adicionar o ator e o caso de uso à barra de ferramentas
 	graph.addCells([caso,ator]);
@@ -27,9 +27,10 @@ $(document).ready(function(){
 	var instanceActor = joint.shapes.basic.Actor;
 	
 	// tamanho do paper
-	var widthPaper = Math.round(screen.availWidth * .95);
+	var widthPaper = Math.round(screen.availWidth);
 	var heightPaper =  Math.round(screen.availHeight *.75);
-	var minWidthDiagramPaper = 120;
+	var minWidthDiagramPaper = 0;
+	var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var minHeightDiagramPaper = 0;
 	
 	
@@ -54,7 +55,7 @@ $(document).ready(function(){
 		elemento.toFront();
 		
 		//Clonar o elemento e adicionar o clone ao gráfico se o click for na área de ferramentas
-		if (x<minWidthDiagramPaper){
+		if (x < toolbarAreaWidth){
 			//obter o id do elemento que está a ser arrastado para o paper e que irá fazer parte do diagrama
 			//com elemento.id --- para implementar as funcionalidades que perimitirão o xml
 			graph.addCells([elemento.clone()]);
@@ -68,8 +69,8 @@ $(document).ready(function(){
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
 		
-		//area de diagrama x > 120
-		if (x > minWidthDiagramPaper){
+		//area de diagrama x > 120 - mudado para area de diagrama x < 120
+		if (x < toolbarAreaWidth){
 			
 			//Acertar posição
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura

@@ -191,7 +191,7 @@ fieldset select{
 	top:20px;
 	width: 120px;
 	*/
-	float:left;
+	float:right;
 	width:120px;
 	background-color:#374343;
 	color: #F7F7F7;
@@ -215,6 +215,7 @@ fieldset select{
 */
 #blackHole{
 	position:relative;
+	float:right;
 	left:0px;
 	top:-120px;
 	width:120px;
