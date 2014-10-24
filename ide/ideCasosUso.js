@@ -296,10 +296,10 @@ $(document).ready(function(){
 	//****************************************
 	//  Fazer desaparecer o  blackHole
 	// ***************************************
-	$("#blackHole").mouseenter(function(){
-		$("#blackHole").hide();
-		$("#blackHole").delay(500).fadeIn();
-	});
+	//$("#blackHole").mouseenter(function(){
+		//$("#blackHole").hide();
+		//$("#blackHole").delay(500).fadeIn();
+	//});
 	
 	//Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
 	function readSingleFile(evt) {
