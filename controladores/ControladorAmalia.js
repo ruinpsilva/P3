@@ -387,6 +387,8 @@ ControladorAmalia ={
 		
 		var acertoAOlhoPorcento = 130; // Uma correção por tentativa e erro para atinar com a margem do canvas
 		var zonaDiagrama = g.rect(minWidth+1, minHeight+1, maxWidth-acertoAOlhoPorcento, maxHeight-1);
+		//If selected object isn't of Association type following coditions must be verified. BUG#1 FIXED!
+		if(!elemento instanceof joint.shapes.uml.Association){
 		var bBoxElemento = elemento.getBBox();
 
 
@@ -416,7 +418,7 @@ ControladorAmalia ={
 			elemento.position(zonaDiagrama.pointNearestToPoint(bBoxElemento.corner()).x - elemento.toJSON().size.width,
 							zonaDiagrama.pointNearestToPoint(bBoxElemento.corner()).y - elemento.toJSON().size.height);
 		}
-		
+		}
 	},
 	
 	

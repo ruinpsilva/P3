@@ -262,7 +262,7 @@ Amalia = {
 					
 			return liga;
 			
-			//return new amaliaLinks.Include({source: {id: idCima },target: {id:idBaixo}});
+			return new amaliaLinks.Include({source: {id: idCima },target: {id:idBaixo}});
 
 		},
 	
