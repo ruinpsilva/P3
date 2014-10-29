@@ -208,7 +208,7 @@ Amalia = {
 			position: {x: posX, y: posY},
 			size: {width: 100, height: 50},
 			attrs: { circle:{fill: 'yellow', stroke: 'black'},
-				text: {text: "Caso" , fill:'black'}}};
+				text: {text: "Use Case" , fill:'black'}}};
 		
 			return new joint.shapes.basic.Circle(prop);
 		

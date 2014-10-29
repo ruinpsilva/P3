@@ -63,21 +63,51 @@
 			</div>
 			
 			<table border="0" cellspacing="5" cellpadding="5">
-				<tr>
-					<td id="tree">Data</td>
-					<td id="papel">
+				<tr id="treeRow" align="top">
+					<td id="tree" rowspan="3">
+						<ol class="tree">
+							<li>
+								<label for="folder1">Use Cases</label> <input type="checkbox" id="folder1" /> 
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+							<li>
+								<label for="folder2">Classes Diagrams</label> <input type="checkbox" id="folder2" /> 
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+						</ol>
+					</td>
+					<td id="papel" rowspan="3">
 						<!-- Local onde é apresentado o modelo -->
 
 						<div id="modelo">
 			
 						</div>
 					</td>
-					<td id="toolbar">
-						<!-- use case image from toolbar to use has a button to place it in the model -->
-						
+					<td id="toolbar0">
 						<!-- actor image from toolbar to use has a button to place it in the model -->
-						
-						<!-- black hole indication -->
+						<input id="btnAddActor" type="button" value="Actor" />
+					</td>
+				</tr>
+				<tr>
+					<td id="toolbar1">
+						<!-- use case image from toolbar to use has a button to place it in the model -->
+						<input id="btnAddUseCase" type="button" value="Use Case" />
+					</td>
+					
+				</tr>
+				<tr>
+					
+					<td id="toolbar2">
 						<div id="blackHole">
 							<p>Drag and Drop model elements here to delete...</p>
 						</div>
