@@ -279,6 +279,9 @@ h1{
 	text-align: right;
 }
 
+
+/*Adapted from the source code in http://www.thecssninja.com/css/css-tree-menu*/
+
 /* CSS Tree menu styles */
 #tree{
 	vertical-align: top;
