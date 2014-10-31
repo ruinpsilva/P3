@@ -356,3 +356,17 @@ ol.tree
 	}
 		li input:checked + ol > li { display: block; margin: 0 0 0.125em;  /* 2px */}
 		li input:checked + ol > li:last-child { margin: 0 0 0.063em; /* 1px */ }
+
+/* Toolbar */
+.floating-menu{
+	position:fixed;
+	background:#fff4c8;
+	border:1px solid #ffcc00;
+	width:150px;
+	z-index:300;
+}
+.floating-menu a
+.floating-menu h3{
+	display:block;
+	margin:0 0.5em;
+}
