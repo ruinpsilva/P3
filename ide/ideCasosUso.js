@@ -5,12 +5,20 @@
 //***************************
 //** Iniciador do Diagrama **
 //***************************
+
+var graph = new joint.dia.Graph;
+
 function iniciarDiagramaCasosUso(graph){
 	// Gráficos do Ator e do caso de uso na posição da barra de ferramentas
 	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
 	var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
 	//Adicionar o ator e o caso de uso à barra de ferramentas
-	graph.addCells([caso,ator]);
+	//graph.addCells([caso,ator]);
+}
+
+function insertUseCaseOnToGraph(){
+	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
+	graph.addCells(caso);
 }
 
 
@@ -18,7 +26,7 @@ $(document).ready(function(){
 	
 	//Variáveis
 	
-	var graph = new joint.dia.Graph;
+	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
 	
@@ -44,7 +52,7 @@ $(document).ready(function(){
 	});
 	
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
-	iniciarDiagramaCasosUso(graph);
+	//iniciarDiagramaCasosUso(graph);
 	
 	
 	//Eventos que é necessário capturar.
@@ -145,6 +153,15 @@ $(document).ready(function(){
 		}
 		
 	});
+
+	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
+	
+	//Add Use Case graph to paper
+	$("#addUseCaseGraph").click(function(e){
+		insertUseCaseOnToGraph();
+	});
+	
+	//Add Actor graph to paper
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso

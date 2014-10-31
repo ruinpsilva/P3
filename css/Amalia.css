@@ -361,11 +361,14 @@ ol.tree
 
 /* Toolbar */
 .floating-menu{
+	right: 0%;
 	position:fixed;
-	background:#fff4c8;
-	border:1px solid #ffcc00;
-	width:150px;
-	z-index:300;
+	background:#4DB870;
+	border:1px solid #1F4A2D;
+	border-radius: 6px;
+	width:100px;
+	z-index:100;
+	top: 50%;
 }
 .floating-menu a
 .floating-menu h3{
