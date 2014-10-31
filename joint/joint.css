@@ -20,7 +20,7 @@ Important note: Presentation attributes have a lower precedence over CSS style r
 
 /* .viewport is a <g> node wrapping all diagram elements in the paper */
 div{
-	background-color:#02780E;	
+	background-color:#20653B;	
 	
 }
 .viewport {
