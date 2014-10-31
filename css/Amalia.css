@@ -1,6 +1,5 @@
 body {
 	font-family: Helvetica,Arial, sans-serif;
-	/*background:#374343;*/
 	background:#20653B;
 	height:100%;
     margin:0;
@@ -19,6 +18,9 @@ table{
 		background:#FFFFFF;
 		margin-bottom:10px;
 		margin-top: 40px;
+}
+#backtable{
+	background:#FFFFFF;
 }
 #teste{
 	background:#FFFBFB;
@@ -57,7 +59,7 @@ input[type=reset]{
 	background: #f7f7f7;
 	padding:1px 5px;
 	color: #374343;
-	//font-weight: bold;
+	font-weight: bold;
 	border:1px;
 	border-color:#374343;
 	border-style:solid;
@@ -240,7 +242,7 @@ fieldset select{
 	margin-bottom:50px;*/
 }
 
-div >div{background-color:#FFFFFF;}
+/*div >div{background-color:#FFFFFF;}*/
 
 .black{
 	border-left-color: 1px #000000;
