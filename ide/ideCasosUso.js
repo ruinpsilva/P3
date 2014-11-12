@@ -8,17 +8,27 @@
 
 var graph = new joint.dia.Graph;
 
-function iniciarDiagramaCasosUso(graph){
+//FUNÇÃO ATÉ VER DESNECESSÁRIA - NÃO ESTÁ A USO
+function iniciarDiagramaCasosUso(graph) {
 	// Gráficos do Ator e do caso de uso na posição da barra de ferramentas
 	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
 	var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
 	//Adicionar o ator e o caso de uso à barra de ferramentas
-	//graph.addCells([caso,ator]);
+	graph.addCells([caso,ator]);
 }
 
+//RNPS
+//Function to insert an Use Case in paper
 function insertUseCaseOnToGraph(){
 	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
-	graph.addCells(caso);
+	graph.addCells([caso]);
+}
+
+//RNPS
+//Function to insert an Actor in paper
+function insertActorOnToGraph(){
+    var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
+    graph.addCells([ator]);
 }
 
 
@@ -53,6 +63,7 @@ $(document).ready(function(){
 	
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
 	//iniciarDiagramaCasosUso(graph);
+    //insertUseCaseOnToGraph(graph);
 	
 	
 	//Eventos que é necessário capturar.
@@ -64,11 +75,11 @@ $(document).ready(function(){
 		elemento.toFront();
 		
 		//Clonar o elemento e adicionar o clone ao gráfico se o click for na área de ferramentas
-		if (x > toolbarAreaWidth){
-			//obter o id do elemento que está a ser arrastado para o paper e que irá fazer parte do diagrama
-			//com elemento.id --- para implementar as funcionalidades que perimitirão o xml
-			graph.addCells([elemento.clone()]);
-		}
+//		if (x > toolbarAreaWidth){
+//			//obter o id do elemento que está a ser arrastado para o paper e que irá fazer parte do diagrama
+//			//com elemento.id --- para implementar as funcionalidades que perimitirão o xml
+//			graph.addCells([elemento.clone()]);
+//		}
 	});
 	
 	//mouse up para estabelecer ligações entre os elementos na área de desenho
@@ -155,13 +166,19 @@ $(document).ready(function(){
 	});
 
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
+    //RNPS
 	
 	//Add Use Case graph to paper
 	$("#addUseCaseGraph").click(function(e){
 		insertUseCaseOnToGraph();
+        e.preventDefault();
 	});
 	
 	//Add Actor graph to paper
+    $("#addActorGraph").click(function(e){
+        insertActorOnToGraph();
+        e.preventDefault();
+         });
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
