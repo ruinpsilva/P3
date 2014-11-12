@@ -259,6 +259,11 @@ p{
 	height: 20px;
 	width: 40px;
 }
+
+h3{
+    font-size: 10px;
+    text-align: center;
+}
 h2{
 	font-size:14px;
 }
@@ -307,7 +312,7 @@ ol.tree
 	{
 		margin-left: -1px !important;
 		font-weight: normal !important;
-		font-size: 12px !important;
+		font-size: 11px !important;
 	}
 		li.file a
 		{
@@ -346,7 +351,7 @@ ol.tree
 		cursor: pointer;
 		display: block;
 		padding-left: 37px;
-		font-size: 15px !important;
+		font-size: 12px !important;
 	}
 
 	li input:checked + ol
@@ -365,13 +370,28 @@ ol.tree
 	position:fixed;
 	background:#4DB870;
 	border:1px solid #1F4A2D;
-	border-radius: 6px;
-	width:100px;
+	border-radius: 0px;
+	width:49px;
 	z-index:100;
 	top: 50%;
 }
-.floating-menu a
+
+
 .floating-menu h3{
 	display:block;
 	margin:0 0.5em;
 }
+
+/* Floating Tree */
+.floating-tree{
+    left: 0%;
+    position: fixed;
+    background:#DADADA;
+	border:1px solid #1F4A2D;
+	border-radius: 0px;
+	width:170px;
+	z-index:100;
+	top: 23%;
+}
+
+
