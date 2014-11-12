@@ -19,15 +19,28 @@ function iniciarDiagramaCasosUso(graph) {
 
 //RNPS
 //Function to insert an Use Case in paper
+//function insertUseCaseOnToGraph(){
+//	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-200,20);
+//	graph.addCells([caso]);
+//}
+
+
+//Function to insert an Use Case in paper
 function insertUseCaseOnToGraph(){
-	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
+	var caso = Amalia.dia.getGrafCasoUso(200,20);
 	graph.addCells([caso]);
 }
 
+
 //RNPS
 //Function to insert an Actor in paper
+//function insertActorOnToGraph(){
+//    var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
+//    graph.addCells([ator]);
+//}
+
 function insertActorOnToGraph(){
-    var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
+    var ator = Amalia.dia.getGrafAtor(200,80);
     graph.addCells([ator]);
 }
 
@@ -45,21 +58,24 @@ $(document).ready(function(){
 	var instanceActor = joint.shapes.basic.Actor;
 	
 	// tamanho do paper
-	var widthPaper = Math.round(screen.availWidth);
-	var heightPaper =  Math.round(screen.availHeight *.65);
+	var widthPaper = 900;//Math.round(screen.availWidth);
+	var heightPaper =  400;//Math.round(screen.availHeight *.65);
 	var minWidthDiagramPaper = 0;
 	var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
 	var minHeightDiagramPaper = 0;
 	
-	
+	var positionx= screen.availWidth/2;
+    var positiony=screen.availWidth/2;
 	var paper = new joint.dia.Paper({
 		el: $('#modelo'),
 		width: widthPaper,
 		height: heightPaper,
-		gridSize: 1,
+		gridSize: 10,
 		model: graph
 	});
+    //posição do paper no ecrã
+    paper.setOrigin(500,100);
 	
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
 	//iniciarDiagramaCasosUso(graph);
