@@ -58,10 +58,10 @@ $(document).ready(function(){
 	var instanceActor = joint.shapes.basic.Actor;
 	
 	// tamanho do paper
-	var widthPaper = 900;//Math.round(screen.availWidth);
+	var widthPaper = 1120;//Math.round(screen.availWidth);
 	var heightPaper =  400;//Math.round(screen.availHeight *.65);
 	var minWidthDiagramPaper = 0;
-	var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
+	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
 	var minHeightDiagramPaper = 0;
 	
@@ -106,7 +106,7 @@ $(document).ready(function(){
 		//console.log((elementoCima.toJSON()).position.x);
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
-		if (x < toolbarAreaWidth){
+		if (x < widthPaper){
 			
 			//Acertar posição
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura
