@@ -21,7 +21,8 @@ joint.shapes.basic.Actor = joint.shapes.basic.Generic.extend({
 		'y-alignment': 'middle',
 		'text-anchor': 'middle',
 		'ref': 'image',
-		'fill': 'black',
+		'fill': 'grey',
+        'font-color: grey'
 	    },
 	    image: {
 		'width': 35,

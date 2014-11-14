@@ -171,7 +171,8 @@ Amalia = {
 	
 	// »»»»»»»»»»»»»»»»»»»»»»»» ELEMENTOS DE DIAGRAMA QUE NÃO LIGAÇÕES «««««««««««««««««««««««««««««««««««««««
 	dia:{
-	
+
+	   //TODO Perceber o funcionamento de vectores SVG para poder alterar cores e outros elementos
 		//Gráfico de um ator >>>>>>>>>>>>>>>>>>é necessário definir o texto attrs.text.text, se for Actor attrs.text fica undefined
 		getGrafAtor : function(posX, posY){
 			var ator = new joint.shapes.basic.Actor(
@@ -179,7 +180,7 @@ Amalia = {
 				position: { x: posX, y: posY },
     			size: { width: 35, height: 70},
     			attrs: { 
-    				text:{text:"Actor"},
+    				text:{text:"Actor",'fill': 'grey'},
     				image: { 'xlink:href': "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzNweCIgaGVpZ2h0PSI2M3B4IiB2ZXJzaW9uPSIxLjEiPg0KPGRlZnMvPg0KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41LDAuNSkiPg0KPGVsbGlwc2UgY3g9IjE2IiBjeT0iOSIgcng9IjcuNSIgcnk9IjcuNSIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjMDAwMDAwIi8+DQo8cGF0aCBkPSJNIDE2IDE2IEwgMTYgNDEgTSAxNiAyMSBMIDEgMjEgTSAxNiAyMSBMIDMxIDIxIE0gMTYgNDEgTCAxIDYxIE0gMTYgNDEgTCAzMSA2MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+PC9nPjwvc3ZnPg=="}}
 			}
 		
@@ -207,7 +208,7 @@ Amalia = {
 			var prop ={
 			position: {x: posX, y: posY},
 			size: {width: 100, height: 50},
-			attrs: { circle:{fill: 'yellow', stroke: 'black'},
+			attrs: { circle:{fill: 'yellow'},
 				text: {text: "Use Case" , fill:'black'}}};
 		
 			return new joint.shapes.basic.Circle(prop);

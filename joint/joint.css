@@ -20,7 +20,7 @@ Important note: Presentation attributes have a lower precedence over CSS style r
 
 /* .viewport is a <g> node wrapping all diagram elements in the paper */
 div{
-	background-color:#20653B;	
+	background-color:#3C3F41;
 	
 }
 .viewport {
@@ -101,7 +101,7 @@ very thin.
 
 
 .connection {
-   /* stroke: black; */
+   stroke: grey;
    /* stroke width cannot be overriden by attribute? */
    /*   stroke-width: 1; */
    fill: none;
