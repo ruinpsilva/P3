@@ -315,6 +315,7 @@ ol.tree
 		font-weight: normal !important;
 		font-size: 11px !important;
 	}
+        /*TODO Proceder às alterações necessárias para cada um dos tipos de diagramas*/
 		li.file a
 		{
 			background: url(img/document.png) 0 0 no-repeat;
@@ -335,7 +336,7 @@ ol.tree
 		opacity: 0;
 		z-index: 2;
 		cursor: pointer;
-		height: 1em;
+		height: 2em;
 		width: 1em;
 		top: 0;
 	}
@@ -343,7 +344,7 @@ ol.tree
 		{
 			background: url(img/toggle-small-expand.png) 40px 0 no-repeat;
 			margin: -0.938em 0 0 -44px; /* 15px */
-			height: 1em;
+			height: 1.5em;
 		}
 		li input + ol > li { display: none; margin-left: -14px !important; padding-left: 1px; }
 	li label
