@@ -87,7 +87,7 @@ input[type=reset]:hover{
 	font-size: small;
 	border:0px;
 	border-bottom:1px solid #374343;
-	border-radius: 2px;
+	/*border-radius: 2px;*/
 }
 
 
