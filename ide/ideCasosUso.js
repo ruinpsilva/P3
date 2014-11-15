@@ -59,7 +59,7 @@ $(document).ready(function(){
 	
 	// tamanho do paper
 	var widthPaper = 1120;//Math.round(screen.availWidth);
-	var heightPaper =  400;//Math.round(screen.availHeight *.65);
+	var heightPaper = 400;//Math.round(screen.availHeight *.65);
 	var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
@@ -72,11 +72,13 @@ $(document).ready(function(){
 		width: widthPaper,
 		height: heightPaper,
 		gridSize: 10,
+        position: {
+            x:positionx,
+            y:positiony},
 		model: graph
 	});
     //posição do paper no ecrã
-    paper.setOrigin(500,100);
-	
+    //paper.setOrigin(500,100);
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
 	//iniciarDiagramaCasosUso(graph);
     //insertUseCaseOnToGraph(graph);
