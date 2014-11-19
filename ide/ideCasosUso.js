@@ -66,16 +66,17 @@ $(document).ready(function(){
 	var minHeightDiagramPaper = 0;
 	
 	var positionx= screen.availWidth/2;
-    var positiony=screen.availWidth/2;
+    var positiony=screen.availHeight/2;
 	var paper = new joint.dia.Paper({
 		el: $('#modelo'),
 		width: widthPaper,
 		height: heightPaper,
 		gridSize: 10,
-        position: {
+        position:{
             x:positionx,
             y:positiony},
 		model: graph
+
 	});
     //posição do paper no ecrã
     //paper.setOrigin(500,100);
