@@ -59,29 +59,26 @@ $(document).ready(function(){
 	
 	// tamanho do paper
 
-	var widthPaper = 800;//Math.round(screen.availWidth);
-	var heightPaper =  500;//Math.round(screen.availHeight *.65);
+	var widthPaper = Math.round(screen.availWidth)-300;
+	var heightPaper =  Math.round(screen.availHeight-250);
 
 	var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
 	var minHeightDiagramPaper = 0;
-	
-	var positionx= screen.availWidth/2;
-    var positiony=screen.availHeight/2;
+
 	var paper = new joint.dia.Paper({
 		el: $('#modelo'),
 		width: widthPaper,
 		height: heightPaper,
 		gridSize: 10,
-        position:{
-            x:positionx,
-            y:positiony},
 		model: graph
 
 	});
+    //paper.setDimensions(wi,500);
+    //paper.setOrigin(200,200);
     //posição do paper no ecrã
-    //paper.setOrigin(500,100);
+    //paper.setOrigin(500,500);
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
 	//iniciarDiagramaCasosUso(graph);
     //insertUseCaseOnToGraph(graph);
