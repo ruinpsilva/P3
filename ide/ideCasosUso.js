@@ -58,8 +58,13 @@ $(document).ready(function(){
 	var instanceActor = joint.shapes.basic.Actor;
 	
 	// tamanho do paper
+<<<<<<< HEAD
+	var widthPaper = 800;//Math.round(screen.availWidth);
+	var heightPaper =  500;//Math.round(screen.availHeight *.65);
+=======
 	var widthPaper = 1120;//Math.round(screen.availWidth);
 	var heightPaper = 400;//Math.round(screen.availHeight *.65);
+>>>>>>> origin/master
 	var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
