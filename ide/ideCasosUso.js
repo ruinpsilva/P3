@@ -74,11 +74,11 @@ $(document).ready(function(){
 		width: widthPaper,
 		height: heightPaper,
 		gridSize: 10,
+		model: graph,
         position:{
             x:positionx,
-            y:positiony},
-		model: graph
-
+            y:positiony
+        }
 	});
     //posição do paper no ecrã
     //paper.setOrigin(500,100);

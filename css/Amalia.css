@@ -1,9 +1,8 @@
 body {
 	font-family: Helvetica,Arial, sans-serif;
 	background:#3C3F41;
-	height:100%;
-    margin:0;
-    padding:0; 
+    margin:0px;
+    padding:0px;
 }
 
 header{
@@ -12,19 +11,15 @@ header{
 	background:#3C3F41;
 	padding-left:40px;
 	font-variant: small-caps;
-	height:75px;
 }
-table{
-		background:#242424;
-		margin-bottom:10px;
-		margin-top: 40px;
-}
+
 #backtable{
 	background:#242424;
 }
+
 #teste{
 	background:#FFFBFB;
-	border: 14p;
+	border: 0px;
 }
 
 footer{
@@ -32,18 +27,21 @@ footer{
 	font-size:x-small;
 	background:#3C3F41;
 	color:#f7f7f7;
-	height:20px;
-	
+	height:0px;
 }
 div.main{
 	padding: 50px 100px 150px;
 	text-align:center;
 }
+
 #modelo,
 div.main{
 	background: #242424;
     display: inline-flex;
     box-shadow: 10px 5px 5px rgba(0,0,0,0.5);
+    margin-left: 170px;
+    margin-top: 20px;
+    margin-right: 90px;
 }
 
 div.main input[type=button]{
@@ -57,7 +55,6 @@ div.main input[type=button]{
 input[type=button],
 input[type=submit],
 input[type=reset]{
-	
 	background: #f7f7f7;
 	padding:1px 5px;
 	color: #374343;
@@ -71,8 +68,7 @@ input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover{
 	background:#374343;
-	color:#F7F7F7;	
-	
+	color:#F7F7F7;
 	border: 1px;
 	border-color:#F7F7F7;
 	border-style:solid;	
@@ -202,8 +198,7 @@ fieldset select{
 	padding: 2px;
 	text-align:center;
 	font-variant: small-caps;
-	font-size: small;	
-	
+	font-size: small;
 	z-index: 500;
 }
 /*
@@ -217,6 +212,7 @@ fieldset select{
 }
 
 */
+/*
 #blackHole{
 	position:relative;
 	float:right;
@@ -224,11 +220,12 @@ fieldset select{
 	top:-120px;
 	width:120px;
 	height:120px;
-	/*border: 1px solid #374343;*/
+	border: 1px solid #374343;
 	text-align:center;
 	font-variant: small-caps;
 	font-size: small;
 }
+*/
 #blackHole p{
 	padding: 5px;
 }
