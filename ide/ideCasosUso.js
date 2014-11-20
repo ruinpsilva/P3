@@ -92,12 +92,7 @@ $(document).ready(function(){
 		//trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
 		
-		//Clonar o elemento e adicionar o clone ao gráfico se o click for na área de ferramentas
-//		if (x > toolbarAreaWidth){
-//			//obter o id do elemento que está a ser arrastado para o paper e que irá fazer parte do diagrama
-//			//com elemento.id --- para implementar as funcionalidades que perimitirão o xml
-//			graph.addCells([elemento.clone()]);
-//		}
+
 	});
 	
 	//mouse up para estabelecer ligações entre os elementos na área de desenho
@@ -106,6 +101,15 @@ $(document).ready(function(){
 		var elementoCima = cellView.model;
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
+
+        if (x > widthPaper-20){
+			paper.setDimensions(widthPaper+50,heightPaper);
+            widthPaper = widthPaper+50;
+		}
+        if(y > heightPaper-20){
+            paper.setDimensions(widthPaper,heightPaper+50);
+            heightPaper = heightPaper +50;
+        }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
 		if (x < widthPaper){
@@ -157,7 +161,7 @@ $(document).ready(function(){
 			
 		}else{
 			// falta aqui o comportamento de remover os objectos que voltam a entrar na zona de ferramentas
-			graph.getCell(elementoCima.id).remove();
+			//graph.getCell(elementoCima.id).remove();
 		}
 		
 		
@@ -182,6 +186,9 @@ $(document).ready(function(){
 		}
 		
 	});
+
+
+
 
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
     //RNPS
