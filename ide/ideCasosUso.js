@@ -72,16 +72,7 @@ $(document).ready(function(){
 		width: widthPaper,
 		height: heightPaper,
 		gridSize: 10,
-<<<<<<< HEAD
-		model: graph,
-        position:{
-            x:positionx,
-            y:positiony
-        }
-=======
 		model: graph
-
->>>>>>> origin/master
 	});
     //paper.setDimensions(wi,500);
     //paper.setOrigin(200,200);
