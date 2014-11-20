@@ -73,7 +73,6 @@ $(document).ready(function(){
 		height: heightPaper,
 		gridSize: 10,
 		model: graph
-
 	});
     //paper.setDimensions(wi,500);
     //paper.setOrigin(200,200);

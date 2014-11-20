@@ -39,7 +39,6 @@
 	</head>
 
 	<body>
-		<div>
 			<header>
 				<h1>Use Case Model</h1>
 			</header>
@@ -57,41 +56,6 @@
 					<input id="btnExportarDiagramaCasosParaXML" type="button" value="Export to XML" />
 			</div>
 
-			
-			<div class="floating-menu" id="floatingMenu">
-				<h3>Toolbox</h3>
-				<input id="addUseCaseGraph" type="image" src="img/UC_toolbar.png" alt="Insert Use Case" width="48" height="48">
-                <input id="addActorGraph" type="image" src="img/Actor_toolbar.png" alt="Insert Actor" width="48" height="48">
-			</div>
-
-            <div class="floating-tree" id="floatingTree">
-                <h3>Project Files</h3>
-                <ol class="tree">
-							<li>
-								<label for="folder1">Use Cases</label> <input type="checkbox" id="folder1" />
-								<ol>
-									<li class="file"><a href="document.html.pdf">Diag01</a></li>
-									<li class="file"><a href="document.html.pdf">Diag02</a></li>
-									<li class="file"><a href="document.html.pdf">Diag03</a></li>
-									<li class="file"><a href="document.html.pdf">Diag04</a></li>
-								</ol>
-							</li>
-							<li>
-								<label for="folder2">Classes Diagrams</label> <input type="checkbox" id="folder2" />
-								<ol>
-									<li class="file"><a href="document.html.pdf">Diag01</a></li>
-									<li class="file"><a href="document.html.pdf">Diag02</a></li>
-									<li class="file"><a href="document.html.pdf">Diag03</a></li>
-									<li class="file"><a href="document.html.pdf">Diag04</a></li>
-								</ol>
-							</li>
-						</ol>
-            </div>
-			
-            <div id="modelo"></div>
-
-
-			
 			<!-- Dialogo para mudar o nome do caso de uso -->
 			<div id="dialogo_casos_uso">
      			<div>
@@ -218,11 +182,43 @@
 				</div>
 			</div>
 
+
+
+			<div class="floating-menu" id="floatingMenu">
+				<h3>Toolbox</h3>
+				<input id="addUseCaseGraph" type="image" src="img/UC_toolbar.png" alt="Insert Use Case" width="48" height="48">
+                <input id="addActorGraph" type="image" src="img/Actor_toolbar.png" alt="Insert Actor" width="48" height="48">
+			</div>
+
+            <div class="floating-tree" id="floatingTree">
+                <h3>Project Files</h3>
+                <ol class="tree">
+							<li>
+								<label for="folder1">Use Cases</label> <input type="checkbox" id="folder1" />
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+							<li>
+								<label for="folder2">Classes Diagrams</label> <input type="checkbox" id="folder2" />
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+						</ol>
+            </div>
+
+            <div id="modelo"></div>
 			<footer>
 				<p>
 					AmaliaIDE v0.5 - 2014
 				</p>
 			</footer>
-		</div>
 	</body>
 </html>
