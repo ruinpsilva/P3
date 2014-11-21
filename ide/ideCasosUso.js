@@ -239,8 +239,9 @@ $(document).ready(function(){
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
         paper.fitToContent(0,0,20,0);
+        heightPaper = paper.options.height;
+        widthPaper = paper.options.width;
     });
-	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
 	$("#caso_uso").submit(function(e){
