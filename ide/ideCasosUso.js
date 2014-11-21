@@ -67,7 +67,10 @@ $(document).ready(function(){
 	var instanceActor = joint.shapes.basic.Actor;
 	// tamanho do paper
 
-	var widthPaper = Math.round(screen.availWidth)-300;
+    var widthPaperFromStart = Math.round(screen.availWidth)-500;
+    var heightPaperFromStart = Math.round(screen.availHeight-250);
+
+	var widthPaper = Math.round(screen.availWidth)-500;
 	var heightPaper =  Math.round(screen.availHeight-250);
     var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
@@ -224,6 +227,11 @@ $(document).ready(function(){
         insertActorOnToGraph();
         e.preventDefault();
          });
+
+    //Zoom paper to fit content
+    $("#makeZoomToFit").click(function(e){
+        paper.fitToContent(widthPaperFromStart,heightPaperFromStart,20,0);
+    });
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
