@@ -10,9 +10,8 @@ var positiony_uso=20;
 var positionx_actor=150;
 var positiony_actor=80;
 var graph = new joint.dia.Graph;
-var widthPaper = Math.round(screen.availWidth)-500;
-var heightPaper =  Math.round(screen.availHeight-250);
-
+//var b  =  element.scrollHeight - element.clientHeight;
+//var c  =  element.scrollWidth - element.clientWidth;
 
 //FUNÇÃO ATÉ VER DESNECESSÁRIA - NÃO ESTÁ A USO
 function iniciarDiagramaCasosUso(graph) {
@@ -72,7 +71,8 @@ $(document).ready(function(){
     var widthPaperFromStart = Math.round(screen.availWidth)-500;
     var heightPaperFromStart = Math.round(screen.availHeight-250);
 
-
+	var widthPaper = Math.round(screen.availWidth)-500;
+	var heightPaper =  Math.round(screen.availHeight-250);
     var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
@@ -89,14 +89,14 @@ $(document).ready(function(){
  var rect = new joint.shapes.basic.Rect({
         position: { x:0, y: heightPaper-120},
         size: { width: 120, height: 120 },
+
+    });
+
+    rect.attr({
+        rect:{position:'static'},
+        rect:{fill:'#808080'}
     });
     graph.addCell(rect);
-    rect.borderColor = "#808080";
-    rect.content = "#242424";
-    rect.outlineColor = "#808080";
-    rect.color = "#808080";
-    rect.fill="#808080";
-
 
     //paper.setDimensions(wi,500);
     //paper.setOrigin(200,200);
@@ -109,6 +109,9 @@ $(document).ready(function(){
 	//Eventos que é necessário capturar.
 	
 	//mouse down para trazer elementos para a frente do diagrama
+    paper.on('cell:',function(cellView, evt){
+
+    });
 	paper.on('cell:pointerdown',function(cellView,evt, x, y){
 		var elemento = cellView.model;
 		//trazer o elemento clicado para a frente do diagrama
@@ -132,7 +135,11 @@ $(document).ready(function(){
         if(y > heightPaper-20){
             heightPaper = heightPaper +50;
             paper.setDimensions(widthPaper,heightPaper);
-            //rect.options.Position(0,heightPaper-120);
+            rect.attr({
+                rect:{Position:{y:heightPaper-120}}
+            });
+            graph.resetCells(rect);
+
         }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
@@ -231,15 +238,8 @@ $(document).ready(function(){
 
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
-        fitToContent();
-        e.preventDefault();
-    });
-
-    function fitToContent(){
         paper.fitToContent(0,0,20,0);
-        heightPaper = paper.options.height;
-        widthPaper = paper.options.width;
-    }
+    });
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
