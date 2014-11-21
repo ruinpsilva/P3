@@ -209,7 +209,7 @@ $(document).ready(function(){
 
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
-        paper.fitToContent(widthPaperFromStart,heightPaperFromStart,20,0);
+        paper.fitToContent(0,0,20,0);
     });
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
