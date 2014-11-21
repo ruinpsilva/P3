@@ -38,7 +38,7 @@ joint.shapes.basic.Actor = joint.shapes.basic.Generic.extend({
 		{
 			position: { x: posX, y: posY },
     		//size: { width: 35, height: 70},
-    		attrs: { image: { 'xlink:href': "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzNweCIgaGVpZ2h0PSI2M3B4IiB2ZXJzaW9uPSIxLjEiPg0KPGRlZnMvPg0KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41LDAuNSkiPg0KPGVsbGlwc2UgY3g9IjE2IiBjeT0iOSIgcng9IjcuNSIgcnk9IjcuNSIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjMDAwMDAwIi8+DQo8cGF0aCBkPSJNIDE2IDE2IEwgMTYgNDEgTSAxNiAyMSBMIDEgMjEgTSAxNiAyMSBMIDMxIDIxIE0gMTYgNDEgTCAxIDYxIE0gMTYgNDEgTCAzMSA2MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHBvaW50ZXItZXZlbnRzPSJub25lIi8+PC9nPjwvc3ZnPg=="}}
+    		attrs: { image: { 'xlink:href': "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzNweCIgaGVpZ2h0PSI2M3B4IiB2ZXJzaW9uPSIxLjEiPgoKICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuNSwwLjUpIj4KICAgICAgICA8ZWxsaXBzZSBjeD0iMTYiIGN5PSI5IiByeD0iNy41IiByeT0iNy41IiBmaWxsPSJncmV5IiBzdHJva2U9IiM4MDgwODAiPjwvZWxsaXBzZT4KICAgICAgICA8cGF0aCBkPSJNIDE2IDE2IEwgMTYgNDEgTSAxNiAyMSBMIDEgMjEgTSAxNiAyMSBMIDMxIDIxIE0gMTYgNDEgTCAxIDYxIE0gMTYgNDEgTCAzMSA2MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmV5IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHBvaW50ZXItZXZlbnRzPSJub25lIj48L3BhdGg+CiAgICA8L2c+Cgo8L3N2Zz4="}}
 		}
 		
 	);
