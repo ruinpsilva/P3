@@ -240,6 +240,9 @@ $(document).ready(function(){
         heightPaper = paper.options.height;
         widthPaper = paper.options.width;
     }
+
+
+
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
