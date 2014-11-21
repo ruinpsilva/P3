@@ -10,6 +10,8 @@ var positiony_uso=20;
 var positionx_actor=150;
 var positiony_actor=80;
 var graph = new joint.dia.Graph;
+var widthPaper = Math.round(screen.availWidth)-500;
+var heightPaper =  Math.round(screen.availHeight-250);
 
 
 //FUNÇÃO ATÉ VER DESNECESSÁRIA - NÃO ESTÁ A USO
@@ -70,8 +72,7 @@ $(document).ready(function(){
     var widthPaperFromStart = Math.round(screen.availWidth)-500;
     var heightPaperFromStart = Math.round(screen.availHeight-250);
 
-	var widthPaper = Math.round(screen.availWidth)-500;
-	var heightPaper =  Math.round(screen.availHeight-250);
+
     var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
@@ -131,7 +132,7 @@ $(document).ready(function(){
         if(y > heightPaper-20){
             heightPaper = heightPaper +50;
             paper.setDimensions(widthPaper,heightPaper);
-            rect.Position(0,heightPaper-120);
+            //rect.options.Position(0,heightPaper-120);
         }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
@@ -230,8 +231,15 @@ $(document).ready(function(){
 
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
-        paper.fitToContent(0,0,20,0);
+        fitToContent();
+        e.preventDefault();
     });
+
+    function fitToContent(){
+        paper.fitToContent(0,0,20,0);
+        heightPaper = paper.options.height;
+        widthPaper = paper.options.width;
+    }
 	
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
