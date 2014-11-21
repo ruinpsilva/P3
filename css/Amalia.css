@@ -1,15 +1,11 @@
 body {
 	font-family: Helvetica,Arial, sans-serif;
 	background:#3C3F41;
-<<<<<<< HEAD
-    margin:0px;
-    padding:0px;
-=======
 	height:600px;
     margin:0;
     padding:0;
 
->>>>>>> origin/master
+
 }
 
 header{
@@ -24,13 +20,6 @@ header{
 	background:#242424;
 }
 
-<<<<<<< HEAD
-#teste{
-	background:#FFFBFB;
-	border: 0px;
-}
-=======
->>>>>>> origin/master
 
 footer{
 	text-align:right;
@@ -49,14 +38,10 @@ div.main{
 	background: #242424;
     display: inline-flex;
     box-shadow: 10px 5px 5px rgba(0,0,0,0.5);
-<<<<<<< HEAD
     margin-left: 170px;
     margin-top: 20px;
     margin-right: 90px;
-=======
-    margin-top: 20px;
-    margin-left: 170px;
->>>>>>> origin/master
+
 }
 
 div.main input[type=button]{
@@ -225,25 +210,23 @@ fieldset select{
 	//margin-left:auto;
 	//margin-right:auto;
 }
-
 */
+
 /*
 #blackHole{
 	position:relative;
-	float:right;
+	float:left;
 	left:0px;
-	top:120px;
-	width:120px;
-	height:120px;
+	top: 400px;
+	width: 120px ;
+	height: 120px;
 	border: 1px solid #374343;
 	text-align:center;
 	font-variant: small-caps;
 	font-size: small;
 }
+
 */
-#blackHole p{
-	padding: 5px;
-}
 
 
 /* Codigo eleborado para a formatacao da tabela */

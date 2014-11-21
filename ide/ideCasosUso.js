@@ -5,8 +5,12 @@
 //***************************
 //** Iniciador do Diagrama **
 //***************************
-
+var positionx_uso=200;
+var positiony_uso=20;
+var positionx_actor=150;
+var positiony_actor=80;
 var graph = new joint.dia.Graph;
+
 
 //FUNÇÃO ATÉ VER DESNECESSÁRIA - NÃO ESTÁ A USO
 function iniciarDiagramaCasosUso(graph) {
@@ -15,6 +19,7 @@ function iniciarDiagramaCasosUso(graph) {
 	var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
 	//Adicionar o ator e o caso de uso à barra de ferramentas
 	graph.addCells([caso,ator]);
+
 }
 
 //RNPS
@@ -27,7 +32,9 @@ function iniciarDiagramaCasosUso(graph) {
 
 //Function to insert an Use Case in paper
 function insertUseCaseOnToGraph(){
-	var caso = Amalia.dia.getGrafCasoUso(200,20);
+	var caso = Amalia.dia.getGrafCasoUso(positionx_uso,positiony_uso);
+    positionx_uso = positionx_uso + 10;
+    positiony_uso = positiony_uso + 10;
 	graph.addCells([caso]);
 }
 
@@ -40,7 +47,9 @@ function insertUseCaseOnToGraph(){
 //}
 
 function insertActorOnToGraph(){
-    var ator = Amalia.dia.getGrafAtor(200,80);
+    var ator = Amalia.dia.getGrafAtor(positionx_actor,positiony_actor);
+    positionx_actor = positionx_actor + 10;
+    positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
 }
 
@@ -52,11 +61,10 @@ $(document).ready(function(){
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
-	
+    //$("#blackHole").hide;
 	//os casos de uso são shapes.basic.Circle e os atores shapes.basic.Actor
 	var instanceCasoUso = joint.shapes.basic.Circle;
 	var instanceActor = joint.shapes.basic.Actor;
-	
 	// tamanho do paper
 
     var widthPaperFromStart = Math.round(screen.availWidth)-500;
@@ -64,11 +72,11 @@ $(document).ready(function(){
 
 	var widthPaper = Math.round(screen.availWidth)-500;
 	var heightPaper =  Math.round(screen.availHeight-250);
-
-	var minWidthDiagramPaper = 0;
+    var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
 	var minHeightDiagramPaper = 0;
+
 
 	var paper = new joint.dia.Paper({
 		el: $('#modelo'),
@@ -77,6 +85,18 @@ $(document).ready(function(){
 		gridSize: 10,
 		model: graph
 	});
+ var rect = new joint.shapes.basic.Rect({
+        position: { x:0, y: heightPaper-120},
+        size: { width: 120, height: 120 },
+    });
+    graph.addCell(rect);
+    rect.borderColor = "#808080";
+    rect.content = "#242424";
+    rect.outlineColor = "#808080";
+    rect.color = "#808080";
+    rect.fill="#808080";
+
+
     //paper.setDimensions(wi,500);
     //paper.setOrigin(200,200);
     //posição do paper no ecrã
@@ -84,8 +104,7 @@ $(document).ready(function(){
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
 	//iniciarDiagramaCasosUso(graph);
     //insertUseCaseOnToGraph(graph);
-	
-	
+
 	//Eventos que é necessário capturar.
 	
 	//mouse down para trazer elementos para a frente do diagrama
@@ -93,24 +112,26 @@ $(document).ready(function(){
 		var elemento = cellView.model;
 		//trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
-		
-
+        //$("#blackHole").show();
 	});
 	
 	//mouse up para estabelecer ligações entre os elementos na área de desenho
 	paper.on('cell:pointerup', function(cellView, evt, x, y){
 		
 		var elementoCima = cellView.model;
+        //$("#blackHole").hide();
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
 
         if (x > widthPaper-20){
-			paper.setDimensions(widthPaper+50,heightPaper);
             widthPaper = widthPaper+50;
+			paper.setDimensions(widthPaper,heightPaper);
+
 		}
         if(y > heightPaper-20){
-            paper.setDimensions(widthPaper,heightPaper+50);
             heightPaper = heightPaper +50;
+            paper.setDimensions(widthPaper,heightPaper);
+            rect.Position(0,heightPaper-120);
         }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
@@ -254,11 +275,9 @@ $(document).ready(function(){
 	//Gravar para o disco em JSON
 	$("#btnGuardarCasosUsoDisco").click(function(){
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco("#nomeDiaCasosDisco");
-		
 	});
 	
 	$("#btnCancelarGravarDiscoDiaCasos").click(function(){
-		
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
 	});
 	
@@ -359,13 +378,9 @@ $(document).ready(function(){
 	$("header").mouseenter(function(){
 		$("#controlCasosUso").slideDown("slow");
 	});
-	//****************************************
-	//  Fazer desaparecer o  blackHole
-	// ***************************************
-	//$("#blackHole").mouseenter(function(){
-		//$("#blackHole").hide();
-		//$("#blackHole").delay(500).fadeIn();
-	//});
+
+
+
 	
 	//Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
 	function readSingleFile(evt) {
