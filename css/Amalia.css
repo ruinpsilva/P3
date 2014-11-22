@@ -132,6 +132,7 @@ a:hover{
      height:70%;
      text-align:center;
      z-index: 1000;
+     background-color: transparent;
 }
 
 #dialogo div , 
@@ -158,6 +159,7 @@ a:hover{
      box-shadow: 5px 5px 5px #374343;
      padding:15px;
      text-align:center;
+
 }
 #dialogoMostarXMLClasses div,
 #dialogoMostarXMLCasos div{

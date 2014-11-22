@@ -9,6 +9,10 @@ var positionx_uso=200;
 var positiony_uso=20;
 var positionx_actor=150;
 var positiony_actor=80;
+var widthPaperFromStart = Math.round(screen.availWidth)-500;
+var heightPaperFromStart = Math.round(screen.availHeight-250);
+var widthPaper = Math.round(screen.availWidth)-500;
+var heightPaper =  Math.round(screen.availHeight-250);
 var graph = new joint.dia.Graph;
 //var b  =  element.scrollHeight - element.clientHeight;
 //var c  =  element.scrollWidth - element.clientWidth;
@@ -68,11 +72,9 @@ $(document).ready(function(){
 	var instanceActor = joint.shapes.basic.Actor;
 	// tamanho do paper
 
-    var widthPaperFromStart = Math.round(screen.availWidth)-500;
-    var heightPaperFromStart = Math.round(screen.availHeight-250);
 
-	var widthPaper = Math.round(screen.availWidth)-500;
-	var heightPaper =  Math.round(screen.availHeight-250);
+
+
     var minWidthDiagramPaper = 0;
 	//var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
 	var treeAreaWidth = 120;
@@ -86,17 +88,16 @@ $(document).ready(function(){
 		gridSize: 10,
 		model: graph
 	});
- var rect = new joint.shapes.basic.Rect({
-        position: { x:0, y: heightPaper-120},
-        size: { width: 120, height: 120 },
-
-    });
-
-    rect.attr({
-        rect:{position:'static'},
-        rect:{fill:'#808080'}
-    });
-    graph.addCell(rect);
+//    var rect = new joint.shapes.basic.Rect({
+//            position: { x:0, y: heightPaper-120},
+//            size: { width: 120, height: 120 },
+//    });
+//
+//    rect.attr({
+//        rect:{position:'static'},
+//        rect:{fill:'#808080'}
+//    });
+//    graph.addCell(rect);
 
     //paper.setDimensions(wi,500);
     //paper.setOrigin(200,200);
@@ -223,7 +224,7 @@ $(document).ready(function(){
 
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
     //RNPS
-	
+	//FIXME o zoom to fit continua com bug, nem sempre consegue se limitar ao tamanho inicial
 	//Add Use Case graph to paper
 	$("#addUseCaseGraph").click(function(e){
 		insertUseCaseOnToGraph();
@@ -238,23 +239,24 @@ $(document).ready(function(){
 
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
-        paper.fitToContent(0,0,20,0);
+        if(paper.options.height > heightPaperFromStart || paper.options.width > widthPaperFromStart){
+            paper.fitToContent(0,0,20,0);
+        } else {
+            paper.setDimensions(widthPaperFromStart,heightPaperFromStart);
+
+        }
         heightPaper = paper.options.height;
         widthPaper = paper.options.width;
-<<<<<<< HEAD
-    }
+    });
 
     //Clear Diagram
     $("#clearDiagram").click(function(e){
         graph.clear();
-    })
-
-
-
-	
-=======
     });
->>>>>>> origin/master
+
+
+
+
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
 	//Alterar o nome do Caso de Uso
 	$("#caso_uso").submit(function(e){
