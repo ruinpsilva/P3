@@ -241,6 +241,11 @@ $(document).ready(function(){
         widthPaper = paper.options.width;
     }
 
+    //Clear Diagram
+    $("#clearDiagram").click(function(e){
+        graph.clear();
+    })
+
 
 
 	
