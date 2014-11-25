@@ -1,6 +1,6 @@
 body {
 	font-family: Helvetica,Arial, sans-serif;
-	background:#3C3F41;
+	background:white;
 	height:600px;
     margin:0;
     padding:0;
@@ -10,22 +10,22 @@ body {
 
 header{
 	text-align:left;
-	color:#f7f7f7;
-	background:#3C3F41;
+	color:black;
+	background:white;
 	padding-left:40px;
 	font-variant: small-caps;
 }
 
 #backtable{
-	background:#242424;
+	background:white;
 }
 
 
 footer{
 	text-align:right;
 	font-size:x-small;
-	background:#3C3F41;
-	color:#f7f7f7;
+	background:white;
+	color:black;
 	height:0px;
 }
 div.main{
@@ -35,7 +35,7 @@ div.main{
 
 #modelo,
 div.main{
-	background: #242424;
+	background: white;
     display: inline-flex;
     box-shadow: 10px 5px 5px rgba(0,0,0,0.5);
     margin-left: 170px;
@@ -48,7 +48,7 @@ div.main input[type=button]{
 	padding: 10px 20px;
 	font-weight: bold;
 	border-radius: 5px;
-	
+
 }
 
 
@@ -57,7 +57,7 @@ input[type=submit],
 input[type=reset]{
 	background: #f7f7f7;
 	padding:1px 5px;
-	color: #374343;
+	color: white;
 	font-weight: bold;
 	border:1px;
 	border-color:#374343;
@@ -71,7 +71,7 @@ input[type=reset]:hover{
 	color:#F7F7F7;
 	border: 1px;
 	border-color:#F7F7F7;
-	border-style:solid;	
+	border-style:solid;
 }
 
 #controlCasosUso input[type=button],
@@ -109,8 +109,8 @@ a:hover{
 	text-decoration: none;
 }
 
-#dialogo, 
-#dialogo_actor, 
+#dialogo,
+#dialogo_actor,
 #dialogo_casos_uso,
 #dialogo_associa_casos,
 #dialogoAlteraClasse,
@@ -135,7 +135,7 @@ a:hover{
      background-color: transparent;
 }
 
-#dialogo div , 
+#dialogo div ,
 #dialogo_actor div:first-child,
 #dialogo_casos_uso div,
 #dialogo_associa_casos div,
@@ -304,9 +304,9 @@ ol.tree
 	width: 120px;
 	font-family: Helvetica !important;
 }
-	li 
-	{ 
-		position: relative; 
+	li
+	{
+		position: relative;
 		margin-left: -15px;
 		list-style: none;
 	}

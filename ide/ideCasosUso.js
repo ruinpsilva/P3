@@ -128,6 +128,8 @@ $(document).ready(function(){
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
 
+        //RNPS
+        //Crescimento (20px) do paper, caso um elemento chega a uma das extremidades do paper
         if (x > widthPaper-20){
             widthPaper = widthPaper+50;
 			paper.setDimensions(widthPaper,heightPaper);
@@ -187,13 +189,22 @@ $(document).ready(function(){
 				if( elementoBaixo instanceof instanceActor && elementoCima instanceof instanceActor){
 					
 					ControladorAmalia.associaHeranca(graph,elementoCima.id,elementoBaixo.id);
-
 				}
 			}
+
+            //RNPS
+            //Every element that is mouse down can be removed
+            //Objective: create an floating area in paper in the bottom left corner that when an element is over it, it will be removed
+            if(x < 120 && y > heightPaper-120) // Remove area size (trying 120x120 px)
+            {
+                graph.getCell(elementoCima.id).remove();
+            }
 			
 		}else{
 			// falta aqui o comportamento de remover os objectos que voltam a entrar na zona de ferramentas
 			//graph.getCell(elementoCima.id).remove();
+
+
 		}
 		
 		
@@ -225,6 +236,7 @@ $(document).ready(function(){
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
     //RNPS
 	//FIXME o zoom to fit continua com bug, nem sempre consegue se limitar ao tamanho inicial
+    //
 	//Add Use Case graph to paper
 	$("#addUseCaseGraph").click(function(e){
 		insertUseCaseOnToGraph();
@@ -403,6 +415,13 @@ $(document).ready(function(){
 		$("#controlCasosUso").slideDown("slow");
 	});
 
+
+    //RPNS
+    //Hide/unhide blackhole
+    $("#blackHole").mouseenter(function(){
+        $("#blackHole").hide();
+        $("$blackHole").delay(1000).fadeIn();
+    });
 
 
 	
