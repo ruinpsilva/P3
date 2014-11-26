@@ -80,7 +80,7 @@ input[type=reset]:hover{
 {
 	padding: 5px 10px;
 	font-weight: bold;
-	background: #f7f7f7;
+	background: #f7f7f7 !important;
 	color:#374343;
 	font-variant: small-caps;
 	font-size: small;
@@ -374,7 +374,7 @@ ol.tree
 .floating-menu{
 	right: 0%;
 	position:fixed;
-	background:#434647;
+	background:#BCBCBC;
 	border-radius: 0px;
 	width:49px;
 	z-index:100;
