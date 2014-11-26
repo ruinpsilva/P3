@@ -308,7 +308,9 @@ $(document).ready(function(){
 	$("#btnCancelarGravarDiscoDiaCasos").click(function(){
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
 	});
-	
+
+
+	//WhatIsThis
 	$("#btnGravarDiscoDiaCasos").click(function(){
 		var nomeFicheiro = "diagramaCasosUso";
 		if ($("#nomeDiaCasosDisco").val()){
@@ -320,6 +322,7 @@ $(document).ready(function(){
 		saveAs (blob,nomeFicheiro);
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
 	});
+
 	//Obter o diagrama do disco JSON 
 	$("#btnRestaurarCasosUsoDisco").click(function(){
 		if (window.File && window.FileReader && window.FileList && window.Blob){
@@ -330,6 +333,9 @@ $(document).ready(function(){
 			console.log("Estou lixado");
 		}
 	});
+
+
+
 	//Cancelar a abertura do ficheiro
 	$("#btnCancelaAbrirCasosDisco").click(function(){
 		ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
@@ -365,7 +371,8 @@ $(document).ready(function(){
 		ControladorAmalia.abirDiagrama(graph);
 	});
 
-// Botão Apagrar diagrama
+    //FIXME - Esta função pertencia à barra de menus inícial e não está a ser utilizada
+    // Botão Apagrar diagrama
 	$("#btnApagarDiagrama").click(function(){
 		graph.clear();
 		iniciarDiagramaCasosUso(graph);

@@ -16,6 +16,8 @@ ControladorAmalia ={
 			}
 		}
 	},
+
+
 	// Provavelmente desnecessário
 	toogleDialogoSemFocus:function(dialogoNome){
 		if ($(dialogoNome).css("visibility") == "visible"){
@@ -33,6 +35,7 @@ ControladorAmalia ={
 		ControladorAmalia.toogleDialogo("#dialogo_actor","#nomeActor");
 
 	},
+
 	toogleDialogoCasoUso: function(caso){
 		//Muito dependente dos detalhes do html
 		if (caso){
@@ -320,6 +323,8 @@ ControladorAmalia ={
 		}
 		
 	},
+
+
 	//Associar Actor a Caso
 	associaActorAoCaso: function (graph, elementoCimaId, elementoBaixoId){
 		var liga = Amalia.liga.getGrafLigaAssocia(elementoCimaId,elementoBaixoId);
@@ -329,6 +334,8 @@ ControladorAmalia ={
 		graph.addCell(liga);
 		(graph.getCell(elementoCimaId)).translate(150,0);
 	},
+
+
 	//especialização de Actor ou classes quando o elemento de baixo é classe abstrata
 	associaHeranca: function (graph, elementoCimaId, elementoBaixoId){
 		var liga = Amalia.liga.getGrafLigaHeranca(elementoCimaId,elementoBaixoId);
@@ -337,6 +344,9 @@ ControladorAmalia ={
 		graph.addCell(liga);
 		(graph.getCell(elementoCimaId)).translate(0,150);
 	},
+
+
+
 	//ligações entre classes
 	associaClasses: function(graph){
 		var elementoCimaId = $("#elementoCimaId").val();
