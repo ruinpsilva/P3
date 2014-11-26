@@ -138,11 +138,6 @@ $(document).ready(function(){
         if(y > heightPaper-20){
             heightPaper = heightPaper +50;
             paper.setDimensions(widthPaper,heightPaper);
-            rect.attr({
-                rect:{Position:{y:heightPaper-120}}
-            });
-            graph.resetCells(rect);
-
         }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
@@ -253,6 +248,12 @@ $(document).ready(function(){
     $("#makeZoomToFit").click(function(e){
         if(paper.options.height > heightPaperFromStart || paper.options.width > widthPaperFromStart){
             paper.fitToContent(0,0,20,0);
+            if(paper.options.height < heightPaperFromStart ){
+            paper.setDimensions(paper.options.width,heightPaperFromStart);
+            }
+            if(paper.options.width < widthPaperFromStart){
+            paper.setDimensions(widthPaperFromStart, paper.options.height);
+            }
         } else {
             paper.setDimensions(widthPaperFromStart,heightPaperFromStart);
 
