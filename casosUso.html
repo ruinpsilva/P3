@@ -41,7 +41,7 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	</head>
 
-	<body>
+	<body onload="set_style_from_cookie()" >
 			<header>
 				<h1>Use Case Model</h1>
                 <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
@@ -58,6 +58,9 @@
 					
 					<input id="btnApagarDiagrama" type="button" value="Delete Model" />
 					<input id="btnExportarDiagramaCasosParaXML" type="button" value="Export to XML" />
+                    <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
+                    <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
+
 			</div>
 
         <div class="floating-menu" id="floatingMenu">
