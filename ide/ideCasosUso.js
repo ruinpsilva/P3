@@ -14,6 +14,11 @@ var heightPaperFromStart = Math.round(screen.availHeight-250);
 var widthPaper = Math.round(screen.availWidth)-500;
 var heightPaper =  Math.round(screen.availHeight-250);
 var graph = new joint.dia.Graph;
+var rect = new joint.shapes.basic.Rect({
+            position: { x:0, y: heightPaper-120},
+            size: { width: 120, height: 120 },
+    });
+
 //var b  =  element.scrollHeight - element.clientHeight;
 //var c  =  element.scrollWidth - element.clientWidth;
 
@@ -88,24 +93,11 @@ $(document).ready(function(){
 		gridSize: 10,
 		model: graph
 	});
-//    var rect = new joint.shapes.basic.Rect({
-//            position: { x:0, y: heightPaper-120},
-//            size: { width: 120, height: 120 },
-//    });
-//
-//    rect.attr({
-//        rect:{position:'static'},
-//        rect:{fill:'#808080'}
-//    });
-//    graph.addCell(rect);
-
-    //paper.setDimensions(wi,500);
-    //paper.setOrigin(200,200);
-    //posição do paper no ecrã
-    //paper.setOrigin(500,500);
-	//console.log("w-"+widthPaper+ "h-"+heightPaper);
-	//iniciarDiagramaCasosUso(graph);
-    //insertUseCaseOnToGraph(graph);
+    rect.attr({
+        rect:{position:'static'},
+        rect:{fill:'#808080'}
+    });
+    graph.addCell(rect);
 
 	//Eventos que é necessário capturar.
 	
@@ -133,11 +125,13 @@ $(document).ready(function(){
         if (x > widthPaper-20){
             widthPaper = widthPaper+50;
 			paper.setDimensions(widthPaper,heightPaper);
+            rect.position({x:0, y:(heightPaper-120)});
 
 		}
         if(y > heightPaper-20){
             heightPaper = heightPaper +50;
             paper.setDimensions(widthPaper,heightPaper);
+            rect.position({x:0, y:(heightPaper-120)});
         }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
@@ -198,8 +192,6 @@ $(document).ready(function(){
 		}else{
 			// falta aqui o comportamento de remover os objectos que voltam a entrar na zona de ferramentas
 			//graph.getCell(elementoCima.id).remove();
-
-
 		}
 		
 		
@@ -230,7 +222,6 @@ $(document).ready(function(){
 
 	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
     //RNPS
-	//FIXME o zoom to fit continua com bug, nem sempre consegue se limitar ao tamanho inicial
     //
 	//Add Use Case graph to paper
 	$("#addUseCaseGraph").click(function(e){
