@@ -172,7 +172,7 @@ Amalia = {
 	// »»»»»»»»»»»»»»»»»»»»»»»» ELEMENTOS DE DIAGRAMA QUE NÃO LIGAÇÕES «««««««««««««««««««««««««««««««««««««««
 	dia:{
 
-	   //TODO Perceber o funcionamento de vectores SVG para poder alterar cores e outros elementos
+
 		//Gráfico de um ator >>>>>>>>>>>>>>>>>>é necessário definir o texto attrs.text.text, se for Actor attrs.text fica undefined
 		getGrafAtor : function(posX, posY){
 			var ator = new joint.shapes.basic.Actor(
