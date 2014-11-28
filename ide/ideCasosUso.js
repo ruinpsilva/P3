@@ -300,26 +300,32 @@ $(document).ready(function(){
 	$("#btnGuardarCasosUso").click(function (){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaCasosUso");
 	});
-	//Gravar para o disco em JSON
+	//Gravar para o disco em JSON---> fazer focus do dialogo gravar
 	$("#btnGuardarCasosUsoDisco").click(function(){
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco("#nomeDiaCasosDisco");
 	});
 	
+    //botao cancelar dentro da janela Gravar
 	$("#btnCancelarGravarDiscoDiaCasos").click(function(){
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
 	});
 
 
 	//WhatIsThis
+    //botao gravar(acçao) dentro da janela Gravar
 	$("#btnGravarDiscoDiaCasos").click(function(){
 		var nomeFicheiro = "diagramaCasosUso";
 		if ($("#nomeDiaCasosDisco").val()){
 			nomeFicheiro = $("#nomeDiaCasosDisco").val();
 		}
 		nomeFicheiro = nomeFicheiro + ".dcu";
+
 		var diagramaCasosJSON = JSON.stringify(graph.toJSON());
+
 		var blob = new Blob([diagramaCasosJSON],{type: "text/plain;charset=utf-8"});
+
 		saveAs (blob,nomeFicheiro);
+
 		ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
 	});
 
