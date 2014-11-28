@@ -14,9 +14,10 @@ var heightPaperFromStart = Math.round(screen.availHeight-250);
 var widthPaper = Math.round(screen.availWidth)-500;
 var heightPaper =  Math.round(screen.availHeight-250);
 var graph = new joint.dia.Graph;
-var rect = new joint.shapes.basic.Rect({
+var rectx = new joint.shapes.basic.Rect({
             position: { x:0, y: heightPaper-120},
             size: { width: 120, height: 120 },
+            interactive:false,
     });
 
 //var b  =  element.scrollHeight - element.clientHeight;
@@ -71,7 +72,7 @@ $(document).ready(function(){
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
-    rect.hide;
+    rectx.hide;
 	//os casos de uso são shapes.basic.Circle e os atores shapes.basic.Actor
 	var instanceCasoUso = joint.shapes.basic.Circle;
 	var instanceActor = joint.shapes.basic.Actor;
@@ -91,33 +92,37 @@ $(document).ready(function(){
 		width: widthPaper,
 		height: heightPaper,
 		gridSize: 10,
-		model: graph
+		model: graph,
 	});
-    rect.attr({
-        rect:{x:'20px'},
-        rect:{fill:'#808080'},
-        rect:{MouseEvent: 'none'}
+    rectx.attr({
+        rectx:{fill:'#808080'}
     });
-    graph.addCell(rect);
+    graph.addCell(rectx);
 
-	//Eventos que é necessário capturar.
 	
+    debugger;
+    paper.findViewByModel(rectx).options.interactive = false;
+    //Eventos que é necessário capturar.
+
 	//mouse down para trazer elementos para a frente do diagrama
     paper.on('cell:',function(cellView, evt){
 
     });
 	paper.on('cell:pointerdown',function(cellView,evt, x, y){
+
 		var elemento = cellView.model;
 		//trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
-        rect.hide;
+        rectx.hide;
+
+
 	});
 	
 	//mouse up para estabelecer ligações entre os elementos na área de desenho
 	paper.on('cell:pointerup', function(cellView, evt, x, y){
 		
 		var elementoCima = cellView.model;
-        rect.show;
+        rectx.show;
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
 
@@ -147,7 +152,7 @@ $(document).ready(function(){
 				
 				//estou interessado em casos de uso e atores cuja bounding box contem o ponto x,y
 				
-				if((cell instanceof instanceCasoUso || cell instanceof instanceActor)
+				if((cell instanceof instanceCasoUso || cell instanceof instanceActor || cell instanceof joint.shapes.basic.Rect)
 					&& cell.getBBox().containsPoint(g.point(x, y))){
 						return true;
 					}else{
@@ -184,9 +189,11 @@ $(document).ready(function(){
             //RNPS
             //Every element that is mouse down can be removed
             //Objective: create an floating area in paper in the bottom left corner that when an element is over it, it will be removed
-            if(x < 120 && y > heightPaper-120) // Remove area size (trying 120x120 px)
+            if(x< 120 && y > heightPaper-120) // Remove area size (trying 120x120 px)
             {
                 graph.getCell(elementoCima.id).remove();
+                alert($(document).scrollLeft());
+                alert($(document).scrollTop());
             }
 			
 		}else{
