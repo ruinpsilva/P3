@@ -71,7 +71,7 @@ $(document).ready(function(){
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
-    //$("#blackHole").hide;
+    rect.hide;
 	//os casos de uso são shapes.basic.Circle e os atores shapes.basic.Actor
 	var instanceCasoUso = joint.shapes.basic.Circle;
 	var instanceActor = joint.shapes.basic.Actor;
@@ -94,8 +94,9 @@ $(document).ready(function(){
 		model: graph
 	});
     rect.attr({
-        rect:{position:'static'},
-        rect:{fill:'#808080'}
+        rect:{x:'20px'},
+        rect:{fill:'#808080'},
+        rect:{MouseEvent: 'none'}
     });
     graph.addCell(rect);
 
@@ -109,14 +110,14 @@ $(document).ready(function(){
 		var elemento = cellView.model;
 		//trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
-        //$("#blackHole").show();
+        rect.hide;
 	});
 	
 	//mouse up para estabelecer ligações entre os elementos na área de desenho
 	paper.on('cell:pointerup', function(cellView, evt, x, y){
 		
 		var elementoCima = cellView.model;
-        //$("#blackHole").hide();
+        rect.show;
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
 
@@ -125,13 +126,12 @@ $(document).ready(function(){
         if (x > widthPaper-20){
             widthPaper = widthPaper+50;
 			paper.setDimensions(widthPaper,heightPaper);
-            rect.position({x:0, y:(heightPaper-120)});
-
+            //rect.position{x:0,y:(heightPaper-120)};
 		}
         if(y > heightPaper-20){
             heightPaper = heightPaper +50;
             paper.setDimensions(widthPaper,heightPaper);
-            rect.position({x:0, y:(heightPaper-120)});
+            //rect.position({x:0, y:(heightPaper-120)});
         }
 		
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
