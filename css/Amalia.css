@@ -17,7 +17,7 @@ header{
 }
 
 #backtable{
-	background:#242424;
+	background:#434647;
 }
 
 
@@ -119,6 +119,7 @@ a:hover{
 #dialogoMostarXMLClasses,
 #dialogoMostarXMLCasos,
 #dialogoGravarDiagrama,
+#dialogoAtribuirNomeDiagrama,
 #dialogoAbreDiagrama,
 #dialogoAbreDiagramaCasosDisco,
 #dialogoAbreDiagramaClassesDisco,
@@ -145,6 +146,7 @@ a:hover{
 #dialogoMostarXMLClasses div,
 #dialogoMostarXMLCasos div,
 #dialogoGravarDiagrama div,
+#dialogoAtribuirNomeDiagrama div,
 #dialogoAbreDiagrama div,
 #dialogoAbreDiagramaCasosDisco div,
 #dialogoAbreDiagramaClassesDisco div,
@@ -215,6 +217,7 @@ fieldset select{
 */
 
 
+
 #blackHole{
     display: block !important;
 	position:absolute;
@@ -229,8 +232,6 @@ fieldset select{
 	font-size: small;
     background-color: white;
 }
-
-
 
 
 /* Codigo eleborado para a formatacao da tabela */
@@ -251,6 +252,7 @@ fieldset select{
 }
 td{
 	padding: 0px;
+    color: white;
 }
 p{
 	font-size:11px;

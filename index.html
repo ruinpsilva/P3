@@ -10,12 +10,16 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="joint/joint.css" />
-		<link rel="stylesheet" href="css/Amalia.css" />
+		<link rel="stylesheet" href="css/Amalia.css" title="Dark"/>
+        <link rel="Alternate stylesheet" href="css/Amalia_light.css" title="Light"/>
 		
 		<!-- Bibliotecas -->
 		<script src="jQuery/jquery-1.10.2.js"></script>
 		<script src="joint/joint.js"></script>
 		<script src="joint/joint.shapes.uml.js"></script>
+
+        <!-- Controlador -->
+		<script src="controladores/ControladorAmalia.js"></script>
 		
 		<!-- Modelos -->
 		
@@ -47,7 +51,7 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	</head>
 
-	<body>
+	<body onload="set_style_from_cookie()">
 		<div>
 			<header>
 				<h1 >Amalia Project - Modeling Tools</h1>
@@ -73,8 +77,10 @@
 						        <h2 id ="h1" align="center"> Recent Projects</h2>
 						        </td>
 						        <td class= "black" width="169" rowspan="3">
-						        <h2 align="center"> New Project </h2>
-						        <p class="descricao" align="center"> info adicional </p>
+						        <h2 align="center">
+                                    <input id="btnCreateProject" type="button" value="New Project" />
+                                </h2>
+						        <p class="descricao" align="center"> Start your new Project Here! </p>
 						        </td>
 						      
 							</tr>
@@ -100,8 +106,10 @@
 						        <p id="p03">adsf </p>
 						    	</td>
 						        <td class= "black" rowspan="2">
-						        <h2 align="center"> Open from Browser </h2>
-						        <p class="descricao" align="center"> info adicional </p>
+						        <h2 align="center">
+						            <input id="btnOpenProject" type="button" value="Open Project" />
+						        </h2>
+						        <p class="descricao" align="center"> Load Project </p>
 						        </td>
 						    </tr>
 						    <tr>
@@ -118,8 +126,10 @@
 						        <p id="p05">adsf </p>
 						    	</td>
 						        <td class= "black" rowspan="2">
-						        <h2 align="center"> Open from Disk </h2>
-						        <p class="descricao" align="center"> info adicional </p>
+						        <h2 align="center">
+						            <input id="btnOpenProjectFile" type="button" value="Open Project File" />
+						        </h2>
+						        <p class="descricao" align="center"> Load Project File </p>
 						        </td>
 						    </tr>
 						    <tr>
@@ -141,6 +151,8 @@
     </div>
     <div>
 	<footer>
+        <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
+        <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
 		<p>
 			AmaliaIDE v1.0 - 2014
 		</p>
