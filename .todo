@@ -11,6 +11,7 @@
 		"FUTURE",
 		"RNPS",
         "WhatIsThis"
+        "JSON_TAG"
 	],
 	"case": false,
 	"search": {

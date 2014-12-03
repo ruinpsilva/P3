@@ -18,7 +18,7 @@ header{
 }
 
 #backtable{
-	background:white;
+	background: white;
 }
 
 
@@ -56,12 +56,12 @@ div.main input[type=button]{
 input[type=button],
 input[type=submit],
 input[type=reset]{
-	background: #f7f7f7;
+	background: #374343;
 	padding:1px 5px;
 	color: white;
 	font-weight: bold;
 	border:1px;
-	border-color:#374343;
+	border-color:#f7f7f7;
 	border-style:solid;
 }
 
@@ -216,6 +216,8 @@ fieldset select{
 */
 
 
+
+
 #blackHole{
     display: block !important;
 	position:absolute;
@@ -252,6 +254,7 @@ fieldset select{
 }
 td{
 	padding: 0px;
+
 }
 p{
 	font-size:11px;
