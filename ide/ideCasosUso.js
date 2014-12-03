@@ -13,12 +13,21 @@ var widthPaperFromStart = Math.round(screen.availWidth)-500;
 var heightPaperFromStart = Math.round(screen.availHeight-250);
 var widthPaper = Math.round(screen.availWidth)-500;
 var heightPaper =  Math.round(screen.availHeight-250);
+var rectxwidth = 0;
+var rectHeigth = heightPaper -120;
+var scrollleft = $(document).scrollLeft();
+var scrolltop = $(document).scrollTop();
 var graph = new joint.dia.Graph;
 var rectx = new joint.shapes.basic.Rect({
-            position: { x:0, y: heightPaper-120},
+            position: { x:rectxwidth, y: rectHeigth},
             size: { width: 120, height: 120 },
             interactive:false,
     });
+var circle = new joint.shapes.basic.Circle({
+    c:2,
+    a:2,
+    b:2});
+
 
 //var b  =  element.scrollHeight - element.clientHeight;
 //var c  =  element.scrollWidth - element.clientWidth;
@@ -26,7 +35,7 @@ var rectx = new joint.shapes.basic.Rect({
 //FUNÇÃO ATÉ VER DESNECESSÁRIA - NÃO ESTÁ A USO
 function iniciarDiagramaCasosUso(graph) {
 	// Gráficos do Ator e do caso de uso na posição da barra de ferramentas
-	var caso = Amalia.dia.getGrafCasoUso(Math.round(screen.availWidth * .95)-60,20);
+	var caso = Amalia.dia.getGrafCasoUso( Math.round(screen.availWidth * .95)-60,20);
 	var ator = Amalia.dia.getGrafAtor(Math.round(screen.availWidth * .95)-23,80);
 	//Adicionar o ator e o caso de uso à barra de ferramentas
 	graph.addCells([caso,ator]);
@@ -76,6 +85,7 @@ $(document).ready(function(){
 	//os casos de uso são shapes.basic.Circle e os atores shapes.basic.Actor
 	var instanceCasoUso = joint.shapes.basic.Circle;
 	var instanceActor = joint.shapes.basic.Actor;
+    var instanceRect = joint.shapes.basic.Rect;
 	// tamanho do paper
 
 
@@ -88,6 +98,7 @@ $(document).ready(function(){
 
 
 	var paper = new joint.dia.Paper({
+        id: 't',
 		el: $('#modelo'),
 		width: widthPaper,
 		height: heightPaper,
@@ -99,10 +110,32 @@ $(document).ready(function(){
     });
     graph.addCell(rectx);
 
-	
-    debugger;
+
     paper.findViewByModel(rectx).options.interactive = false;
     //Eventos que é necessário capturar.
+
+
+     document.addEventListener("scroll", function (evt) {
+         if ($(document).scrollLeft > scrollleft) {
+             scrollleft = $(document).scrollLeft;
+             rectx.translate(1, 0);
+         } else {
+             if ($(document).scrollTop > scrolltop) {
+                 scrolltop = $(document).scrollTop;
+                 rectx.translate(0, 1);
+             } else {
+                 if ($(document).scrollLeft < scrollleft) {
+                     scrollleft = $(document).scrollLeft;
+                     rectx.translate(-1, 0);
+                 } else {
+                     if ($(document).scrollTop < scrolltop) {
+                         scrolltop = $(document).scrollTop;
+                         rectx.translate(0, -1);
+                     }
+                 }
+             }
+         }
+     });
 
 	//mouse down para trazer elementos para a frente do diagrama
     paper.on('cell:',function(cellView, evt){
@@ -111,18 +144,24 @@ $(document).ready(function(){
 	paper.on('cell:pointerdown',function(cellView,evt, x, y){
 
 		var elemento = cellView.model;
-		//trazer o elemento clicado para a frente do diagrama
+
+        graph.addCell(circle);
+        //trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
         rectx.hide;
 
 
 	});
 	
+
+    document.addEventListener('click:down', function(evt){
+        alert("teste");
+    });
+
 	//mouse up para estabelecer ligações entre os elementos na área de desenho
 	paper.on('cell:pointerup', function(cellView, evt, x, y){
 		
 		var elementoCima = cellView.model;
-        rectx.show;
 		//console.log(JSON.stringify (elementoCima.toJSON()));
 		//console.log((elementoCima.toJSON()).position.x);
 
@@ -142,17 +181,17 @@ $(document).ready(function(){
 		//area de diagrama x > 120 - mudado para area de diagrama x < 120
 		if (x < widthPaper){
 			
-			//Acertar posição
+			//Acertar posi├º├úo
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura
 
 			//Obter o elemento que ficou por baixo daquele que estou a deslocar
 			var elementoBaixo = graph.get('cells').find(function(cell){
-				// esquisito mas o elemento de cima também é dos elementos do grupo e eu não estou interessado
+				// esquisito mas o elemento de cima tamb├®m ├® dos elementos do grupo e eu n├úo estou interessado
 				if (cell.id === elementoCima.id){return false;}
 				
 				//estou interessado em casos de uso e atores cuja bounding box contem o ponto x,y
 				
-				if((cell instanceof instanceCasoUso || cell instanceof instanceActor || cell instanceof joint.shapes.basic.Rect)
+				if((cell instanceof instanceCasoUso || cell instanceof instanceActor || cell instanceof instanceRect)
 					&& cell.getBBox().containsPoint(g.point(x, y))){
 						return true;
 					}else{
@@ -160,26 +199,26 @@ $(document).ready(function(){
 					}
 			});
 			
-			//Agora que tenho o elemento de cima e o debaixo posso implementar o comportamento de ligação
-			//se existir um elemento de baixo e se os dois elementos não estiverem ligados - não vale a pena fazer
-			// mais do que uma ligação
+			//Agora que tenho o elemento de cima e o debaixo posso implementar o comportamento de liga├º├úo
+			//se existir um elemento de baixo e se os dois elementos n├úo estiverem ligados - n├úo vale a pena fazer
+			// mais do que uma liga├º├úo
 			if (elementoBaixo && !_.contains(graph.getNeighbors(elementoBaixo), elementoCima)){
 				
-				// se os dois elementos são casos de uso podemos ter include ou extend
+				// se os dois elementos s├úo casos de uso podemos ter include ou extend
 				if (elementoBaixo instanceof instanceCasoUso && elementoCima instanceof instanceCasoUso){
 					
-					// Abre um dialogo com as opções include ou extends o processamento do dialogo é feito em
+					// Abre um dialogo com as op├º├Áes include ou extends o processamento do dialogo ├® feito em
 					//ControladorAmalia.associaCasos(graph)
 					ControladorAmalia.toogleDialogoAssociaCasos(elementoCima.id,elementoBaixo.id);
 					
 				}
-				// Um caso de uso é colocado sobre um ator. O ator participa no caso de uso.
+				// Um caso de uso ├® colocado sobre um ator. O ator participa no caso de uso.
 				if (elementoBaixo instanceof instanceActor && elementoCima instanceof instanceCasoUso){
 					
 					ControladorAmalia.associaActorAoCaso(graph,elementoCima.id,elementoBaixo.id);
 
 				}
-				//Um ator é colocado sobre um ator, então temos herança
+				//Um ator ├® colocado sobre um ator, ent├úo temos heran├ºa
 				if( elementoBaixo instanceof instanceActor && elementoCima instanceof instanceActor){
 					
 					ControladorAmalia.associaHeranca(graph,elementoCima.id,elementoBaixo.id);
@@ -189,11 +228,10 @@ $(document).ready(function(){
             //RNPS
             //Every element that is mouse down can be removed
             //Objective: create an floating area in paper in the bottom left corner that when an element is over it, it will be removed
-            if(x< 120 && y > heightPaper-120) // Remove area size (trying 120x120 px)
+ if(elementoBaixo instanceof instanceRect)
             {
                 graph.getCell(elementoCima.id).remove();
-                alert($(document).scrollLeft());
-                alert($(document).scrollTop());
+
             }
 			
 		}else{
@@ -201,26 +239,6 @@ $(document).ready(function(){
 			//graph.getCell(elementoCima.id).remove();
 		}
 		
-		
-	});
-	
-	//Duplos clicks para mudar os momes dos objectos e alterar o tamanho dos casos de uso.
-		paper.on('cell:pointerdblclick',function(cellView,evt, x, y){
-		var elemento = cellView.model;
-
-		//mudar atributos do caso de uso
-		if (elemento instanceof instanceCasoUso){
-			// esta era uma tentativa de ter uma só função para chamar os dois dialogos mais é uma complicação
-			//mais vale a função comentada
-			//ControladorAmalia.toogleDialogoMudaNome(elemento.id,"#idCaso","#dialogo_casos_uso","#nomeCasoUso");
-			ControladorAmalia.toogleDialogoCasoUso(elemento);
-
-		}
-		//mudar atributos do ator
-		if (elemento instanceof instanceActor){
-			ControladorAmalia.toogleDialogoAtor(elemento.id);
-
-		}
 		
 	});
 
@@ -263,6 +281,7 @@ $(document).ready(function(){
     //Clear Diagram
     $("#clearDiagram").click(function(e){
         graph.clear();
+        graph.addCell(rectx);
     });
 
 
