@@ -115,9 +115,9 @@
           					</fieldset>
           				</p>
           				<p>
-          					<input type="reset" value="Limpar nome" />
-          					<input id="btnCancelarAlterarNomeCasoUso" type="button" value="Cancelar" />
-          					<input type="submit" value="Alterar nome" />
+          					<input type="reset" value="Clear" />
+          					<input id="btnCancelarAlterarNomeCasoUso" type="button" value="Cancel" />
+          					<input type="submit" value="Change" />
           				</p>
           			</form>
           			
@@ -132,13 +132,13 @@
 
      					<fieldset>
           						<legend>Actor name:</legend>
-     						<input id="nomeActor" name="nomeActor" type="text" placeholder="Nome do Actor" />
+     						<input id="nomeActor" name="nomeActor" type="text" placeholder="Name" />
      						<input id="idActor" type="hidden" value="" />
      					</fieldset>
      					<p>
-     						<input type="reset" value="Limpar nome" />
-     						<input id="btnCancelarAlterarNomeActor" type="button" value="Cancelar" />
-     						<input type="submit" value="Alterar nome" />
+     						<input type="reset" value="Clear" />
+     						<input id="btnCancelarAlterarNomeActor" type="button" value="Cancel" />
+     						<input type="submit" value="Change" />
      					</p>
      				</form>
     			 </div>
@@ -152,8 +152,8 @@
 					<input id="elementoCimaId" type="hidden" name="elementoCimaId" value="" />
 					<input id="elementoBaixoId" type="hidden" name="elementoBaixoId" value="" /> 
 					<p>
-						<input id="cancelaLigacao" type="button" value="Cancelar" />
-						<input id="ligacaoCasos" type="button"  value="Associar Casos de Uso" />
+						<input id="cancelaLigacao" type="button" value="Cancel" />
+						<input id="ligacaoCasos" type="button"  value="Associae Use Cases" />
 					</p>
     			 </div>
 			</div>
@@ -164,8 +164,8 @@
 					<p>
 						<textarea id="xmlCasos"></textarea>
 					</p>
-					<input id="btnFecharXMLCasos" type="button" value="Fechar Dialogo" />
-					<input id="btnDescarregarXML" type="button" value="Descarregar" />
+					<input id="btnFecharXMLCasos" type="button" value="Close" />
+					<input id="btnDescarregarXML" type="button" value="Download" />
 				</div>
 			</div>
 			
@@ -175,15 +175,33 @@
 					<p>Save Model in Browser</p>
 					<fieldset>
 						<legend>Name:</legend>
-						<input id="nomeDoDiagrama" type="text" name="nomeDoDiagrama" placeholder="Nome do Diagrama" />
+						<input id="nomeDoDiagrama" type="text" name="nomeDoDiagrama" placeholder="Diagrams Name" />
 					</fieldset>
 					<p>
-						<input id="btnCancelaGravarDiagrama" type="button" value="Cancelar" />
-						<input id="btnGravarDiagrama" type="button"  value="Gravar Diagrama" />
+						<input id="btnCancelaGravarDiagrama" type="button" value="Cancel" />
+						<input id="btnGravarDiagrama" type="button"  value="Save Diagram" />
 						<input id="tipoDeDiagrama" type="hidden" name="tipoDiagrama" value="" />
 					</p>
 				</div>
 			</div>
+
+            <!-- RNPS -->
+            <!-- Dialog box to give a name to the diagram in the paper -->
+            <!-- Arrangements must be made to ensure that this only appers when there's more than zero elements in paper -->
+        <div id="dialogoAtribuirNomeDiagrama">
+            <div>
+					<p>Save Model</p>
+					<fieldset>
+						<legend>Name:</legend>
+						<input id="nomeDoDiagrama" type="text" name="nomeDoDiagrama" placeholder="Diagram Name" />
+					</fieldset>
+					<p>
+						<input id="btnCancelaGravarDiagrama" type="button" value="Discard Diagram" />
+						<input id="btnGravarDiagrama" type="button"  value="Save Diagram" />
+						<input id="tipoDeDiagrama" type="hidden" name="tipoDiagrama" value="" />
+					</p>
+				</div>
+        </div>
 			
 			<!-- Dialogo para recuperar um diagrama -->
 			<div id="dialogoAbreDiagrama">
@@ -197,8 +215,8 @@
 					</fieldset>
 					
 					<p>
-						<input id="btnCancelaAbrirDiagrama" type="button" value="Cancelar" />
-						<input id="btnAbrirDiagrama" type="button"  value="Abrir Diagrama" />
+						<input id="btnCancelaAbrirDiagrama" type="button" value="Cancel" />
+						<input id="btnAbrirDiagrama" type="button"  value="Open Diagram" />
 						<input id="tipoDeDiagramaAbrir" type="hidden" name="tipoDiagrama" value="" />
 					</p>
 					
@@ -210,10 +228,10 @@
 					<p>Save Use Case Model in disk</p>
 					<fieldset>
 						<legend>File name</legend>
-						<input id="nomeDiaCasosDisco" type="text" name="nomeDiaParaDisco" placeholder="Nome para o Diagrama" />
+						<input id="nomeDiaCasosDisco" type="text" name="nomeDiaParaDisco" placeholder="Diagram Name" />
 					</fieldset>
-					<input id="btnCancelarGravarDiscoDiaCasos" type="button" value="Cancelar"/>
-					<input id="btnGravarDiscoDiaCasos" type="button" value="Gravar" />
+					<input id="btnCancelarGravarDiscoDiaCasos" type="button" value="Cancel"/>
+					<input id="btnGravarDiscoDiaCasos" type="button" value="Save" />
 				</div>
 			</div>
 			
@@ -224,7 +242,7 @@
 					<fieldset>
 						<input type="file" id="ficheiroDiagrama" />
 					</fieldset>
-					<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancelar" />
+					<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancel" />
 				</div>
 			</div>
 

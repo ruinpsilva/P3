@@ -471,8 +471,10 @@ ControladorAmalia ={
 		for (i = 0 ; i < elementos.length ; i++){
 				
 				var el = graph.getCell(elementos[i].id).toJSON();
+
+
 				//elementos da barra de ferramentas ignorar
-				if (el.position.x < 120){ continue;}
+				//if (el.position.x < 120){ continue;}
 				// restantes elementos
 				xml += '\t<elemento id="' + el.id + '">\n';
 				var tipoElemento = (el.type).split(".")[0];

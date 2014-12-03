@@ -100,7 +100,7 @@ $(document).ready(function(){
     graph.addCell(rectx);
 
 	
-    debugger;
+    //debugger;
     paper.findViewByModel(rectx).options.interactive = false;
     //Eventos que é necessário capturar.
 
