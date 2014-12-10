@@ -23,8 +23,12 @@
 		
 		<!-- Modelos -->
 		
+		<!--IDE -->
+				<script src="ide/amlia.js"></script>
+
 		<!-- funções -->
 		
+
 		<script type="text/javascript">
 		
 			$(document).ready(function(){
@@ -150,6 +154,17 @@
     </table>
     </div>
     <div>
+    <di id="dialogoCriaProjecto">
+        <div>
+            <p> Create a New Project</p>
+            <fieldset>
+                <legend> File name</legend>
+                <input id="nomeProjecto" type="text" name="nomeProjecto" placeholder="Project Name"/>
+            </fieldset>
+            <input id="btnCancelarCriarProjecto" type="button" value="Cancel"/>
+            <input id="btnCriarProjecto" type="button" value="Create"/>
+        </div>
+    </di>
 	<footer>
         <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
         <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>

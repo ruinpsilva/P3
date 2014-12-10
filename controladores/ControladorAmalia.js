@@ -26,7 +26,10 @@ ControladorAmalia ={
 			$(dialogoNome).css("visibility","visible");
 		}
 	},
-	
+	// aparecer dialogo para criar projecto
+    toogleDialogoCriaProjecto:function(){
+    ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", false);
+},
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);

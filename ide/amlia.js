@@ -1,0 +1,12 @@
+$(document).ready(function(){
+    $("#btnCreateProject").click(function(){
+    ControladorAmalia.toogleDialogoCriaProjecto();
+    }),
+    $("#btnCancelarCriarProjecto").click(function(){
+    ControladorAmalia.toogleDialogoCriaProjecto();
+    }),
+    $("#btnCriarProjecto".click(function(){
+    ControladorAmalia.;
+    ControladorAmalia.toogleDialogoCriaProjecto();
+    });
+});
