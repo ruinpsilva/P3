@@ -35,8 +35,14 @@ ControladorAmalia ={
      project(nomeProjecto);
 
     },
-
-
+    // adicionar um actor ao array actor
+    adicionaActor:function(id){
+    actors.push(id);
+    },
+    // adicionar um caso de uso ao array casos de uso
+    adicionaCasoUso:function(id){
+    useCase.push(id);
+    },
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
@@ -218,6 +224,8 @@ ControladorAmalia ={
         var idActor = $("#idActor").val();
         if(idActor){
         graph.getCell(idActor).remove();
+        var position = actors.lastIndexOf(idCaso);
+        actors.splice(position,1);
         }
     },
 	setNomeCaso : function (graph){
@@ -236,7 +244,11 @@ ControladorAmalia ={
         var idCaso = $("#idCaso").val();
         if(idCaso){
         graph.getCell(idCaso).remove();
+        var position = useCase.lastIndexOf(idCaso);
+        useCase.splice(position,1);
         }},
+
+
 	//Altera as características de uma classe
 	setClasse : function(graph, atributos, metodos){
 		//Obter o nome da classe
