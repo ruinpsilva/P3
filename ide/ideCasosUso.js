@@ -18,15 +18,6 @@ var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
 var graph = new joint.dia.Graph;
-var rectx = new joint.shapes.basic.Rect({
-            position: { x:rectxwidth, y: rectHeigth},
-            size: { width: 120, height: 120 },
-            interactive:false,
-    });
-var circle = new joint.shapes.basic.Circle({
-    c:2,
-    a:2,
-    b:2});
 
 
 //var b  =  element.scrollHeight - element.clientHeight;
@@ -81,7 +72,6 @@ $(document).ready(function(){
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
-    rectx.hide;
 	//os casos de uso são shapes.basic.Circle e os atores shapes.basic.Actor
 	var instanceCasoUso = joint.shapes.basic.Circle;
 	var instanceActor = joint.shapes.basic.Actor;
@@ -105,37 +95,10 @@ $(document).ready(function(){
 		gridSize: 10,
 		model: graph,
 	});
-    rectx.attr({
-        rectx:{fill:'#808080'}
-    });
-    graph.addCell(rectx);
 
-
-    paper.findViewByModel(rectx).options.interactive = false;
     //Eventos que é necessário capturar.
 
 
-   document.addEventListener("scroll", function (evt) {
-         if ($(document).scrollLeft > scrollleft) {
-             scrollleft = $(document).scrollLeft;
-             rectx.translate(1, 0);
-         } else {
-             if ($(document).scrollTop > scrolltop) {
-                 scrolltop = $(document).scrollTop;
-                 rectx.translate(0, 1);
-             } else {
-                 if ($(document).scrollLeft < scrollleft) {
-                     scrollleft = $(document).scrollLeft;
-                     rectx.translate(-1, 0);
-                 } else {
-                     if ($(document).scrollTop < scrolltop) {
-                         scrolltop = $(document).scrollTop;
-                         rectx.translate(0, -1);
-                     }
-                 }
-             }
-         }
-     });
 
 	//mouse down para trazer elementos para a frente do diagrama
     paper.on('cell:',function(cellView, evt){
@@ -148,7 +111,7 @@ $(document).ready(function(){
 //        graph.addCell(circle);
         //trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
-//        rectx.hide;
+
 
 
 	});
@@ -228,15 +191,7 @@ $(document).ready(function(){
             //RNPS
             //Every element that is mouse down can be removed
             //Objective: create an floating area in paper in the bottom left corner that when an element is over it, it will be removed
- if(elementoBaixo instanceof instanceRect)
-            {
-                graph.getCell(elementoCima.id).remove();
 
-            }
-			
-		}else{
-			// falta aqui o comportamento de remover os objectos que voltam a entrar na zona de ferramentas
-			//graph.getCell(elementoCima.id).remove();
 		}
 		
 		
@@ -316,10 +271,18 @@ $(document).ready(function(){
 		e.preventDefault();
 		
 	});
+      //Remover Caos de uso do paper
+    $("#btnDeleteCasoUso").click(function(){
+        ControladorAmalia.removeCasoUso(graph);
+        ControladorAmalia.toogleDialogoCasoUso("");
+    });
+
 	//Cancelar a alteração do nome do Caso de uso
 	$("#btnCancelarAlterarNomeCasoUso").click(function(){
 		ControladorAmalia.toogleDialogoCasoUso("");
 	});
+
+
 	//Alterar o nome do Actor
 	$("#ator_nome").submit(function(e){
 
@@ -332,6 +295,13 @@ $(document).ready(function(){
 	$("#btnCancelarAlterarNomeActor").click(function(){
 		ControladorAmalia.toogleDialogoAtor("");
 	});
+     //Remover Actor do paper
+    $("#btnDeleteActor").click(function(){
+        ControladorAmalia.removeActor(graph);
+        ControladorAmalia.toogleDialogoAtor("");
+    });
+
+
 	//Associar os casos de uso com include ou extends
 	$("#ligacaoCasos").click(function(){
 		ControladorAmalia.associaCasos(graph);

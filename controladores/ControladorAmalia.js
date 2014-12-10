@@ -36,6 +36,7 @@ ControladorAmalia ={
 
 	},
 
+
 	toogleDialogoCasoUso: function(caso){
 		//Muito dependente dos detalhes do html
 		if (caso){
@@ -201,6 +202,14 @@ ControladorAmalia ={
 			actor.attr({ text:{text:nomeActor} });
 		}
 	},
+
+    // função para remover o actor do paper
+    removeActor : function(graph){
+        var idActor = $("#idActor").val();
+        if(idActor){
+        graph.getCell(idActor).remove();
+        }
+    },
 	setNomeCaso : function (graph){
 		var nomeCaso = $("#nomeCasoUso").val();
 		var idCaso =$("#idCaso").val();
@@ -213,6 +222,11 @@ ControladorAmalia ={
 		}
 		
 	},
+    removeCasoUso : function(graph){
+        var idCaso = $("#idCaso").val();
+        if(idCaso){
+        graph.getCell(idCaso).remove();
+        }},
 	//Altera as características de uma classe
 	setClasse : function(graph, atributos, metodos){
 		//Obter o nome da classe
