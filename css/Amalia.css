@@ -254,6 +254,13 @@ td{
 	padding: 0px;
     color: white;
 }
+
+#z01, #z03, #z05, #i01, #i03, #i05{
+    color: #3C3F41;
+}
+
+
+
 p{
 	font-size:11px;
 	text-align:center;
@@ -278,9 +285,12 @@ h2{
 h1{
 	color:#D9D9D9;
 }
+
 #z01,#z03,#z05,#i01,#i03,#i05{
 	background-color:#DADADA;
 }
+
+
 
 /*#el{
 	height: "50px";

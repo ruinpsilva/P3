@@ -833,41 +833,46 @@ function get_cookie ( cookie_name )
 
 //RNPS
 //Construção da classe de Projecto
-
-var name;
+var projectName
 var actors = [];
 var useCase = [];
 var useCaseDiag;
+
+var entityName;
 var entitiesList = [];
+
+var interfaceName;
 var interfacesList = [];
+
+var abstractName;
 var abstractList = [];
+
 var classesDiag;
 
 
 
-function project(name)
+function project(projectName)
 {
-    this.name = name;
-
+    this.projectName = projectName;
 }
 
-function entities(name, attributes, methods)
+function entities(entityName, attributes, methods)
 {
-    this.name = name;   // name of Entity
+    this.entityName = entityName;   // name of Entity
     this.attributes = attributes;   //Attributes of the Entity (Array)
     this.methods = methods; //Methods of the Entity (Array)
 }
 
-function interfaces(name, attributes, methods)
+function interfaces(interfaceName, attributes, methods)
 {
-    this.name = name;   // name of Interface
+    this.interfaceName = interfaceName;   // name of Interface
     this.attributes = attributes;   //Attributes of the Interface (Array)
     this.methods = methods; //Methods of the Interface (Array)
 }
 
-function abstract(name, attributes, methods)
+function abstract(abstractName, attributes, methods)
 {
-    this.name = name;   // name of Abstract
+    this.abstractName = abstractName;   // name of Abstract
     this.attributes = attributes;   //Attributes of the Abstract (Array)
     this.methods = methods; //Methods of the Abstract (Array)
 }
