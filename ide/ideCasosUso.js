@@ -115,7 +115,7 @@ $(document).ready(function(){
     //Eventos que é necessário capturar.
 
 
-     document.addEventListener("scroll", function (evt) {
+   document.addEventListener("scroll", function (evt) {
          if ($(document).scrollLeft > scrollleft) {
              scrollleft = $(document).scrollLeft;
              rectx.translate(1, 0);
@@ -145,10 +145,10 @@ $(document).ready(function(){
 
 		var elemento = cellView.model;
 
-        graph.addCell(circle);
+//        graph.addCell(circle);
         //trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
-        rectx.hide;
+//        rectx.hide;
 
 
 	});
@@ -240,6 +240,26 @@ $(document).ready(function(){
 		}
 		
 		
+	});
+
+    //Duplos clicks para mudar os momes dos objectos e alterar o tamanho dos casos de uso.
+		paper.on('cell:pointerdblclick',function(cellView,evt, x, y){
+		var elemento = cellView.model;
+
+		//mudar atributos do caso de uso
+		if (elemento instanceof instanceCasoUso){
+			// esta era uma tentativa de ter uma só função para chamar os dois dialogos mais é uma complicação
+			//mais vale a função comentada
+			//ControladorAmalia.toogleDialogoMudaNome(elemento.id,"#idCaso","#dialogo_casos_uso","#nomeCasoUso");
+			ControladorAmalia.toogleDialogoCasoUso(elemento);
+
+		}
+		//mudar atributos do ator
+		if (elemento instanceof instanceActor){
+			ControladorAmalia.toogleDialogoAtor(elemento.id);
+
+		}
+
 	});
 
 
