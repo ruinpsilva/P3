@@ -29,7 +29,14 @@ ControladorAmalia ={
 	// aparecer dialogo para criar projecto
     toogleDialogoCriaProjecto:function(){
     ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", false);
-},
+    },
+    // criar a instancia projecto
+    CriaProject:function(nomeProjecto){
+     project(nomeProjecto);
+
+    },
+
+
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
