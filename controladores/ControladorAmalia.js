@@ -831,3 +831,52 @@ function get_cookie ( cookie_name )
     return '' ;
 }
 
+
+
+
+//RNPS
+//Construção da classe de Projecto
+var projectName
+var actors = [];
+var useCase = [];
+var useCaseDiag;
+
+var entityName;
+var entitiesList = [];
+
+var interfaceName;
+var interfacesList = [];
+
+var abstractName;
+var abstractList = [];
+
+var classesDiag;
+
+
+
+function project(projectName)
+{
+    this.projectName = projectName;
+}
+
+function entities(entityName, attributes, methods)
+{
+    this.entityName = entityName;   // name of Entity
+    this.attributes = attributes;   //Attributes of the Entity (Array)
+    this.methods = methods; //Methods of the Entity (Array)
+}
+
+function interfaces(interfaceName, attributes, methods)
+{
+    this.interfaceName = interfaceName;   // name of Interface
+    this.attributes = attributes;   //Attributes of the Interface (Array)
+    this.methods = methods; //Methods of the Interface (Array)
+}
+
+function abstract(abstractName, attributes, methods)
+{
+    this.abstractName = abstractName;   // name of Abstract
+    this.attributes = attributes;   //Attributes of the Abstract (Array)
+    this.methods = methods; //Methods of the Abstract (Array)
+}
+
