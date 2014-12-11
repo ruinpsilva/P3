@@ -47,6 +47,7 @@ function insertUseCaseOnToGraph(){
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
 	graph.addCells([caso]);
+    ControladorAmalia.adicionaCasoUso(caso.id);
 }
 
 
@@ -62,6 +63,8 @@ function insertActorOnToGraph(){
     positionx_actor = positionx_actor + 10;
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
+    ControladorAmalia.adicionaActor(ator.id);
+
 }
 
 
