@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    //botões provisórios do stage
     $("#btnCreateProject").click(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();
     });
@@ -16,4 +18,11 @@ $(document).ready(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();
         window.location.href = "stage.html";
     });
+
+
+
+
+
+
 });
+

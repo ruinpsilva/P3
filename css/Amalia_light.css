@@ -124,6 +124,7 @@ a:hover{
 #dialogoAbreDiagramaCasosDisco,
 #dialogoAbreDiagramaClassesDisco,
 #dialogoGravaDiaClassesDisco,
+#dialogoCriaProjecto,
 #dialogoGravaDiaCasosDisco{
      visibility: hidden;
      position: absolute;
@@ -150,6 +151,7 @@ a:hover{
 #dialogoAbreDiagramaCasosDisco div,
 #dialogoAbreDiagramaClassesDisco div,
 #dialogoGravaDiaClassesDisco div,
+#dialogoCriaProjecto div,
 #dialogoGravaDiaCasosDisco div
 {
      width:320px;

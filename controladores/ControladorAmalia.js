@@ -775,6 +775,10 @@ ControladorAmalia ={
 	
 };
 
+
+
+
+
 //<<<<<<<<<<<<<<<<<<<<< Change CSS style sheets with cookies >>>>>>>>>>>>>>>>>>>>>>>
 //http://www.thesitewizard.com/javascripts/change-style-sheets.shtml
 
