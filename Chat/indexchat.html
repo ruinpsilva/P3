@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Chat para o Worms</title>
+        <style>
+            #chat{
+                height:500px;
+            }
+            #contentWrap{
+                display: none;
+            }
+            #chatWrap{
+                float: left;
+                border: 1px #000 solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="nickWrap">
+            <p>Enter a username:</p>
+            <p id="nickError"></p>
+            <form id="setNick">
+                <input size="25" id="nickname"></input>
+                <input type="submit" value = "Enter"></input>
+            </form>
+        </div>
+        
+        <div id="contentWrap">
+            <div id="chatWrap">
+                <div id="chat"></div>
+                <form id="send-message">
+                    <input size="25" id="message"></input>
+                    <input type="submit" value="Send"></input>
+                </form>
+            </div>
+            <div id="users"></div>
+        </div>
+        
+
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            //shorthand for $( document ).ready()
+            jQuery(function($){
+                var socket = io.connect();
+                var $nickForm = $('#setNick');
+                var $nickError = $('#nickError');
+                var $nickBox = $('#nickname');
+                var $users = $('#users');
+                var $messageForm = $('#send-message');
+                var $messageBox = $('#message');
+                var $chat = $('#chat');
+                
+                //event handler to the form, when the user submits the nickname
+                $nickForm.submit(function(e){
+                    e.preventDefault();
+                    socket.emit('new user', $nickBox.val(), function(data){
+                        if(data){
+                            $('#nickWrap').hide(); //we hide the nickname input div
+                            $('#contentWrap').show(); //we show the chat div
+                        } else {
+                            $nickError.html('That username is already taken! Try Again!');
+                        }
+                    });
+                    $nickBox.val('');
+                });
+                
+                //adding list of users
+                socket.on('usernames', function(data){
+                   var html = '';
+                    //going trough the array
+                    for(i=0; i < data.length; i++){
+                        html += data[i] + "<br/>"
+                    }
+                    $users.html(html);
+                });
+                
+                //functionality that send the message to the server
+                $messageForm.submit(function(e){
+                    e.preventDefault();
+                    socket.emit('send message', $messageBox.val());
+                    $messageBox.val(''); //to clean the message box
+                });
+                
+                socket.on('new message', function(data){
+                   //time to display the message
+                    $chat.append('<b>' + data.nick + ': </b>' + data.msg + "<br/>");
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -445,10 +445,10 @@ $(document).ready(function(){
 	//** Simplificar o Interface quando a trabalhar no modelo  **
 	//***********************************************************
 	$("#modelo").mouseenter(function(){
-		$("#controlCasosUso").slideUp("slow");
+		$("#controlCasosUso").slideUp(200);
 	});
 	$("header").mouseenter(function(){
-		$("#controlCasosUso").slideDown("slow");
+		$("#controlCasosUso").slideDown(200);
 	});
 
 

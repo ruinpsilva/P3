@@ -375,11 +375,11 @@ $(document).ready(function(){
 	//***********************************************************
 	//    entra no modelo só deixa o título
 	$("#modelo").mouseenter(function(){
-		$("#controloDiagramaClasses").slideUp("slow");
+		$("#controloDiagramaClasses").slideUp(200);
 	});
 	//    entra no título mostra ferramentas globais e navegação
 	$("header").mouseenter(function(){
-		$("#controloDiagramaClasses").slideDown("slow");
+		$("#controloDiagramaClasses").slideDown(200);
 
 	});
 	
