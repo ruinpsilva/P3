@@ -3,6 +3,7 @@
  */
 
 
+
 //************************************************
 //** Função para adicionar campos de texto para **
 //**     atributos ou métodosde uma Classe      **
@@ -68,6 +69,8 @@ function iniciarDiagrama(graph){
 //** Eventos e funcionaliddes da interface **
 //*******************************************
 $(document).ready(function(){
+
+
 	
 	var graph = new joint.dia.Graph;
 	
@@ -187,6 +190,8 @@ $(document).ready(function(){
 
 	});
 	
+
+
 	
 	//ideia para alterar as dimensões do paper mas a coisa é muito lenta
 	
@@ -480,7 +485,9 @@ $(document).ready(function(){
     }
   }
 
-  document.getElementById('ficheiroDiagramaClasses').addEventListener('change', readSingleFile, false);
+  //document.getElementById('ficheiroDiagramaClasses').addEventListener('change', readSingleFile, false);
 	
 });
+
+
 

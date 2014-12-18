@@ -70,6 +70,8 @@ function insertActorOnToGraph(){
 
 $(document).ready(function(){
 	
+
+
 	//Variáveis
 	
 	//var graph = new joint.dia.Graph;
@@ -261,6 +263,8 @@ $(document).ready(function(){
         graph.clear();
         graph.addCell(rectx);
     });
+
+
 
 
 

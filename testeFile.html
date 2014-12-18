@@ -6,14 +6,28 @@
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		
+		<!--Include jQuery -->
+        <script src="jQuery/jquery-1.10.2.js"></script>
+        <!--Include the slidepanel plugin -->
+        <script type="text/javascript" src="js/jquery.slidepanel.js"></script>
+        <!--Add the css -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.slidepanel.css">
 
-		B1111111111A
-		BLEBLEBLEBLE
-		BLOBLOBLOBLO
-		BLUBLUBLUBLU
-		BLIBLIBLIBLI
-		NELSON
+        <script src="modelos/Amalia.js"></script>
+        <script src="controladores/ControladorAmalia.js"></script>
+
+<!--
+        <script type="text/javascript">
+              $(document).ready(function(){
+                  $('[data-slidepanel]').slidepanel({
+                      orientation: 'right',
+                      mode: 'overlay'
+                  });
+              });
+        </script>
+-->
+
+
 		<title>testeFile</title>
 		<meta name="description" content="">
 		<meta name="author" content="Rui">
@@ -35,7 +49,9 @@
 					<a href="/">Home</a>
 				</p>
 				<p>
-					<a href="/contact">Coneia<sdfghjklç~wertyuiopjofytiguhijoktact</a>
+                    <!-- The href attribute is used to load external HTML content into your panel -->
+                    <a href="external.html" data-slidepanel="panel">Show Panel</a>
+					<a href="/contact">Cia<sdfghjklç~wertyuiopjofytiguhijoktact</a>
 				</p>
 			</nav>
 

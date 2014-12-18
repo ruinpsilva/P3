@@ -10,14 +10,22 @@
 		<!-- CSS -->
 		<link rel="stylesheet" href="joint/joint.css" />
 		<link rel="stylesheet" href="css/Amalia.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.slidepanel.css">
+
+
+
 		
 		
 		<!-- Bibliotecas -->
+        <script src="joint/joint.js"></script>
 		<script src="jQuery/jquery-1.10.2.js"></script>
-		<script src="joint/joint.js"></script>
+        <script type="text/javascript" src="js/jquery.slidepanel.js"></script>
+
 		<script src="joint/joint.shapes.uml.js"></script>
 		<script src="Blob.js-master/Blob.js"></script>
 		<script src="FileSaver.js-master/FileSaver.js"></script>
+
+
 		
 		<!-- Modelos -->
 		<script src="modelos/Amalia.js"></script>
@@ -28,6 +36,8 @@
 		<!-- ide -->
 		<script src="ide/ideDiagramaClasses.js"></script>
 		
+
+
 		<script>
 			function download(filename, text) {
 				console.log("Função Download");
@@ -37,6 +47,18 @@
     			pom.click();
 			}
 		</script>
+
+       <script>
+
+           $(document).ready(function(){
+                  $('[data-slidepanel]').slidepanel({
+                      orientation: 'right',
+                      mode:'overlay'
+                  });
+              });
+       </script>
+
+
 
 		<title>Domain (classes) Model</title>
 		<meta name="description" content="ide para diagramas de Classe">
@@ -53,6 +75,7 @@
 		<div>
 			<header>
 				<h1>Domain Model</h1>
+
 			</header>
 			
 			<div id="controloDiagramaClasses">
@@ -68,6 +91,7 @@
 					<input id="btnApagarDiagrama" type="button" value="Delete Model" />	
 									
 					<input id="btnExportarDiagramaClassesParaXML" type="button" value="Export to XML" />
+                    <input id="btnCallChat" type="button" class="button" data-slidepanel="panel" href="external.html" value="Chat"/>
 
 
 				
