@@ -55,8 +55,9 @@
                     e.preventDefault();
                     socket.emit('new user', $nickBox.val(), function(data){
                         if(data){
-                            $('#nickWrap').hide(); //we hide the nickname input div
                             $('#contentWrap').show(); //we show the chat div
+                            $('#nickWrap').hide(); //we hide the nickname input div
+
                         } else {
                             $nickError.html('That username is already taken! Try Again!');
                         }

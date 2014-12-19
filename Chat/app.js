@@ -1,5 +1,10 @@
 //require express module
 
+//enabling CORS functionality (cross-origin resource sharing)
+var cors = require('cors');
+
+
+
 var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
@@ -10,6 +15,8 @@ var express = require('express'),
     nicknames = [];
 
 server.listen(3000);
+
+ app.use(cors());   //tell the app to use CORS
 
 //create a rout
     //parameters req -> request, res -> response

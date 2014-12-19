@@ -1,6 +1,6 @@
 /* Slide Panel */
         .cb_slide_panel {
-/*            background: url(../img/panel_bg_default.jpg) repeat;*/
+            background: url(../img/panel_bg_default.jpg) repeat;
             border-right: 1px solid #E0E0E0;
             box-shadow: 1px 1px 23px rgba(0, 0, 0, 0.17), -1px -1px 0 rgba(255, 255, 255, 0.85) inset;
             position: fixed;
