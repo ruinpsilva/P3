@@ -41,6 +41,7 @@
                 <form id="send-message">
                     <input size="25" id="message"></input>
                     <input type="submit" value="Send"></input>
+                    <p id="infoToChat">Press enter to send</p>
                 </form>
             </div>
             <div id="users"></div>
@@ -95,7 +96,27 @@
                 
                 socket.on('new message', function(data){
                    //time to display the message
-                    $chat.append('<b>' + data.nick + ': </b>' + data.msg + "<br/>");
+                    if($nickBox === data.nick){
+                        $chat.append('<b>' + data.nick + ': </b>' + data.msg + "<br/>");
+//                        $chat.append('<b style="float:right">'
+//                                        + data.nick
+//                                        + ': </b>'
+//                                        + '<b style="float:right>'
+//                                        + data.msg
+//                                        + '</b>'
+//                                        + "<br/>");
+
+                    } else {
+//                        $chat.append('<b style="float:left">'
+//                                        + data.nick
+//                                        + ': </b>'
+//                                        + '<b style="float:left>'
+//                                        + data.msg
+//                                        + '</b>'
+//                                        + "<br/>");
+                        $chat.append(data.nick + ': ' + data.msg + "<br/>");
+                    }
+
                 });
             });
         </script>
