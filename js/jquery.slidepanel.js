@@ -1,5 +1,6 @@
 ;(function ( $, window, document, undefined ) {
 
+
     var defaults = {
         orientation: 'left',
         mode: 'push',
@@ -33,6 +34,7 @@
         //set current trigger link to false for the current panel
         this.$panel.data('slidepanel-current', false);
         this.$panel.data('slidepanel-loaded', false);
+
 
 
         //reset any defined a positions
@@ -76,7 +78,7 @@
         //listen for a click on the close buttons for this panel
         $('.close', this.$panel).click(function(e) {
             e.preventDefault();
-            base.collapse();
+            base.minMax();
         });
 
     };
@@ -111,6 +113,7 @@
             }
             //set the current source element to this element that triggered the load
             this.$panel.data('slidepanel-current', this.$element);
+
     };
 
 
@@ -120,6 +123,7 @@
 
         var panel_options = {};
         var body_options = {};
+
         panel_options.visible = 'show';
         panel_options[this.options.orientation] = 0;
         body_options[this.options.orientation] = (this.options.orientation == 'top' || this.options.orientation == 'bottom') ? this.$panel.height() : this.$panel.width();
@@ -138,6 +142,44 @@
         });
     };
 
+
+    //RNPS
+    // minimize
+
+    Slidepanel.prototype.minApp = function(){
+
+    }
+
+    // RNPS
+    // minimize and maximize the panel
+    Slidepanel.prototype.minMax = function() {
+        var base = this;
+        var panel_options = {};
+        var body_options = {};
+        //if the panel is present we must minimize it
+        if(this.$panel.length > 0){
+            //panel_options.visible = 'hide';
+            panel_options[this.options.orientation] = -(this.$panel.width()-50);
+            body_options[this.options.orientation] = 0;
+
+            // - WARNING - right now the push setting will crash the panel and cause complete malfunction
+
+            this.$panel.animate(panel_options, 250).data('slidepanel-current', true);
+
+
+
+        } else if(this.$panel.length = 0){
+            //panel_options.visible = 'show';
+            panel_options[this.options.orientation] = 0;
+            body_options[this.options.orientation] = (this.options.orientation == 'top' || this.options.orientation == 'bottom') ? this.$panel.height() : this.$panel.width();
+
+            //animate the panel into view
+            this.$panel.animate(panel_options, 250);
+
+        }
+
+    };
+
     Slidepanel.prototype.collapse = function() {
         //hide the close button for this panel
         $('.close', this.$panel).hide();
@@ -145,7 +187,7 @@
         //set the css properties to animatate
         var panel_options = {};
         var body_options = {};
-        panel_options.visible = 'hide';
+        //panel_options.visible = 'hide';
         panel_options[this.options.orientation] = -(this.$panel.width() + 40);
         body_options[this.options.orientation] = 0;
 
@@ -155,6 +197,7 @@
         }
         //animate the panel out of view
         this.$panel.animate(panel_options, 250).data('slidepanel-current', false);
+
     };
 
     $.fn['slidepanel'] = function ( options ) {

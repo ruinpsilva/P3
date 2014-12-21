@@ -1,0 +1,85 @@
+body{
+    font-family: Helvetica,Arial, sans-serif;
+    font-size: 15px;
+    background: #3C3F41;
+    border: 1px #f7f7f7 solid;
+    height: 500px;
+    width: 278px;
+}
+
+h1{
+    font-size: 20px;
+    color: #f7f7f7;
+    text-align: center;
+}
+
+h2{
+    font-size: 18px;
+    color: #f7f7f7;
+    padding-left: 10px;
+}
+
+#setNick, #setAccount{
+    padding-left: 15px;
+    border-radius: 2px;
+}
+
+#chat{
+
+}
+#contentWrap{
+    background: #3C3F41;
+    display: none;
+}
+#chatWrap{
+    background: #3C3F41;
+    float: left;
+    border: 1px #000 solid;
+}
+#chatWrap p {
+    color:red;
+}
+
+#nickWrap p{
+    padding-left: 15px;
+    color:#f7f7f7;
+}
+
+
+
+#nickWrap input[type=submit]
+{
+	padding: 5px 10px;
+	font-weight: bold;
+	background: #f7f7f7;
+	color:#374343;
+	font-variant: small-caps;
+	font-size: small;
+	border:0px;
+	border-bottom:1px solid #374343;
+	border-radius: 2px;
+    float: right;
+    margin-right: 15px;
+
+}
+
+#nickWrap input[type=submit]:hover
+{
+	background: #374343;
+	color: #f7f7f7;
+}
+
+#nickname,
+#nickpass,
+#nicknameAc,
+#nickpassAc
+{
+    border-radius: 4px;
+}
+
+
+
+
+input{
+    text-align: center;
+}

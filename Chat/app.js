@@ -3,22 +3,29 @@
 //enabling CORS functionality (cross-origin resource sharing)
 var cors = require('cors');
 
+//setting the variable for the path
+var path = require('path');
 
 
 var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
     //creating the socket funcionality
-        //socket.io listens to ann http server object
+        //socket.io listens to any http server object
     io = require('socket.io').listen(server);
     //array to handle the nicknames
     nicknames = [];
+
+//here we add to the path of all the static content
+app.use(express.static(path.join(__dirname, '/public')));
 
 server.listen(3000);
 
  app.use(cors());   //tell the app to use CORS
 
-//create a rout
+
+
+//create a route
     //parameters req -> request, res -> response
 app.get('/', function(req, res){
    res.sendFile(__dirname + '/indexchat.html');

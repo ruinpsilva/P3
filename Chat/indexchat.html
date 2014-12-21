@@ -1,26 +1,37 @@
 <html>
     <head>
         <title>Chat para o Worms</title>
+        <meta charset="utf-8">
+        <meta http-equiv="Default-Style" content="Dark">
+
+        <link rel="stylesheet" href="css/chatStyleDark.css" title="Dark"/>
+        <link rel="Alternate stylesheet" href="css/chatStyleLight.css" title="Light"/>
         <style>
-            #chat{
-                height:500px;
-            }
-            #contentWrap{
-                display: none;
-            }
-            #chatWrap{
-                float: left;
-                border: 1px #000 solid;
-            }
+
         </style>
     </head>
     <body>
         <div id="nickWrap">
-            <p>Enter a username:</p>
+            <h1>Welcome to the Chat Room!</h1>
+            </br>
+            <h2>SIGN IN</h2>
             <p id="nickError"></p>
             <form id="setNick">
-                <input size="25" id="nickname"></input>
-                <input type="submit" value = "Enter"></input>
+                <input size="20" id="nickname" placeholder="username"></input>
+                </p>
+                <input size="20" id="nickpass" placeholder="password">
+                </p>
+                <input id="btnGoForLogin" type="submit" value = "GO Chat!"></input>
+            </form>
+            </br>
+            <p>Don't have an account?</p>
+            <h2>SIGN UP</h2>
+            <form id="setAccount">
+                <input size="20" id="nicknameAc" placeholder="username">
+                </p>
+                <input size="20" id="nickpassAc" placeholder="password">
+                </p>
+                <input id="btnGoForAccount" type="submit" value="Create Account">
             </form>
         </div>
         
