@@ -1,5 +1,24 @@
+<?php
 
+//start session mechanism
+session_start();
 
+//if not logged redirect to login
+
+if(!isset($_SESSION['username'])){
+    session_write_close();
+    header("location:login.php");
+    session_commit();
+    exit();
+}
+
+//else : get user and continue to content
+else{
+    $user = $_SESSION['username'];
+    session_commit();
+}
+
+?>
 
 <html>
     <head>
@@ -14,30 +33,6 @@
         </style>
     </head>
     <body>
-        <div id="nickWrap">
-            <h1>Welcome to the Chat Room!</h1>
-            </br>
-            <h2>SIGN IN</h2>
-            <p id="nickError"></p>
-            <form id="setNick" method="POST" action="login.php">
-                <input size="20" id="nickname" placeholder="username"></input>
-                </p>
-                <input size="20" id="nickpass" placeholder="password">
-                </p>
-                <input id="btnGoForLogin" type="submit" value = "GO Chat!"></input>
-            </form>
-            </br>
-            <p>Don't have an account?</p>
-            <h2>SIGN UP</h2>
-            <form id="setAccount">
-                <input size="20" id="nicknameAc" placeholder="username">
-                </p>
-                <input size="20" id="nickpassAc" placeholder="password">
-                </p>
-                <input id="btnGoForAccount" type="submit" value="Create Account">
-            </form>
-        </div>
-        
         <div id="contentWrap">
             <div id="chatWrap">
                 <div id="chat"></div>
@@ -49,8 +44,6 @@
             </div>
             <div id="users"></div>
         </div>
-        
-
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="chatApp.js"></script>
