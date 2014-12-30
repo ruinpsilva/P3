@@ -6,7 +6,7 @@ require_once('no-cache-headers.php');
 // se uma sessao autenticada nao permitir registo
 // redireccionar para página principal de membro autenticado
 if (isset($_SESSION['SESS_MEMBER_ID'])) {
-	header('location: member-index.php');
+	header('location: http://localhost:3000');
 	exit();
 }
 ?>
@@ -16,7 +16,6 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Registo de Novo Utilizador</title>
         <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript">$('#errorName').hide()</script>
     </head>
     <body>
 

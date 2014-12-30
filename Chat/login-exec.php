@@ -59,7 +59,6 @@
 			// regera um novo ID para a sessão (previne um determinado tipo de ataque)
 			session_regenerate_id();
 			$member = $result->fetch_assoc();
-//			$_SESSION['SESS_MEMBER_ID'] = $member['member_id'];
 			$_SESSION['SESS_FIRST_NAME'] = $member['nome'];
 			$_SESSION['SESS_LAST_NAME'] = $member['apelido'];
             $_SESSION['SESS_USERNAME'] = $member['username'];
@@ -67,7 +66,7 @@
 			// forca escrita e encerramento da sessao
 			session_write_close();
 			//redirecciona para página de login
-            //AQUI O VAI TER QUE ENTRAR DIRECTAMENTE NO CHAT-------------------------------------
+            //AQUI VAI TER QUE ENTRAR DIRECTAMENTE NO CHAT-------------------------------------
 			header("location: http://localhost:3000");
 			exit();
 		}else {

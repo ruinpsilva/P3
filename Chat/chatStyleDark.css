@@ -62,7 +62,10 @@ h2{
 
 
 #nickWrap input[type=submit],
-#regForm input[type=submit]
+#regForm input[type=submit],
+#deniedBtn input[type=submit],
+#goLogBtn input[type=submit],
+#goLogBtn2 input[type=submit]
 {
 	padding: 5px 10px;
 	font-weight: bold;
@@ -83,7 +86,10 @@ h2{
 }
 
 #nickWrap input[type=submit]:hover,
-#regForm input[type=submit]:hover
+#regForm input[type=submit]:hover,
+#deniedBtn input[type=submit]:hover,
+#goLogBtn input[type=submit]:hover,
+#goLogBtn2 input[type=submit]:hover
 {
 	background: #374343;
 	color: #f7f7f7;
