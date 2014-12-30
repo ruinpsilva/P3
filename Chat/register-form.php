@@ -15,7 +15,7 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Registo de Novo Utilizador</title>
-<link href="loginmodule.css" rel="stylesheet" type="text/css" />
+<link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php

@@ -24,7 +24,8 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
 <body>
 <p>&nbsp;</p>
 <div id="nickWrap">
-            <h1>Welcome to the Chat Room!</h1>
+            <h1>Welcome to the A.M.A.L.I.A.</h1>
+            <h1> Project Chat Room!</h1>
             </br>
             <h2>SIGN IN</h2>
             <form id="loginForm" method="post" action="login-exec.php" name="loginForm">
@@ -37,9 +38,9 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
             </br>
             <p>Don't have an account?</p>
             <h2>SIGN UP</h2>
-                <input id="btnGoForAccount" type="button" value="Create Account" href="register-form.php">
-                <input id="btnCallChat" type="submit" href="indexchat.html" value="Chat"/>
-                <h4 class='err'>Registe-se <a href='register-form.php'> aqui</a
+            <form id="goToSignUp" method="post" action="register-form.php" name="registerForm">
+                <input id="btnGoForAccount" type="submit" href="register-form.php" value="Click Here"/>
+            </form>
         </div>
 </body>
 </html>
