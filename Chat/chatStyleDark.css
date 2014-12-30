@@ -61,7 +61,8 @@ h2{
 
 
 
-#nickWrap input[type=submit]
+#nickWrap input[type=submit],
+#regForm input[type=submit]
 {
 	padding: 5px 10px;
 	font-weight: bold;
@@ -77,7 +78,12 @@ h2{
 
 }
 
-#nickWrap input[type=submit]:hover
+#regForm input[type=submit]{
+    width: auto;
+}
+
+#nickWrap input[type=submit]:hover,
+#regForm input[type=submit]:hover
 {
 	background: #374343;
 	color: #f7f7f7;
@@ -104,3 +110,30 @@ input{
     color: #f7f7f7 !important;
 }
 
+#regForm{
+    padding-right: 10px;
+}
+
+#smallInfo{
+    font-size: 10px;
+}
+
+#fs1{
+    border: none;
+}
+
+#fs1 input{
+    border-radius: 2px;
+    align-content: center;
+    width: 200px;
+}
+
+#loginForm input{
+    border-radius: 2px;
+}
+
+li
+{
+    color: red;
+    font-size: 10px;
+}

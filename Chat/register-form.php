@@ -12,50 +12,44 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registo de Novo Utilizador</title>
-<link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<?php
-	if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
-		echo '<ul class="err">';
-		foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-			echo '<li>',$msg,'</li>';
-		}
-		echo '</ul>';
-		unset($_SESSION['ERRMSG_ARR']);
-	}
-?>
-<form id="regForm" name="regForm" method="post" action="register-exec.php">
-  <table width="300" border="0" align="center" cellpadding="2" cellspacing="0">
-    <tr>
-      <th> Nome </th>
-      <td><input name="fname" type="text" class="textfield" id="fname" /></td>
-    </tr>
-    <tr>
-      <th> Apelido </th>
-      <td><input name="lname" type="text" class="textfield" id="lname" /></td>
-    </tr>
-    <tr>
-      <th width="124">Username</th>
-      <td width="168"><input name="login" type="text" class="textfield" id="login" /></td>
-    </tr>
-    <tr>
-      <th>Password</th>
-      <td><input name="password" type="password" class="textfield" id="password" /></td>
-    </tr>
-    <tr>
-      <th>Confirme Password </th>
-      <td><input name="cpassword" type="password" class="textfield" id="cpassword" /></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><input type="submit" name="Submit" value="Register" /></td>
-    </tr>
-  </table>
-  <?php include('footer.inc'); ?>
-</form>
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Registo de Novo Utilizador</title>
+        <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">$('#errorName').hide()</script>
+    </head>
+    <body>
+
+        <form id="regForm" name="regForm" method="post" action="register-exec.php">
+            <h1>Join us and Chat with us!</h1>
+            <fieldset id=fs1>
+                </p>
+                <input type="text" id="fname" name="fname" placeholder="First Name"/>
+                </p>
+                <input type="text" id="lname" name="lname" placeholder="Last Name"/>
+                <p></p>
+                <input type="text" id="login" name="login" placeholder="Username"/>
+                <p></p>
+                <input type="password" id="password" name="password" placeholder="Password"/>
+                <p></p>
+                <input type="password" id="cpassword" name="cpassword" placeholder="Confirm password"/>
+                <p></p>
+                <p id="smallInfo">All fields are Required!</p>
+                <p></p>
+                <input type="submit" name="Submit" value="Sign up"/>
+                <p></p>
+                </br>
+                <?php
+                    if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
+                        echo '<ul class="err">';
+                        foreach($_SESSION['ERRMSG_ARR'] as $msg) {
+                            echo '<li>',$msg,'</li>';
+                        }
+                        echo '</ul>';
+                        unset($_SESSION['ERRMSG_ARR']);
+                    }
+                ?>
+            </fieldset>
+        </form>
+    </body>
 </html>

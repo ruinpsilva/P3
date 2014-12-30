@@ -29,37 +29,38 @@
 
 	//Validacoes (versao simples)
 	if($fname == '') {
-		$errmsg_arr[] = 'Nome (preenchimento obrigatório)';
+
+		$errmsg_arr[] = 'You must type your first Name';
 		$errflag = true;
 	}
 	if($lname == '') {
-		$errmsg_arr[] = 'Apelido (preenchimento obrigatório)';
+		$errmsg_arr[] = 'You must type your last Name';
 		$errflag = true;
 	}
 	if($login == '') {
-		$errmsg_arr[] = 'Username (preenchimento obrigatório)';
+		$errmsg_arr[] = 'You must type the Username';
 		$errflag = true;
 	}
 	if($password == '') {
-		$errmsg_arr[] = 'Password (preenchimento obrigatório)';
+		$errmsg_arr[] = 'You must type the password';
 		$errflag = true;
 	}
 	if($cpassword == '') {
-		$errmsg_arr[] = 'Confirmação de Password (preenchimento obrigatório)';
+		$errmsg_arr[] = 'You must type the confirmation password';
 		$errflag = true;
 	}
 	if( strcmp($password, $cpassword) != 0 ) {
-		$errmsg_arr[] = 'Passwords não são iguais';
+		$errmsg_arr[] = 'The passwords do not match';
 		$errflag = true;
 	}
 
 	//Check for duplicate login ID
 	if($login != '') {
-		$qry = "SELECT * FROM members WHERE login='$login'";
+		$qry = "SELECT * FROM users WHERE username='$login'";
 		$result = $link->query($qry);
 		if($result) {
 			if($result->num_rows > 0) {
-				$errmsg_arr[] = 'Username já utilizado (escolha outro)';
+				$errmsg_arr[] = 'This Username is already taken, please choose another';
 				$errflag = true;
 			}
 			@$result->free_result();
@@ -78,7 +79,7 @@
 	}
 
 	//Se não: inserir novo utilizador
-	$qry = "INSERT INTO members(firstname, lastname, login, passwd) VALUES('$fname','$lname','$login','".md5($_POST['password'])."')";
+	$qry = "INSERT INTO users(username, nome, apelido, pwd) VALUES('$login','$fname','$lname','".md5($_POST['password'])."')";
 	$result = $link->query($qry);
 
 	//Verificar se houve sucesso na insercao do registo
