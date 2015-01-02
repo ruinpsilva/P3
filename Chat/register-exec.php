@@ -1,5 +1,5 @@
 <?php
-	//Sessões
+	//Sessoes
 	session_start();
 
 	//Acesso a BD

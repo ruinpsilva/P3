@@ -6,7 +6,7 @@
     <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<h1> Access Denied </h1>
+	<h1>Access Denied</h1>
 	<p align="center">&nbsp;</p>
 	<h4 class="err">Only logged Users <br> can access the Chat</h4>
 	<h4 class="err">Please Sign In to Chat </h4>

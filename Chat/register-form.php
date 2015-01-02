@@ -18,7 +18,7 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
         <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-
+    <p>&nbsp;</p>
         <form id="regForm" name="regForm" method="post" action="register-exec.php">
             <h1>Join us and Chat with us!</h1>
             <fieldset id=fs1>
