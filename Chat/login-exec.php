@@ -1,6 +1,8 @@
 <?php
-//Iniciar Sessao (isto é obrigatório sempre que se usam sessões)
+//Iniciar Sessao (isto <div class="container">
+
 session_start();
+
 require_once('no-cache-headers.php');
 //Incluir definicoes de acesso a BD
 require_once('config.php');
@@ -16,8 +18,8 @@ if(!$link) {
     die('Falha de ligacao a BD: ' . mysql_error());
 }
 //limpar os valores recebidos por POST
-$login 		= clean($_POST['login'],$link);
-$password 	= clean($_POST['password'],$link);
+$login 		= $_POST['login'];
+$password 	= $_POST['password'];
 
 //validacao do formulario
 if($login == '') {
@@ -28,24 +30,26 @@ if($password == '') {
     $errmsg_arr[] = 'Password (preenchimento obrigatório)';
     $errflag = true;
 }
-//se existirem erros -> redireccionar para a seguinte página
+//se existirem erros  redireccionar para a seguinte pagina
 if($errflag) {
     // guardar erros de validacao numa variavel de sessao
     $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-    // força a escrita e encerramento da sessao
+    // forca a escrita e encerramento da sessao
     session_write_close();
     // redirecciona para o formulario de login
     header("location: login-form.php");
     exit();
 }
 //cria query SQL
-$qry="SELECT * FROM users WHERE username='$login' AND pwd='".md5($_POST['password'])."'";
+$qry="SELECT * FROM users WHERE username='$login' AND pwd='".md5($password)."'";
+
 $result = $link->query($qry);
 //Verifica se existe $resultado
+
 if($result) {
     if($result->num_rows == 1) {
         //Login com Sucesso
-        // regera um novo ID para a sessão (previne um determinado tipo de ataque)
+        // regera um novo ID para a sessao (previne um determinado tipo de ataque)
         session_regenerate_id();
         $member = $result->fetch_assoc();
         $_SESSION['SESS_FIRST_NAME'] = $member['nome'];
@@ -54,8 +58,8 @@ if($result) {
         $_SESSION['SESS_EXP_TIME'] = time() + SESSION_TIMEOUT;
         // forca escrita e encerramento da sessao
         session_write_close();
-        //redirecciona para página de login
-        header("location: http://localhost:3000");
+        //redirecciona para pagina de login
+        header("location: http://localhost:3000?u=".$member['username']);
         exit();
     }else {
         //Login failed
@@ -63,6 +67,6 @@ if($result) {
         exit();
     }
 }else {
-    die("SQL Query falhou");
+        die("SQL Query falhou");
 }
 ?>
