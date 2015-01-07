@@ -385,6 +385,13 @@ $(document).ready(function(){
 	});
 
     //RNPS
+    //botão para gravar o projecto
+    $("btnGravarProjeto").click(function(){
+        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
+        ControladorAmalia.gravarProjectoNoBrowser;
+    });
+
+    //RNPS
     //Save the diagram
     $("#btnGravarDiagramaAuto").click(function(){
        ControladorAmalia.gravarDiagramaNoBrowser(graph);
