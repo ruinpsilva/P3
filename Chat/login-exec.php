@@ -1,5 +1,5 @@
 <?php
-//Iniciar Sessao (isto <div class="container">
+//Iniciar Sessao
 
 session_start();
 
@@ -45,6 +45,7 @@ $qry="SELECT * FROM users WHERE username='$login' AND pwd='".md5($password)."'";
 
 $result = $link->query($qry);
 //Verifica se existe $resultado
+
 
 if($result) {
     if($result->num_rows == 1) {
