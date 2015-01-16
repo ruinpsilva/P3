@@ -729,6 +729,41 @@ ControladorAmalia ={
 		this.toogleDialogoGravarDiagrama("");
 		
 	},
+
+    //RNPS
+    //Passar diagrama de Casos de Uso para JSON
+    diagramaCasoUsoParaJSON: function(graph){
+        var modeloJSONCU = graph.toJSON();
+        var diagramaCU = JSON.stringify(modeloJSONCU);
+    },
+
+    //RNPS
+    //Passar diagrama de Classes para JSON
+    diagramaClassesParaJSON: function(graph){
+        var modeloCL = graph.toJSON();
+        var diagramaCL = JSON.stringify(modeloCL);
+    },
+
+    //RNPS
+    //Gravar Projecto no Browser
+    gravarProjectoNoBrowser: function(){
+        var nomeProjeto =$("nomeProjecto").val();
+        //bloco para tentar armazenar em "local storage"
+        try{
+            //estrutura JSON para armazenar os dois diagramas
+            var projecto = { proj: [{diagCU : diagramaCU, diagCL : diagramaCL}]};
+            if(nomeProjeto){
+                localStorage.setItem(nomeProjeto, projecto);
+            } else {
+                localStorage.setItem("projeto", projecto);
+            }
+        }
+        catch(err){
+            alert("não gravou projecto");
+        }
+
+    },
+
 	
 	abirDiagrama:function (graph){
 		
