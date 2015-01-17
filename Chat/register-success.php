@@ -9,7 +9,7 @@
     <h1>Awesome</h1>
     <h4>Now you can start chating! <br> Just Sign In!</h4>
     <form id="goLogBtn244">
-        <input id="btnGoFor344" type="submit" href="login-form.php" value="Login"/>
+        <input id="btnGoFor344" type="submit" href="<?php header("location: http://localhost:3000?u=".$member['username']?>" value="Login"/>
     </form>
 </body>
 </html>
