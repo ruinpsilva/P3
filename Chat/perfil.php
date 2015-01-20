@@ -28,12 +28,11 @@
     <h1>Profile</h1>
     <br/>
     <img src="getImage.php?id=1" width="175" height="200" />
-    <p>First Name:
+    <p>First Name:</p>
     <input type="text" id="fname" name="fname" value="<?php echo $row->nome?>" readonly/>
-    </p>
-    <p>Last Name: <input type="text" id="fname" name="fname" value="<?php echo $row->apelido?>" readonly/>
-    </p>
-    <p>Username : <input type="text" id="fname" name="fname" value="<?php echo $row->username?>" readonly/>
+    <p>Last Name: </p> <input type="text" id="fname" name="fname" value="<?php echo $row->apelido?>" readonly/>
+
+    <p>Username : </p> <input type="text" id="fname" name="fname" value="<?php echo $row->username?>" readonly/>
 
     <br/>
     <br/>
@@ -47,11 +46,8 @@
                 <label>File:  
                 <input name="myfile" type="file" size="30" />
                 </label>
-
                 <input type="submit" name="submitBtn" class="sbtn" value="Upload" />
-
-
-                  <iframeid="upload_target"name="upload_target"src="#"style="width:0;height:0;border:0px solid #fff;"></iframe>
-                </form>
+                <iframeid="upload_target"name="upload_target"src="#"style="width:0;height:0;border:0px solid #fff;"></iframe>
+    </form>
     
 </html>
