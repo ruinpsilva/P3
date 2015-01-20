@@ -23,7 +23,7 @@
     $row= $resultset->fetch_object();
 ?>
 <html>
-          <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
+        <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <h1>Profile</h1>
     <br/>
@@ -38,7 +38,7 @@
     <br/>
     <br/>
        <form>
-        <input type="button" onclick="window.location.href='http://localhost:8888/P3/chat/Change%20Profile.php'" value="Change Perfil"/>      
+        <input type="button" onclick="window.location.href='http://localhost:8081/P3/chat/Change%20Profile.php'" value="Change Perfil"/>
         <input type="button" onclick="window.location.href='http://localhost:3000?u=<? echo $username ?>'" value="Go Chat" />          
        </form>
         
