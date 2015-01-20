@@ -11,7 +11,7 @@
 	<h4 class="err">Only logged Users <br> can access the Chat</h4>
 	<h4 class="err">Please Sign In to Chat </h4>
 	<form id="deniedBtn">
-	    <input id="btnGo5" type="submit" href="login-form.php" value="Click Here"/>
+	    <input id="btnGo5" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/login-form.php'" value="Click Here"/>
 	</form>
 	</body>
 </html>

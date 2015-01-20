@@ -22,7 +22,6 @@ h2{
     color: #f7f7f7;
     padding-left: 10px;
 }
-
 #setNick, #setAccount{
     padding-left: 15px;
     border-radius: 2px;
@@ -63,8 +62,8 @@ h2{
 
 #nickWrap input[type=submit],
 #regForm input[type=submit],
-#deniedBtn input[type=submit],
-#goLogBtn input[type=submit],
+#deniedBtn input[type=button],
+#goLogBtn input[type=button],
 #goLogBtn2 input[type=submit]
 {
 	padding: 5px 10px;
@@ -80,6 +79,36 @@ h2{
     margin-right: 15px;
 
 }
+
+
+#LOUT,
+#GCHAT{
+    padding: 5px 10px;
+	font-weight: bold;
+	background: #f7f7f7;
+	color:#374343;
+	font-variant: small-caps;
+	font-size: small;
+	border:0px;
+	border-bottom:1px solid #374343;
+	border-radius: 2px;
+    float: right;
+    margin-right: 15px;
+}
+#CHP{
+    padding: 5px 10px;
+	font-weight: bold;
+	background: #f7f7f7;
+	color:#374343;
+	font-variant: small-caps;
+	font-size: small;
+	border:0px;
+	border-bottom:1px solid #374343;
+	border-radius: 2px;
+    float: left;
+    margin-right: 15px;
+}
+
 
 #regForm input[type=submit]{
     width: auto;

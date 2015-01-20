@@ -12,9 +12,7 @@
     }
     
     $username=$_SESSION['SESS_USERNAME'];
-    //$username= Domingos;
     $sqry="SELECT * FROM users WHERE username='$username'";
-    
     $resultset= $link->query($sqry);
     if($link->erno){
         echo ("ERRO na Query :".$connect->error);
@@ -27,20 +25,24 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <h1>Profile</h1>
     <br/>
-    <img src="getImage.php?id=1" width="175" height="200" />
-    <p>First Name:</p>
-    <input type="text" id="fname" name="fname" value="<?php echo $row->nome?>" readonly/>
-    <p>Last Name: </p> <input type="text" id="fname" name="fname" value="<?php echo $row->apelido?>" readonly/>
+    <img src="getImage.php?id=1"/>
+    <p><b>First Name:</b>&nbsp&nbsp&nbsp <i><?php echo $row->nome?></i></p>
+    <p><b>Last Name:</b>&nbsp&nbsp&nbsp <i><?php echo $row->apelido?></i></p>
+    <p><b>Username  :</b>&nbsp&nbsp&nbsp <i><?php echo $row->username?></i></p>
 
-    <p>Username : </p> <input type="text" id="fname" name="fname" value="<?php echo $row->username?>" readonly/>
+       <form id="btnperfil">
+        <input id ="GCHAT"type="button" onclick="window.location.href='http://localhost:3000?u=<? echo $username ?>'" value="Go Chat" />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <input id="CHP" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/Change%20Profile.php'" value="Change Profile"/>
+        <input id ="LOUT" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/logout.php'" value="Log Out"/>
 
-    <br/>
-    <br/>
-       <form>
-        <input type="button" onclick="window.location.href='http://localhost:8081/P3/chat/Change%20Profile.php'" value="Change Perfil"/>
-        <input type="button" onclick="window.location.href='http://localhost:3000?u=<? echo $username ?>'" value="Go Chat" />          
        </form>
         
+<!--
     <form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
 
                 <label>File:  
@@ -49,5 +51,6 @@
                 <input type="submit" name="submitBtn" class="sbtn" value="Upload" />
                 <iframeid="upload_target"name="upload_target"src="#"style="width:0;height:0;border:0px solid #fff;"></iframe>
     </form>
+-->
     
 </html>

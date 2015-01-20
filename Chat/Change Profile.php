@@ -23,16 +23,22 @@
     $row= $resultset->fetch_object();
 ?>
 <html>
-          <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <h1>Profile</h1>
-    <br/>
-    <img src="getImage.php?id=1" width="175" height="200" />
-    <p>First Name:
-    <input type="text" id="fname" name="fname" value="<?php echo $row->nome?>" />
-    </p>
-    <p>Last Name: <input type="text" id="flname" name="flname" value="<?php echo $row->apelido?>" />
-    </p>
-    <p>Username : <input type="text" id="fusername" name="fusername" value="<?php echo $row->username?>" />
-    </p>
+         
+    <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <body>
+        <h1>Profile</h1>
+        <br/>
+        
+        <img src="getImage.php?id=1" width="175" height="200" />
+        <form id="ProfileForm" method="post" action="">        
+        <p>First Name:
+        <input type="text" id="fname" name="fname" value="<?php echo $row->nome?>" />
+        </p>
+        <p>Last Name: <input type="text" id="flname" name="flname" value="<?php echo $row->apelido?>" />
+        </p>
+        <p>Username : <input type="text" id="fusername" name="fusername" value="<?php echo $row->username?>" />
+        </p>
+        </form>
+    </body>
 </html>

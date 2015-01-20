@@ -32,7 +32,7 @@
     <h4 align="center" class="err">Your logout was succesfull <br>
     Come back soon.</h4>
     <form id="goLogBtn">
-	    <input id="btnGo2" type="submit" href="login-form.php" value="Login"/>
+	    <input id="btnGo2" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/login-form.php'"  value="Login"/>
 	</form>
 </body>
 </html>

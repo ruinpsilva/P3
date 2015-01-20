@@ -35,6 +35,8 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
                 <p></p>
                 <p id="smallInfo">All fields are Required!</p>
                 <p></p>
+                <p >Profile picture</p>
+                <input type="file" id="imagem" name="imagem" placeholder="Insere imagem" value="uploud"/>
                 <input type="submit" name="Submit" value="Sign up"/>
                 <p></p>
                 </br>
