@@ -25,7 +25,7 @@
 <html>
           <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <h1>Perfil</h1>
+    <h1>Profile</h1>
     <br/>
     <img src="getImage.php?id=1" width="175" height="200" />
     <p>First Name:
@@ -33,15 +33,15 @@
     </p>
     <p>Last Name: <input type="text" id="fname" name="fname" value="<?php echo $row->apelido?>" readonly/>
     </p>
-    <p>Username : <input type="text" id="fname" name="fname" value="<?php echo $row->username?>" readonly</p>
-    <p>Password : <input type="password" value="<? echo $row->pwd?>" readonly/> </p>
+    <p>Username : <input type="text" id="fname" name="fname" value="<?php echo $row->username?>" readonly/>
 
     <br/>
-       <p>
-        <input type="button" value="Change Perfil" actions="re"/>      
-         <input type="submit" action="http://localhost:3000?u=<? echo $username ?>" value="Go Chat" />
-         </p>
-<!--
+    <br/>
+       <form>
+        <input type="button" onclick="window.location.href='http://localhost:8888/P3/chat/Change%20Profile.php'" value="Change Perfil"/>      
+        <input type="button" onclick="window.location.href='http://localhost:3000?u=<? echo $username ?>'" value="Go Chat" />          
+       </form>
+        
     <form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
 
                 <label>File:  
@@ -53,6 +53,5 @@
 
                   <iframeid="upload_target"name="upload_target"src="#"style="width:0;height:0;border:0px solid #fff;"></iframe>
                 </form>
--->
     
 </html>
