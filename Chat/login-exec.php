@@ -60,7 +60,8 @@ if($result) {
         // forca escrita e encerramento da sessao
         session_write_close();
         //redirecciona para pagina de login
-        header("location: http://localhost:3000?u=".$member['username']);
+        header("location:perfil.php");
+        //header("location: http://localhost:3000?u=".$member['username']);
         exit();
     }else {
         //Login failed
