@@ -58,7 +58,7 @@ if($result) {
         $_SESSION['SESS_USERNAME'] = $member['username'];
         $_SESSION['SESS_EXP_TIME'] = time() + SESSION_TIMEOUT;
         // forca escrita e encerramento da sessao
-        session_write_close();
+        //session_write_close();
         //redirecciona para pagina de login
         header("location:perfil.php");
         //header("location: http://localhost:3000?u=".$member['username']);

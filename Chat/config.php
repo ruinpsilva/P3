@@ -5,5 +5,5 @@
     define('DB_PASSWORD', 'teste');
     define('DB_DATABASE', 'p3chat2');
     // 15 segundos de timeout
-    define('SESSION_TIMEOUT',15);
+    define('SESSION_TIMEOUT',28800);
 ?>

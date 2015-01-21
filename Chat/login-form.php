@@ -5,8 +5,8 @@ session_start();
 require_once('no-cache-headers.php');
 // se uma sessao autenticada nao permitir re-login
 // redireccionar para página principal de membro autenticado
-if (isset($_SESSION['SESS_MEMBER_ID'])) {
-	header('location: http://localhost:3000');
+if (isset($_SESSION['SESS_FIRST_NAME'])) {
+	header('location: perfil.php');
 	exit();
 }
 ?>
