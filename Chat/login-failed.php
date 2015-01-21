@@ -2,18 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Falha de autenticação</title>
+	<link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
+	<title>Login Error</title>
 <link href="loginmodule.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<h1> Falha de autenticação </h1>
+	<h1> Login Error </h1>
 	<p align="center">&nbsp;</p>
 	<h4 align="center" class="err">
-	Falha de autenticaçao!<br />
-  	Verifique o seu username e password
+	Login Error!!<br />
+  	Please verify if your username and password are correct
   	</h4>
   	<br />
-  	Voltar a <a href='login-form.php'>Login</a>
+  	<input id ="try" type="submit" value="Try again" onclick="window.location.href='http://localhost:8081/P3/chat/login-form.php'"/>
   	<!-- footer -->
   	<?php include('footer.inc'); ?>
 </body>

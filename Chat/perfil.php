@@ -23,9 +23,11 @@
 <html>
         <link href="chatStyleDark.css" rel="stylesheet" type="text/css" />
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <h1>Profile</h1>
+        <h1>Welcome to the A.M.A.L.I.A.</h1>
+                    <h1> Project Chat Room!</h1>
+    <h2 id="h1Prof">Profile </h2>
     <br/>
-    <img src="getImage.php?id=1"/>
+    <img src="getImage.php?user=<?php echo $username?>" alt="photo" width="125" height="150"/>
     <p><b>First Name:</b>&nbsp&nbsp&nbsp <i><?php echo $row->nome?></i></p>
     <p><b>Last Name:</b>&nbsp&nbsp&nbsp <i><?php echo $row->apelido?></i></p>
     <p><b>Username  :</b>&nbsp&nbsp&nbsp <i><?php echo $row->username?></i></p>
@@ -36,21 +38,8 @@
         <br/>
         <br/>
         <br/>
-        <br/>
-        <input id="CHP" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/Change%20Profile.php'" value="Change Profile"/>
+        <input id="CHP" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/profileChange-form.php'" value="Change Profile"/>
         <input id ="LOUT" type="button" onclick="window.location.href='http://localhost:8081/P3/chat/logout.php'" value="Log Out"/>
 
        </form>
-        
-<!--
-    <form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
-
-                <label>File:  
-                <input name="myfile" type="file" size="30" />
-                </label>
-                <input type="submit" name="submitBtn" class="sbtn" value="Upload" />
-                <iframeid="upload_target"name="upload_target"src="#"style="width:0;height:0;border:0px solid #fff;"></iframe>
-    </form>
--->
-    
 </html>

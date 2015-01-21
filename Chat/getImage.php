@@ -1,19 +1,15 @@
 <?php
+    $username= $_GET['user'];
+    require_once('config.php');
+	require_once('functions.php');
+    $link = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	if(!$link) {
+		die('Falha na ligacao à BD: ' . mysql_error());
+	}
 
-  $id = $_GET['id'];
-  $link = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DATABASE);
-    if(!$link){
-        die('Falha de ligacao a BD:' . mysl_error());
-    }
-
-    $sqry="SELECT * FROM users WHERE username='Domingos'";
-    $resultset= $link->query($sqry);
-    if($link->erno){
-        echo ("ERRO na Query :".$connect->error);
-        exit();
-    }
-    $row= $resultset->fetch_object();
-    header("content-type: image/jpeg")
-    echo $row->imagem:
-
+    $sqry="SELECT imagem FROM users WHERE username='".$username."'";
+    $query = $link->query($sqry);
+    $row = mysqli_fetch_array($query);
+    $content = $row['imagem'];
+    echo $content;
 ?>

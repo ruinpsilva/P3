@@ -19,7 +19,7 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
     </head>
     <body>
     <p>&nbsp;</p>
-        <form id="regForm" name="regForm" method="post" action="register-exec.php">
+        <form  enctype='multipart/form-data' id="regForm" name="regForm" method="POST" action="register-exec.php">
             <h1>Join us and Chat with us!</h1>
             <fieldset id=fs1>
                 </p>
@@ -27,7 +27,7 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
                 </p>
                 <input type="text" id="lname" name="lname" placeholder="Last Name"/>
                 <p></p>
-                <input type="text" id="login" name="login" placeholder="Username"/>
+                <input type="text" id="login" name="login" placeholder="Username" maxlength="8"/>
                 <p></p>
                 <input type="password" id="password" name="password" placeholder="Password"/>
                 <p></p>
@@ -36,7 +36,7 @@ if (isset($_SESSION['SESS_MEMBER_ID'])) {
                 <p id="smallInfo">All fields are Required!</p>
                 <p></p>
                 <p >Profile picture</p>
-                <input type="file" id="imagem" name="imagem" placeholder="Insere imagem" value="uploud"/>
+                <input type="file" id="imagem" name="imagem"  accept="image/jpeg"/>
                 <input type="submit" name="Submit" value="Sign up"/>
                 <p></p>
                 </br>
