@@ -1,6 +1,8 @@
 /* Slide Panel */
         .cb_slide_panel {
-            background: url(../img/panel_bg_default.jpg) repeat;
+/*            background: url(../img/panel_bg_default.jpg) repeat;*/
+            background: #3C3F41;
+            opacity: 0.95;
             border-right: 1px solid #E0E0E0;
             box-shadow: 1px 1px 23px rgba(0, 0, 0, 0.17), -1px -1px 0 rgba(255, 255, 255, 0.85) inset;
             position: fixed;
@@ -68,7 +70,7 @@
             text-shadow: 0 1px 0 #000000;
         }
         .cb_slide_panel h2 {
-            border-bottom: 1px solid #276BB3;
+/*            border-bottom: 1px solid #276BB3;*/
             color: #FFFFFF;
             font-size: 14px;
             margin: 0;
