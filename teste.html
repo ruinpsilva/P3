@@ -1,0 +1,20 @@
+<html>
+<head>
+<script type="text/javascript">
+  function validate(oForm){
+    if (!/(\.(gif|jpg|jpeg|bmp|png))$/i.test(oForm.file1.value)){
+       alert("Please attach an image.");
+       oForm.file1.focus();
+       return false;
+    }
+    return true;
+  }
+</script>
+</head>
+<body>
+<form name="uploadForm" action="upload.php" method="post" enctype="multipart/form-data" onsubmit="return validate(this)" />
+<input type="file" name="file1" />
+<input type="submit" value="Save" />
+</form>
+</body>
+</html>

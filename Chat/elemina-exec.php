@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once('auth.php');
     require_once('no-cache-headers.php');
     //Incluir definicoes de acesso a BD
@@ -19,7 +19,9 @@
         echo ("ERRO na Query :".$connect->error);
         exit();
     }
-    header("location: login-form.php");
+session_destroy();
+        header("location: login-form.php");
+
         exit();
 
 ?>

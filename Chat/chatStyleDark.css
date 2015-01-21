@@ -3,8 +3,7 @@ body {
     font-size: 15px;
     background: #3C3F41;
     border: 1px #f7f7f7 solid;
-    border-radius: 5px;
-    height: 500px;
+    height: 550px;
     width: 278px;
     color: #f7f7f7;
     padding-left: 15px;
@@ -175,7 +174,7 @@ input {
 #fs1 input[type=text],
 #fs1 input[type=password]
 {
-    width: 200px;
+    width: 150px;
 }
 #loginForm input {
     border-radius: 2px;

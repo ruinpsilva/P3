@@ -37,20 +37,22 @@
         <h2>Profile</h2>
         <form enctype='multipart/form-data' id="ChangeForm" name="regForm" method="POST" action="profile-exec.php">
             <fieldset id=fs1>
+                First Name
                 <input type="text" id="fname" name="fname" placeholder="First Name" value="<?php echo $row->nome ?>" />
                 </p>
+                Last Name
                 <input type="text" id="lname" name="lname" placeholder="Last Name" value="<?php echo $row->apelido?>" />
                 <p></p>
-                <input type="text" id="login" name="login" placeholder="Username" value="<?php echo $row->username?>" maxlength="8"/>
-                <p></p>
-                <input type="password" id="password" name="password" placeholder="Password" />
-                <p></p>
-                <input type="password" id="cpassword" name="cpassword" placeholder="Confirm password" />
-                <p></p>
+                Username
+                <input type="text" id="login" name="login" placeholder="Username" value="<?php echo $row->username?>" readonly maxlength="8"/>
                 <p id="smallInfo">All fields are Required!</p>
                 <p></p>
                 <p>Profile picture</p>
                 <input type="file" id="imagem" name="imagem" accept="image/jpeg" />
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <br/>
                 <br/>
                 <input type="submit" name="Submit" value="Save" />
@@ -75,5 +77,4 @@
 
     </div>
 </body>
-
 </html>
