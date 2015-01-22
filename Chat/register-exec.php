@@ -87,7 +87,6 @@ $image = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
 
 	//Verificar se houve sucesso na insercao do registo
 	if($result) {
-		// destruir a sessão de registo
 		header("location: login-exec-reg.php?login=".$login);
 		exit();
 	}else {
