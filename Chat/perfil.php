@@ -33,7 +33,7 @@
     <p><b>Username  :</b>&nbsp&nbsp&nbsp <i><?php echo $row->username?></i></p>
 
        <form id="btnperfil">
-        <input id ="GCHAT"type="button" onclick="window.location.href='http://localhost:3000?u=<? echo $username ?>'" value="Go Chat" />
+        <input id ="GCHAT"type="button" onclick="location.href='http://localhost:3000?u=<? echo $username ?>'" value="Go Chat" />
         <br/>
         <br/>
         <br/>

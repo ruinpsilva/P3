@@ -1,0 +1,27 @@
+LISTA DE TAREFAS
+
+criar projeto
+
+apagar projeto
+
+guardar projeto no browser (JSON)
+
+exportar projeto para o disco (XML)
+
+floating box do lado direito fica com nomes de classes, casos de uso, etc
+
+aplicar upgrades do IDE de casos de uso para o diagrama de classes
+
+página principal
+    
+    apresentar os mais recentes seis projetos
+    abrir projeto do browser
+    novo projeto
+    abrir projeto de ficheiro
+
+página de stage
+    criar imagem com ícones e usá-los como botões para os diferentes componentes
+    
+    
+
+    
