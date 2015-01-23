@@ -730,28 +730,26 @@ ControladorAmalia ={
 		
 	},
 
-    //RNPS
-    //Passar diagrama de Casos de Uso para JSON
-    diagramaCasoUsoParaJSON: function(graph){
-        var modeloJSONCU = graph.toJSON();
-        var diagramaCU = JSON.stringify(modeloJSONCU);
-    },
-
-    //RNPS
-    //Passar diagrama de Classes para JSON
-    diagramaClassesParaJSON: function(graph){
-        var modeloCL = graph.toJSON();
-        var diagramaCL = JSON.stringify(modeloCL);
-    },
 
     //RNPS
     //Gravar Projecto no Browser
-    gravarProjectoNoBrowser: function(){
+    gravarProjectoNoBrowser: function(graph){
         var nomeProjeto =$("nomeProjecto").val();
+
+        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
+        //ATENÇÃO É NECESSÁRIO DIFERENCIAR OS DIAGRAMAS (TALVEZ MUDAR VARIÁVEL???)
+        ControladorAmalia.diagramaClassesParaJSON(graph);
+        //FALTA CRIAR LISTA DE CASOS DE USO, LISTA ATORES, LISTA CLASSES
+
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
             var projecto = { proj: [{diagCU : diagramaCU, diagCL : diagramaCL}]};
+            var projecto = {"proj": [
+                {"diagCU" : diagramaCU, "listaCU" : listaCasos, "listaA" : listaAtores},
+                {"diagCL" : diagramaCL, "classes": listaClasses}
+            ]};
+
             if(nomeProjeto){
                 localStorage.setItem(nomeProjeto, projecto);
             } else {
@@ -774,6 +772,9 @@ ControladorAmalia ={
 		this.toogleDialogo("#dialogoAbreDiagrama",false);
 		
 	},
+
+
+
 	//***************************
 	//**   Funções Utilitárias **
 	//***************************
@@ -891,50 +892,4 @@ function get_cookie ( cookie_name )
 
 
 
-
-//RNPS
-//Construção da classe de Projecto
-var projectName
-var actors = [];
-var useCase = [];
-var useCaseDiag;
-
-var entityName;
-var entitiesList = [];
-
-var interfaceName;
-var interfacesList = [];
-
-var abstractName;
-var abstractList = [];
-
-var classesDiag;
-
-
-
-function project(projectName)
-{
-    this.projectName = projectName;
-}
-
-function entities(entityName, attributes, methods)
-{
-    this.entityName = entityName;   // name of Entity
-    this.attributes = attributes;   //Attributes of the Entity (Array)
-    this.methods = methods; //Methods of the Entity (Array)
-}
-
-function interfaces(interfaceName, attributes, methods)
-{
-    this.interfaceName = interfaceName;   // name of Interface
-    this.attributes = attributes;   //Attributes of the Interface (Array)
-    this.methods = methods; //Methods of the Interface (Array)
-}
-
-function abstract(abstractName, attributes, methods)
-{
-    this.abstractName = abstractName;   // name of Abstract
-    this.attributes = attributes;   //Attributes of the Abstract (Array)
-    this.methods = methods; //Methods of the Abstract (Array)
-}
 

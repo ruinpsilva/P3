@@ -25,7 +25,7 @@ if (isset($_SESSION['SESS_FIRST_NAME'])) {
                     <h1> Project Chat Room!</h1>
                     </br>
                     <h2>SIGN IN</h2>
-                    <form id="loginForm" method="post" action="Chat/login-exec.php" name="loginForm">
+                    <form id="loginForm" method="post" action="login-exec.php" name="loginForm">
                         <input size="20" id="login" placeholder="username" name = "login"></input>
                         </p>
                         <input size="20" id="password" placeholder="password" type="password" name="password">

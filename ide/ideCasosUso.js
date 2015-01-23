@@ -18,6 +18,12 @@ var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
 var graph = new joint.dia.Graph;
+//Criação das variáveis de projeto
+var diagramaCU;
+var listaCasos = [];
+var listaAtores = [];
+var UCBundle;
+
 
 
 //var b  =  element.scrollHeight - element.clientHeight;
@@ -48,6 +54,7 @@ function insertUseCaseOnToGraph(){
     positiony_uso = positiony_uso + 10;
 	graph.addCells([caso]);
     ControladorAmalia.adicionaCasoUso(caso.id);
+    casoUsoAdiciona(caso.name);
 }
 
 
@@ -64,8 +71,45 @@ function insertActorOnToGraph(){
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
     ControladorAmalia.adicionaActor(ator.id);
+    atorAdiciona(ator.name);
+}
+
+//RNPS
+//Passar diagrama de Casos de Uso para JSON
+function diagramaCasoUsoParaJSON(graph){
+    var modeloJSONCU = graph.toJSON();
+    var diagramaCU = JSON.stringify(modeloJSONCU);
+}
+
+//RNPS
+//Adicionar nomes dos casos de uso ao array
+function casoUsoAdiciona(nomeDoCasoUso){
+    if(listaCasos.indexOf(nomeDoCasoUso) != -1){
+        listaCasos.push(nomeDoCasoUso);
+    } else {
+        alert("ERROR - Use Case name already assigned!");
+    }
 
 }
+
+//RNPS
+//Adicionar nomes dos atores ao array
+function atorAdiciona(nomeDoAtor){
+    if(listaAtores.indexOf(nomeDoAtor) != -1){
+        listaAtores.push(nomeDoAtor);
+    } else {
+        alert("ERROR - Actor name already assigned!");
+    }
+
+}
+
+function createUseCaseBundle(diagrama,casos,atores){
+    var UCBundle = { "CasosUso":[
+        "diagCU" : diagrama, "listaCU" : casos, "listaAtores" : atores
+    ]};
+}
+
+
 
 
 $(document).ready(function(){
@@ -334,7 +378,7 @@ $(document).ready(function(){
 	});
 
 
-	//WhatIsThis
+	//JSONSAVEINFILE
     //botao gravar(acçao) dentro da janela Gravar
 	$("#btnGravarDiscoDiaCasos").click(function(){
 		var nomeFicheiro = "diagramaCasosUso";
@@ -465,6 +509,10 @@ $(document).ready(function(){
         $("#blackHole").hide();
         $("$blackHole").delay(1000).fadeIn();
     });
+
+
+
+
 
 
 	
