@@ -2,7 +2,6 @@
 //Iniciar Sessao
 
 session_start();
-
 require_once('no-cache-headers.php');
 //Incluir definicoes de acesso a BD
 require_once('config.php');
