@@ -30,19 +30,7 @@ ControladorAmalia ={
     toogleDialogoCriaProjecto:function(){
     ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", false);
     },
-    // criar a instancia projecto
-    CriaProject:function(nomeProjecto){
-     project(nomeProjecto);
 
-    },
-    // adicionar um actor ao array actor
-    adicionaActor:function(id){
-    actors.push(id);
-    },
-    // adicionar um caso de uso ao array casos de uso
-    adicionaCasoUso:function(id){
-    useCase.push(id);
-    },
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
@@ -736,25 +724,19 @@ ControladorAmalia ={
     gravarProjectoNoBrowser: function(graph){
         var nomeProjeto =$("nomeProjecto").val();
 
-        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
-        //ATENÇÃO É NECESSÁRIO DIFERENCIAR OS DIAGRAMAS (TALVEZ MUDAR VARIÁVEL???)
-        ControladorAmalia.diagramaClassesParaJSON(graph);
-        //FALTA CRIAR LISTA DE CASOS DE USO, LISTA ATORES, LISTA CLASSES
+        //AINDA SÓ VAI GRAVAR O PROJETO COM O DIAGRAMA DE CASOS DE USO
 
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
-            var projecto = { proj: [{diagCU : diagramaCU, diagCL : diagramaCL}]};
-            var projecto = {"proj": [
-                {"diagCU" : diagramaCU, "listaCU" : listaCasos, "listaA" : listaAtores},
-                {"diagCL" : diagramaCL, "classes": listaClasses}
-            ]};
+            var projecto = { proj: nomeProjeto, UCBundle }
 
             if(nomeProjeto){
                 localStorage.setItem(nomeProjeto, projecto);
             } else {
                 localStorage.setItem("projeto", projecto);
             }
+            alert("Projeto gravado com sucesso!");
         }
         catch(err){
             alert("não gravou projecto");

@@ -1,3 +1,5 @@
+var projetoNome;
+
 $(document).ready(function(){
 
     //botões provisórios do stage
@@ -16,6 +18,7 @@ $(document).ready(function(){
         }
         ControladorAmalia.CriaProject(nomeProjecto);
         ControladorAmalia.toogleDialogoCriaProjecto();
+        projetoNome = nomeProjecto;
         window.location.href = "stage.html";
     });
 

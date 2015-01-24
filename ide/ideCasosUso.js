@@ -53,7 +53,7 @@ function insertUseCaseOnToGraph(){
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
 	graph.addCells([caso]);
-    ControladorAmalia.adicionaCasoUso(caso.id);
+    //ControladorAmalia.adicionaCasoUso(caso.id);
     casoUsoAdiciona(caso.name);
 }
 
@@ -70,7 +70,7 @@ function insertActorOnToGraph(){
     positionx_actor = positionx_actor + 10;
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
-    ControladorAmalia.adicionaActor(ator.id);
+    //ControladorAmalia.adicionaActor(ator.id);
     atorAdiciona(ator.name);
 }
 
@@ -78,35 +78,43 @@ function insertActorOnToGraph(){
 //Passar diagrama de Casos de Uso para JSON
 function diagramaCasoUsoParaJSON(graph){
     var modeloJSONCU = graph.toJSON();
+    alert(modeloJSONCU);
     var diagramaCU = JSON.stringify(modeloJSONCU);
+    alert(diagramaCU);
 }
 
 //RNPS
 //Adicionar nomes dos casos de uso ao array
 function casoUsoAdiciona(nomeDoCasoUso){
-    if(listaCasos.indexOf(nomeDoCasoUso) != -1){
-        listaCasos.push(nomeDoCasoUso);
-    } else {
-        alert("ERROR - Use Case name already assigned!");
-    }
-
+    alert(listaCasos.length);
+    listaCasos.push(nomeDoCasoUso);
+//    if(listaCasos.length == 0){
+//        listaCasos.push(nomeDoCasoUso);
+//    } else {
+//        if(listaCasos.indexOf(nomeDoCasoUso) == -1){
+//            listaCasos.push(nomeDoCasoUso);
+//        } else {
+//            alert("ERROR - Use Case name already assigned!");
+//        }
+//    }
 }
 
 //RNPS
 //Adicionar nomes dos atores ao array
 function atorAdiciona(nomeDoAtor){
-    if(listaAtores.indexOf(nomeDoAtor) != -1){
-        listaAtores.push(nomeDoAtor);
-    } else {
-        alert("ERROR - Actor name already assigned!");
-    }
+    listaAtores.push(nomeDoAtor);
+//    if(listaAtores.indexOf(nomeDoAtor) != -1){
+//        listaAtores.push(nomeDoAtor);
+//    } else {
+//        alert("ERROR - Actor name already assigned!");
+//    }
 
 }
 
+//RNPS
+//Criação de estrutura JSON para o segmento de projeto
 function createUseCaseBundle(diagrama,casos,atores){
-    var UCBundle = { "CasosUso":[
-        "diagCU" : diagrama, "listaCU" : casos, "listaAtores" : atores
-    ]};
+    var UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
 }
 
 
@@ -420,7 +428,7 @@ $(document).ready(function(){
 	});
 	// Voltar ao inicío
 	$("#btnVoltarInicio").click(function(){
-		window.location.href ="index.html";
+		window.location.href ="stage.html";
 	});
 	
 	//Gravar o diagrama
@@ -430,8 +438,12 @@ $(document).ready(function(){
 
     //RNPS
     //botão para gravar o projecto
-    $("btnGravarProjeto").click(function(){
-        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
+    $("#btnGravarProjeto").click(function(graph,diagramaCU,listaCasos,listaAtores){
+        diagramaCasoUsoParaJSON(graph);
+        alert(diagramaCU);
+        alert(listaCasos);
+        alert(listaAtores);
+        createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
         ControladorAmalia.gravarProjectoNoBrowser;
     });
 

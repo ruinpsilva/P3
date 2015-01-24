@@ -6,9 +6,13 @@ apagar projeto
 
 guardar projeto no browser (JSON)
 
+guardar projeto em ficheiro (JSON)
+
 exportar projeto para o disco (XML)
 
 floating box do lado direito fica com nomes de classes, casos de uso, etc
+    necessário construir:
+        create, update, delete;
 
 aplicar upgrades do IDE de casos de uso para o diagrama de classes
 
