@@ -52,9 +52,8 @@ function insertUseCaseOnToGraph(){
 	var caso = Amalia.dia.getGrafCasoUso(positionx_uso,positiony_uso);
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
-	graph.addCells([caso]);
-    //ControladorAmalia.adicionaCasoUso(caso.id);
-    casoUsoAdiciona(caso.name);
+    graph.addCells([caso]);
+    casoUsoAdiciona("Use Case");
 }
 
 
@@ -70,16 +69,15 @@ function insertActorOnToGraph(){
     positionx_actor = positionx_actor + 10;
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
-    //ControladorAmalia.adicionaActor(ator.id);
-    atorAdiciona(ator.name);
+    atorAdiciona("Actor");
 }
 
 //RNPS
 //Passar diagrama de Casos de Uso para JSON
-function diagramaCasoUsoParaJSON(graph){
+function diagramaCasoUsoParaJSON(){
     var modeloJSONCU = graph.toJSON();
     alert(modeloJSONCU);
-    var diagramaCU = JSON.stringify(modeloJSONCU);
+    diagramaCU = JSON.stringify(modeloJSONCU);
     alert(diagramaCU);
 }
 
@@ -88,6 +86,7 @@ function diagramaCasoUsoParaJSON(graph){
 function casoUsoAdiciona(nomeDoCasoUso){
     alert(listaCasos.length);
     listaCasos.push(nomeDoCasoUso);
+    alert(listaCasos[0]);
 //    if(listaCasos.length == 0){
 //        listaCasos.push(nomeDoCasoUso);
 //    } else {
@@ -115,6 +114,7 @@ function atorAdiciona(nomeDoAtor){
 //Criação de estrutura JSON para o segmento de projeto
 function createUseCaseBundle(diagrama,casos,atores){
     var UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
+    alert(UCBundle);
 }
 
 
@@ -438,13 +438,11 @@ $(document).ready(function(){
 
     //RNPS
     //botão para gravar o projecto
-    $("#btnGravarProjeto").click(function(graph,diagramaCU,listaCasos,listaAtores){
+    $("#btnGravarProjeto").click(function(){
         diagramaCasoUsoParaJSON(graph);
-        alert(diagramaCU);
-        alert(listaCasos);
-        alert(listaAtores);
         createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
-        ControladorAmalia.gravarProjectoNoBrowser;
+        alert("going to controlador Amalia");
+        ControladorAmalia.gravarProjectoNoBrowser();
     });
 
     //RNPS

@@ -721,11 +721,11 @@ ControladorAmalia ={
 
     //RNPS
     //Gravar Projecto no Browser
-    gravarProjectoNoBrowser: function(graph){
+    gravarProjectoNoBrowser: function(){
         var nomeProjeto =$("nomeProjecto").val();
 
         //AINDA SÓ VAI GRAVAR O PROJETO COM O DIAGRAMA DE CASOS DE USO
-
+        alert("Chegou ao controlador");
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
