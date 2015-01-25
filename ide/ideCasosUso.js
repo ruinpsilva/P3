@@ -70,6 +70,8 @@ function insertActorOnToGraph(){
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
     atorAdiciona("Actor");
+    console.log("vamos fazer o update da lista de atores");
+    atorListUpdate();
 }
 
 //RNPS
@@ -78,6 +80,7 @@ function diagramaCasoUsoParaJSON(){
     var modeloJSONCU = graph.toJSON();
     alert(modeloJSONCU);
     diagramaCU = JSON.stringify(modeloJSONCU);
+    console.log(diagramaCU);
     alert(diagramaCU);
 }
 
@@ -108,6 +111,19 @@ function atorAdiciona(nomeDoAtor){
 //        alert("ERROR - Actor name already assigned!");
 //    }
 
+}
+
+//RNPS
+//Atualização da lista de atores pelos elementos no graph
+function atorListUpdate(){
+    var elementos = graph.getElements();
+    for(var i = 0; i < elementos.length; i++){
+        var el = graph.getCell(elementos[i].id).toJSON();
+        var tipoElemento = (el.type).split(".")[0];
+        if(tipoElemento == "basic" && el.type == "basic.Actor"){
+            listaAtores.push(el.attrs.text.text);
+        }
+    }
 }
 
 //RNPS
