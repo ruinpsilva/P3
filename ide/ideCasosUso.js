@@ -18,11 +18,11 @@ var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
 var graph = new joint.dia.Graph;
-//Criação das variáveis de projeto
-var diagramaCU;
-var listaCasos = [];
-var listaAtores = [];
-var UCBundle;
+//Criacao das variaveis de projeto
+//var diagramaCU;
+//var listaCasos = [];
+//var listaAtores = [];
+//var UCBundle;
 
 
 

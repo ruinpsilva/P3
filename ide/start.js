@@ -1,4 +1,17 @@
+//Criacao das variaveis de projeto
 var projetoNome;
+var diagramaCU;
+var listaCasos = [];
+var listaAtores = [];
+var UCBundle;
+
+
+//RNPS
+//Funcao para carregar um projeto armazenado na memoria do browser
+function loadProjetFromProjet(){
+
+}
+
 
 $(document).ready(function(){
 
@@ -21,10 +34,6 @@ $(document).ready(function(){
         projetoNome = nomeProjecto;
         window.location.href = "stage.html";
     });
-
-
-
-
 
 
 });
