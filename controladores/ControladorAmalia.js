@@ -212,8 +212,8 @@ ControladorAmalia ={
         var idActor = $("#idActor").val();
         if(idActor){
         graph.getCell(idActor).remove();
-        var position = actors.lastIndexOf(idCaso);
-        actors.splice(position,1);
+//        var position = actors.lastIndexOf(idCaso);
+//        actors.splice(position,1);
         }
     },
 	setNomeCaso : function (graph){
@@ -228,12 +228,13 @@ ControladorAmalia ={
 		}
 		
 	},
+
     removeCasoUso : function(graph){
         var idCaso = $("#idCaso").val();
         if(idCaso){
         graph.getCell(idCaso).remove();
-        var position = useCase.lastIndexOf(idCaso);
-        useCase.splice(position,1);
+//        var position = useCase.lastIndexOf(idCaso);
+//        useCase.splice(position,1);
         }},
 
 

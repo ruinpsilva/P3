@@ -1,6 +1,14 @@
 LISTA DE TAREFAS
 
-criar projeto
+************** Importância ALTA **********************************************
+
+aplicar upgrades do IDE de casos de uso para o diagrama de classes
+
+criar projeto (50% falta adicionar a parte do IDE de classes)
+
+abrir projeto (executar função estilo "load")
+
+************** Importância MÈDIA **********************************************
 
 apagar projeto
 
@@ -22,6 +30,9 @@ página principal
     abrir projeto do browser
     novo projeto
     abrir projeto de ficheiro
+
+
+***************** Importância BAIXA ************************************************
 
 página de stage
     criar imagem com ícones e usá-los como botões para os diferentes componentes

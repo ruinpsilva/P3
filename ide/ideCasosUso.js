@@ -53,7 +53,7 @@ function insertUseCaseOnToGraph(){
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
     graph.addCells([caso]);
-    casoUsoAdiciona("Use Case");
+    useCaseListUpdate();
 }
 
 
@@ -69,7 +69,7 @@ function insertActorOnToGraph(){
     positionx_actor = positionx_actor + 10;
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
-    atorAdiciona("Actor");
+    //atorAdiciona("Actor");
     console.log("vamos fazer o update da lista de atores");
     atorListUpdate();
 }
@@ -84,34 +84,6 @@ function diagramaCasoUsoParaJSON(){
     alert(diagramaCU);
 }
 
-//RNPS
-//Adicionar nomes dos casos de uso ao array
-function casoUsoAdiciona(nomeDoCasoUso){
-    alert(listaCasos.length);
-    listaCasos.push(nomeDoCasoUso);
-    alert(listaCasos[0]);
-//    if(listaCasos.length == 0){
-//        listaCasos.push(nomeDoCasoUso);
-//    } else {
-//        if(listaCasos.indexOf(nomeDoCasoUso) == -1){
-//            listaCasos.push(nomeDoCasoUso);
-//        } else {
-//            alert("ERROR - Use Case name already assigned!");
-//        }
-//    }
-}
-
-//RNPS
-//Adicionar nomes dos atores ao array
-function atorAdiciona(nomeDoAtor){
-    listaAtores.push(nomeDoAtor);
-//    if(listaAtores.indexOf(nomeDoAtor) != -1){
-//        listaAtores.push(nomeDoAtor);
-//    } else {
-//        alert("ERROR - Actor name already assigned!");
-//    }
-
-}
 
 //RNPS
 //Atualização da lista de atores pelos elementos no graph
@@ -122,6 +94,19 @@ function atorListUpdate(){
         var tipoElemento = (el.type).split(".")[0];
         if(tipoElemento == "basic" && el.type == "basic.Actor"){
             listaAtores.push(el.attrs.text.text);
+        }
+    }
+}
+
+//RNPS
+//Atualização da lista de "casos de uso" pelos elementos no graph
+function useCaseListUpdate(){
+    var elementos = graph.getElements();
+    for(var i = 0; i < elementos.length; i++){
+        var el = graph.getCell(elementos[i].id).toJSON();
+        var tipoElemento = (el.type).split(".")[0];
+        if(tipoElemento == "basic" && el.type == "basic.Circle"){
+            listaCasos.push(el.attrs.text.text);
         }
     }
 }
