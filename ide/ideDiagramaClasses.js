@@ -20,7 +20,36 @@ var rectxwidth =0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-var graph = new joint.dia.Graph;
+var graph2 = new joint.dia.Graph;
+
+
+//DMMLG
+// Função para inserir classes no grafico
+function insertClassOnToGraph(){
+    var classeGraph = Amalia.dia.getGrafClass(positionx_class,positiony_class);
+    positionx_class += 10;
+    positiony_class += 10;
+    graph2.addCell([classeGraph]);
+    }
+
+//DMMLG
+// Função para inserir interface no grafico
+function insertInterfaceOnToGraph(){
+    var interfaceGraph = Amalia.dia.getGrafInterface(positionx_interface,positiony_interface);
+    positionx_interface += 10;
+    positiony_interface += 10;
+    graph2.addCell([interfaceGraph]);
+}
+
+//DMMLG
+//Função para inserir abstract no grafico
+function insertAbstractOnToGraph(){
+    var abstractGraph = Amalia.dia.getGrafAbstract(positionx_abstract,positiony_abstract);
+    positionx_abstract +=10;
+    positiony_abstract +=10;
+    graph2.addCell([abstractGraph]);
+}
+
 
 
 
@@ -71,7 +100,7 @@ function addMetodoInterface(interf){
 //***************************
 //** Iniciador do Diagrama **
 //***************************
-function iniciarDiagrama(graph){
+function iniciarDiagrama(graph2){
 		//Objetos da barra de ferramentas
 	//var lixoGraf = Amalia.dia.getGrafLixo (10,400);
 	var classGraf = Amalia.dia.getGrafClass(10,20);
@@ -79,7 +108,7 @@ function iniciarDiagrama(graph){
 	var interfaceGraf = Amalia.dia.getGrafInterface(10,270);
 	
 	//Adicionar ao gráfico os objetos da barra de ferramentas
-	graph.addCells([classGraf, abstractGraf, interfaceGraf]);
+	graph22.addCells([classGraf, abstractGraf, interfaceGraf]);
 	
 }
 	
@@ -114,10 +143,10 @@ $(document).ready(function(){
 	width: widthPaper,
 	height: heightPaper,// ainda tenho um problema com isto
 	gridSize:10,
-	model: graph
+	model: graph22
 	});
 	
-	//iniciarDiagrama(graph);
+	//iniciarDiagrama(graph22);
 	
 	//Eventos a capturar
 	
@@ -154,7 +183,7 @@ $(document).ready(function(){
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura
 
 			//Obter o elemento que ficou por baixo daquele que estou a deslocar
-			var elementoBaixo = graph.get('cells').find(function(cell){
+			var elementoBaixo = graph22.get('cells').find(function(cell){
 				// esquisito mas o elemento de cima também é dos elementos do grupo e eu não estou interessado
 				if (cell.id === elementoCima.id){return false;}
 				
@@ -169,7 +198,7 @@ $(document).ready(function(){
 			});
 			
 			//Estabelecer ligações se ainda não existirem
-			if (elementoBaixo && !_.contains(graph.getNeighbors(elementoBaixo), elementoCima)){
+			if (elementoBaixo && !_.contains(graph2.getNeighbors(elementoBaixo), elementoCima)){
 				
 				//Casos
 				if(elementoBaixo instanceof instanceInterface
@@ -177,14 +206,14 @@ $(document).ready(function(){
 					&& !(elementoCima instanceof instanceInterface)){
 											
 						//O elemento de Baixo é uma interface - segue-se uma implementação se o de cima não for uma interface
-						ControladorAmalia.associaImplementa(graph,elementoCima,elementoBaixo);
+						ControladorAmalia.associaImplementa(graph2,elementoCima,elementoBaixo);
 					
 				}else if (elementoBaixo instanceof instanceAbstract
 					&& elementoCima instanceof instanceClass
 					&& !(elementoCima instanceof instanceInterface) ){
 											
 						// elemento de baixo é classe abstrata a de cima é classe ou classe abstrata --> herança
-						ControladorAmalia.associaHeranca(graph,elementoCima.id,elementoBaixo.id);
+						ControladorAmalia.associaHeranca(graph2,elementoCima.id,elementoBaixo.id);
 				
 				}else if (!(elementoBaixo instanceof instanceAbstract || elementoBaixo instanceof instanceInterface)
 					&&!(elementoCima instanceof instanceAbstract || elementoCima instanceof instanceInterface)){
@@ -216,19 +245,19 @@ $(document).ready(function(){
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
     //DMMLG
     //
-	//Add Use Case graph to paper
+	//Add Use Case graph2 to paper
 	$("#addClassGraph").click(function(e){
-		insertUseCaseOnToGraph();
+		insertClassOnToGraph();
         e.preventDefault();
 	});
     $("#addInterfaceGraph").click(function(e){
-		insertUseCaseOnToGraph();
+		insertInterfaceOnToGraph();
         e.preventDefault();
 	});
 
-	//Add Actor graph to paper
+	//Add Actor graph2 to paper
     $("#addAbstractGraph").click(function(e){
-        insertActorOnToGraph();
+        insertAbstractOnToGraph();
         e.preventDefault();
          });
 
@@ -252,8 +281,8 @@ $(document).ready(function(){
 
     //Clear Diagram
     $("#clearDiagram").click(function(e){
-        graph.clear();
-        graph.addCell(rectx);
+        graph2.clear();
+        graph2.addCell(rectx);
     });
 
 
@@ -261,7 +290,7 @@ $(document).ready(function(){
 	//ideia para alterar as dimensões do paper mas a coisa é muito lenta
 	
 	/*
-	graph.on('change:position', function(cell){
+	graph2.on('change:position', function(cell){
 		console.log ("Estou a mexer coisas no paper");
 		//var paperBox = paper.getContentBBox();
 		var cellBox = cell.getBBox();
@@ -298,7 +327,7 @@ $(document).ready(function(){
 	});
 	//Gravar o diagrama
 	$("#btnGravarDiagrama").click(function(){
-		ControladorAmalia.gravarDiagramaNoBrowser(graph);
+		ControladorAmalia.gravarDiagramaNoBrowser(graph2);
 	});
 	
 	
@@ -314,12 +343,12 @@ $(document).ready(function(){
 	
 	//btnAbrirDiagrama ---- Abrir o Diagrama
 	$("#btnAbrirDiagrama").click(function(){
-		ControladorAmalia.abirDiagrama(graph);
+		ControladorAmalia.abirDiagrama(graph2);
 	});
 	//--------------------------Botão apagarDiagrama
 	$("#btnApagarDiagrama").click(function(){
-		graph.clear();
-		iniciarDiagrama(graph);
+		graph2.clear();
+		iniciarDiagrama(graph2);
 	});
 	//--------------------------Botão cancelar do dialogoAlteraClasses
 	$("#btnCancelarAlteraClasse").click(function(){
@@ -351,9 +380,9 @@ $(document).ready(function(){
 			$(this).remove();
 		});
 		var idClasse = $("#idClasse").val();
-		var elemento = graph.getCell(idClasse);
+		var elemento = graph2.getCell(idClasse);
 
-		ControladorAmalia.setClasse(graph,atributosArray,metodosArray);
+		ControladorAmalia.setClasse(graph2,atributosArray,metodosArray);
 		ControladorAmalia.toogleDialogoAlteraClasses("");
 	});
 	//--------------------------Botão Limpar Nome
@@ -397,9 +426,9 @@ $(document).ready(function(){
 			$(this).remove();
 		});
 		var idInterface = $("#idInterface").val();
-		var elemento = graph.getCell(idInterface);
+		var elemento = graph2.getCell(idInterface);
 
-		ControladorAmalia.setInterface(graph,metodosArray);
+		ControladorAmalia.setInterface(graph2,metodosArray);
 		ControladorAmalia.toogleDialogoAlteraInterface("");
 	});
 	//--------------------------Botão Limpar Nome
@@ -423,7 +452,7 @@ $(document).ready(function(){
 	});
 	//--------------------------Botão liga Classes
 	$("#btnLigaClasses").click(function(){
-		ControladorAmalia.associaClasses(graph);
+		ControladorAmalia.associaClasses(graph2);
 		ControladorAmalia.toogleDialogoAssociaClasses("","");
 	});
 	
@@ -454,12 +483,12 @@ $(document).ready(function(){
 	});
 	
 	//****************************************
-	//  Fazer desaparecer o  blackHole
+	//  Fazer desaparecer o  blackHole DMMLG
 	// ***************************************
-	$("#blackHole").mouseenter(function(){
-		$("#blackHole").hide();
-		$("#blackHole").delay(1000).fadeIn();
-	});
+//	$("#blackHole").mouseenter(function(){
+//		$("#blackHole").hide();
+//		$("#blackHole").delay(1000).fadeIn();
+//	});
 	
 	//****************************************
 	//**          Exportar para xml         **
@@ -468,7 +497,7 @@ $(document).ready(function(){
 	//****************************************
 	$("#btnExportarDiagramaClassesParaXML").click(function(){
 		
-		var xml = ControladorAmalia.diagramaToXML(graph,"classes");
+		var xml = ControladorAmalia.diagramaToXML(graph2,"classes");
 		//console.log(xml);
 		ControladorAmalia.toogleDialogoMostarXMLClasses(xml);
 		
@@ -507,7 +536,7 @@ $(document).ready(function(){
 			nomeFicheiro = $("#nomeDiaClassesDisco").val();
 		}
 		nomeFicheiro = nomeFicheiro + ".dcl";
-		var diagramaClassesJSON = JSON.stringify(graph.toJSON());
+		var diagramaClassesJSON = JSON.stringify(graph2.toJSON());
 		var blob = new Blob([diagramaClassesJSON],{type: "text/plain;charset=utf-8"});
 		saveAs (blob,nomeFicheiro);
 		ControladorAmalia.toggleDialogoGravaDiaClassesDisco(false);
@@ -539,8 +568,8 @@ $(document).ready(function(){
 	    	if (diagrama.substr(0,diagrama.indexOf(":")) =='{"cells"'){
 	    	
 	    		//console.log("é um ficheiro com um modelo");
-	    		graph.clear();
-	    		graph.fromJSON(JSON.parse(diagrama));
+	    		graph2.clear();
+	    		graph2.fromJSON(JSON.parse(diagrama));
 	    		ControladorAmalia.toggleDialogoAbreDiagramaClassesDisco();
 	    	}
 	    }else{
