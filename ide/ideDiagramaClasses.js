@@ -2,6 +2,26 @@
  * @author jorge et al.
  */
 
+/*
+DMMLG
+Iniciação de variaveis
+*/
+var positionx_class=200;
+var positiony_class=20;
+var positionx_interface=150;
+var positiony_interface=80;
+var positionx_abstract=250;
+var positiony_abstract=100;
+var widthPaperFromStart = Math.round(screen.availWidth)-500;
+var heightPaperFromStart =Math.round(screen.availHeight-250);
+var widthPaper = Math.round(screen.availWidth)-500;
+var heightPaper = Math.round(screen.availHeight)-250;
+var rectxwidth =0;
+var rectHeigth = heightPaper -120;
+var scrollleft = $(document).scrollLeft();
+var scrolltop = $(document).scrollTop();
+var graph = new joint.dia.Graph;
+
 
 
 //************************************************
@@ -71,16 +91,16 @@ function iniciarDiagrama(graph){
 $(document).ready(function(){
 
 
-	
-	var graph = new joint.dia.Graph;
+
 	
 	// Tipos de instancias dos objetos
 	var instanceClass = joint.shapes.uml.Class;//são todos 
 	var instanceAbstract = joint.shapes.uml.Abstract; //Classe abstracta
 	var instanceInterface = joint.shapes.uml.Interface;// Interface	
+    //DMMLG
 	//var instanceLixo = joint.shapes.basic.Lixo;//Lixo
-	var widthPaper = Math.round(screen.availWidth * .95);
-	var heightPaper =  Math.round(screen.availHeight *.75);
+	//var widthPaper = Math.round(screen.availWidth * .95);
+	//var heightPaper =  Math.round(screen.availHeight *.75);
 	var minWidthDiagramPaper = 120;
 	var minHeightDiagramPaper = 0;
 	var minSizePaper = g.rect(0,0,widthPaper,heightPaper);
@@ -89,14 +109,15 @@ $(document).ready(function(){
 	
 	
 	var paper = new joint.dia.Paper({
-	el: $('#modelo'),
+	id:'t',
+    el: $('#modelo'),
 	width: widthPaper,
 	height: heightPaper,// ainda tenho um problema com isto
-	gridSize: 1,
+	gridSize:10,
 	model: graph
 	});
 	
-	iniciarDiagrama(graph);
+	//iniciarDiagrama(graph);
 	
 	//Eventos a capturar
 	
@@ -107,23 +128,27 @@ $(document).ready(function(){
 		
 		//trazer o elemento clicado para a frente do diagrama
 		elemento.toFront();
-		
-		//Clonar o elemento e adicionar o clone ao gráfico se o click for na área de ferramentas
-		if (x<minWidthDiagramPaper){
-			//obter o id do elemento que está a ser arrastado para o paper e que irá fazer parte do diagrama
-			//com elemento.id --- para implementar as funcionalidades que perimitirão o xml
-			graph.addCells([elemento.clone()]);
-		}
-			
+
 	});
 	
 	//Drop into para estabelecer ligações, mouseup
 	paper.on('cell:pointerup', function(cellView, evt, x, y){
 		
 		var elementoCima = cellView.model;
+		if (x > widthPaper-20){
+            widthPaper = widthPaper+50;
+			paper.setDimensions(widthPaper,heightPaper);
+            //rect.position{x:0,y:(heightPaper-120)};
+		}
+        if(y > heightPaper-20){
+            heightPaper = heightPaper +50;
+            paper.setDimensions(widthPaper,heightPaper);
+            //rect.position({x:0, y:(heightPaper-120)});
+        }
 		
+
 		//area de diagrama x > 120
-		if (x > minWidthDiagramPaper){
+		if (x <widthPaper){
 			
 			//Acertar posição
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura
@@ -169,9 +194,6 @@ $(document).ready(function(){
 				}
 				
 			}
-		}else{
-			// Aqui o comportamento de eliminação dos elementos que caem de novo na barra de ferramentas
-			graph.getCell(elementoCima.id).remove();
 		}
 		
 	});
@@ -190,6 +212,49 @@ $(document).ready(function(){
 
 	});
 	
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ToolBox Events <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
+    //DMMLG
+    //
+	//Add Use Case graph to paper
+	$("#addClassGraph").click(function(e){
+		insertUseCaseOnToGraph();
+        e.preventDefault();
+	});
+    $("#addInterfaceGraph").click(function(e){
+		insertUseCaseOnToGraph();
+        e.preventDefault();
+	});
+
+	//Add Actor graph to paper
+    $("#addAbstractGraph").click(function(e){
+        insertActorOnToGraph();
+        e.preventDefault();
+         });
+
+    //Zoom paper to fit content
+    $("#makeZoomToFit").click(function(e){
+        if(paper.options.height > heightPaperFromStart || paper.options.width > widthPaperFromStart){
+            paper.fitToContent(0,0,20,0);
+            if(paper.options.height < heightPaperFromStart ){
+            paper.setDimensions(paper.options.width,heightPaperFromStart);
+            }
+            if(paper.options.width < widthPaperFromStart){
+            paper.setDimensions(widthPaperFromStart, paper.options.height);
+            }
+        } else {
+            paper.setDimensions(widthPaperFromStart,heightPaperFromStart);
+
+        }
+        heightPaper = paper.options.height;
+        widthPaper = paper.options.width;
+    });
+
+    //Clear Diagram
+    $("#clearDiagram").click(function(e){
+        graph.clear();
+        graph.addCell(rectx);
+    });
 
 
 	
@@ -211,6 +276,11 @@ $(document).ready(function(){
 		
 	});
 	*/
+
+
+
+
+
 	//////////>>>>>>>>>>>>>>>>>>>>>>>>>>Eventos do IDE diagrama de classes e dialogos
 		//Experiencia gravar e repor
 		

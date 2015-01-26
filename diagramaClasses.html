@@ -6,26 +6,31 @@
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Default-Style" content="Dark">
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="joint/joint.css" />
-		<link rel="stylesheet" href="css/Amalia.css" />
+		<link rel="stylesheet" href="css/Amalia.css" title="Dark"/>
+        <link rel="Alternate stylesheet" href="css/Amalia_light.css" title="Light"/>
+
+        <!-- SlidePanel -->
+
         <link rel="stylesheet" type="text/css" href="css/jquery.slidepanel.css">
 
 
 
-		
+
+
 		
 		<!-- Bibliotecas -->
         <script src="joint/joint.js"></script>
 		<script src="jQuery/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="js/jquery.slidepanel.js"></script>
+		<script src="joint/geometry.js"></script>
 
 		<script src="joint/joint.shapes.uml.js"></script>
 		<script src="Blob.js-master/Blob.js"></script>
 		<script src="FileSaver.js-master/FileSaver.js"></script>
-
-
 		
 		<!-- Modelos -->
 		<script src="modelos/Amalia.js"></script>
@@ -33,6 +38,7 @@
 		<!-- Controlador -->
 		<script src="controladores/ControladorAmalia.js"></script>
 		
+
 		<!-- ide -->
 		<script src="ide/ideDiagramaClasses.js"></script>
 		
@@ -63,6 +69,7 @@
 		<title>Domain (classes) Model</title>
 		<meta name="description" content="ide para diagramas de Classe">
 		<meta name="author" content="jorge et al.">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!--<meta name="viewport" content="width=device-width; initial-scale=1.0">-->
 
@@ -75,32 +82,72 @@
 		<div>
 			<header>
 				<h1>Domain Model</h1>
+				             <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 
 			</header>
 			
 			<div id="controloDiagramaClasses">
 
-			<!-- Botões de gravação  e reposição -->
-					<input id="btnVoltarInicio" type="button" value="<" /> 
-					<input id="btnGuardarDiagramaClasses" type="button" value="Save in Browser" /> 
-					<input id="btnRestaurarDiagramaClasses" type="button" value="Open from Browser"/>
+			<!-- Experi√™ncia de gravar modelo -->
+					<input id="btnVoltarInicio" type="button" value="<" />
+					<input id="btnGravarProjeto" type="button" value="Save Project" />
+					<input id="btnGuardarCasosUso" type="button" value="Save in Browser" />
+					<input id="btnRestaurarCasosUso" type="button" value="Open from Browser"/>
 
-					<input id="btnGravarDiagramaClassesDisco" type="button"  value="Save in Disk" />
-					<input id="btnRestaurarDiagramaClassesDisco" type="button" value="Open from Disk" />	
-									
-					<input id="btnApagarDiagrama" type="button" value="Delete Model" />	
-									
-					<input id="btnExportarDiagramaClassesParaXML" type="button" value="Export to XML" />
-                    <input id="btnCallChat" type="button" class="button" data-slidepanel="panel" href="" value="Chat"/>
+					<input id="btnGuardarCasosUsoDisco" type="button" value="Save in disk" />
+					<input id="btnRestaurarCasosUsoDisco" type="button" value="Open from Disk"/>
+
+<!--					<input id="btnApagarDiagrama" type="button" value="Delete Model" />-->
+					<input id="btnExportarDiagramaCasosParaXML" type="button" value="Export to XML" />
+                    <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
+                    <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
+                    <input id="btnCallChat" type="button" class="button" href="http://localhost:8081/P3/chat/login-form.php" onclick="javascript:void window.open('http://localhost:8081/P3/chat/login-form.php','1422053451651','width=310,height=590,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;" value="Chat"/>
 
 
+        <div class="floating-menu" id="floatingMenu">
+				<h3>Toolbox</h3>
+				<input id="addClassGraph" type="image" src="img/UC_toolbar.png" alt="Insert Class" width="48" height="48">
+                <input id="addInterfaceGraph" type="image" src="img/Actor_toolbar.png" alt="Insert Interface" width="48" height="48">
+                <input id="addAbstractGraph" type="image" src="img/Actor_toolbar.png" alt="Insert Abstract" width="48" height="48">
+                <input id="makeZoomToFit" type="image" src="img/zoom_fit.png" alt="Zoom To Fit" width="48" height="48">
+                <input id="clearDiagram" type="image" src="img/clearGraph.png" alt="Clear Graph" width="48" height="48">
+			</div>
 				
 			</div>
-			
-			<!-- indicação da àrea de ferramentas-->
-			<div id="ferramentas">
-				Toolbox
-			</div>
+			     <div class="floating-tree" id="floatingTree">
+                <h3>Project Files</h3>
+                <ol class="tree">
+							<li>
+								<label for="folder1">Class</label> <input type="checkbox" id="folder1" />
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+							<li>
+								<label for="folder2">Attributes</label> <input type="checkbox" id="folder2" />
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+											<li>
+								<label for="folder3">Methods</label> <input type="checkbox" id="folder3" />
+								<ol>
+									<li class="file"><a href="document.html.pdf">Diag01</a></li>
+									<li class="file"><a href="document.html.pdf">Diag02</a></li>
+									<li class="file"><a href="document.html.pdf">Diag03</a></li>
+									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								</ol>
+							</li>
+						</ol>
+
+            </div>
+
 			<!-- Placeholder para o modelo -->
 			
 			<div id="modelo">
