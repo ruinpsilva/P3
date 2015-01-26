@@ -1,6 +1,20 @@
 /**
  * @author jorge et al.
  */
+
+
+//Criacao das variaveis de projeto
+var projetoNome;
+var diagramaCU;
+var listaCasos = [];
+var listaAtores = [];
+var UCBundle;
+var CLBundle;
+var graph = new joint.dia.Graph;
+var graph2 = new joint.dia.Graph;
+
+
+
 ControladorAmalia ={
 	
 	// Aparecer desaparecer dialogos para mudar os atributos dos elementos do diagrama.
@@ -148,6 +162,23 @@ ControladorAmalia ={
     toogledialogoAtribuirNomeDiagrama: function(tDia){
         $("#tipoDeDiagrama").val(tDia);
         this.toogleDialogo("dialogoAtribuirNomeDiagrama", false);
+    },
+
+    toogleDialogoAbreProjeto:function(proj){
+        $("#tipoDeProjetoAbrir").val(proj);
+        $("#projetosDisponiveis").empty();
+
+        for(var i = 0; i < localStorage.length; i++){
+            var nome = localStorage.key(i);
+            console.log(nome.substring(0,proj.length));
+            if(nome.substring(0,proj.length) == proj){
+                var opt = $("<option>");
+                opt.val(nome);
+                opt.html(nome);
+                $("#projetosDisponiveis").append(opt);
+            }
+        }
+        this.toogleDialogo("#dialogoAbreProjeto", false);
     },
 	
 	toogleDialogoAbreDiagrama: function (tDia){
@@ -731,11 +762,11 @@ ControladorAmalia ={
         try{
             //estrutura JSON para armazenar os dois diagramas
             var projecto = { proj: nomeProjeto, UCBundle }
-
+            var prefixo = "proj";
             if(nomeProjeto){
-                localStorage.setItem(nomeProjeto, projecto);
+                localStorage.setItem(prefixo + "_" + nomeProjeto, projecto);
             } else {
-                localStorage.setItem("projeto", projecto);
+                localStorage.setItem("proj_projeto", projecto);
             }
             alert("Projeto gravado com sucesso!");
         }
@@ -755,6 +786,15 @@ ControladorAmalia ={
 		this.toogleDialogo("#dialogoAbreDiagrama",false);
 		
 	},
+
+    abrirProjeto:function (graph, graph2){
+        graph.clear();
+        graph2.clear();
+        var nome = $("#projetosDisponiveis option:selected").val();
+        var projeto = localStorage.getItem(nome);
+        //FALTA QUEBRAR A ESTRUTURA JSON PARA COLOCAR OS OBJECTOS NAS VARIÁVEIS GLOBAIS
+        //FALTA DEFINIR AS VARIÁVEIS DE CLASSES --- FAZER PARA CASOS DE USO PRIMEIRO
+    },
 
 
 
