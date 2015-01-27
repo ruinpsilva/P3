@@ -2,7 +2,7 @@ LISTA DE TAREFAS
 
 ************** Importância ALTA **********************************************
 
-aplicar upgrades do IDE de casos de uso para o diagrama de classes
+aplicar upgrades do IDE de casos de uso para o diagrama de classes (feito 100%)
 
 criar projeto (50% falta adicionar a parte do IDE de classes)
 
