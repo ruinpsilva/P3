@@ -20,7 +20,7 @@ var rectxwidth =0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-var graph2 = new joint.dia.Graph;
+//var graph2 = new joint.dia.Graph;
 
 
 //DMMLG
@@ -108,7 +108,7 @@ function iniciarDiagrama(graph2){
 	var interfaceGraf = Amalia.dia.getGrafInterface(10,270);
 	
 	//Adicionar ao gráfico os objetos da barra de ferramentas
-	graph22.addCells([classGraf, abstractGraf, interfaceGraf]);
+	graph2.addCells([classGraf, abstractGraf, interfaceGraf]);
 	
 }
 	
@@ -146,7 +146,7 @@ $(document).ready(function(){
 	model: graph2
 	});
 	
-	//iniciarDiagrama(graph22);
+	//iniciarDiagrama(graph2);
 	
 	//Eventos a capturar
 	

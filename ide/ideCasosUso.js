@@ -17,7 +17,7 @@ var rectxwidth = 0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-var graph = new joint.dia.Graph;
+//var graph = new joint.dia.Graph;
 //Criacao das variaveis de projeto
 //var diagramaCU;
 //var listaCasos = [];

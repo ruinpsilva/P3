@@ -1,16 +1,6 @@
-//Criacao das variaveis de projeto
-var projetoNome;
-var diagramaCU;
-var listaCasos = [];
-var listaAtores = [];
-var UCBundle;
 
 
-//RNPS
-//Funcao para carregar um projeto armazenado na memoria do browser
-function loadProjetFromProjet(){
 
-}
 
 
 $(document).ready(function(){
@@ -33,6 +23,12 @@ $(document).ready(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();
         projetoNome = nomeProjecto;
         window.location.href = "stage.html";
+    });
+
+    //RNPS
+    //ligação com a cx de diálogo de abertura de projeto
+    $("#btnOpenProjectFromBrowser").click(function(){
+        ControladorAmalia.toogleDialogoAbreProjeto("");
     });
 
 
