@@ -23,6 +23,8 @@ var scrolltop = $(document).scrollTop();
 
 
 
+
+
 //RNPS
 //atualiza a lista de classes, interface e abstrata no array
 function classListAdd(){
@@ -340,15 +342,7 @@ $(document).ready(function(){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
 	});
 	//Cancelar a Gravação
-<<<<<<< HEAD
-	
-    $("#btnEleminarAlterarClasse").click(function (){
-        //ControladorAmalia.re
-		ControladorAmalia.toogleDialogoGravarDiagrama("");
-    };
 
-=======
->>>>>>> origin/master
 
 	$("#btnCancelaGravarDiagrama").click(function(){
 		ControladorAmalia.toogleDialogoGravarDiagrama("");

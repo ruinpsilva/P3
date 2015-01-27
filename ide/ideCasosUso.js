@@ -17,12 +17,6 @@ var rectxwidth = 0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-//var graph = new joint.dia.Graph;
-//Criacao das variaveis de projeto
-//var diagramaCU;
-//var listaCasos = [];
-//var listaAtores = [];
-//var UCBundle;
 
 
 
@@ -74,16 +68,6 @@ function insertActorOnToGraph(){
     atorListAdd();
 }
 
-//RNPS
-//Passar diagrama de Casos de Uso para JSON
-function diagramaCasoUsoParaJSON(){
-    var modeloJSONCU = graph.toJSON();
-    alert(modeloJSONCU);
-    diagramaCU = JSON.stringify(modeloJSONCU);
-    console.log(diagramaCU);
-    alert(diagramaCU);
-}
-
 
 //RNPS
 //Atualização da lista de atores pelos elementos no graph
@@ -109,13 +93,6 @@ function useCaseListAdd(){
             listaCasos.push(el.attrs.text.text);
         }
     }
-}
-
-//RNPS
-//Criação de estrutura JSON para o segmento de projeto
-function createUseCaseBundle(diagrama,casos,atores){
-    var UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
-    alert(UCBundle);
 }
 
 
@@ -440,9 +417,8 @@ $(document).ready(function(){
     //RNPS
     //botão para gravar o projecto
     $("#btnGravarProjeto").click(function(){
-        diagramaCasoUsoParaJSON(graph);
-        createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
-        alert("going to controlador Amalia");
+        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
+            ControladorAmalia.createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
         ControladorAmalia.gravarProjectoNoBrowser();
     });
 

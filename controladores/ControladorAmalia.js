@@ -10,12 +10,14 @@ var diagramaCU; // diagrama de casos de uso
 var listaCasos = [];    //array com lista de nomes de casos de uso
 var listaAtores = [];   //array com lista de nomes de atores
 var graph = new joint.dia.Graph;    //diagrama de casos de uso
+var diagramaCU;
 var UCBundle;   // conjunto de elementos que constituem o IDE casos de uso
 
 var listaClasses = []; //array com lista de classes
 var listaInterfaces = [] //array com lista de interfaces
 var listaAbstracts = [] //arraycom lista de abstracts
 var graph2 = new joint.dia.Graph;   //diagrama de classes
+var diagramaCL;
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 
 
@@ -867,8 +869,40 @@ ControladorAmalia ={
 		metodoP.append(btnApaga);
 	
 		return atributoP;
-	}
-	
+	},
+
+    //RNPS
+    //Passar diagrama de Casos de Uso para JSON
+    diagramaCasoUsoParaJSON: function(){
+        var modeloJSONCU = graph.toJSON();
+        console.log(modeloJSONCU);
+        diagramaCU = JSON.stringify(modeloJSONCU);
+        console.log(diagramaCU);
+    },
+
+    //RNPS
+    //Criacao de estrutura JSON para o segmento de projeto
+    createClassesBundle(diagrama,casos,atores){
+        UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
+        console.log(UCBundle);
+    },
+
+
+    //RNPS
+    //Passar diagrama de Casos de Uso para JSON
+    diagramaClassesParaJSON: function(){
+        var modeloJSONCL = graph.toJSON();
+        console.log(modeloJSONCL);
+        diagramaCL = JSON.stringify(modeloJSONCL);
+        console.log(diagramaCL);
+    },
+
+    //RNPS
+    //Criação de estrutura JSON para o segmento de projeto
+	createClassesBundle: function(diagrama, classes, interfaces, abstratas){
+        CLBundle = {diagCL : diagrama, listaCL: classes, listaIT: interfaces, listaABS: abstratas};
+        console.log(CLBundle);
+    }
 };
 
 
