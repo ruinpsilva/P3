@@ -20,7 +20,7 @@ var rectxwidth =0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-var graph2 = new joint.dia.Graph;
+//var graph2 = new joint.dia.Graph;
 
 
 //DMMLG
@@ -108,7 +108,7 @@ function iniciarDiagrama(graph2){
 	var interfaceGraf = Amalia.dia.getGrafInterface(10,270);
 	
 	//Adicionar ao gráfico os objetos da barra de ferramentas
-	graph22.addCells([classGraf, abstractGraf, interfaceGraf]);
+	graph2.addCells([classGraf, abstractGraf, interfaceGraf]);
 	
 }
 	
@@ -143,10 +143,10 @@ $(document).ready(function(){
 	width: widthPaper,
 	height: heightPaper,// ainda tenho um problema com isto
 	gridSize:10,
-	model: graph22
+	model: graph2
 	});
 	
-	//iniciarDiagrama(graph22);
+	//iniciarDiagrama(graph2);
 	
 	//Eventos a capturar
 	
@@ -183,7 +183,7 @@ $(document).ready(function(){
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura
 
 			//Obter o elemento que ficou por baixo daquele que estou a deslocar
-			var elementoBaixo = graph22.get('cells').find(function(cell){
+			var elementoBaixo = graph2.get('cells').find(function(cell){
 				// esquisito mas o elemento de cima também é dos elementos do grupo e eu não estou interessado
 				if (cell.id === elementoCima.id){return false;}
 				
