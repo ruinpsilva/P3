@@ -780,13 +780,11 @@ ControladorAmalia ={
     //Gravar Projecto no Browser
     gravarProjectoNoBrowser: function(){
         var nomeProjeto =$("nomeProjecto").val();
-
-        //AINDA SÓ VAI GRAVAR O PROJETO COM O DIAGRAMA DE CASOS DE USO
         alert("Chegou ao controlador");
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
-            var projecto = { proj: nomeProjeto, UCBundle }
+            var projecto = { proj: nomeProjeto, CasosUso: UCBundle, Classes: CLBundle }
             var prefixo = "proj";
             if(nomeProjeto){
                 localStorage.setItem(prefixo + "_" + nomeProjeto, projecto);
@@ -819,8 +817,16 @@ ControladorAmalia ={
         graph2.clear();
         var nome = $("#projetosDisponiveis option:selected").val();
         var projeto = localStorage.getItem(nome);
-        //FALTA QUEBRAR A ESTRUTURA JSON PARA COLOCAR OS OBJECTOS NAS VARIÁVEIS GLOBAIS
-        //FALTA DEFINIR AS VARIÁVEIS DE CLASSES --- FAZER PARA CASOS DE USO PRIMEIRO
+        projeto[0] = projetoNome;
+        projeto[1] = UCBundle;
+        projeto[2] = CLBundle;
+        graph.fromJSON(JSON.parse(UCBundle[0]));
+        UCBundle[1] = listaCasos;
+        UCBundle[2] = listaAtores;
+        graph2.fromJSON(JSON.parse(CLBundle[0]));
+        CLBundle[1] = listaClasses;
+        CLBundle[2] = listaInterfaces;
+        CLBundle[3] = listaAbstracts;
     },
 
 
@@ -882,7 +888,7 @@ ControladorAmalia ={
 
     //RNPS
     //Criacao de estrutura JSON para o segmento de projeto
-    createClassesBundle(diagrama,casos,atores){
+    createUseCaseBundle(diagrama,casos,atores){
         UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
         console.log(UCBundle);
     },

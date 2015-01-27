@@ -351,6 +351,16 @@ $(document).ready(function(){
 	$("#btnGravarDiagrama").click(function(){
 		ControladorAmalia.gravarDiagramaNoBrowser(graph2);
 	});
+
+    //RNPS
+    //botão para gravar o projecto
+    $("#btnGravarProjeto").click(function(){
+        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
+        ControladorAmalia.diagramaClassesParaJSON(graph2);
+        ControladorAmalia.createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
+        ControladorAmalia.createClassesBundle(diagramaCL, listaClasses, listaInterfaces, listaAbstracts);
+        ControladorAmalia.gravarProjectoNoBrowser();
+    });
 	
 	
 	//Experiência repor

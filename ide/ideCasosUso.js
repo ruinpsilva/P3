@@ -418,7 +418,9 @@ $(document).ready(function(){
     //botão para gravar o projecto
     $("#btnGravarProjeto").click(function(){
         ControladorAmalia.diagramaCasoUsoParaJSON(graph);
-            ControladorAmalia.createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
+        ControladorAmalia.diagramaClassesParaJSON(graph2);
+        ControladorAmalia.createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
+        ControladorAmalia.createClassesBundle(diagramaCL, listaClasses, listaInterfaces, listaAbstracts);
         ControladorAmalia.gravarProjectoNoBrowser();
     });
 
