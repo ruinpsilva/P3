@@ -4,14 +4,23 @@
 
 
 //Criacao das variaveis de projeto
-var projetoNome;
+var projetoNome; //nome - designacao do projeto
+
+var diagramaCU; // diagrama de casos de uso
+var listaCasos = [];    //array com lista de nomes de casos de uso
+var listaAtores = [];   //array com lista de nomes de atores
+var graph = new joint.dia.Graph;    //diagrama de casos de uso
 var diagramaCU;
-var listaCasos = [];
-var listaAtores = [];
-var UCBundle;
-var CLBundle;
-var graph = new joint.dia.Graph;
-var graph2 = new joint.dia.Graph;
+var UCBundle;   // conjunto de elementos que constituem o IDE casos de uso
+
+var listaClasses = []; //array com lista de classes
+var listaInterfaces = [] //array com lista de interfaces
+var listaAbstracts = [] //arraycom lista de abstracts
+var graph2 = new joint.dia.Graph;   //diagrama de classes
+var diagramaCL;
+var CLBundle;   // conjunto de elementos que constituem o IDE de classes
+
+
 
 
 
@@ -164,6 +173,8 @@ ControladorAmalia ={
         this.toogleDialogo("dialogoAtribuirNomeDiagrama", false);
     },
 
+    //RNPS
+    //Dialogo para mostrar os projeto disponiveis em memória
     toogleDialogoAbreProjeto:function(proj){
         $("#tipoDeProjetoAbrir").val(proj);
         $("#projetosDisponiveis").empty();
@@ -769,13 +780,11 @@ ControladorAmalia ={
     //Gravar Projecto no Browser
     gravarProjectoNoBrowser: function(){
         var nomeProjeto =$("nomeProjecto").val();
-
-        //AINDA SÓ VAI GRAVAR O PROJETO COM O DIAGRAMA DE CASOS DE USO
         alert("Chegou ao controlador");
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
-            var projecto = { proj: nomeProjeto, UCBundle }
+            var projecto = { proj: nomeProjeto, CasosUso: UCBundle, Classes: CLBundle }
             var prefixo = "proj";
             if(nomeProjeto){
                 localStorage.setItem(prefixo + "_" + nomeProjeto, projecto);
@@ -801,13 +810,23 @@ ControladorAmalia ={
 		
 	},
 
+    //RNPS
+    //Abrir projeto
     abrirProjeto:function (graph, graph2){
         graph.clear();
         graph2.clear();
         var nome = $("#projetosDisponiveis option:selected").val();
         var projeto = localStorage.getItem(nome);
-        //FALTA QUEBRAR A ESTRUTURA JSON PARA COLOCAR OS OBJECTOS NAS VARIÁVEIS GLOBAIS
-        //FALTA DEFINIR AS VARIÁVEIS DE CLASSES --- FAZER PARA CASOS DE USO PRIMEIRO
+        projeto[0] = projetoNome;
+        projeto[1] = UCBundle;
+        projeto[2] = CLBundle;
+        graph.fromJSON(JSON.parse(UCBundle[0]));
+        UCBundle[1] = listaCasos;
+        UCBundle[2] = listaAtores;
+        graph2.fromJSON(JSON.parse(CLBundle[0]));
+        CLBundle[1] = listaClasses;
+        CLBundle[2] = listaInterfaces;
+        CLBundle[3] = listaAbstracts;
     },
 
 
@@ -856,8 +875,40 @@ ControladorAmalia ={
 		metodoP.append(btnApaga);
 	
 		return atributoP;
-	}
-	
+	},
+
+    //RNPS
+    //Passar diagrama de Casos de Uso para JSON
+    diagramaCasoUsoParaJSON: function(){
+        var modeloJSONCU = graph.toJSON();
+        console.log(modeloJSONCU);
+        diagramaCU = JSON.stringify(modeloJSONCU);
+        console.log(diagramaCU);
+    },
+
+    //RNPS
+    //Criacao de estrutura JSON para o segmento de projeto
+    createUseCaseBundle(diagrama,casos,atores){
+        UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
+        console.log(UCBundle);
+    },
+
+
+    //RNPS
+    //Passar diagrama de Casos de Uso para JSON
+    diagramaClassesParaJSON: function(){
+        var modeloJSONCL = graph.toJSON();
+        console.log(modeloJSONCL);
+        diagramaCL = JSON.stringify(modeloJSONCL);
+        console.log(diagramaCL);
+    },
+
+    //RNPS
+    //Criação de estrutura JSON para o segmento de projeto
+	createClassesBundle: function(diagrama, classes, interfaces, abstratas){
+        CLBundle = {diagCL : diagrama, listaCL: classes, listaIT: interfaces, listaABS: abstratas};
+        console.log(CLBundle);
+    }
 };
 
 

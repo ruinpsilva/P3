@@ -20,7 +20,28 @@ var rectxwidth =0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-//var graph2 = new joint.dia.Graph;
+
+
+
+
+
+//RNPS
+//atualiza a lista de classes, interface e abstrata no array
+function classListAdd(){
+    var elementos = graph2.getElements();
+    for(var i = 0; i < elementos.length; i++){
+        var el = graph2.getCell(elementos[i].id).toJSON();
+        if(el.type == "uml.Class"){
+            listaClasses.push(el.name);
+        } else if (el.type == "uml.Abstract"){
+            listaAbstracts.push(el.name);
+        } else if (el.type == "uml.Interface"){
+            listaInterfaces.push(el.name);
+        }
+    }
+}
+
+
 
 
 //DMMLG
@@ -30,6 +51,7 @@ function insertClassOnToGraph(){
     positionx_class += 10;
     positiony_class += 10;
     graph2.addCell([classeGraph]);
+    classListAdd();
     }
 
 //DMMLG
@@ -321,6 +343,7 @@ $(document).ready(function(){
 	});
 	//Cancelar a Gravação
 
+
 	$("#btnCancelaGravarDiagrama").click(function(){
 		ControladorAmalia.toogleDialogoGravarDiagrama("");
 	});
@@ -328,6 +351,16 @@ $(document).ready(function(){
 	$("#btnGravarDiagrama").click(function(){
 		ControladorAmalia.gravarDiagramaNoBrowser(graph2);
 	});
+
+    //RNPS
+    //botão para gravar o projecto
+    $("#btnGravarProjeto").click(function(){
+        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
+        ControladorAmalia.diagramaClassesParaJSON(graph2);
+        ControladorAmalia.createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
+        ControladorAmalia.createClassesBundle(diagramaCL, listaClasses, listaInterfaces, listaAbstracts);
+        ControladorAmalia.gravarProjectoNoBrowser();
+    });
 	
 	
 	//Experiência repor
