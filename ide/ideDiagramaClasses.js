@@ -340,12 +340,15 @@ $(document).ready(function(){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
 	});
 	//Cancelar a Gravação
+<<<<<<< HEAD
 	
     $("#btnEleminarAlterarClasse").click(function (){
         //ControladorAmalia.re
 		ControladorAmalia.toogleDialogoGravarDiagrama("");
     };
 
+=======
+>>>>>>> origin/master
 
 	$("#btnCancelaGravarDiagrama").click(function(){
 		ControladorAmalia.toogleDialogoGravarDiagrama("");
@@ -430,7 +433,13 @@ $(document).ready(function(){
 	$("#metodosClasse").on("click",".btnApaga",function(){
 		$(this).parent().remove();
 	});
-	
+
+    //DMMLG
+    //butão eleminar classe
+	 $("#btnEleminarAlterarClasse").click(function (){
+        ControladorAmalia.removeClasse(graph2);
+		ControladorAmalia.toogleDialogoAlteraClasses("");
+    });
 	
 	//--------------------------Botão cancelar do dialogoAlteraInterface
 	$("#btnCancelarAlteraInterface").click(function(){
@@ -469,7 +478,12 @@ $(document).ready(function(){
 		$(this).parent().remove();
 	});
 	
-	
+	//DMMLG
+    // botao eleminar interface
+    $("#btnEleminarAlterarInterface").click(function(){
+        ControladorAmalia.removeInterface(graph2);
+		ControladorAmalia.toogleDialogoAlteraInterface("");
+    });
 	
 	//--------------------------Botão Cancela ligação de Classes
 	$("#btnCancelaLigacaoClasses").click(function(){
