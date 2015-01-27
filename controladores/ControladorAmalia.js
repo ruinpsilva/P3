@@ -310,9 +310,15 @@ ControladorAmalia ={
 		}
 		
 	},
-	
-	
-	
+
+    // DMMLG
+    // remove classe do graph
+    removeClasse:function (graph){
+     var idclasse = $("#idClasse").val();
+        if(idclasse){
+            graph.getCell(idclasse).remove();
+        }
+    },
 	//Altera as características de uma interface
 	setInterface : function(graph, metodosInt){
 		//Obter o nome da classe
@@ -354,8 +360,16 @@ ControladorAmalia ={
 		}
 		
 	},
+
+    //DMMLG
+    // funcao que remove a interface do graph
 	
-	
+	removeInterface:function (graph){
+     var idInterface = $("#idInterface").val();
+        if(idInterface){
+            graph.getCell(idInterface).remove();
+        }
+    },
 	
 	//Estabelecer ligações
 	//AssociarCasos
