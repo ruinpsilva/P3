@@ -53,7 +53,7 @@ function insertUseCaseOnToGraph(){
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
     graph.addCells([caso]);
-    useCaseListUpdate();
+    useCaseListAdd();
 }
 
 
@@ -71,7 +71,7 @@ function insertActorOnToGraph(){
     graph.addCells([ator]);
     //atorAdiciona("Actor");
     console.log("vamos fazer o update da lista de atores");
-    atorListUpdate();
+    atorListAdd();
 }
 
 //RNPS
@@ -87,7 +87,7 @@ function diagramaCasoUsoParaJSON(){
 
 //RNPS
 //Atualização da lista de atores pelos elementos no graph
-function atorListUpdate(){
+function atorListAdd(){
     var elementos = graph.getElements();
     for(var i = 0; i < elementos.length; i++){
         var el = graph.getCell(elementos[i].id).toJSON();
@@ -100,7 +100,7 @@ function atorListUpdate(){
 
 //RNPS
 //Atualização da lista de "casos de uso" pelos elementos no graph
-function useCaseListUpdate(){
+function useCaseListAdd(){
     var elementos = graph.getElements();
     for(var i = 0; i < elementos.length; i++){
         var el = graph.getCell(elementos[i].id).toJSON();

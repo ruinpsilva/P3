@@ -4,14 +4,21 @@
 
 
 //Criacao das variaveis de projeto
-var projetoNome;
-var diagramaCU;
-var listaCasos = [];
-var listaAtores = [];
-var UCBundle;
-var CLBundle;
-var graph = new joint.dia.Graph;
-var graph2 = new joint.dia.Graph;
+var projetoNome; //nome - designacao do projeto
+
+var diagramaCU; // diagrama de casos de uso
+var listaCasos = [];    //array com lista de nomes de casos de uso
+var listaAtores = [];   //array com lista de nomes de atores
+var graph = new joint.dia.Graph;    //diagrama de casos de uso
+var UCBundle;   // conjunto de elementos que constituem o IDE casos de uso
+
+var listaClasses = []; //array com lista de classes
+var listaInterfaces = [] //array com lista de interfaces
+var listaAbstracts = [] //arraycom lista de abstracts
+var graph2 = new joint.dia.Graph;   //diagrama de classes
+var CLBundle;   // conjunto de elementos que constituem o IDE de classes
+
+
 
 
 
@@ -164,6 +171,8 @@ ControladorAmalia ={
         this.toogleDialogo("dialogoAtribuirNomeDiagrama", false);
     },
 
+    //RNPS
+    //Dialogo para mostrar os projeto disponiveis em memória
     toogleDialogoAbreProjeto:function(proj){
         $("#tipoDeProjetoAbrir").val(proj);
         $("#projetosDisponiveis").empty();
@@ -787,6 +796,8 @@ ControladorAmalia ={
 		
 	},
 
+    //RNPS
+    //Abrir projeto
     abrirProjeto:function (graph, graph2){
         graph.clear();
         graph2.clear();

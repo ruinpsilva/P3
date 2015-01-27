@@ -20,7 +20,26 @@ var rectxwidth =0;
 var rectHeigth = heightPaper -120;
 var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
-//var graph2 = new joint.dia.Graph;
+
+
+
+//RNPS
+//atualiza a lista de classes, interface e abstrata no array
+function classListAdd(){
+    var elementos = graph2.getElements();
+    for(var i = 0; i < elementos.length; i++){
+        var el = graph2.getCell(elementos[i].id).toJSON();
+        if(el.type == "uml.Class"){
+            listaClasses.push(el.name);
+        } else if (el.type == "uml.Abstract"){
+            listaAbstracts.push(el.name);
+        } else if (el.type == "uml.Interface"){
+            listaInterfaces.push(el.name);
+        }
+    }
+}
+
+
 
 
 //DMMLG
@@ -30,6 +49,7 @@ function insertClassOnToGraph(){
     positionx_class += 10;
     positiony_class += 10;
     graph2.addCell([classeGraph]);
+    classListAdd();
     }
 
 //DMMLG
@@ -322,7 +342,7 @@ $(document).ready(function(){
 	//Cancelar a Gravação
 	
     $("#btnEleminarAlterarClasse").click(function (){
-        ControladorAmalia.re
+        //ControladorAmalia.re
 		ControladorAmalia.toogleDialogoGravarDiagrama("");
     };
 
