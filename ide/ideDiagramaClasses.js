@@ -143,7 +143,7 @@ $(document).ready(function(){
 	width: widthPaper,
 	height: heightPaper,// ainda tenho um problema com isto
 	gridSize:10,
-	model: graph22
+	model: graph2
 	});
 	
 	//iniciarDiagrama(graph22);
@@ -183,7 +183,7 @@ $(document).ready(function(){
 			ControladorAmalia.elementoConfinadoAoPaper(minWidthDiagramPaper,minHeightDiagramPaper,widthPaper,heightPaper, elementoCima);//tenho problema com a largura
 
 			//Obter o elemento que ficou por baixo daquele que estou a deslocar
-			var elementoBaixo = graph22.get('cells').find(function(cell){
+			var elementoBaixo = graph2.get('cells').find(function(cell){
 				// esquisito mas o elemento de cima também é dos elementos do grupo e eu não estou interessado
 				if (cell.id === elementoCima.id){return false;}
 				
@@ -318,10 +318,15 @@ $(document).ready(function(){
 	});
 	$("#btnGuardarDiagramaClasses").click(function (){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
-		
 	});
 	//Cancelar a Gravação
 	
+    $("#btnEleminarAlterarClasse").click(function (){
+        ControladorAmalia.re
+		ControladorAmalia.toogleDialogoGravarDiagrama("");
+    };
+
+
 	$("#btnCancelaGravarDiagrama").click(function(){
 		ControladorAmalia.toogleDialogoGravarDiagrama("");
 	});
