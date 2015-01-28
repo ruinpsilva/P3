@@ -7,7 +7,7 @@
 var projetoNome; //nome - designacao do projeto
 //DMMLG
 // Classe Caso de uso
-var  casoUso = function(id,nome, operacao,tipo, entity, masterent){
+function criaCaso(id,nome, operacao,tipo, entity, masterent){
     this.id_caso = id,
     this.nome_caso = nome,
     this.oepracao_caso = operacao,
