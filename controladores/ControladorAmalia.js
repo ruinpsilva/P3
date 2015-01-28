@@ -268,21 +268,54 @@ ControladorAmalia ={
 //        actors.splice(position,1);
         }
     },
+    //DMMLG
+    // funçao que guarda a informação de um caso de uso no array listaCasos
 	setNomeCaso : function (graph){
-		var nomeCaso = $("#nomeCasoUso").val();
-		var idCaso =$("#idCaso").val();
-        var entity=$("#listaEntidades").val();
-        var masterentity= $("#listaEntidadesMaster").val();
-        var operation = $("lcrud");
+		var nomeCaso = $("#nomeCasoUso").val();//nome do caso de uso
+		var idCaso =$("#idCaso").val(); //id do caso de uso
+        var entity=$("#listaEntidades").val();// entidade associada
+        var masterentity= $("#listaEntidadesMaster").val();// entidade master associada
+        var operation= [];// array para guardar o tipo de operação que é o caso de uso
+        // função para ver quais as funções que estão checked na checkbox no controlador
+        $("input:checkbox[name=lcrud]:checked").each(function()
+            {
+                // inserir no array operation, as operações que aquele caso de uso efectua
+                operation.push($(this).val());
+            });
+        //console.log(operation);
 		if (nomeCaso && idCaso){
 			// definido o nome do caso daqui chamar alterações ao modelo
 			//registando novo nome e largura + altura
 			var caso = graph.getCell(idCaso);
 			caso.resize( nomeCaso.length * 8 + 40 , 50);
 			caso.attr({text:{text:nomeCaso}});
-            var casouso = new criaCaso(idCaso,nomeCaso,operation,1,entity,masterentity);
-            listaCasos.push(casouso);
+            // variavel auxiliar para verificar se o caso de uso já existe no array
+            var existe = false;
+            //console.log(existe);
+            // criar um novo caso de uso
+            var casouso = new criaCaso(idCaso,nomeCaso,operation,null,entity,masterentity);
+            //console.log(casouso);
+
+            for(var i =0; i<listaCasos.length ; i++){
+                // verifica se já existe no array o caso de uso a criar/alterar by ID
+                if(listaCasos[i].id_caso == idCaso){
+                    // altera a informação do caso de uso
+                    listaCasos[i] = casouso;
+                    // o caso de uso existe
+                    existe = true;
+                    //console.log("entrou ca dentro");
+                    //console.log(existe);
+                    //console.log(listaCasos.length);
+                }
+            }
+            //se o caso de uso ainda nao exister
+            if(!existe){
+                //adiciona o caso de uso ao array
+                listaCasos.push(casouso);
+                //console.log(existe);
+                //console.log(listaCasos.length);
 		}
+    }
 		
 	},
 
@@ -290,8 +323,11 @@ ControladorAmalia ={
         var idCaso = $("#idCaso").val();
         if(idCaso){
         graph.getCell(idCaso).remove();
-//        var position = useCase.lastIndexOf(idCaso);
-//        useCase.splice(position,1);
+            for(var i =0; i<listaCasos.length ; i++){
+                if(listaCasos[i].id_caso == idCaso){
+                    listaCasos.splice(i);
+                }
+            }
         }},
 
 
