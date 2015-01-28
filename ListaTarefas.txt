@@ -8,13 +8,21 @@ criar projeto (50% falta adicionar a parte do IDE de classes)
 
 abrir projeto (executar função estilo "load")
 
+load Projecto(entre troca de IDE's
+
+Caixa dialogo de casos de uso:
+    -controlador de dropboxs
+    -actualizar informação da caixa de dialogo
+    
 ************** Importância MÈDIA **********************************************
 
 apagar projeto
 
-guardar projeto no browser (JSON)
+guardar projeto no browser (JSON) (feito 100%);
 
-guardar projeto em ficheiro (JSON)
+guardar projeto em ficheiro (JSON) 
+
+abrir projecto de ficheiro (JSON)
 
 exportar projeto para o disco (XML)
 
@@ -22,7 +30,7 @@ floating box do lado direito fica com nomes de classes, casos de uso, etc
     necessário construir:
         create, update, delete;
 
-aplicar upgrades do IDE de casos de uso para o diagrama de classes
+aplicar upgrades do IDE de casos de uso para o diagrama de classes (feito 100%)
 
 página principal
     
