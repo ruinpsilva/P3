@@ -47,7 +47,7 @@ function insertUseCaseOnToGraph(){
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
     graph.addCells([caso]);
-    useCaseListAdd();
+
 }
 
 
@@ -82,17 +82,11 @@ function atorListAdd(){
     }
 }
 
+
 //RNPS
-//Atualização da lista de "casos de uso" pelos elementos no graph
-function useCaseListAdd(){
-    var elementos = graph.getElements();
-    for(var i = 0; i < elementos.length; i++){
-        var el = graph.getCell(elementos[i].id).toJSON();
-        var tipoElemento = (el.type).split(".")[0];
-        if(tipoElemento == "basic" && el.type == "basic.Circle"){
-            listaCasos.push(el.attrs.text.text);
-        }
-    }
+//Introdução no array listaCasos a informação de um caso de uso
+function useCaseListAdd(casouso){
+            listaCasos.push(casouso);
 }
 
 
@@ -545,5 +539,7 @@ $(document).ready(function(){
   document.getElementById('ficheiroDiagrama').addEventListener('change', readSingleFile, false);
 	
 });
+
+
 
 
