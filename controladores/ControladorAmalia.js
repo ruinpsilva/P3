@@ -5,6 +5,16 @@
 
 //Criacao das variaveis de projeto
 var projetoNome; //nome - designacao do projeto
+//DMMLG
+// Classe Caso de uso
+var  casoUso = function(id,nome, operacao,tipo, entity, masterent){
+    this.id_caso = id,
+    this.nome_caso = nome,
+    this.oepracao_caso = operacao,
+    this.tipo_caso= tipo,
+    this.entity_caso=entity,
+    this.masterent = masterent;
+    };
 
 var diagramaCU; // diagrama de casos de uso
 var listaCasos = [];    //array com lista de nomes de casos de uso
@@ -977,6 +987,7 @@ function get_cookie ( cookie_name )
     }
     return '' ;
 }
+
 
 
 
