@@ -271,8 +271,8 @@ ControladorAmalia ={
 	setNomeCaso : function (graph){
 		var nomeCaso = $("#nomeCasoUso").val();
 		var idCaso =$("#idCaso").val();
-        var entity=$("#entityList").val();
-        var masterentity= $("#masterEntityList").val();
+        var entity=$("#listaEntidades").val();
+        var masterentity= $("#listaEntidadesMaster").val();
         var operation = $("lcrud");
 		if (nomeCaso && idCaso){
 			// definido o nome do caso daqui chamar alterações ao modelo
