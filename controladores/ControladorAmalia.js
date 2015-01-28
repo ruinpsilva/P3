@@ -271,12 +271,17 @@ ControladorAmalia ={
 	setNomeCaso : function (graph){
 		var nomeCaso = $("#nomeCasoUso").val();
 		var idCaso =$("#idCaso").val();
+        var entity=$("#entityList").val();
+        var masterentity= $("#masterEntityList").val();
+        var operation = $("lcrud");
 		if (nomeCaso && idCaso){
 			// definido o nome do caso daqui chamar alterações ao modelo
 			//registando novo nome e largura + altura
 			var caso = graph.getCell(idCaso);
 			caso.resize( nomeCaso.length * 8 + 40 , 50);
 			caso.attr({text:{text:nomeCaso}});
+            var casouso = new criaCaso(idCaso,nomeCaso,operation,1,entity,masterentity);
+            listaCasos.push(casouso);
 		}
 		
 	},
