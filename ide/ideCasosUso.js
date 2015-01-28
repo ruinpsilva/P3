@@ -47,6 +47,7 @@ function insertUseCaseOnToGraph(){
     positionx_uso = positionx_uso + 10;
     positiony_uso = positiony_uso + 10;
     graph.addCells([caso]);
+    ControladorAmalia.toogleDialogoCasoUso(caso);
 
 }
 
@@ -85,16 +86,8 @@ function atorListAdd(){
 
 //RNPS
 //Introdução no array listaCasos a informação de um caso de uso
-function useCaseListAdd(casouso){
-            listaCasos.push(casouso);
-}
-
-
-
 
 $(document).ready(function(){
-	
-
 
 	//Variáveis
 	
@@ -255,6 +248,7 @@ $(document).ready(function(){
 	//Add Use Case graph to paper
 	$("#addUseCaseGraph").click(function(e){
 		insertUseCaseOnToGraph();
+        //ControladorAmalia.toogleDialogoCasoUso();
         e.preventDefault();
 	});
 	
