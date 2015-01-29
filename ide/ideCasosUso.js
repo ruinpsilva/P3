@@ -87,6 +87,8 @@ function atorListAdd(){
 }
 
 
+
+
 //RNPS
 //Introdução no array listaCasos a informação de um caso de uso
 
@@ -94,6 +96,9 @@ $(document).ready(function(){
     ControladorAmalia.supportsLocalStorage();
 	//Variáveis
     var grafico = localStorage.graph;
+    listaClasses = localStorage.classes;
+    listaAbstracts = localStorage.abstract;
+    listaInterfaces = localStorage.interfaces;
     grafico= JSON.parse(grafico);
     console.log(grafico);
     graph.fromJSON(grafico);

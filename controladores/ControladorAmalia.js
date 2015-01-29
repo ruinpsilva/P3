@@ -89,7 +89,7 @@ ControladorAmalia ={
 			$("#idCaso").val(caso.id);
 			$("#nomeCasoUso").val(nomeCaso);// Colocar o nome actual
 		}
-		
+		ControladorAmalia.toogleDialogoMostraClasses();
 		ControladorAmalia.toogleDialogo("#dialogo_casos_uso","#nomeCasoUso");
 
 	},
@@ -232,10 +232,11 @@ ControladorAmalia ={
 	
 
     //RNPS
-    //HELP
+    //
     toogleDialogoMostraClasses: function (){
         $("#entityList").empty();
         var todos = listaClasses.concat(listaAbstracts.concat(listaInterfaces));
+        console.log(todos);
         var html = "";
         if(todos.length != 0){
             for(var i = 0; i < todos.length; i++){
