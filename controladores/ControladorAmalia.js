@@ -17,8 +17,8 @@ function criaCaso(id,nome, operacao,tipo, entity, masterent){
     };
 
 var diagramaCU; // diagrama de casos de uso
-var listaCasos = [];    //array com lista de nomes de casos de uso
-var listaAtores = [];   //array com lista de nomes de atores
+var listaCasos=[];    //array com lista de nomes de casos de uso
+var listaAtores=[];   //array com lista de nomes de atores
 var graph = new joint.dia.Graph;    //diagrama de casos de uso
 var diagramaCU;
 var UCBundle;   // conjunto de elementos que constituem o IDE casos de uso
@@ -49,7 +49,13 @@ ControladorAmalia ={
 			}
 		}
 	},
-
+    supportsLocalStorage: function () {
+        try {
+        return 'localStorage' in window &&              window['localStorage'] !== null;
+        }     catch (e) {
+        return false;
+  }
+},
 
 	// Provavelmente desnecessário
 	toogleDialogoSemFocus:function(dialogoNome){
@@ -194,9 +200,12 @@ ControladorAmalia ={
             console.log(nome.substring(0,proj.length));
             if(nome.substring(0,proj.length) == proj){
                 var opt = $("<option>");
+
                 opt.val(nome);
+                console.log(opt.val());
                 opt.html(nome);
                 $("#projetosDisponiveis").append(opt);
+                console.log($("#projetosDisponiveis"));
             }
         }
         this.toogleDialogo("#dialogoAbreProjeto", false);
@@ -245,6 +254,15 @@ ControladorAmalia ={
 		this.toogleDialogo("#dialogoGravaDiaCasosDisco",focus);
 	},
 	
+
+    //DMMLG
+    //Função para criar e guardar as variaveis de um projecto
+    CriaProject : function (projecto){
+
+        projetoNome = projecto;
+
+    },
+
 	//>>>>>>>>>>>>>>>>>>>> Alterar atributos dos elementos dos diagramas
 	setNomeActor : function (graph){
 		
@@ -827,20 +845,31 @@ ControladorAmalia ={
 	},
 
 
-    //RNPS
+    //RNPS-DMMLG
     //Gravar Projecto no Browser
     gravarProjectoNoBrowser: function(){
-        var nomeProjeto =$("nomeProjecto").val();
+        var nomeProjeto =$("#nomeProjecto").val();
         alert("Chegou ao controlador");
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
-            var projecto = { proj: nomeProjeto, CasosUso: UCBundle, Classes: CLBundle }
+            var projecto = new Object();
+            projecto.proj= nomeProjeto;
+            projecto.CasosUso = UCBundle;
+            projecto.Classe =CLBundle;
+            console.log(projecto);
+
             var prefixo = "proj";
             if(nomeProjeto){
-                localStorage.setItem(prefixo + "_" + nomeProjeto, projecto);
+            var teste = JSON.stringify(projecto);
+            console.log(teste);
+            localStorage.setItem(prefixo + "_" + nomeProjeto, projecto);
             } else {
-                localStorage.setItem("proj_projeto", projecto);
+                projecto.proj= "proj_projeto";
+                var teste = JSON.stringify(projecto);
+                localStorage.setItem("proj_projeto",teste);
+                console.log(teste);
+
             }
             alert("Projeto gravado com sucesso!");
         }
@@ -861,23 +890,35 @@ ControladorAmalia ={
 		
 	},
 
-    //RNPS
+    //RNPS-DDMLG
     //Abrir projeto
     abrirProjeto:function (graph, graph2){
         graph.clear();
         graph2.clear();
         var nome = $("#projetosDisponiveis option:selected").val();
         var projeto = localStorage.getItem(nome);
-        projeto[0] = projetoNome;
-        projeto[1] = UCBundle;
-        projeto[2] = CLBundle;
-        graph.fromJSON(JSON.parse(UCBundle[0]));
-        UCBundle[1] = listaCasos;
-        UCBundle[2] = listaAtores;
-        graph2.fromJSON(JSON.parse(CLBundle[0]));
-        CLBundle[1] = listaClasses;
-        CLBundle[2] = listaInterfaces;
-        CLBundle[3] = listaAbstracts;
+        // fazer o parse para JSON
+        var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
+        console.log(projeto);
+        console.log(projetoS);
+        projetoNome=projetoS.proj;
+        console.log(projetoNome);
+        UCBundle= projetoS.CasosUso;
+        console.log(UCBundle);
+        CLBundle= projetoS.Classe;
+        console.log(CLBundle);
+        graph.fromJSON(UCBundle.diagCU);
+        localStorage[graph]= graph;
+        console.log(graph);
+        listaCasos= UCBundle.listaCU;
+        console.log(listaCasos);
+        listaAtores=UCBundle.listaAtores;
+        console.log(listaAtores);
+        graph2.fromJSON(CLBundle.diagCL);
+        localStorage[graph2]= graph2;
+        listaClasses=CLBundle.listaABS;
+        listaInterfaces=CLBundle.listaCL;
+        listaAbstracts=CLBundle.listaIT;
     },
 
 
@@ -928,33 +969,36 @@ ControladorAmalia ={
 		return atributoP;
 	},
 
-    //RNPS
+    //RNPS-DMMLG
     //Passar diagrama de Casos de Uso para JSON
     diagramaCasoUsoParaJSON: function(){
         var modeloJSONCU = graph.toJSON();
         console.log(modeloJSONCU);
-        diagramaCU = JSON.stringify(modeloJSONCU);
+        diagramaCU = modeloJSONCU;
         console.log(diagramaCU);
     },
 
-    //RNPS
+    //RNPS-DMMLG
     //Criacao de estrutura JSON para o segmento de projeto
     createUseCaseBundle(diagrama,casos,atores){
         UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
+        var teste = JSON.stringify(UCBundle);
         console.log(UCBundle);
+        console.log(teste);
+
     },
 
 
-    //RNPS
+    //RNPS-DMMLG
     //Passar diagrama de Casos de Uso para JSON
     diagramaClassesParaJSON: function(){
         var modeloJSONCL = graph.toJSON();
         console.log(modeloJSONCL);
-        diagramaCL = JSON.stringify(modeloJSONCL);
+        diagramaCL = modeloJSONCL;
         console.log(diagramaCL);
     },
 
-    //RNPS
+    //RNPS-DMMLG
     //Criação de estrutura JSON para o segmento de projeto
 	createClassesBundle: function(diagrama, classes, interfaces, abstratas){
         CLBundle = {diagCL : diagrama, listaCL: classes, listaIT: interfaces, listaABS: abstratas};

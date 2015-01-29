@@ -161,7 +161,7 @@
     </table>
     </div>
     <div>
-    <di id="dialogoCriaProjecto">
+    <div id="dialogoCriaProjecto">
         <div>
             <p> Create a New Project</p>
             <fieldset>
@@ -171,7 +171,22 @@
             <input id="btnCancelarCriarProjecto" type="button" value="Cancel"/>
             <input id="btnCriarProjecto" type="button" value="Create"/>
         </div>
-    </di>
+    </div>
+
+    <div id="dialogoAbreProjeto">
+        <div>
+            <p> Open Projecto Model from Browser </p>
+            <fieldset>
+                <legend> Select Project to open:</legend>
+                <select id="projetosDisponiveis">
+                    <!-- Local onde vão ficar os projectos disponiveis -->
+                </select>
+            </fieldset>
+            <input id="btnCancelarAbrirProjecto" type="button" value="Cancel"/>
+            <input id="btnAbrirProjecto" type="button"  value="Open Projecto" />
+        </div>
+    </div>
+
 	<footer>
         <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
         <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>

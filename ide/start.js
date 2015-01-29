@@ -5,6 +5,7 @@
 
 $(document).ready(function(){
 
+    ControladorAmalia.supportsLocalStorage();
     //botões provisórios do stage
     $("#btnCreateProject").click(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();
@@ -28,7 +29,16 @@ $(document).ready(function(){
     //RNPS
     //ligação com a cx de diálogo de abertura de projeto
     $("#btnOpenProjectFromBrowser").click(function(){
-        ControladorAmalia.toogleDialogoAbreProjeto("");
+        ControladorAmalia.toogleDialogoAbreProjeto("proj");
+    });
+
+
+    //DMMLG
+    //btnAbrir Projecto
+    $("#btnAbrirProjecto").click(function(){
+        ControladorAmalia.abrirProjeto(graph, graph2);
+                window.location.href = "casosuso.html";
+
     });
 
 

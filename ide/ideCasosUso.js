@@ -88,8 +88,10 @@ function atorListAdd(){
 //Introdução no array listaCasos a informação de um caso de uso
 
 $(document).ready(function(){
-
+    ControladorAmalia.supportsLocalStorage();
 	//Variáveis
+    graph= localStorage[graph];
+    console.log(graph);
 	
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
@@ -433,7 +435,6 @@ $(document).ready(function(){
 	$("#btnAbrirDiagrama").click(function(){
 		ControladorAmalia.abirDiagrama(graph);
 	});
-
     //FIXME - Esta função pertencia à barra de menus inícial e não está a ser utilizada
     // Botão Apagrar diagrama
 	$("#btnApagarDiagrama").click(function(){
