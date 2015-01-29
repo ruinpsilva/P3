@@ -235,6 +235,8 @@ ControladorAmalia ={
     //HELP
     toogleDialogoMostraClasses: function (){
         $("#entityList").empty();
+        console.log(listaClasses);
+        console.log(localStorage.classes);
         var todos = listaClasses.concat(listaAbstracts.concat(listaInterfaces));
         var html = "";
         if(todos.length != 0){

@@ -24,26 +24,6 @@ var scrolltop = $(document).scrollTop();
 
 
 
-
-//RNPS
-//atualiza a lista de classes, interface e abstrata no array
-function classListAdd(){
-    var elementos = graph2.getElements();
-    for(var i = 0; i < elementos.length; i++){
-        var el = graph2.getCell(elementos[i].id).toJSON();
-        if(el.type == "uml.Class"){
-            listaClasses.push(el.name);
-        } else if (el.type == "uml.Abstract"){
-            listaAbstracts.push(el.name);
-        } else if (el.type == "uml.Interface"){
-            listaInterfaces.push(el.name);
-        }
-    }
-}
-
-
-
-
 //DMMLG
 // Função para inserir classes no grafico
 function insertClassOnToGraph(){
@@ -51,7 +31,8 @@ function insertClassOnToGraph(){
     positionx_class += 10;
     positiony_class += 10;
     graph2.addCell([classeGraph]);
-    classListAdd();
+    listaClasses.push(classeGraph.attributes.name);
+    console.log(listaClasses);
     }
 
 //DMMLG
@@ -61,6 +42,8 @@ function insertInterfaceOnToGraph(){
     positionx_interface += 10;
     positiony_interface += 10;
     graph2.addCell([interfaceGraph]);
+    listaInterfaces.push(interfaceGraph.attributes.name);
+    console.log(listaInterfaces);
 }
 
 //DMMLG
@@ -70,6 +53,8 @@ function insertAbstractOnToGraph(){
     positionx_abstract +=10;
     positiony_abstract +=10;
     graph2.addCell([abstractGraph]);
+    listaAbstracts.push(abstractGraph.attributes.name);
+    console.log(listaAbstracts);
 }
 
 
