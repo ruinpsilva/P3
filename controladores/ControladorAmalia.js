@@ -68,6 +68,7 @@ ControladorAmalia ={
 	// aparecer dialogo para criar projecto
     toogleDialogoCriaProjecto:function(){
     ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", false);
+
     },
 
 	toogleDialogoAtor: function (actorId){
@@ -273,8 +274,9 @@ ControladorAmalia ={
     //DMMLG
     //Função para criar e guardar as variaveis de um projecto
     CriaProject : function (projecto){
-
         projetoNome = projecto;
+        localStorage.graph=JSON.stringify(graph);
+        console.log(JSON.stringify(graph));
 
     },
 

@@ -98,7 +98,7 @@ $(document).ready(function(){
     console.log(grafico);
     graph.fromJSON(grafico);
     console.log(graph);
-	
+
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
