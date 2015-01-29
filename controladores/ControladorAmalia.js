@@ -229,6 +229,21 @@ ControladorAmalia ={
 		this.toogleDialogo("#dialogoAbreDiagrama",false);
 	},
 	
+
+    //RNPS
+    //HELP
+    toogleDialogoMostraClasses: function (){
+        $("#entityList").empty();
+        var todos = listaClasses.concat(listaAbstracts.concat(listaInterfaces));
+        var html = "";
+        if(todos.length != 0){
+            for(var i = 0; i < todos.length; i++){
+                var html += '<option value="' + todos[i] + '">';
+            }
+            $("#entityList").append(html);
+        }
+    },
+
 	toogleDialogoMostarXMLClasses : function (texto){
 		
 		$("#xmlClasses").val(texto);
