@@ -238,7 +238,7 @@ ControladorAmalia ={
         var html = "";
         if(todos.length != 0){
             for(var i = 0; i < todos.length; i++){
-                var html += '<option value="' + todos[i] + '">';
+             html += '<option value="' + todos[i] + '">';
             }
             $("#entityList").append(html);
         }
@@ -923,8 +923,9 @@ ControladorAmalia ={
         CLBundle= projetoS.Classe;
         console.log(CLBundle);
         graph.fromJSON(UCBundle.diagCU);
-        localStorage[graph]= graph;
-        console.log(graph);
+        console.log(UCBundle.diagCU);
+        localStorage.graph=JSON.stringify(UCBundle.diagCU);
+        console.log(localStorage.graph);
         listaCasos= UCBundle.listaCU;
         console.log(listaCasos);
         listaAtores=UCBundle.listaAtores;

@@ -304,7 +304,6 @@ $(document).ready(function(){
     //Clear Diagram
     $("#clearDiagram").click(function(e){
         graph2.clear();
-        graph2.addCell(rectx);
     });
 
 

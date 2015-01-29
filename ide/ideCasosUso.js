@@ -31,6 +31,7 @@ function iniciarDiagramaCasosUso(graph) {
 	//Adicionar o ator e o caso de uso à barra de ferramentas
 	graph.addCells([caso,ator]);
 
+
 }
 
 //RNPS
@@ -48,6 +49,7 @@ function insertUseCaseOnToGraph(){
     positiony_uso = positiony_uso + 10;
     graph.addCells([caso]);
     ControladorAmalia.toogleDialogoCasoUso(caso);
+    localStorage.graph=JSON.stringify(graph);
 
 }
 
@@ -67,6 +69,7 @@ function insertActorOnToGraph(){
     //atorAdiciona("Actor");
     console.log("vamos fazer o update da lista de atores");
     atorListAdd();
+    localStorage.graph=JSON.stringify(graph);
 }
 
 
@@ -90,7 +93,10 @@ function atorListAdd(){
 $(document).ready(function(){
     ControladorAmalia.supportsLocalStorage();
 	//Variáveis
-    graph= localStorage[graph];
+    var grafico = localStorage.graph;
+    grafico= JSON.parse(grafico);
+    console.log(grafico);
+    graph.fromJSON(grafico);
     console.log(graph);
 	
 	//var graph = new joint.dia.Graph;
@@ -119,7 +125,7 @@ $(document).ready(function(){
 		gridSize: 10,
 		model: graph,
 	});
-
+   graph.fromJSON(grafico);
     //Eventos que é necessário capturar.
 
 
@@ -281,7 +287,6 @@ $(document).ready(function(){
     //Clear Diagram
     $("#clearDiagram").click(function(e){
         graph.clear();
-        graph.addCell(rectx);
     });
 
 
