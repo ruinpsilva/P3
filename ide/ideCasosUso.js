@@ -96,9 +96,9 @@ $(document).ready(function(){
     ControladorAmalia.supportsLocalStorage();
 	//Variáveis
     var grafico = localStorage.graph;
-    listaClasses = localStorage.classes;
-    listaAbstracts = localStorage.abstract;
-    listaInterfaces = localStorage.interfaces;
+    listaClasses = JSON.parse(localStorage.classes);
+    listaAbstracts = JSON.parse(localStorage.abstract);
+    listaInterfaces = JSON.parse(localStorage.interface);
     grafico= JSON.parse(grafico);
     console.log(grafico);
     graph.fromJSON(grafico);

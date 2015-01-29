@@ -320,9 +320,11 @@ $(document).ready(function(){
 		//Experiencia gravar e repor
 		
 	$("#btnVoltarInicio").click(function(){
-        localStorage.classes = listaClasses;
-        localStorage.abstrac = listaAbstracts;
-        localStorage.interface = listaInterfaces;
+        console.log(listaClasses);
+        localStorage.classes = JSON.stringify(listaClasses);
+        console.log(localStorage.classes);
+        localStorage.abstract = JSON.stringify(listaAbstracts);
+        localStorage.interface = JSON.stringify(listaInterfaces);
         window.location.href ="stage.html";
 	});
 	$("#btnGuardarDiagramaClasses").click(function (){

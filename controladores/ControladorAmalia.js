@@ -237,8 +237,15 @@ ControladorAmalia ={
         $("#entityList").empty();
         console.log(listaClasses);
         console.log(localStorage.classes);
-        var todos = listaClasses.concat(listaAbstracts.concat(listaInterfaces));
+        console.log(listaAbstracts);
+        console.log(localStorage.abstract);
+        console.log(listaInterfaces);
+        console.log(localStorage.interface);
+        var todos = [];
+         todos = listaClasses.concat(listaAbstracts,listaInterfaces);
         console.log(todos);
+        console.log(todos.length);
+        console.log(todos[0]);
         var html = "";
         if(todos.length != 0){
             for(var i = 0; i < todos.length; i++){
