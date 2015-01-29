@@ -32,7 +32,6 @@ function insertClassOnToGraph(){
     positiony_class += 10;
     graph2.addCell([classeGraph]);
     listaClasses.push(classeGraph.attributes.name);
-    console.log(listaClasses);
     }
 
 //DMMLG
@@ -43,7 +42,6 @@ function insertInterfaceOnToGraph(){
     positiony_interface += 10;
     graph2.addCell([interfaceGraph]);
     listaInterfaces.push(interfaceGraph.attributes.name);
-    console.log(listaInterfaces);
 }
 
 //DMMLG
@@ -54,7 +52,6 @@ function insertAbstractOnToGraph(){
     positiony_abstract +=10;
     graph2.addCell([abstractGraph]);
     listaAbstracts.push(abstractGraph.attributes.name);
-    console.log(listaAbstracts);
 }
 
 
@@ -118,8 +115,34 @@ function iniciarDiagrama(graph2){
 	graph2.addCells([classGraf, abstractGraf, interfaceGraf]);
 	
 }
-	
-	
+
+function actualizaArvoreClasse(){
+    $("#classeslista").empty();
+    var htmlclasses ="";
+    console.log(listaClasses);
+    if(listaClasses.length>0){
+        for(var i =0; i<listaClasses.length; i++){
+         htmlclasses +='<li class="file"><a>' + listaClasses[i] + '</a></li>';
+        }
+        $("#classeslista").append(htmlclasses);
+    }
+    $("#abstractlista").empty();
+    var htmlAbstract="";
+    if(listaAbstracts.length>0){
+        for(var i =0; i<listaAbstracts.length; i++){
+         htmlAbstract +='<li class="file"><a>' + listaAbstracts[i] + '</a></li>';
+        }
+        $("#abstractlista").append(htmlAbstract);
+    }
+    $("#interfacelista").empty();
+    var htmlInterface="";
+    if(listaInterfaces.length>0){
+        for(var i =0; i<listaInterfaces.length; i++){
+         htmlInterface +='<li class="file"><a>' + listaInterfaces[i] + '</a></li>';
+        }
+        $("#interfacelista").append(htmlInterface);
+    }
+}
 //*******************************************
 //**           Página Carregada            **
 //** Eventos e funcionaliddes da interface **
@@ -143,8 +166,9 @@ $(document).ready(function(){
 	
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
 	
-	
-	var paper = new joint.dia.Paper({
+	ControladorAmalia.ReadVariaveis();
+	actualizaArvoreClasse();
+    var paper = new joint.dia.Paper({
 	id:'t',
     el: $('#modelo'),
 	width: widthPaper,
@@ -152,6 +176,7 @@ $(document).ready(function(){
 	gridSize:10,
 	model: graph2
 	});
+    graph2.fromJSON(classes);
 	
 	//iniciarDiagrama(graph2);
 	
@@ -320,11 +345,7 @@ $(document).ready(function(){
 		//Experiencia gravar e repor
 		
 	$("#btnVoltarInicio").click(function(){
-        console.log(listaClasses);
-        localStorage.classes = JSON.stringify(listaClasses);
-        console.log(localStorage.classes);
-        localStorage.abstract = JSON.stringify(listaAbstracts);
-        localStorage.interface = JSON.stringify(listaInterfaces);
+        ControladorAmalia.ActualizaVariaveis();
         window.location.href ="stage.html";
 	});
 	$("#btnGuardarDiagramaClasses").click(function (){
@@ -369,6 +390,9 @@ $(document).ready(function(){
 	//--------------------------Botão apagarDiagrama
 	$("#btnApagarDiagrama").click(function(){
 		graph2.clear();
+        listaClasses = [];
+        listaInterfaces = [];
+        listaAbstracts = [];
 		iniciarDiagrama(graph2);
 	});
 	//--------------------------Botão cancelar do dialogoAlteraClasses
@@ -622,3 +646,4 @@ $(document).ready(function(){
 
 
 
+window.setInterval(actualizaArvoreClasse,1000);
