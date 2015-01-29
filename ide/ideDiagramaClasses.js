@@ -320,11 +320,10 @@ $(document).ready(function(){
 		//Experiencia gravar e repor
 		
 	$("#btnVoltarInicio").click(function(){
-		window.location.href ="stage.html";
-        classListAdd();
         localStorage.classes = listaClasses;
         localStorage.abstrac = listaAbstracts;
         localStorage.interface = listaInterfaces;
+        window.location.href ="stage.html";
 	});
 	$("#btnGuardarDiagramaClasses").click(function (){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
