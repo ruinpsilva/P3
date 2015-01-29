@@ -335,7 +335,11 @@ $(document).ready(function(){
 		//Experiencia gravar e repor
 		
 	$("#btnVoltarInicio").click(function(){
-		window.location.href ="index.html";
+		window.location.href ="stage.html";
+        classListAdd();
+        localStorage.classes = listaClasses;
+        localStorage.abstrac = listaAbstracts;
+        localStorage.interface = listaInterfaces;
 	});
 	$("#btnGuardarDiagramaClasses").click(function (){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
