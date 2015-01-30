@@ -73,12 +73,12 @@ function insertActorOnToGraph(){
 
 
 
-function actualizaArvoreClasse(){
+function actualizaArvoreUC(){
     $("#atoreslista").empty();
     var htmlatores ="";
     if(listaAtores.length>0){
         for(var i =0; i<listaAtores.length; i++){
-         htmlatores +='<li class="file"><a>' + listaAtores[i] + '</a></li>';
+         htmlatores +='<li class="fileAT"><a>' + listaAtores[i] + '</a></li>';
         }
         $("#atoreslista").append(htmlatores);
     }
@@ -86,7 +86,7 @@ function actualizaArvoreClasse(){
     var htmlcasos ="";
     if(listaCasos.length>0){
         for(var i =0; i<listaCasos.length; i++){
-         htmlcasos +='<li class="file"><a>' + listaCasos[i].nome_caso + '</a></li>';
+         htmlcasos +='<li class="fileUC"><a>' + listaCasos[i].nome_caso + '</a></li>';
         }
         $("#casoslista").append(htmlcasos);
     }
@@ -538,7 +538,7 @@ function zoomfit(){
 
 	
 });
-window.setInterval(actualizaArvoreClasse,1000);
+window.setInterval(actualizaArvoreUC,1000);
 
  window.setInterval(ControladorAmalia.ActualizaVariaveis,1000);
 
