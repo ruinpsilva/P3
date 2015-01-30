@@ -122,7 +122,7 @@ function actualizaArvoreClasse(){
     var htmlclasses ="";
     if(listaClasses.length>0){
         for(var i =0; i<listaClasses.length; i++){
-         htmlclasses +='<li class="file"><a>' + listaClasses[i] + '</a></li>';
+         htmlclasses +='<li class="fileCL"><a>' + listaClasses[i] + '</a></li>';
         }
         $("#classeslista").append(htmlclasses);
     }
@@ -130,7 +130,7 @@ function actualizaArvoreClasse(){
     var htmlAbstract="";
     if(listaAbstracts.length>0){
         for(var i =0; i<listaAbstracts.length; i++){
-         htmlAbstract +='<li class="file"><a>' + listaAbstracts[i] + '</a></li>';
+         htmlAbstract +='<li class="fileAB"><a>' + listaAbstracts[i] + '</a></li>';
         }
         $("#abstractlista").append(htmlAbstract);
     }
@@ -138,7 +138,7 @@ function actualizaArvoreClasse(){
     var htmlInterface="";
     if(listaInterfaces.length>0){
         for(var i =0; i<listaInterfaces.length; i++){
-         htmlInterface +='<li class="file"><a>' + listaInterfaces[i] + '</a></li>';
+         htmlInterface +='<li class="fileIT"><a>' + listaInterfaces[i] + '</a></li>';
         }
         $("#interfacelista").append(htmlInterface);
     }

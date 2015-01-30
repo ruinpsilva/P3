@@ -313,14 +313,14 @@ ol.tree
 		margin-left: -15px;
 		list-style: none;
 	}
-	li.file
+	li.fileUC
 	{
 /*		margin-left: -1px !important;*/
 		font-weight: normal !important;
 		font-size: 11px !important;
 	}
         /*TODO Proceder às alterações necessárias para cada um dos tipos de diagramas*/
-		li.file a
+		li.fileUC a
 		{
 			background: url(img/document.png) 0 0 no-repeat;
 			color: #F9F9F9;
@@ -328,10 +328,86 @@ ol.tree
 			text-decoration: none;
 			display: block;
 		}
-		li.file a[href *= '.pdf']	{ background: url(img/document.png) 0 0 no-repeat; }
-		li.file a[href *= '.html']	{ background: url(img/document.png) 0 0 no-repeat; }
-		li.file a[href $= '.css']	{ background: url(img/document.png) 0 0 no-repeat; }
-		li.file a[href $= '.js']	{ background: url(img/document.png) 0 0 no-repeat; }
+		li.fileUC a[href *= '.pdf']	{ background: url(img/document.png) 0 0 no-repeat; }
+		li.fileUC a[href *= '.html']	{ background: url(img/document.png) 0 0 no-repeat; }
+		li.fileUC a[href $= '.css']	{ background: url(img/document.png) 0 0 no-repeat; }
+		li.fileUC a[href $= '.js']	{ background: url(img/document.png) 0 0 no-repeat; }
+    li.fileAT
+        {
+    /*		margin-left: -1px !important;*/
+            font-weight: normal !important;
+            font-size: 11px !important;
+        }
+            /*TODO Proceder às alterações necessárias para cada um dos tipos de diagramas*/
+            li.fileAT a
+            {
+                background: url(img/Actor_toolbar.png) 0 0 no-repeat;
+                color: #F9F9F9;
+                padding-left: 21px;
+                text-decoration: none;
+                display: block;
+            }
+            li.fileAT a[href *= '.pdf']	{ background: url(img/Actor_toolbar.png) 0 0 no-repeat; }
+            li.fileAT a[href *= '.html']	{ background: url(img/Actor_toolbar.png) 0 0 no-repeat; }
+            li.fileAT a[href $= '.css']	{ background: url(img/Actor_toolbar.png) 0 0 no-repeat; }
+            li.fileAT a[href $= '.js']	{ background: url(img/Actor_toolbar.png) 0 0 no-repeat; }
+    li.fileCL
+        {
+    /*		margin-left: -1px !important;*/
+            font-weight: normal !important;
+            font-size: 11px !important;
+        }
+            /*TODO Proceder às alterações necessárias para cada um dos tipos de diagramas*/
+            li.fileCL a
+            {
+                background: url(img/Classtb.png) 0 0 no-repeat;
+                color: #F9F9F9;
+                padding-left: 21px;
+                text-decoration: none;
+                display: block;
+            }
+            li.fileCL a[href *= '.pdf']	{ background: url(img/Classtb.png) 0 0 no-repeat; }
+            li.fileCL a[href *= '.html']	{ background: url(img/Classtb.png) 0 0 no-repeat; }
+            li.fileCL a[href $= '.css']	{ background: url(img/Classtb.png) 0 0 no-repeat; }
+            li.fileCL a[href $= '.js']	{ background: url(img/Classtb.png) 0 0 no-repeat; }
+    li.fileAB
+            {
+        /*		margin-left: -1px !important;*/
+                font-weight: normal !important;
+                font-size: 11px !important;
+            }
+                /*TODO Proceder às alterações necessárias para cada um dos tipos de diagramas*/
+                li.fileAB a
+                {
+                    background: url(img/Abstracttb.png) 0 0 no-repeat;
+                    color: #F9F9F9;
+                    padding-left: 21px;
+                    text-decoration: none;
+                    display: block;
+                }
+                li.fileAB a[href *= '.pdf']	{ background: url(img/Abstracttb.png) 0 0 no-repeat; }
+                li.fileAB a[href *= '.html']	{ background: url(img/Abstracttb.png) 0 0 no-repeat; }
+                li.fileAB a[href $= '.css']	{ background: url(img/Abstracttb.png) 0 0 no-repeat; }
+                li.fileAB a[href $= '.js']	{ background: url(img/Abstracttb.png) 0 0 no-repeat; }
+    li.fileIT
+            {
+        /*		margin-left: -1px !important;*/
+                font-weight: normal !important;
+                font-size: 11px !important;
+            }
+                /*TODO Proceder às alterações necessárias para cada um dos tipos de diagramas*/
+                li.fileIT a
+                {
+                    background: url(img/Interfacetb.png) 0 0 no-repeat;
+                    color: #F9F9F9;
+                    padding-left: 21px;
+                    text-decoration: none;
+                    display: block;
+                }
+                li.fileIT a[href *= '.pdf']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
+                li.fileIT a[href *= '.html']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
+                li.fileIT a[href $= '.css']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
+                li.fileIT a[href $= '.js']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
 	li input
 	{
 		position: absolute;
