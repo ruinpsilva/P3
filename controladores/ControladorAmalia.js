@@ -377,7 +377,6 @@ ControladorAmalia ={
             // criar um novo caso de uso
             var casouso = new criaCaso(idCaso,nomeCaso,operation,null,entity,masterentity);
             //console.log(casouso);
-            if(listaCasos.length<0){
             for(var i =0; i<listaCasos.length ; i++){
                 // verifica se já existe no array o caso de uso a criar/alterar by ID
                 if(listaCasos[i].id_caso == idCaso){
@@ -390,14 +389,11 @@ ControladorAmalia ={
                     console.log(listaCasos);
                 }
             }
-            }
-            //se o caso de uso ainda nao exister
-            else{
-                //adiciona o caso de uso ao array
-                listaCasos.push(casouso);
-                console.log(existe);
-                console.log(listaCasos);
-		}
+                if(!existe){
+                    listaCasos.push(casouso);
+                }
+
+
         }
 	},
 

@@ -283,6 +283,8 @@ function zoomfit(){
     //Clear Diagram
     $("#clearDiagram").click(function(e){
         graph.clear();
+        listaAtores=[];
+        listaCasos=[];
     });
 
 

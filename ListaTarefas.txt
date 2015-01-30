@@ -1,10 +1,8 @@
 LISTA DE TAREFAS
 
 
-
-
 Caixa dialogo de casos de uso:
-    -controlador de dropboxs (80%)
+    -controlador de dropboxs (80%)!!!!!!! esta com graves problemas
     -actualizar informação da caixa de dialogo (FALTA)
     
 
@@ -17,10 +15,6 @@ abrir projecto de ficheiro (JSON)
 
 exportar projeto para o disco (XML)
 
-
-floating box do lado direito fica com nomes de classes, casos de uso, etc
-    necessário construir:
-        create, update, delete;
 
 página principal
     
@@ -52,3 +46,6 @@ abrir projeto do browser
 
 novo projeto
 
+floating box do lado direito fica com nomes de classes, casos de uso, etc
+    necess√°rio construir:
+        create, update, delete;
