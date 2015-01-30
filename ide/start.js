@@ -48,7 +48,7 @@ $(document).ready(function(){
        if (window.File && window.FileReader && window.FileList && window.Blob)   {
         ControladorAmalia.toggleDialogoAbreProjectoDisco();
        }
-    }
+    });
 
 });
 
