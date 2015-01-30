@@ -44,37 +44,25 @@ ControladorAmalia ={
         localStorage.graph2 = JSON.stringify(graph2);
         localStorage.actores = JSON.stringify(listaAtores);
         localStorage.casos = JSON.stringify(listaCasos);
+        localStorage.projectname = projetoNome;
     },
 
     //DMMLG
     //Lê valores do localStorage
     ReadVariaveis : function(){
-        //Mesmo chamando a função atualiza variáveis, continuava-me a dar erros, por isso
-        //tentei ultrapassar a questão assim mas, apareceu eu outro erro na consola
-        //"TypeError: json is undefined joint.js:19364:12
-        //acho que isto nãoresulta sorry
-
-        if(!typeof localStorage.casos === 'undefined'){
+            projetoNome = localStorage.projectname;
+        alert(projetoNome);
             listaCasos = JSON.parse(localStorage.casos);
-        }
-        if(!typeof localStorage.actores === 'undefined'){
             listaAtores = JSON.parse(localStorage.actores);
-        }
-        if(!typeof localStorage.graph2 === 'undefined'){
             classes = JSON.parse(localStorage.graph2);
-        }
-        if(!typeof localStorage.graph === 'undefined'){
             casoUso = JSON.parse(localStorage.graph);
-        }
-        if(!typeof localStorage.interface === 'undefined'){
             listaInterfaces = JSON.parse(localStorage.interface);
-        }
-        if(!typeof localStorage.abstract === 'undefined'){
+
             listaAbstracts = JSON.parse(localStorage.abstract);
-        }
-        if(!typeof localStorage.classes === 'undefined'){
+
+
             listaClasses = JSON.parse(localStorage.classes);
-        }
+
     },
 
 	// Aparecer desaparecer dialogos para mudar os atributos dos elementos do diagrama.
@@ -109,6 +97,7 @@ ControladorAmalia ={
 	// aparecer dialogo para criar projecto
     toogleDialogoCriaProjecto:function(){
     ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", false);
+    this.ActualizaVariaveis();
 
     },
 
@@ -931,29 +920,17 @@ ControladorAmalia ={
     //RNPS-DMMLG
     //Gravar Projecto no Browser
     gravarProjectoNoBrowser: function(){
-        var nomeProjeto =$("#nomeProjecto").val();
         alert("Chegou ao controlador");
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
             var projecto = new Object();
-            projecto.proj= nomeProjeto;
+            projecto.proj= projetoNome;
             projecto.CasosUso = UCBundle;
             projecto.Classe =CLBundle;
-            console.log(projecto);
-
             var prefixo = "proj";
-            if(nomeProjeto){
             var teste = JSON.stringify(projecto);
-            console.log(teste);
-            localStorage.setItem(prefixo + "_" + nomeProjeto, projecto);
-            } else {
-                projecto.proj= "proj_projeto";
-                var teste = JSON.stringify(projecto);
-                localStorage.setItem("proj_projeto",teste);
-                console.log(teste);
-
-            }
+            localStorage.setItem(prefixo + "_" + projetoNome, teste);
             alert("Projeto gravado com sucesso!");
         }
         catch(err){
@@ -975,34 +952,24 @@ ControladorAmalia ={
 
     //RNPS-DDMLG
     //Abrir projeto
-    abrirProjeto:function (graph, graph2){
+    abrirProjeto:function (){
         graph.clear();
         graph2.clear();
         var nome = $("#projetosDisponiveis option:selected").val();
         var projeto = localStorage.getItem(nome);
         // fazer o parse para JSON
         var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
-        console.log(projeto);
-        console.log(projetoS);
         projetoNome=projetoS.proj;
-        console.log(projetoNome);
         UCBundle= projetoS.CasosUso;
-        console.log(UCBundle);
         CLBundle= projetoS.Classe;
-        console.log(CLBundle);
         graph.fromJSON(UCBundle.diagCU);
-        console.log(UCBundle.diagCU);
-        localStorage.graph=JSON.stringify(UCBundle.diagCU);
-        console.log(localStorage.graph);
         listaCasos= UCBundle.listaCU;
-        console.log(listaCasos);
         listaAtores=UCBundle.listaAtores;
-        console.log(listaAtores);
         graph2.fromJSON(CLBundle.diagCL);
-        localStorage[graph2]= graph2;
         listaClasses=CLBundle.listaABS;
         listaInterfaces=CLBundle.listaCL;
         listaAbstracts=CLBundle.listaIT;
+        this.ActualizaVariaveis();
     },
 
 

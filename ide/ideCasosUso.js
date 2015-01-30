@@ -19,7 +19,7 @@ var scrollleft = $(document).scrollLeft();
 var scrolltop = $(document).scrollTop();
 
 
-
+ControladorAmalia.ReadVariaveis();
 //var b  =  element.scrollHeight - element.clientHeight;
 //var c  =  element.scrollWidth - element.clientWidth;
 
@@ -69,7 +69,6 @@ function insertActorOnToGraph(){
     //atorAdiciona("Actor");
     console.log("vamos fazer o update da lista de atores");
     atorListAdd();
-    localStorage.graph=JSON.stringify(graph);
 }
 
 
@@ -539,9 +538,10 @@ $(document).ready(function(){
     return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost.  Are you sure you want to exit this page?";
   }
 
-  document.getElementById('ficheiroDiagrama').addEventListener('change', readSingleFile, false);
+ document.getElementById('ficheiroDiagrama').addEventListener('change', readSingleFile, false);
 	
 });
+ window.setInterval(ControladorAmalia.ActualizaVariaveis(),2000);
 
 
 

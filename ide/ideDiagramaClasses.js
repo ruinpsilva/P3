@@ -23,6 +23,7 @@ var scrolltop = $(document).scrollTop();
 
 
 
+ControladorAmalia.ReadVariaveis();
 
 //DMMLG
 // Função para inserir classes no grafico
@@ -645,4 +646,5 @@ $(document).ready(function(){
 
 
 
-window.setInterval(actualizaArvoreClasse,1000);
+window.setInterval(actualizaArvoreClasse,2000);
+window.setInterval(ControladorAmalia.ActualizaVariaveis(),2000);

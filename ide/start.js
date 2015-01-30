@@ -1,8 +1,3 @@
-
-
-
-
-
 $(document).ready(function(){
 
     ControladorAmalia.supportsLocalStorage();
@@ -26,6 +21,11 @@ $(document).ready(function(){
         ControladorAmalia.ActualizaVariaveis();
         window.location.href = "stage.html";
     });
+    //DMMLG
+    //butão para cnacelar ao abri projecto do browser
+    $("#btnCancelarAbrirProjecto").click(function(){
+        ControladorAmalia.toogleDialogoAbreProjeto("");
+    });
 
     //RNPS
     //ligação com a cx de diálogo de abertura de projeto
@@ -37,8 +37,8 @@ $(document).ready(function(){
     //DMMLG
     //btnAbrir Projecto
     $("#btnAbrirProjecto").click(function(){
-        ControladorAmalia.abrirProjeto(graph, graph2);
-                window.location.href = "casosuso.html";
+        ControladorAmalia.abrirProjeto();
+                window.location.href = "stage.html";
 
     });
 
