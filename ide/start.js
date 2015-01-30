@@ -23,6 +23,7 @@ $(document).ready(function(){
         ControladorAmalia.CriaProject(nomeProjecto);
         ControladorAmalia.toogleDialogoCriaProjecto();
         projetoNome = nomeProjecto;
+        ControladorAmalia.ActualizaVariaveis();
         window.location.href = "stage.html";
     });
 

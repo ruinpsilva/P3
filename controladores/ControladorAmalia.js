@@ -46,14 +46,35 @@ ControladorAmalia ={
         localStorage.casos = JSON.stringify(listaCasos);
     },
 
+    //DMMLG
+    //Lê valores do localStorage
     ReadVariaveis : function(){
-        listaCasos = JSON.parse(localStorage.casos);
-        listaAtores = JSON.parse(localStorage.actores);
-        classes = JSON.parse(localStorage.graph2);
-        casoUso = JSON.parse(localStorage.graph);
-        listaInterfaces = JSON.parse(localStorage.interface);
-        listaAbstracts = JSON.parse(localStorage.abstract);
-        listaClasses = JSON.parse(localStorage.classes);
+        //Mesmo chamando a função atualiza variáveis, continuava-me a dar erros, por isso
+        //tentei ultrapassar a questão assim mas, apareceu eu outro erro na consola
+        //"TypeError: json is undefined joint.js:19364:12
+        //acho que isto nãoresulta sorry
+
+        if(!typeof localStorage.casos === 'undefined'){
+            listaCasos = JSON.parse(localStorage.casos);
+        }
+        if(!typeof localStorage.actores === 'undefined'){
+            listaAtores = JSON.parse(localStorage.actores);
+        }
+        if(!typeof localStorage.graph2 === 'undefined'){
+            classes = JSON.parse(localStorage.graph2);
+        }
+        if(!typeof localStorage.graph === 'undefined'){
+            casoUso = JSON.parse(localStorage.graph);
+        }
+        if(!typeof localStorage.interface === 'undefined'){
+            listaInterfaces = JSON.parse(localStorage.interface);
+        }
+        if(!typeof localStorage.abstract === 'undefined'){
+            listaAbstracts = JSON.parse(localStorage.abstract);
+        }
+        if(!typeof localStorage.classes === 'undefined'){
+            listaClasses = JSON.parse(localStorage.classes);
+        }
     },
 
 	// Aparecer desaparecer dialogos para mudar os atributos dos elementos do diagrama.

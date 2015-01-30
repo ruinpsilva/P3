@@ -6,15 +6,9 @@ aplicar upgrades do IDE de casos de uso para o diagrama de classes (feito 100%)
 
 criar projeto (feito 100%)
 
-<<<<<<< HEAD
-abrir projeto (80%)
-
-load Projecto(entre troca de IDE's) - 50%
-=======
 abrir projeto (executar função estilo "load")(feito 100%)
 
 load Projecto(entre troca de IDE's feito 50%, falta actulizar as variaveis quando estas sofrem alterações)
->>>>>>> origin/master
 
 Caixa dialogo de casos de uso:
     -controlador de dropboxs (100%)
