@@ -301,8 +301,11 @@ ControladorAmalia ={
 		$("#xmlCasos").val(texto);
 		ControladorAmalia.toogleDialogo("#dialogoMostarXMLCasos",false);
 	},
+    toggleDialogoAbreProjectoDisco:function(){
+        this.toogleDialogo();
+    },
 	toggleDialogoAbreDiagramaCasosUsoDisco : function(){
-		this.toogleDialogo("#dialogoAbreDiagramaCasosDisco",false);
+		this.toogleDialogo("#toggleDialogoAbreProjectoDisco",false);
 	},
 	toggleDialogoAbreDiagramaClassesDisco : function(){
 		this.toogleDialogo("#dialogoAbreDiagramaClassesDisco",false);
@@ -312,7 +315,7 @@ ControladorAmalia ={
 	},
 	
 	toggleDialogoGravaDiaCasosDisco:function(focus){
-		this.toogleDialogo("#dialogoGravaDiaCasosDisco",focus);
+		this.toogleDialogo("#dialogoGravaDiaCasosDisco",projetoNome);
 	},
 	
 
@@ -925,7 +928,6 @@ ControladorAmalia ={
     //RNPS-DMMLG
     //Gravar Projecto no Browser
     gravarProjectoNoBrowser: function(){
-        alert("Chegou ao controlador");
         //bloco para tentar armazenar em "local storage"
         try{
             //estrutura JSON para armazenar os dois diagramas
@@ -936,7 +938,6 @@ ControladorAmalia ={
             var prefixo = "proj";
             var teste = JSON.stringify(projecto);
             localStorage.setItem(prefixo + "_" + projetoNome, teste);
-            alert("Projeto gravado com sucesso!");
         }
         catch(err){
             alert("não gravou projecto");
@@ -944,6 +945,23 @@ ControladorAmalia ={
 
     },
 
+    gravarProjectoNoDisco: function(){
+    try {
+            //estrutura JSON para armazenar os dois diagramas
+            var projecto = new Object();
+            projecto.proj = projetoNome;
+            projecto.CasosUso = UCBundle;
+            projecto.Classe = CLBundle;
+            var diagramaCasosJSON = JSON.stringify(projecto);
+
+            var blob = new Blob([diagramaCasosJSON], {
+                type: "text/plain;charset=utf-8"
+            });
+            saveAs(blob, projetoNome);
+        } catch (err) {
+            alert("nao gravou projecto");
+        }
+    },
 	
 	abirDiagrama:function (graph){
 		
