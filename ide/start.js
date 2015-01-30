@@ -38,10 +38,17 @@ $(document).ready(function(){
     //btnAbrir Projecto
     $("#btnAbrirProjecto").click(function(){
         ControladorAmalia.abrirProjeto();
-                window.location.href = "stage.html";
+        window.location.href = "stage.html";
 
     });
 
+    //DMMLG
+    //bot\ao para abrir projecto do disco
+    $("#btnOpenProjectFile").click(function(){
+       if (window.File && window.FileReader && window.FileList && window.Blob)   {
+        ControladorAmalia.toggleDialogoAbreProjectoDisco();
+       }
+    });
 
 });
 

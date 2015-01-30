@@ -9,8 +9,6 @@ Caixa dialogo de casos de uso:
 apagar projeto
 
 
-guardar projeto em ficheiro (JSON) 
-
 abrir projecto de ficheiro (JSON)
 
 exportar projeto para o disco (XML)
@@ -49,3 +47,4 @@ novo projeto
 floating box do lado direito fica com nomes de classes, casos de uso, etc
     necess√°rio construir:
         create, update, delete;
+guardar projeto em ficheiro (JSON) 
