@@ -4,15 +4,15 @@ LISTA DE TAREFAS
 
 aplicar upgrades do IDE de casos de uso para o diagrama de classes (feito 100%)
 
-criar projeto (50% falta adicionar a parte do IDE de classes)
+criar projeto (feito 100%)
 
-abrir projeto (executar função estilo "load")
+abrir projeto (80%)
 
-load Projecto(entre troca de IDE's
+load Projecto(entre troca de IDE's) - 50%
 
 Caixa dialogo de casos de uso:
-    -controlador de dropboxs
-    -actualizar informação da caixa de dialogo
+    -controlador de dropboxs (100%)
+    -actualizar informação da caixa de dialogo (FALTA)
     
 ************** Importância MÈDIA **********************************************
 

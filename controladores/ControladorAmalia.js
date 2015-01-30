@@ -10,7 +10,7 @@ var projetoNome; //nome - designacao do projeto
 function criaCaso(id,nome, operacao,tipo, entity, masterent){
     this.id_caso = id,
     this.nome_caso = nome,
-    this.oepracao_caso = operacao,
+    this.operacao_caso = operacao,
     this.tipo_caso= tipo,
     this.entity_caso=entity,
     this.masterent = masterent;
@@ -80,12 +80,26 @@ ControladorAmalia ={
 
 	},
 
-
+    //HELP FALTA ACABAR MAS PRIMEIRO TEM DE LER AS VARIÁVEIS GLOBAIS
 	toogleDialogoCasoUso: function(caso){
 		//Muito dependente dos detalhes do html
 		if (caso){
+            console.log("HELLO!1");
 			var elementoCaso = caso.toJSON();
 			var nomeCaso = elementoCaso.attrs.text.text; // ir buscar o nome Actual
+            var id = caso.id;
+            for(var i = 0; i < listaCasos.length; i++){
+                console.log("antes do if");
+                if(id == listaCasos[i].id){
+                    $("#idlcrud") = listaCasos[i].operacao_caso;
+                    $("#listaEntidades").val(listaCasos[i].entity_caso);
+                    $("#listaEntidadesMaster").val(listaCasos[i].masterent);
+                    console.log("HELLO!2");
+                    console.log(listaCasos[i].operacao_caso);
+                    console.log(listaCasos[i].entity_caso);
+                    console.log(listaCasos[i].masterent);
+                }
+            }
 			$("#idCaso").val(caso.id);
 			$("#nomeCasoUso").val(nomeCaso);// Colocar o nome actual
 		}
@@ -252,6 +266,8 @@ ControladorAmalia ={
              html += '<option value="' + todos[i] + '">';
             }
             $("#entityList").append(html);
+            //Momento do DMMLG
+            $("#masterEntityList").append(html);
         }
     },
 
