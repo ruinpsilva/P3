@@ -132,12 +132,13 @@ ControladorAmalia ={
 		
 		if (classe){
 			var classeJSON = classe.toJSON();
+            console.log(classe);
 			$("#idClasse").val(classeJSON.id);
 			$("#nomeDaClasse").val(classeJSON.name);
 			//atributos
 			var atributos = classeJSON.attributes;
 			for(i = 0 ; i < atributos.length ; i++){
-				$("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
+				        $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
 			}
 			//metodos
 			var metodos = classeJSON.methods;
@@ -152,8 +153,6 @@ ControladorAmalia ={
 		}
 		
 		ControladorAmalia.toogleDialogo("#dialogoAlteraClasse",false);
-		
-		
 	},
 		
 	toogleDialogoAlteraInterface: function (classe){

@@ -119,7 +119,6 @@ function iniciarDiagrama(graph2){
 function actualizaArvoreClasse(){
     $("#classeslista").empty();
     var htmlclasses ="";
-    console.log(listaClasses);
     if(listaClasses.length>0){
         for(var i =0; i<listaClasses.length; i++){
          htmlclasses +='<li class="file"><a>' + listaClasses[i] + '</a></li>';
@@ -314,6 +313,9 @@ $(document).ready(function(){
     //Clear Diagram
     $("#clearDiagram").click(function(e){
         graph2.clear();
+        listaClasses.length = 0;
+        listaInterfaces.length = 0;
+        listaAbstracts.length = 0;
     });
 
 
@@ -390,9 +392,6 @@ $(document).ready(function(){
 	//--------------------------Botão apagarDiagrama
 	$("#btnApagarDiagrama").click(function(){
 		graph2.clear();
-        listaClasses = [];
-        listaInterfaces = [];
-        listaAbstracts = [];
 		iniciarDiagrama(graph2);
 	});
 	//--------------------------Botão cancelar do dialogoAlteraClasses
