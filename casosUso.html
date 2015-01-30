@@ -101,20 +101,12 @@
                 <ol class="tree">
 							<li>
 								<label for="folder1">Use Cases</label> <input type="checkbox" id="folder1" />
-								<ol>
-									<li class="file"><a href="document.html.pdf">Diag01</a></li>
-									<li class="file"><a href="document.html.pdf">Diag02</a></li>
-									<li class="file"><a href="document.html.pdf">Diag03</a></li>
-									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								<ol id="casoslista">
 								</ol>
 							</li>
 							<li>
 								<label for="folder2">Actors</label> <input type="checkbox" id="folder2" />
-								<ol>
-									<li class="file"><a href="document.html.pdf">Diag01</a></li>
-									<li class="file"><a href="document.html.pdf">Diag02</a></li>
-									<li class="file"><a href="document.html.pdf">Diag03</a></li>
-									<li class="file"><a href="document.html.pdf">Diag04</a></li>
+								<ol id =atoreslista>
 								</ol>
 							</li>
 						</ol>
@@ -140,7 +132,7 @@
                                 <input id="idCaso" type="hidden" value="" />
                                 </p>
                                 <label for="entity">Entity:</label>
-                                <input list="entityList" id="listaEntidades" value="" autocomplete="off">
+                                <input list="entityList" id="listaEntidades"/>
                                 <datalist id="entityList">
                                      <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>
@@ -152,7 +144,7 @@
                                 <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="d">D
                                 <p></p>
                                 <label for="masterEntityList">Master Entity:</label>
-                                <input list="masterEntityList" id="listaEntidadesMaster">
+                                <input list="masterEntityList" id="listaEntidadesMaster"/>
                                 <datalist id="masterEntityList">
                                       <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>

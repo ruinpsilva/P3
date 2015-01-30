@@ -34,6 +34,7 @@ function iniciarDiagramaCasosUso(graph) {
 
 }
 
+
 //RNPS
 //Function to insert an Use Case in paper
 //function insertUseCaseOnToGraph(){
@@ -66,30 +67,31 @@ function insertActorOnToGraph(){
     positionx_actor = positionx_actor + 10;
     positiony_actor = positiony_actor + 10;
     graph.addCells([ator]);
-    //atorAdiciona("Actor");
-    console.log("vamos fazer o update da lista de atores");
-    atorListAdd();
+    ControladorAmalia.toogleDialogoAtor(ator.id)
 }
 
 
-//RNPS
-//Atualização da lista de atores pelos elementos no graph
-function atorListAdd(){
-    var elementos = graph.getElements();
-    for(var i = 0; i < elementos.length; i++){
-        var el = graph.getCell(elementos[i].id).toJSON();
-        var tipoElemento = (el.type).split(".")[0];
-        if(tipoElemento == "basic" && el.type == "basic.Actor"){
-            listaAtores.push(el.attrs.text.text);
+
+
+function actualizaArvoreClasse(){
+    $("#atoreslista").empty();
+    var htmlatores ="";
+    if(listaAtores.length>0){
+        for(var i =0; i<listaAtores.length; i++){
+         htmlatores +='<li class="file"><a>' + listaAtores[i] + '</a></li>';
         }
+        $("#atoreslista").append(htmlatores);
     }
+      $("#casoslista").empty();
+    var htmlcasos ="";
+    if(listaCasos.length>0){
+        for(var i =0; i<listaCasos.length; i++){
+         htmlcasos +='<li class="file"><a>' + listaCasos[i].nome_caso + '</a></li>';
+        }
+        $("#casoslista").append(htmlcasos);
+    }
+
 }
-
-
-
-
-//RNPS
-//Introdução no array listaCasos a informação de um caso de uso
 
 $(document).ready(function(){
     ControladorAmalia.supportsLocalStorage();
@@ -121,10 +123,21 @@ $(document).ready(function(){
 		model: graph,
 	});
    graph.fromJSON(casoUso);
-    //Eventos que é necessário capturar.
-
-
-
+    zoomfit();
+    //DMMLG
+// dimensionar o paper ao tamanho do diagrama
+function zoomfit(){
+    paper.fitToContent(0,0,20,0);
+        if(paper.options.height < heightPaperFromStart ){
+            paper.setDimensions(paper.options.width,heightPaperFromStart);
+        }
+        if(paper.options.width < widthPaperFromStart){
+            paper.setDimensions(widthPaperFromStart, paper.options.height);
+        }
+        heightPaper = paper.options.height;
+        widthPaper = paper.options.width;
+    }
+//Eventos que é necessário capturar.
 	//mouse down para trazer elementos para a frente do diagrama
     paper.on('cell:',function(cellView, evt){
 
@@ -263,20 +276,8 @@ $(document).ready(function(){
 
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
-        if(paper.options.height > heightPaperFromStart || paper.options.width > widthPaperFromStart){
-            paper.fitToContent(0,0,20,0);
-            if(paper.options.height < heightPaperFromStart ){
-            paper.setDimensions(paper.options.width,heightPaperFromStart);
-            }
-            if(paper.options.width < widthPaperFromStart){
-            paper.setDimensions(widthPaperFromStart, paper.options.height);
-            }
-        } else {
-            paper.setDimensions(widthPaperFromStart,heightPaperFromStart);
+        zoomfit();
 
-        }
-        heightPaper = paper.options.height;
-        widthPaper = paper.options.width;
     });
 
     //Clear Diagram
@@ -532,16 +533,12 @@ $(document).ready(function(){
   }
 
     //window.onbeforeunload = confirmExit;
-  function confirmExit()
-  {
-      ControladorAmalia.ActualizaVariaveis();
-    return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost.  Are you sure you want to exit this page?";
-  }
 
- document.getElementById('ficheiroDiagrama').addEventListener('change', readSingleFile, false);
 	
 });
- window.setInterval(ControladorAmalia.ActualizaVariaveis(),2000);
+window.setInterval(actualizaArvoreClasse,1000);
+
+ window.setInterval(ControladorAmalia.ActualizaVariaveis,1000);
 
 
 

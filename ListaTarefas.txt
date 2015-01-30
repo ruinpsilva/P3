@@ -1,24 +1,15 @@
 LISTA DE TAREFAS
 
-************** Importância ALTA **********************************************
 
-aplicar upgrades do IDE de casos de uso para o diagrama de classes (feito 100%)
 
-criar projeto (feito 100%)
-
-abrir projeto (executar função estilo "load")(feito 100%)
-
-load Projecto(entre troca de IDE's feito 50%, falta actulizar as variaveis quando estas sofrem alterações)
 
 Caixa dialogo de casos de uso:
-    -controlador de dropboxs (100%)
+    -controlador de dropboxs (80%)
     -actualizar informação da caixa de dialogo (FALTA)
     
-************** Importância MÈDIA **********************************************
 
 apagar projeto
 
-guardar projeto no browser (JSON) (feito 100%);
 
 guardar projeto em ficheiro (JSON) 
 
@@ -26,25 +17,38 @@ abrir projecto de ficheiro (JSON)
 
 exportar projeto para o disco (XML)
 
+
 floating box do lado direito fica com nomes de classes, casos de uso, etc
     necessário construir:
         create, update, delete;
 
-aplicar upgrades do IDE de casos de uso para o diagrama de classes (feito 100%)
-
 página principal
     
     apresentar os mais recentes seis projetos
-    abrir projeto do browser
-    novo projeto
+
     abrir projeto de ficheiro
-
-
-***************** Importância BAIXA ************************************************
-
+    
 página de stage
-    criar imagem com ícones e usá-los como botões para os diferentes componentes
-    
-    
+    criar imagem com √≠cones e us√°-los como bot√µes para os diferentes componentes
 
+
+***************** Importância BAIXA de zero  ************************************************
+
+    multi-language
     
+**************** Concluido ***************************************************
+
+aplicar upgrades do IDE de casos de uso para o diagrama de classes
+
+criar projeto 
+
+abrir projeto 
+
+load Projecto
+
+guardar projeto no browser (JSON)
+
+abrir projeto do browser
+
+novo projeto
+

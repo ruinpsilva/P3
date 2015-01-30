@@ -165,9 +165,7 @@ $(document).ready(function(){
 	var minSizePaper = g.rect(0,0,widthPaper,heightPaper);
 	
 	//console.log("w-"+widthPaper+ "h-"+heightPaper);
-	
-	ControladorAmalia.ReadVariaveis();
-	actualizaArvoreClasse();
+
     var paper = new joint.dia.Paper({
 	id:'t',
     el: $('#modelo'),
@@ -176,8 +174,24 @@ $(document).ready(function(){
 	gridSize:10,
 	model: graph2
 	});
-    graph2.fromJSON(classes);
+    graph2.fromJSON(classesDIAG);
 	
+       zoomfit();
+
+    //DMMLG
+// dimensionar o paper ao tamanho do diagrama
+function zoomfit(){
+    paper.fitToContent(0,0,20,0);
+        if(paper.options.height < heightPaperFromStart ){
+            paper.setDimensions(paper.options.width,heightPaperFromStart);
+        }
+        if(paper.options.width < widthPaperFromStart){
+            paper.setDimensions(widthPaperFromStart, paper.options.height);
+        }
+        heightPaper = paper.options.height;
+        widthPaper = paper.options.width;
+    }
+
 	//iniciarDiagrama(graph2);
 	
 	//Eventos a capturar
@@ -295,20 +309,7 @@ $(document).ready(function(){
 
     //Zoom paper to fit content
     $("#makeZoomToFit").click(function(e){
-        if(paper.options.height > heightPaperFromStart || paper.options.width > widthPaperFromStart){
-            paper.fitToContent(0,0,20,0);
-            if(paper.options.height < heightPaperFromStart ){
-            paper.setDimensions(paper.options.width,heightPaperFromStart);
-            }
-            if(paper.options.width < widthPaperFromStart){
-            paper.setDimensions(widthPaperFromStart, paper.options.height);
-            }
-        } else {
-            paper.setDimensions(widthPaperFromStart,heightPaperFromStart);
-
-        }
-        heightPaper = paper.options.height;
-        widthPaper = paper.options.width;
+            zoomfit();
     });
 
     //Clear Diagram
@@ -368,8 +369,8 @@ $(document).ready(function(){
     //RNPS
     //botão para gravar o projecto
     $("#btnGravarProjeto").click(function(){
-        ControladorAmalia.diagramaCasoUsoParaJSON(graph);
-        ControladorAmalia.diagramaClassesParaJSON(graph2);
+        ControladorAmalia.diagramaCasoUsoParaJSON();
+        ControladorAmalia.diagramaClassesParaJSON();
         ControladorAmalia.createUseCaseBundle(diagramaCU,listaCasos,listaAtores);
         ControladorAmalia.createClassesBundle(diagramaCL, listaClasses, listaInterfaces, listaAbstracts);
         ControladorAmalia.gravarProjectoNoBrowser();
@@ -646,5 +647,5 @@ $(document).ready(function(){
 
 
 
-window.setInterval(actualizaArvoreClasse,2000);
-window.setInterval(ControladorAmalia.ActualizaVariaveis(),2000);
+window.setInterval(actualizaArvoreClasse,1000);
+window.setInterval(ControladorAmalia.ActualizaVariaveis,1000);

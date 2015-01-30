@@ -21,7 +21,7 @@ var listaAtores=[];   //array com lista de nomes de atores
 var graph = new joint.dia.Graph;    //diagrama de casos de uso
 var UCBundle;   // conjunto de elementos que constituem o IDE casos de uso
 var casoUso;
-var classes;
+var classesDIAG;
 var listaClasses = []; //array com lista de classes
 var listaInterfaces = [] //array com lista de interfaces
 var listaAbstracts = [] //arraycom lista de abstracts
@@ -54,13 +54,12 @@ ControladorAmalia ={
         alert(projetoNome);
             listaCasos = JSON.parse(localStorage.casos);
             listaAtores = JSON.parse(localStorage.actores);
-            classes = JSON.parse(localStorage.graph2);
+            classesDIAG = JSON.parse(localStorage.graph2);
+        graph2.fromJSON(classesDIAG);
             casoUso = JSON.parse(localStorage.graph);
+                graph.fromJSON(casoUso);
             listaInterfaces = JSON.parse(localStorage.interface);
-
             listaAbstracts = JSON.parse(localStorage.abstract);
-
-
             listaClasses = JSON.parse(localStorage.classes);
 
     },
@@ -114,20 +113,15 @@ ControladorAmalia ={
 	toogleDialogoCasoUso: function(caso){
 		//Muito dependente dos detalhes do html
 		if (caso){
-            console.log("HELLO!1");
 			var elementoCaso = caso.toJSON();
-			var nomeCaso = elementoCaso.attrs.text.text; // ir buscar o nome Actual
+			var nomeCaso = elementoCaso.attrs.text.text;
+            console.log(nomeCaso);
             var id = caso.id;
             for(var i = 0; i < listaCasos.length; i++){
-                console.log("antes do if");
-                if(id == listaCasos[i].id){
-                    $("#idlcrud") = listaCasos[i].operacao_caso;
+                if(id == listaCasos[i].id_caso){
+                  //  $("#idlcrud") = listaCasos[i].operacao_caso;
                     $("#listaEntidades").val(listaCasos[i].entity_caso);
                     $("#listaEntidadesMaster").val(listaCasos[i].masterent);
-                    console.log("HELLO!2");
-                    console.log(listaCasos[i].operacao_caso);
-                    console.log(listaCasos[i].entity_caso);
-                    console.log(listaCasos[i].masterent);
                 }
             }
 			$("#idCaso").val(caso.id);
@@ -278,14 +272,8 @@ ControladorAmalia ={
     //
     toogleDialogoMostraClasses: function (){
         $("#entityList").empty();
-        console.log(listaClasses);
-        console.log(localStorage.classes);
-        console.log(listaAbstracts);
-        console.log(localStorage.abstract);
-        console.log(listaInterfaces);
-        console.log(localStorage.interface);
         var todos = [];
-         todos = listaClasses.concat(listaAbstracts,listaInterfaces);
+        todos = listaClasses.concat(listaAbstracts,listaInterfaces);
         console.log(todos);
         console.log(todos.length);
         console.log(todos[0]);
@@ -294,8 +282,10 @@ ControladorAmalia ={
             for(var i = 0; i < todos.length; i++){
              html += '<option value="' + todos[i] + '">';
             }
+            $("#entityList").empty();
             $("#entityList").append(html);
             //Momento do DMMLG
+            $("#masterEntityList").empty();
             $("#masterEntityList").append(html);
         }
     },
@@ -330,9 +320,6 @@ ControladorAmalia ={
     //Função para criar e guardar as variaveis de um projecto
     CriaProject : function (projecto){
         projetoNome = projecto;
-        localStorage.graph=JSON.stringify(graph);
-        console.log(JSON.stringify(graph));
-
     },
 
 	//>>>>>>>>>>>>>>>>>>>> Alterar atributos dos elementos dos diagramas
@@ -345,7 +332,11 @@ ControladorAmalia ={
 			//definido nome para já alterar no gráfico
 			//alterar modelo registando o nome
 			var actor = graph.getCell(idActor);
+            removefrom(listaAtores, actor.name);
+            listaAtores.push(nomeActor);
+            actor.name = nomeActor;
 			actor.attr({ text:{text:nomeActor} });
+            console.log(actor.name);
 		}
 	},
 
@@ -353,9 +344,9 @@ ControladorAmalia ={
     removeActor : function(graph){
         var idActor = $("#idActor").val();
         if(idActor){
+        removefrom(listaAtores,graph.getCell(idActor).name);
         graph.getCell(idActor).remove();
-//        var position = actors.lastIndexOf(idCaso);
-//        actors.splice(position,1);
+
         }
     },
     //DMMLG
@@ -379,13 +370,14 @@ ControladorAmalia ={
 			var caso = graph.getCell(idCaso);
 			caso.resize( nomeCaso.length * 8 + 40 , 50);
 			caso.attr({text:{text:nomeCaso}});
+            caso.name = nomeCaso;
             // variavel auxiliar para verificar se o caso de uso já existe no array
             var existe = false;
-            //console.log(existe);
+            console.log(existe);
             // criar um novo caso de uso
             var casouso = new criaCaso(idCaso,nomeCaso,operation,null,entity,masterentity);
             //console.log(casouso);
-
+            if(listaCasos.length<0){
             for(var i =0; i<listaCasos.length ; i++){
                 // verifica se já existe no array o caso de uso a criar/alterar by ID
                 if(listaCasos[i].id_caso == idCaso){
@@ -393,20 +385,20 @@ ControladorAmalia ={
                     listaCasos[i] = casouso;
                     // o caso de uso existe
                     existe = true;
-                    //console.log("entrou ca dentro");
-                    //console.log(existe);
-                    //console.log(listaCasos.length);
+                    console.log("entrou ca dentro");
+                    console.log(existe);
+                    console.log(listaCasos);
                 }
             }
+            }
             //se o caso de uso ainda nao exister
-            if(!existe){
+            else{
                 //adiciona o caso de uso ao array
                 listaCasos.push(casouso);
-                //console.log(existe);
-                //console.log(listaCasos.length);
+                console.log(existe);
+                console.log(listaCasos);
 		}
-    }
-		
+        }
 	},
 
     removeCasoUso : function(graph){
@@ -415,7 +407,7 @@ ControladorAmalia ={
         graph.getCell(idCaso).remove();
             for(var i =0; i<listaCasos.length ; i++){
                 if(listaCasos[i].id_caso == idCaso){
-                    listaCasos.splice(i);
+                    listaCasos.splice(i,1);
                 }
             }
         }},
@@ -451,6 +443,14 @@ ControladorAmalia ={
 			
 			//obter o elemento
 			var classe = graph.getCell(idClasse);
+            if(classe.attributes.type == "uml.Class"){
+            removefrom(listaClasses,classe.attributes.name);
+                listaClasses.push(nomeClasse);
+            }
+            else{
+            removefrom(listaAbstracts,classe.attributes.name);
+                listaAbstracts.push(nomeClasse);
+            }
 			
 			//Alterar o tamanho para que caibam os elementos a adicionar
 			classe.resize( largura, altura);
@@ -468,7 +468,14 @@ ControladorAmalia ={
     removeClasse:function (graph){
      var idclasse = $("#idClasse").val();
         if(idclasse){
+            if(graph.getCell(idclasse).attributes.type == "uml.Class"){
+            removefrom(listaClasses,graph.getCell(idclasse).attributes.name);
+            }
+            else{
+            removefrom(listaAbstracts,graph.getCell(idclasse).attributes.name);
+            }
             graph.getCell(idclasse).remove();
+
         }
     },
 	//Altera as características de uma interface
@@ -501,7 +508,7 @@ ControladorAmalia ={
 			
 			//obter o elemento
 			var elinterface = graph.getCell(idInterface);
-			
+            removefrom(listaInterfaces,elinterface.attributes.name);
 			//Alterar o tamanho para que caibam os elementos a adicionar
 			elinterface.resize( largura, altura);
 			//colocar os elementos a adicionar
@@ -510,6 +517,7 @@ ControladorAmalia ={
 			elinterface.set( { methods:metodosInt } );
 				//Modificar o xml
 		}
+        listaInterfaces.push(nomeInterface);
 		
 	},
 
@@ -519,6 +527,7 @@ ControladorAmalia ={
 	removeInterface:function (graph){
      var idInterface = $("#idInterface").val();
         if(idInterface){
+            removefrom(listaInterfaces,graph.getCell(idInterface).attributes.name);
             graph.getCell(idInterface).remove();
         }
     },
@@ -966,9 +975,9 @@ ControladorAmalia ={
         listaCasos= UCBundle.listaCU;
         listaAtores=UCBundle.listaAtores;
         graph2.fromJSON(CLBundle.diagCL);
-        listaClasses=CLBundle.listaABS;
-        listaInterfaces=CLBundle.listaCL;
-        listaAbstracts=CLBundle.listaIT;
+        listaClasses=CLBundle.listaCL;
+        listaInterfaces=CLBundle.listaIT;
+        listaAbstracts=CLBundle.listaABS;
         this.ActualizaVariaveis();
     },
 
@@ -1043,7 +1052,7 @@ ControladorAmalia ={
     //RNPS-DMMLG
     //Passar diagrama de Casos de Uso para JSON
     diagramaClassesParaJSON: function(){
-        var modeloJSONCL = graph.toJSON();
+        var modeloJSONCL = graph2.toJSON();
         console.log(modeloJSONCL);
         diagramaCL = modeloJSONCL;
         console.log(diagramaCL);
@@ -1126,5 +1135,11 @@ function get_cookie ( cookie_name )
 
 
 
+function removefrom( array, valor){
+    var index =array.indexOf(valor);
 
+    if(index>=0){
+       array.splice(index,1);
+}
+}
 
