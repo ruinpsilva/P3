@@ -94,16 +94,7 @@ function atorListAdd(){
 
 $(document).ready(function(){
     ControladorAmalia.supportsLocalStorage();
-	//Variáveis
-    var grafico = localStorage.graph;
-    listaClasses = JSON.parse(localStorage.classes);
-    listaAbstracts = JSON.parse(localStorage.abstract);
-    listaInterfaces = JSON.parse(localStorage.interface);
-    grafico= JSON.parse(grafico);
-    console.log(grafico);
-    graph.fromJSON(grafico);
-    console.log(graph);
-
+	ControladorAmalia.ReadVariaveis();
 	//var graph = new joint.dia.Graph;
 	//var ModeloJSON 
 	var modeloJSON ="";
@@ -130,7 +121,7 @@ $(document).ready(function(){
 		gridSize: 10,
 		model: graph,
 	});
-   graph.fromJSON(grafico);
+   graph.fromJSON(casoUso);
     //Eventos que é necessário capturar.
 
 
@@ -539,6 +530,13 @@ $(document).ready(function(){
     } else { 
       alert("Não foi possível abir o ficheiro");
     }
+  }
+
+    //window.onbeforeunload = confirmExit;
+  function confirmExit()
+  {
+      ControladorAmalia.ActualizaVariaveis();
+    return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost.  Are you sure you want to exit this page?";
   }
 
   document.getElementById('ficheiroDiagrama').addEventListener('change', readSingleFile, false);

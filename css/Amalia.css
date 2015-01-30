@@ -222,20 +222,7 @@ fieldset select{
 
 
 
-#blackHole{
-    display: block !important;
-	position:absolute;
-	float:left;
-	left:170px;
-	top: 200px;
-	width: 120px ;
-	height: 120px;
-	border: 1px solid #374343;
-	text-align:center;
-	font-variant: small-caps;
-	font-size: small;
-    background-color: white;
-}
+
 
 
 /* Codigo eleborado para a formatacao da tabela */

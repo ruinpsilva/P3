@@ -16,18 +16,16 @@ function criaCaso(id,nome, operacao,tipo, entity, masterent){
     this.masterent = masterent;
     };
 
-var diagramaCU; // diagrama de casos de uso
 var listaCasos=[];    //array com lista de nomes de casos de uso
 var listaAtores=[];   //array com lista de nomes de atores
 var graph = new joint.dia.Graph;    //diagrama de casos de uso
-var diagramaCU;
 var UCBundle;   // conjunto de elementos que constituem o IDE casos de uso
-
+var casoUso;
+var classes;
 var listaClasses = []; //array com lista de classes
 var listaInterfaces = [] //array com lista de interfaces
 var listaAbstracts = [] //arraycom lista de abstracts
 var graph2 = new joint.dia.Graph;   //diagrama de classes
-var diagramaCL;
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 
 
@@ -36,6 +34,28 @@ var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 
 ControladorAmalia ={
 	
+    //DMMLG
+    //Atualiza a informação nas variaveis em memoria do browser
+    ActualizaVariaveis: function(){
+        localStorage.classes = JSON.stringify(listaClasses);
+        localStorage.abstract = JSON.stringify(listaAbstracts);
+        localStorage.interface = JSON.stringify(listaInterfaces);
+        localStorage.graph = JSON.stringify(graph);
+        localStorage.graph2 = JSON.stringify(graph2);
+        localStorage.actores = JSON.stringify(listaAtores);
+        localStorage.casos = JSON.stringify(listaCasos);
+    },
+
+    ReadVariaveis : function(){
+        listaCasos = JSON.parse(localStorage.casos);
+        listaAtores = JSON.parse(localStorage.actores);
+        classes = JSON.parse(localStorage.graph2);
+        casoUso = JSON.parse(localStorage.graph);
+        listaInterfaces = JSON.parse(localStorage.interface);
+        listaAbstracts = JSON.parse(localStorage.abstract);
+        listaClasses = JSON.parse(localStorage.classes);
+    },
+
 	// Aparecer desaparecer dialogos para mudar os atributos dos elementos do diagrama.
 	
 	toogleDialogo: function (dialogoNome, focus){
@@ -126,12 +146,13 @@ ControladorAmalia ={
 		
 		if (classe){
 			var classeJSON = classe.toJSON();
+            console.log(classe);
 			$("#idClasse").val(classeJSON.id);
 			$("#nomeDaClasse").val(classeJSON.name);
 			//atributos
 			var atributos = classeJSON.attributes;
 			for(i = 0 ; i < atributos.length ; i++){
-				$("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
+				        $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
 			}
 			//metodos
 			var metodos = classeJSON.methods;
@@ -146,8 +167,6 @@ ControladorAmalia ={
 		}
 		
 		ControladorAmalia.toogleDialogo("#dialogoAlteraClasse",false);
-		
-		
 	},
 		
 	toogleDialogoAlteraInterface: function (classe){
