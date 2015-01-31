@@ -15,7 +15,10 @@ function criaCaso(id,nome, operacao,tipo, entity, masterent){
     this.entity_caso=entity,
     this.masterent = masterent;
     };
-
+function criaActor(id,nome){
+    this.name = nome;
+    this.id = id;
+};
 var listaCasos=[];    //array com lista de nomes de casos de uso
 var listaAtores=[];   //array com lista de nomes de atores
 var graph = new joint.dia.Graph;    //diagrama de casos de uso
@@ -339,19 +342,35 @@ ControladorAmalia ={
 			//alterar modelo registando o nome
 			var actor = graph.getCell(idActor);
             actor.attr({ text:{text:nomeActor} });
-            removefrom(listaAtores, actor.attr.tex.text);
-            listaAtores.push(nomeActor);
-            console.log(actor.name);
-
+            var existe = false;
+            var objectAtor = new criaActor(idActor,nomeActor);
+            for(var i=0; i<listaAtores.length ; i++){
+                console.log(i);
+                console.log(listaAtores);
+                if(listaAtores[i].id == idActor){
+                    console.log("entrou");
+                    listaAtores[i] = objectAtor;
+                    existe = true;
+                    console.log("entrou ca dentro");
+                    console.log(existe);
+                    console.log(listaAtores);
+                }
+            }
+                if(!existe){
+                    listaAtores.push(objectAtor);
+                }
 	},
 
     // função para remover o actor do paper
     removeActor : function(graph){
         var idActor = $("#idActor").val();
         if(idActor){
-
-        removefrom(listaAtores,graph.getCell(idActor).attr.text.text);
-        graph.getCell(idActor).remove();
+            for(var i=0;i<listaAtores.length;i++){
+                if(listaAtores[i].id == idActor){
+                 listaAtores.splice(i,1);
+                }
+            }
+            graph.getCell(idActor).remove();
 
         }
     },
