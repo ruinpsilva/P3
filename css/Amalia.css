@@ -54,7 +54,20 @@ div.main input[type=button]{
 
 input[type=button],
 input[type=submit],
-input[type=reset]{
+input[type=reset],
+#btnVoltarInicio,
+#btnClose,
+#btnSaveProject,
+#btnGravarProjeto,
+#btnGuardarCasosUsoDisco,
+#btnChangeStyleLight,
+#btnChangeStyleDark,
+#btnthemes,
+#btnlanguage,
+#lng_english,
+#lng_portuguese,
+#btnCallChat
+{
 	background: #f7f7f7;
 	padding:1px 5px;
 	color: #374343;
@@ -66,16 +79,41 @@ input[type=reset]{
 
 input[type=button]:hover,
 input[type=submit]:hover,
-input[type=reset]:hover{
+input[type=reset]:hover,
+#btnVoltarInicio:hover,
+#btnClose:hover,
+#btnSaveProject:hover,
+#btnGravarProjeto:hover,
+#btnGuardarCasosUsoDisco:hover,
+#btnChangeStyleLight:hover,
+#btnChangeStyleDark:hover,
+#btnthemes:hover,
+#btnlanguage:hover,
+#lng_english:hover,
+#lng_portuguese:hover,
+#btnCallChat:hover
+{
 	background:#374343;
 	color:#F7F7F7;
-	border: 1px;
+/*	border: 1px;*/
 	border-color:#F7F7F7;
-	border-style:solid;	
+/*	border-style:solid;	*/
 }
 
 #controlCasosUso input[type=button],
-#controloDiagramaClasses input[type=button]
+#controloDiagramaClasses input[type=button],
+#btnVoltarInicio,
+#btnClose,
+#btnSaveProject,
+#btnGravarProjeto,
+#btnGuardarCasosUsoDisco,
+#btnChangeStyleLight,
+#btnChangeStyleDark,
+#btnthemes,
+#btnlanguage,
+#lng_english,
+#lng_portuguese,
+#btnCallChat
 {
 	padding: 5px 10px;
 	font-weight: bold;
@@ -309,7 +347,7 @@ ol.tree
 	width: 120px;
 	font-family: Helvetica !important;
 }
-	li 
+	li
 	{ 
 		position: relative; 
 		margin-left: -15px;
@@ -410,7 +448,7 @@ ol.tree
                 li.fileIT a[href *= '.html']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
                 li.fileIT a[href $= '.css']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
                 li.fileIT a[href $= '.js']	{ background: url(img/Interfacetb.png) 0 0 no-repeat; }
-	li input
+	.arvore input
 	{
 		position: absolute;
 		left: 0;
@@ -478,7 +516,7 @@ ol.tree
 }
 
 #sddm
-{	margin: 0;
+{	margin: 10;
 	padding: 0;
 	z-index: 30}
 
@@ -489,20 +527,28 @@ ol.tree
 	float: left;
 	font: bold 11px arial}
 
-#sddm li a
+#sddm li input
 {	display: block;
 	margin: 0 1px 0 0;
-	padding: 4px 10px;
-	width: 60px;
-	background: #5970B2;
-	color: #FFF;
 	text-align: center;
 	text-decoration: none}
 
-#sddm li a:hover
-{	background: #49A3FF}
+#btnClose,
+#btnSaveProject,
+#btnGravarProjeto,
+#btnGuardarCasosUsoDisco,
+#btnChangeStyleLight,
+#btnChangeStyleDark,
+#btnthemes,
+#btnlanguage,
+#lng_english,
+#lng_portuguese,
+#btnCallChat
 
-#sddm div
+{
+width: 140px;
+
+}#sddm div
 {	position: absolute;
 	visibility: hidden;
 	margin: 0;
@@ -510,19 +556,10 @@ ol.tree
 	background: #EAEBD8;
 	border: 1px solid #5970B2}
 
-	#sddm div a
+	#sddm div input
 	{	position: relative;
-		display: block;
 		margin: 0;
-		padding: 5px 10px;
-		width: auto;
-		white-space: nowrap;
 		text-align: left;
-		text-decoration: none;
-		background: #EAEBD8;
-		color: #2875DE;
-		font: 11px arial}
+        width: 140px;
+		}
 
-	#sddm div a:hover
-	{	background: #49A3FF;
-		color: #FFF}
