@@ -2,6 +2,9 @@ Lista de bugs
 
 verificar se tudo está em inglês
 botão Close Project não está a funcionar em ambos os IDE's
+botao gravar para ficheiro não funciona no IDE de classes
+Save Project in browser precisa de alerta para sucesso da ação
+
 
 
 LISTA DE TAREFAS
