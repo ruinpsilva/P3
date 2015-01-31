@@ -50,5 +50,45 @@ $(document).ready(function(){
        }
     });
 
+    //Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
+function readSingleFile(evt) {
+  //Retrieve the first (and only!) File from the FileList object
+  var f = evt.target.files[0];
+
+  if (f) {
+    var r = new FileReader();
+    r.onload = function(e) {
+      var diagrama = e.target.result;
+      //console.log(diagrama);
+      console.log((f.name).split(".").pop());
+
+      //só consigo saber se o conteúdo é de um diagrama ou qualquer coisa feita com o joint.js
+      //eventualmente colocar no início do ficheiro um id qq
+      if ((f.name).split(".").pop() == "proj") {
+          var projetoS =JSON && JSON.parse(diagrama) || $.parseJSON(diagrama);
+        projetoNome=projetoS.proj;
+        UCBundle= projetoS.CasosUso;
+        CLBundle= projetoS.Classe;
+        graph.fromJSON(UCBundle.diagCU);
+        listaCasos= UCBundle.listaCU;
+        listaAtores=UCBundle.listaAtores;
+        graph2.fromJSON(CLBundle.diagCL);
+        listaClasses=CLBundle.listaCL;
+        listaInterfaces=CLBundle.listaIT;
+        listaAbstracts=CLBundle.listaABS;
+        ControladorAmalia.ActualizaVariaveis();
+        window.location.href = "stage.html";
+          ControladorAmalia.toggleDialogoAbreProjectoDisco();
+      } else {
+        alert("Ficheiro inválido");
+        ControladorAmalia.toggleDialogoAbreProjectoDisco();
+      }
+    };
+    r.readAsText(f);
+  } else {
+    alert("Não foi possível abir o ficheiro");
+  }
+}
+    document.getElementById('ficheiroProjecto').addEventListener('change', readSingleFile, false);
 });
 

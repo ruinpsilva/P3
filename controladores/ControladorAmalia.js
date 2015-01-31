@@ -302,7 +302,7 @@ ControladorAmalia ={
 		ControladorAmalia.toogleDialogo("#dialogoMostarXMLCasos",false);
 	},
     toggleDialogoAbreProjectoDisco:function(){
-        this.toogleDialogo();
+        this.toogleDialogo("#dialogoAbreProjectoDisco",false);
     },
 	toggleDialogoAbreDiagramaCasosUsoDisco : function(){
 		this.toogleDialogo("#toggleDialogoAbreProjectoDisco",false);
@@ -330,6 +330,10 @@ ControladorAmalia ={
 		
 		//Não sei se isto é a melhor forma obriga a que o controlador conheça detalhes da vista
 		var nomeActor = $("#nomeActor").val();
+        if(nomeActor ==""){
+        nomeActor
+="Actor";
+        }
 		var idActor = $("#idActor").val();
 		if ( nomeActor && idActor ){
 			//definido nome para já alterar no gráfico
@@ -957,7 +961,8 @@ ControladorAmalia ={
             var blob = new Blob([diagramaCasosJSON], {
                 type: "text/plain;charset=utf-8"
             });
-            saveAs(blob, projetoNome);
+        var name = projetoNome + ".proj";
+            saveAs(blob, name);
         } catch (err) {
             alert("nao gravou projecto");
         }
