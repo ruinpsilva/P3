@@ -9,6 +9,7 @@ Lista de bugs
 
 -Save Project in browser precisa de alerta para sucesso da ação
 
+- cx de dialogo de abrir projecto tem erros ortográficos
 
 
 LISTA DE TAREFAS
@@ -18,6 +19,14 @@ actualizar informação da caixa de dialogo (FALTA)
     
 
 apagar projeto
+
+seta para (extend/include) no IDE dos Casos de Uso
+
+tema light, botões selecionados ficam invisiveis
+
+Main button do stage
+
+botão de exportar XML no index
 
 
 
