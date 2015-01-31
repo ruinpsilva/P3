@@ -474,7 +474,7 @@ ol.tree
 .floating-menu{
 	right: 0%;
 	position:fixed;
-	background:#BCBCBC;
+	background:white;
 	border-radius: 0px;
 	width:49px;
 	z-index:100;
@@ -644,4 +644,22 @@ width: 140px;
 
 #controlStage {
 	height: 28px;
+}
+
+#addClassGraph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#addInterfaceGraph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#addAbstractGraph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
