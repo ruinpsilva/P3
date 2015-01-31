@@ -1,6 +1,5 @@
 Lista de bugs
 
-Imagem ator para arvore de informação
 verificar se tudo está em inglês
 botão Close Project não está a funcionar em ambos os IDE's
 
@@ -26,6 +25,8 @@ página de stage
 ***************** Importância BAIXA de zero  ************************************************
 
     multi-language
+    
+    alterar ícones da toolbar esquerda
     
 **************** Concluido ***************************************************
 
