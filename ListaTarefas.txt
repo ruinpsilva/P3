@@ -29,7 +29,9 @@ página de stage
 
     multi-language
     
-    alterar ícones da toolbar esquerda
+    melhorar ícones da toolbar da direita
+    
+    impedir clique do lado
     
 **************** Concluido ***************************************************
 
@@ -55,3 +57,5 @@ floating box do lado direito fica com nomes de classes, casos de uso, etc
 guardar projeto em ficheiro (JSON) 
 
 exportar projeto para o disco (XML)
+
+alterar ícones da toolbar esquerda
