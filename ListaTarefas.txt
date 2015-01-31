@@ -1,8 +1,8 @@
 Lista de bugs
 
-Imagem ator para arvore de iformação
-nome da arvore alterar
+Imagem ator para arvore de informação
 verificar se tudo está em inglês
+botão Close Project não está a funcionar em ambos os IDE's
 
 
 LISTA DE TAREFAS

@@ -42,6 +42,53 @@
 		<!-- ide -->
 		<script src="ide/ideDiagramaClasses.js"></script>
 		
+		<!-- script de controlo dos menus dos botões-->
+		<script type="text/javascript">
+
+            var timeout         = 500;
+            var closetimer		= 0;
+            var ddmenuitem      = 0;
+
+            // open hidden layer
+            function mopen(id)
+            {
+                // cancel close timer
+                mcancelclosetime();
+
+                // close old layer
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+                // get new layer and show it
+                ddmenuitem = document.getElementById(id);
+                ddmenuitem.style.visibility = 'visible';
+
+            }
+            // close showed layer
+            function mclose()
+            {
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            }
+
+            // go close timer
+            function mclosetime()
+            {
+                closetimer = window.setTimeout(mclose, timeout);
+            }
+
+            // cancel close timer
+            function mcancelclosetime()
+            {
+                if(closetimer)
+                {
+                    window.clearTimeout(closetimer);
+                    closetimer = null;
+                }
+            }
+
+            // close layer when click-out
+            document.onclick = mclose;
+            // -->
+            </script>
 
 
 		<script>
@@ -53,17 +100,6 @@
     			pom.click();
 			}
 		</script>
-
-       <script>
-
-           $(document).ready(function(){
-                  $('[data-slidepanel]').slidepanel({
-                      orientation: 'right',
-                      mode:'overlay'
-                  });
-              });
-       </script>
-
 
 
 		<title>Domain (classes) Model</title>
@@ -85,10 +121,43 @@
 				             <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 
 			</header>
-			
+			<p></p>
+			<div id="controloDiagramaClasses">
+                <ul id="sddm">
+                    <li><input id="btnVoltarInicio" type="button" value="<" />
+                    </li>
+                    <li><input id="btnClose" type="button" value="Close Project" />
+                    </li>
+                      <li>
+                       <input id="btnSaveProject" type="button" value="Save Project"  onmouseover="mopen('m1')" onmouseout="mclosetime()"/>
+                        <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                            <input id="btnGravarProjeto" type="button" value=" Save in Browser" />
+                            <input id="btnGuardarCasosUsoDisco" type="button" value="Save in File" />
+                        </div>
+                    </li>
+                    <li>
+                        <input id="btnthemes" type="button" value="Themes" onmouseover="mopen('m2')" onmouseout="mclosetime()"/>
+                        <div id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                             <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
+                    <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
+                        </div>
+                    </li>
+                    <li>
+                        <input id="btnlanguage" type="button" value="Languages" onmouseover="mopen('m3')" onmouseout="mclosetime()"/>
+                        <div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                        <input id="lng_english" type="button" value ="English"/>
+                        <input id="lng_portuguese" type="button" value="Português"/>
+                        </div>
+                    </li>
+                    <li>
+                        <input id="btnCallChat" type="button" class="button" href="http://localhost:8081/P3/chat/login-form.php" onclick="javascript:void window.open('http://localhost:8081/P3/chat/login-form.php','1422053451651','width=310,height=590,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;" value="Chat"/>
+                    </li>
+                </ul>
+			</div>
+<!--
 			<div id="controloDiagramaClasses">
 
-			<!-- Experi√™ncia de gravar modelo -->
+
 					<input id="btnVoltarInicio" type="button" value="<" />
 					<input id="btnGravarProjeto" type="button" value="Save Project" />
 					<input id="btnGuardarCasosUso" type="button" value="Save in Browser" />
@@ -97,13 +166,13 @@
 					<input id="btnGuardarCasosUsoDisco" type="button" value="Save in disk" />
 					<input id="btnRestaurarCasosUsoDisco" type="button" value="Open from Disk"/>
 
-<!--					<input id="btnApagarDiagrama" type="button" value="Delete Model" />-->
 					<input id="btnExportarDiagramaCasosParaXML" type="button" value="Export to XML" />
                     <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
                     <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
                     <input id="btnCallChat" type="button" class="button" href="http://localhost:8081/P3/chat/login-form.php" onclick="javascript:void window.open('http://localhost:8081/P3/chat/login-form.php','1422053451651','width=310,height=590,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;" value="Chat"/>
+			</div> -->
 
-</div>
+
         <div class="floating-menu" id="floatingMenu">
 				<h3>Toolbox</h3>
 				<input id="addClassGraph" type="image" src="img/Class.jpg" alt="Insert Class" width="48" height="48">

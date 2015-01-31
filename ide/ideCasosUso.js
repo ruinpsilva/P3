@@ -513,18 +513,6 @@ $(document).ready(function () {
     });
 
 
-    //RPNS
-    //Hide/unhide blackhole
-    $("#blackHole").mouseenter(function () {
-        $("#blackHole").hide();
-        $("$blackHole").delay(1000).fadeIn();
-    });
-
-
-
-
-
-
 
     //Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
     function readSingleFile(evt) {
