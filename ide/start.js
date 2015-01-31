@@ -1,6 +1,58 @@
+function actualizaFicheiros(){
+     var proj ="proj_";
+        var opt=[];
+        for(var i = 0; i < localStorage.length; i++){
+            var nome = localStorage.key(i);
+            console.log(nome.substring(0,proj.length));
+            if(nome.substring(0,proj.length) == proj){
+                opt.push(nome);
+                console.log(opt);
+            }
+        }
+        if(opt.length>5){
+            for(var j=0; j<5;j++){
+                var html;
+                html ='<p id=p0'+(j+1)+' onclick="ControladorAmalia.abreProjecto2('+ opt[i]+')">'+ opt[i] +'</p>';
+                console.log(html);
+                id="#z0"+(j+1)+"";
+                idi="#i0"+(j+1)+"";
+                var htmli="<p>"+(j+1)+"</p>";
+                 $(idi).append(htmli);
+                 $(idZ).append(html);
+            }
+            }
+        else{
+            for(var j=0; j<opt.length;j++){
+                var p = document.createElement("P");
+                var text = document.createTextNode(opt[j]);
+                var idi="#i0"+(j+1)+"";
+                var idZ="#z0"+(j+1)+"";
+                projetoNome = opt[j];
+                console.log(nome);
+                p.appendChild(text);
+                p.addEventListener("click",function(){ControladorAmalia.abreProjecto2()});
+                $(idZ).append(p);
+//                var html="";
+//                html+='<p id=p0'+(j+1)+' onclick="ControladorAmalia.abreProjecto2('+ opt[j]+')">'+ opt[j] +'</p>';
+//                console.log(html);
+                var htmli="<p>"+(j+1)+"</p>";
+                 $(idi).append(htmli);
+                // $(idZ).append(html);
+                ControladorAmalia.ActualizaVariaveis();
+            }
+        }
+
+
+
+
+
+};
+
 $(document).ready(function(){
 
     ControladorAmalia.supportsLocalStorage();
+    actualizaFicheiros();
+
     //botões provisórios do stage
     $("#btnCreateProject").click(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();

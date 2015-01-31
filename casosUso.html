@@ -201,7 +201,7 @@
                                 <input id="idCaso" type="hidden" value="" />
                                 </p>
                                 <label for="entity">Entity:</label>
-                                <input list="entityList" id="listaEntidades"/>
+                                <input list="entityList" id="listaEntidades"  autocomplete="off"/>
                                 <datalist id="entityList">
                                      <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>
@@ -213,8 +213,8 @@
                                 <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="d">D
                                 <p></p>
                                 <label for="masterEntityList">Master Entity:</label>
-                                <input list="masterEntityList" id="listaEntidadesMaster"/>
-                                <datalist id="masterEntityList">
+                                <input list="masterEntityList" id="listaEntidadesMaster"  autocomplete="off"/>
+                                <datalist id="masterEntityList" >
                                       <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>
           					</fieldset>
@@ -353,7 +353,13 @@
 				</div>
 			</div>
 
-
+            <div id="dialogoFechaProjecto">
+                   <div>
+                    <p> Please save the project before closing. Do you wish to continue? </p>
+                        <input id="btnCancelaFecharProjeto" type="button" value="Cancel"/>
+                        <input id="btnFecharProjecto" type="button" value="Close"/>
+                </div>
+            </div>
 
 
 			<footer>
