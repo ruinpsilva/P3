@@ -569,4 +569,95 @@ width: 140px;
 		}
 
 
+#stage_elipse {
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	left: 15px;
+	top: 45px;
+	color: #f7f7f7;
+	font: 400 30px HelveticaNeue;
+	right: 457px;
+}
+
+#ucfolder {
+	position: absolute;
+	display: block;
+	top: 114px;
+	left: 20px;
+	bottom: 183px;
+	right: 436px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+
+}
+
+#blockIcons {
+	position: relative;
+	left: 0;
+	right: 0;
+	height: 450px;
+}
+
+#ucText {
+	position: absolute;
+	display: block;
+	top: 250px;
+	bottom: 107px;
+	left: 35px;
+	right: 457px;
+	color: #374343;
+	font: 400 30px Helvetica;
+	margin-bottom: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+	word-wrap: break-word;
+	width: 150px;
+}
+
+#dmfolder {
+	position: absolute;
+	display: block;
+	bottom: 46px;
+	top: 251px;
+	left: 249px;
+	right: 210px;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+}
+
+#dmText {
+	position: absolute;
+	display: block;
+	top: 380px;
+	bottom: 16px;
+	left: 370px;
+	right: 181px;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	color: #374343;
+	font: 400 30px Helvetica;
+}
+
+#nextfolder {
+	position: absolute;
+	display: block;
+	top: 48px;
+	bottom: 249px;
+	right: 39px;
+	left: 421px;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+}
+
 
