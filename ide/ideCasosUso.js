@@ -76,7 +76,7 @@ function actualizaArvoreUC(){
     var htmlatores ="";
     if(listaAtores.length>0){
         for(var i =0; i<listaAtores.length; i++){
-         htmlatores +='<li class="fileAT"><a>' + listaAtores[i] + '</a></li>';
+         htmlatores +='<li class="fileAT"><a>' + listaAtores[i].name + '</a></li>';
         }
         $("#atoreslista").append(htmlatores);
     }
