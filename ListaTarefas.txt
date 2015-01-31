@@ -2,6 +2,9 @@ Lista de bugs
 
 verificar se tudo está em inglês
 botão Close Project não está a funcionar em ambos os IDE's
+botao gravar para ficheiro não funciona no IDE de classes
+Save Project in browser precisa de alerta para sucesso da ação
+
 
 
 LISTA DE TAREFAS
@@ -26,7 +29,9 @@ página de stage
 
     multi-language
     
-    alterar ícones da toolbar esquerda
+    melhorar ícones da toolbar da direita
+    
+    impedir clique do lado
     
 **************** Concluido ***************************************************
 
@@ -52,3 +57,5 @@ floating box do lado direito fica com nomes de classes, casos de uso, etc
 guardar projeto em ficheiro (JSON) 
 
 exportar projeto para o disco (XML)
+
+alterar ícones da toolbar esquerda
