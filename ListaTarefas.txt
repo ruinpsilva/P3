@@ -1,31 +1,27 @@
 Lista de bugs
 
-verificar se tudo está em inglês
-botão Close Project não está a funcionar em ambos os IDE's
-botao gravar para ficheiro não funciona no IDE de classes
-Save Project in browser precisa de alerta para sucesso da ação
+
+-verificar se tudo está em inglês
+
+-botão Close Project não está a funcionar em ambos os IDE's
+
+-botao gravar para ficheiro não funciona no IDE de classes
+
+-Save Project in browser precisa de alerta para sucesso da ação
 
 
 
 LISTA DE TAREFAS
 
 
-Caixa dialogo de casos de uso:
-    -controlador de dropboxs (80%)!!!!!!! esta com graves problemas
-    -actualizar informação da caixa de dialogo (FALTA)
+actualizar informação da caixa de dialogo (FALTA)
     
 
 apagar projeto
 
-página principal
-    
-    apresentar os mais recentes seis projetos
-    
-página de stage
-    criar imagem com √≠cones e us√°-los como bot√µes para os diferentes componentes
 
 
-***************** Importância BAIXA de zero  ************************************************
+***************** Importância a BAIXA de zero  ************************************************
 
     multi-language
     
@@ -59,3 +55,13 @@ guardar projeto em ficheiro (JSON)
 exportar projeto para o disco (XML)
 
 alterar ícones da toolbar esquerda
+
+Caixa dialogo de casos de uso:
+    -controlador de dropboxs 
+    
+p√°gina principal
+    
+    apresentar os mais recentes seis projetos
+    
+p√°gina de stage
+    criar imagem com ‚àö‚â†cones e us‚àö¬∞-los como bot‚àö¬µes para os diferentes componentes

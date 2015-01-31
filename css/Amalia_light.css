@@ -128,7 +128,8 @@ input[type=reset]:hover,
 
 
 #controlCasosUso input[type=button]:hover,
-#controloDiagramaClasses input[type=button]:hover{
+#controloDiagramaClasses input[type=button]:hover,
+#controlStage input[type=button]:hover{
 	background: #EBEBEB;
 	color: #f7f7f7;
 }
