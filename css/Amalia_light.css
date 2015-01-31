@@ -637,7 +637,7 @@ width: 140px;
 	display: block;
 	top: 380px;
 	bottom: 16px;
-	left: 370px;
+	left: 235px;
 	right: 181px;
 	margin-bottom: auto;
 	margin-left: auto;
@@ -645,6 +645,7 @@ width: 140px;
 	margin-top: auto;
 	color: #374343;
 	font: 400 30px Helvetica;
+	width: 210px;
 }
 
 #nextfolder {
