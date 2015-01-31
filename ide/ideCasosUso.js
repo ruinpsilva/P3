@@ -481,10 +481,8 @@ $(document).ready(function () {
     //****************************************
     $("#btnExportarDiagramaCasosParaXML").click(function () {
 
-        var xml = ControladorAmalia.diagramaToXML(graph, "casos de uso");
-        var xml2 = ControladorAmalia.diagramaToXML(graph2,"teste");
+        var xml = ControladorAmalia.diagramaToXML();
         console.log(xml);
-        console.log(xml2);
         ControladorAmalia.toogleDialogoMostarXMLCasos(xml);
 
     });
