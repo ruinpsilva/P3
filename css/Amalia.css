@@ -169,6 +169,7 @@ a:hover{
 #dialogoCriaProjecto,
 #dialogoAbreProjeto,
 #dialogoAbreProjectoDisco,
+#dialogoFechaProjecto,
 #dialogoGravaDiaCasosDisco{
      visibility: hidden;
      position: absolute;
@@ -199,7 +200,8 @@ a:hover{
 #dialogoCriaProjecto div,
 #dialogoAbreProjeto div,
 #dialogoAbreProjectoDisco div,
-#dialogoGravaDiaCasosDisco div
+#dialogoGravaDiaCasosDisco div,
+#dialogoFechaProjecto div
 {
      width:320px;
      margin: 120px auto;

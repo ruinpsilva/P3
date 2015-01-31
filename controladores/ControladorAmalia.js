@@ -30,7 +30,7 @@ var listaInterfaces = [] //array com lista de interfaces
 var listaAbstracts = [] //arraycom lista de abstracts
 var graph2 = new joint.dia.Graph;   //diagrama de classes
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
-
+var nome;
 
 
 
@@ -320,6 +320,9 @@ ControladorAmalia ={
 	toggleDialogoGravaDiaCasosDisco:function(focus){
 		this.toogleDialogo("#dialogoGravaDiaCasosDisco",projetoNome);
 	},
+    toogleDialogoFechaProjecto : function(){
+        this.toogleDialogo("#dialogoFechaProjecto",false);
+    },
 	
 
     //DMMLG
@@ -1043,8 +1046,43 @@ ControladorAmalia ={
         listaAbstracts=CLBundle.listaABS;
         this.ActualizaVariaveis();
     },
+     abreProjecto2:function(){
+         this.ReadVariaveis();
+         console.log(projetoNome);
+    var projeto = localStorage.getItem(projetoNome);
+        // fazer o parse para JSON
+    var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
+        projetoNome=projetoS.proj;
+        UCBundle= projetoS.CasosUso;
+        CLBundle= projetoS.Classe;
+        graph.fromJSON(UCBundle.diagCU);
+        listaCasos= UCBundle.listaCU;
+        listaAtores=UCBundle.listaAtores;
+        graph2.fromJSON(CLBundle.diagCL);
+        listaClasses=CLBundle.listaCL;
+        listaInterfaces=CLBundle.listaIT;
+        listaAbstracts=CLBundle.listaABS;
+        ControladorAmalia.ActualizaVariaveis();
+        window.location.href = "stage.html";
 
+},
 
+    //DMMLG
+    //Fechar Projecto
+    FechaProjecto:function(){
+        graph.clear();
+        graph2.clear();
+        projetoNome = null;
+        UCBundle = null;
+        CLBundle = null;
+        listaCasos = [];
+        listaAtores =[];
+        listaClasses =[];
+        listaInterfaces =[];
+        listaAbstracts =[];
+        this.ActualizaVariaveis();
+        window.location.href = "index.html";
+    },
 
 	//***************************
 	//**   Funções Utilitárias **
