@@ -347,7 +347,7 @@ $(document).ready(function () {
     });
     //Gravar para o disco em JSON---> fazer focus do dialogo gravar
     $("#btnGuardarCasosUsoDisco").click(function () {
-        ControladorAmalia.toggleDialogoGravaDiaCasosDisco();
+        ControladorAmalia.gravarProjectoNoDisco();
     });
 
     //botao cancelar dentro da janela Gravar
@@ -482,7 +482,9 @@ $(document).ready(function () {
     $("#btnExportarDiagramaCasosParaXML").click(function () {
 
         var xml = ControladorAmalia.diagramaToXML(graph, "casos de uso");
+        var xml2 = ControladorAmalia.diagramaToXML(graph2,"teste");
         console.log(xml);
+        console.log(xml2);
         ControladorAmalia.toogleDialogoMostarXMLCasos(xml);
 
     });
@@ -568,7 +570,6 @@ $(document).ready(function () {
 
 });
 window.setInterval(actualizaArvoreUC,1000);
-
  window.setInterval(ControladorAmalia.ActualizaVariaveis,1000);
 
 
