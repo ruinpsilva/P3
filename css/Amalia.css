@@ -544,11 +544,11 @@ ol.tree
 #lng_english,
 #lng_portuguese,
 #btnCallChat
-
 {
 width: 140px;
 
-}#sddm div
+}
+#sddm div
 {	position: absolute;
 	visibility: hidden;
 	margin: 0;
@@ -556,7 +556,7 @@ width: 140px;
 	background: #EAEBD8;
 	border: 1px solid #5970B2}
 
-	#sddm div input
+#sddm div input
 	{	position: relative;
 		margin: 0;
 		text-align: left;
