@@ -157,12 +157,15 @@ a:hover{
 #dialogoMostarXMLClasses,
 #dialogoMostarXMLCasos,
 #dialogoGravarDiagrama,
+#dialogoAtribuirNomeDiagrama,
 #dialogoAbreDiagrama,
 #dialogoAbreDiagramaCasosDisco,
 #dialogoAbreDiagramaClassesDisco,
 #dialogoGravaDiaClassesDisco,
 #dialogoCriaProjecto,
 #dialogoAbreProjeto,
+#dialogoAbreProjectoDisco,
+#dialogoFechaProjecto,
 #dialogoGravaDiaCasosDisco{
      visibility: hidden;
      position: absolute;
@@ -185,13 +188,16 @@ a:hover{
 #dialogoMostarXMLClasses div,
 #dialogoMostarXMLCasos div,
 #dialogoGravarDiagrama div,
+#dialogoAtribuirNomeDiagrama div,
 #dialogoAbreDiagrama div,
 #dialogoAbreDiagramaCasosDisco div,
 #dialogoAbreDiagramaClassesDisco div,
 #dialogoGravaDiaClassesDisco div,
 #dialogoCriaProjecto div,
-#dialogoAbreProjeto div
-#dialogoGravaDiaCasosDisco div
+#dialogoAbreProjeto div,
+#dialogoAbreProjectoDisco div,
+#dialogoGravaDiaCasosDisco div,
+#dialogoFechaProjecto div
 {
      width:320px;
      margin: 120px auto;
