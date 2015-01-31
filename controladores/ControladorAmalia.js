@@ -332,26 +332,25 @@ ControladorAmalia ={
 		var nomeActor = $("#nomeActor").val();
         if(nomeActor ==""){
         nomeActor
-="Actor";
+            ="Actor";
         }
 		var idActor = $("#idActor").val();
-		if ( nomeActor && idActor ){
 			//definido nome para já alterar no gráfico
 			//alterar modelo registando o nome
 			var actor = graph.getCell(idActor);
-            removefrom(listaAtores, actor.name);
+            actor.attr({ text:{text:nomeActor} });
+            removefrom(listaAtores, actor.attr.tex.text);
             listaAtores.push(nomeActor);
-            actor.name = nomeActor;
-			actor.attr({ text:{text:nomeActor} });
             console.log(actor.name);
-		}
+
 	},
 
     // função para remover o actor do paper
     removeActor : function(graph){
         var idActor = $("#idActor").val();
         if(idActor){
-        removefrom(listaAtores,graph.getCell(idActor).name);
+
+        removefrom(listaAtores,graph.getCell(idActor).attr.text.text);
         graph.getCell(idActor).remove();
 
         }
@@ -685,17 +684,17 @@ ControladorAmalia ={
 		
 		var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
 		//processamento
-        xml +='<project>';
-        xml +='\t<name>'+projetoNome +'</name>/n';
-        xml +='\t<diagrama_casos_uso>\n'
+        xml +='<project>\n';
+        xml +='\t<name>'+projetoNome +'</name>\n';
+        xml +='\t<diagrama_casos_uso>\n';
 		xml += ControladorAmalia._elementosToXML(graph,elementoscasos);
 		xml += ControladorAmalia._ligacoesToXML3(graph,ligacoescasos);
-        xml +='\t</diagrama_casos_uso>';
+        xml +='\t</diagrama_casos_uso>\n';
         xml +='\t<diagrama_classes>\n';
         xml += ControladorAmalia._elementosToXML(graph2,elementosclasses);
 		xml += ControladorAmalia._ligacoesToXML3(graph2,ligacoesclasses);
-        xml +='\t</diagrama_classes>';
-        xml +='</projecto';
+        xml +='\t</diagrama_classes>\n';
+        xml +='</projecto>';
 		return xml;
 		
 		
@@ -763,12 +762,12 @@ ControladorAmalia ={
 			xml += '\t\t\t\t<tipo>caso de uso</tipo>\n';
 			if( el.attrs.text){
 				xml += '\t\t\t\t<nome>'+el.attrs.text.text+'</nome>\n';
-                for(var a=0; a<=listaCasos.length; a++){
+                for(var a=0; a<listaCasos.length; a++){
                     console.log(listaCasos[a].id_caso);
                     if(listaCasos[a].id_caso == el.id){
                         xml += '\t\t\t\t<operacoes>\n';
-                        for(var j=0; j<=listaCasos[a].operacao_caso; j++){
-                        xml +='\t\t\t\t\t<operacao>';
+                        for(var j=0; j<listaCasos[a].operacao_caso; j++){
+                        xml +='\t\t\t\t\t<operacao>\n';
                         if(listaCasos[a].operacao_caso[j] == "l"){
                         xml += 'List';
                         }
@@ -784,12 +783,12 @@ ControladorAmalia ={
                         if(listaCasos[a].operacao_caso[j] == "D"){
                         xml += 'Delete';
                         }
-                        xml += '</operacao>/n';
+                        xml += '</operacao>\n';
                         }
-                        xml +='\t\t\t\t</opercacoes>\m';
-                        xml +='\t\t\t\t<entety>'+listaCasos[a].entity_caso+'</entety>/n';
+                        xml +='\t\t\t\t</opercacoes>\n';
+                        xml +='\t\t\t\t<entety>'+listaCasos[a].entity_caso+'</entety>\n';
                         if(listaCasos[a].masterent != ""){
-                        xml +='\t\t\t\t<masterEntety>'+ listaCasos[a].masterent + '</masterEntety>/n';
+                        xml +='\t\t\t\t<masterEntety>'+ listaCasos[a].masterent + '</masterEntety>\n';
                         }
                     }
                 }
