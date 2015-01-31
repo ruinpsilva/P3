@@ -66,7 +66,8 @@ input[type=reset],
 #btnlanguage,
 #lng_english,
 #lng_portuguese,
-#btnCallChat
+#btnCallChat,
+#voltarPagPrincipal
 {
 	background: #f7f7f7;
 	padding:1px 5px;
@@ -91,7 +92,8 @@ input[type=reset]:hover,
 #btnlanguage:hover,
 #lng_english:hover,
 #lng_portuguese:hover,
-#btnCallChat:hover
+#btnCallChat:hover,
+#voltarPagPrincipal:hover
 {
 	background:#374343;
 	color:#F7F7F7;
@@ -102,6 +104,7 @@ input[type=reset]:hover,
 
 #controlCasosUso input[type=button],
 #controloDiagramaClasses input[type=button],
+#controlStage input[type=button],
 #btnVoltarInicio,
 #btnClose,
 #btnSaveProject,
@@ -113,7 +116,8 @@ input[type=reset]:hover,
 #btnlanguage,
 #lng_english,
 #lng_portuguese,
-#btnCallChat
+#btnCallChat,
+#voltarPagPrincipal
 {
 	padding: 5px 10px;
 	font-weight: bold;
@@ -329,6 +333,7 @@ h1{
 
 #p0h{
 	text-align: right;
+	padding-right: 15px;
 }
 
 
@@ -543,7 +548,8 @@ ol.tree
 #btnlanguage,
 #lng_english,
 #lng_portuguese,
-#btnCallChat
+#btnCallChat,
+#voltarPagPrincipal
 {
 width: 140px;
 
@@ -654,4 +660,8 @@ width: 140px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: auto;
+}
+
+#controlStage {
+	height: 28px;
 }

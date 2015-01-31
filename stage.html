@@ -22,9 +22,53 @@
 		<script src="controladores/ControladorAmalia.js"></script>
         <script src="ide/stage.js"></script>
 
-		<!-- Modelos -->
+		<!-- script de controlo dos menus dos botões-->
+		<script type="text/javascript">
 
-		<!-- funções -->
+            var timeout         = 500;
+            var closetimer		= 0;
+            var ddmenuitem      = 0;
+
+            // open hidden layer
+            function mopen(id)
+            {
+                // cancel close timer
+                mcancelclosetime();
+
+                // close old layer
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+                // get new layer and show it
+                ddmenuitem = document.getElementById(id);
+                ddmenuitem.style.visibility = 'visible';
+
+            }
+            // close showed layer
+            function mclose()
+            {
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            }
+
+            // go close timer
+            function mclosetime()
+            {
+                closetimer = window.setTimeout(mclose, timeout);
+            }
+
+            // cancel close timer
+            function mcancelclosetime()
+            {
+                if(closetimer)
+                {
+                    window.clearTimeout(closetimer);
+                    closetimer = null;
+                }
+            }
+
+            // close layer when click-out
+            document.onclick = mclose;
+            // -->
+            </script>
 
 
 
@@ -40,19 +84,42 @@
 	</head>
 
 	<body onload="set_style_from_cookie()">
-		<div>
+
 			<header>
 				<h1 >Amalia Project - Modeling Tools</h1>
 				<p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 			</header>
-		</div>
+			<p></p>
+			<div id="controlStage">
+				<ul id="sddm">
+					<li><input id="voltarPagPrincipal" type="button" value="Main Page" />
+					</li>
+					<li>
+					    <input id="btnthemes" type="button" value="Themes" onmouseover="mopen('m1')" onmouseout="mclosetime()"/>
+					    <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+						    <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
+					<input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
+					    </div>
+					</li>
+					<li>
+					    <input id="btnlanguage" type="button" value="Languages" onmouseover="mopen('m2')" onmouseout="mclosetime()"/>
+					    <div id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+					    <input id="lng_english" type="button" value ="English"/>
+					    <input id="lng_portuguese" type="button" value="Português"/>
+					    </div>
+					</li>
+                	</ul>
+
+			</div>
+			<p></p>
+			<p></p>
+
         <div id="blockIcons">
            <img id="stage_elipse" src="images/Ellipse-1.png" />
            <input type="image" id="ucfolder" src="images/UC_folder.png" />
            <input type="image" id="ucText" value="Use Case Diagram"/>
            <input type="image" id="dmfolder" src="images/DM_folder.png"/>
            <input type="image" id="dmText" value="Domain Model"/>
-<!--           <input type="image" id="dmText" src="images/Domain-Model.png"/>-->
            <img id="nextfolder" src="images/Next_folder.png"/>
 
 
@@ -60,8 +127,6 @@
 
         <div>
             <footer>
-                <input id="btnChangeStyleLight" type="button" value="Light Theme" onclick="switch_style('Light');return false;"/>
-                <input id="btnChangeStyleDark" type="button" value="Dark Theme" onclick="switch_style('Dark');return false"/>
                 <p>
                     AmaliaIDE v1.0 - 2014
                 </p>

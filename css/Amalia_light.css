@@ -67,7 +67,8 @@ input[type=reset],
 #btnlanguage,
 #lng_english,
 #lng_portuguese,
-#btnCallChat{
+#btnCallChat,
+#voltarPagPrincipal{
 	background: #374343;
 	padding:1px 5px;
 	color: white;
@@ -91,7 +92,8 @@ input[type=reset]:hover,
 #btnlanguage:hover,
 #lng_english:hover,
 #lng_portuguese:hover,
-#btnCallChat:hover{
+#btnCallChat:hover,
+#voltarPagPrincipal:hover{
 	background:#374343;
 	color:#F7F7F7;
 /*	border: 1px;*/
@@ -112,7 +114,8 @@ input[type=reset]:hover,
 #btnlanguage,
 #lng_english,
 #lng_portuguese,
-#btnCallChat{
+#btnCallChat,
+#voltarPagPrincipal{
 	padding: 5px 10px;
 	font-weight: bold;
 	background: #f7f7f7 !important;
@@ -333,6 +336,7 @@ h1{
 
 #p0h{
 	text-align: right;
+	padding-right: 15px;
     color: #434647;
 }
 
@@ -548,7 +552,8 @@ ol.tree
 #btnlanguage,
 #lng_english,
 #lng_portuguese,
-#btnCallChat
+#btnCallChat,
+#voltarPagPrincipal
 
 {
 width: 140px;
@@ -662,3 +667,7 @@ width: 140px;
 }
 
 
+
+#controlStage {
+	height: 28px;
+}
