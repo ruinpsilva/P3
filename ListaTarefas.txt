@@ -21,7 +21,7 @@ apagar projeto
 
 seta para (extend/include) no IDE dos Casos de Uso
 
-tema light, botões selecionados ficam invisiveis ************RNPS
+
 
 Main button do stage
 
@@ -73,3 +73,5 @@ p√°gina principal
     
 p√°gina de stage
     criar imagem com ‚àö‚â†cones e us‚àö¬∞-los como bot‚àö¬µes para os diferentes componentes
+    
+tema light, botões selecionados ficam invisiveis ************RNPS
