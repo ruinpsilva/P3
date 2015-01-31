@@ -36,6 +36,20 @@
 		<!-- ide -->
 		<script src="ide/ideCasosUso.js"></script>
 
+		<!-- Right-Click Block-->
+		<script language="javascript">
+			document.onmousedown=disableclick;
+			status="No need for right-click! All options are available by double-click!";
+			Function disableclick(event)
+			{
+			  if(event.button==2)
+			   {
+				alert(status);
+				return false;
+			   }
+			}
+		</script>
+
 		<!-- script de controlo dos menus dos botões-->
 		<script type="text/javascript">
 
@@ -97,7 +111,7 @@
 	</head>
 
 <!-- in body tag is insert onload for set the style with cookie-->
-	<body onload="set_style_from_cookie()" >
+	<body onload="set_style_from_cookie()" oncontextmenu="return false">
 			<header>
 				<h1>Use Case Model</h1>
                 <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>

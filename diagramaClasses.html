@@ -42,6 +42,20 @@
 		<!-- ide -->
 		<script src="ide/ideDiagramaClasses.js"></script>
 		
+		<!-- Right-Click Block-->
+		<script language="javascript">
+			document.onmousedown=disableclick;
+			status="No need for right-click! All options are available by double-click!";
+			Function disableclick(event)
+			{
+			  if(event.button==2)
+			   {
+				alert(status);
+				return false;
+			   }
+			}
+		</script>
+
 		<!-- script de controlo dos menus dos botões-->
 		<script type="text/javascript">
 
@@ -114,7 +128,7 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">-->
 	</head>
 
-	<body>
+	<body oncontextmenu="return false">
 		<div>
 			<header>
 				<h1>Domain Model</h1>
