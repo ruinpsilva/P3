@@ -17,12 +17,11 @@ LISTA DE TAREFAS
 
 actualizar informação da caixa de dialogo (FALTA)
     
-
 apagar projeto
 
 seta para (extend/include) no IDE dos Casos de Uso
 
-tema light, botões selecionados ficam invisiveis
+tema light, botões selecionados ficam invisiveis ************RNPS
 
 Main button do stage
 
@@ -34,9 +33,9 @@ botão de exportar XML no index
 
     multi-language
     
-    melhorar ícones da toolbar da direita
+    melhorar ícones da toolbar da direita ***********RNPS
     
-    impedir clique do lado
+    impedir clique do lado direito **************RNPS
     
 **************** Concluido ***************************************************
 
