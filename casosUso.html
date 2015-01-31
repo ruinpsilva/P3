@@ -36,6 +36,53 @@
 		<!-- ide -->
 		<script src="ide/ideCasosUso.js"></script>
 
+		<script type="text/javascript">
+
+            var timeout         = 500;
+            var closetimer		= 0;
+            var ddmenuitem      = 0;
+
+            // open hidden layer
+            function mopen(id)
+            {
+                // cancel close timer
+                mcancelclosetime();
+
+                // close old layer
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+                // get new layer and show it
+                ddmenuitem = document.getElementById(id);
+                ddmenuitem.style.visibility = 'visible';
+
+            }
+            // close showed layer
+            function mclose()
+            {
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            }
+
+            // go close timer
+            function mclosetime()
+            {
+                closetimer = window.setTimeout(mclose, timeout);
+            }
+
+            // cancel close timer
+            function mcancelclosetime()
+            {
+                if(closetimer)
+                {
+                    window.clearTimeout(closetimer);
+                    closetimer = null;
+                }
+            }
+
+            // close layer when click-out
+            document.onclick = mclose;
+            // -->
+            </script>
+
 
 		<title>Use Case Model</title>
 		<meta name="description" content="ide para modelar casos de uso">
@@ -54,6 +101,20 @@
 				<h1>Use Case Model</h1>
                 <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 			</header>
+			<p></p>
+			<div id="btnBar">
+                <ul id="sddm">
+                    <input id="btnVoltarInicio" type="button" value="<" />
+                    <input id="btnClose" type="button" value="Close Project" />
+                    <li><input id="btnSaveProject" type="button" value="Save Project"  onmouseover="mopen('m1')" onmouseout="mclosetime()"/>
+                        <div id="m1" onmouseovre="mcancelclosetime()" oumouseout="mclosetime()">
+                            <input id="btnGravarProjeto" type="button" value="Save in Browser" />
+                            <input id="btnGuardarCasosUsoDisco" type="button" value="Save in File" />
+                        </div>
+                    </li>
+                </ul>
+			</div>
+			<p></p>
 			<div id="controlCasosUso">
 
 			<!-- Experiência de gravar modelo -->
