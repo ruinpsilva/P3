@@ -332,26 +332,25 @@ ControladorAmalia ={
 		var nomeActor = $("#nomeActor").val();
         if(nomeActor ==""){
         nomeActor
-="Actor";
+            ="Actor";
         }
 		var idActor = $("#idActor").val();
-		if ( nomeActor && idActor ){
 			//definido nome para já alterar no gráfico
 			//alterar modelo registando o nome
 			var actor = graph.getCell(idActor);
-            removefrom(listaAtores, actor.name);
+            actor.attr({ text:{text:nomeActor} });
+            removefrom(listaAtores, actor.attr.tex.text);
             listaAtores.push(nomeActor);
-            actor.name = nomeActor;
-			actor.attr({ text:{text:nomeActor} });
             console.log(actor.name);
-		}
+
 	},
 
     // função para remover o actor do paper
     removeActor : function(graph){
         var idActor = $("#idActor").val();
         if(idActor){
-        removefrom(listaAtores,graph.getCell(idActor).name);
+
+        removefrom(listaAtores,graph.getCell(idActor).attr.text.text);
         graph.getCell(idActor).remove();
 
         }
@@ -675,30 +674,27 @@ ControladorAmalia ={
 	//*************************************************
 	//** Produção de xml
 	//*************************************************
-	diagramaToXML: function (graph,diagrama){
-		
-		
-		if (diagrama == "classes"){
-			var elementosNasFerramentas = 3;
-			var inicioXML = '<diagrama_classes>\n';
-			var fimXML = '</diagrama_classes>';
-		}else if (diagrama == "casos de uso"){
-			var elementosNasFerramentas = 2;
-			var inicioXML = '<diagrama_casos_uso>\n';
-			var fimXML = '</diagrama_casos_uso>';
-		}
-		
+	diagramaToXML: function (){
+
 		//elementos e ligações do diagrama
-		var elementos = graph.getElements();
-		var ligacoes = graph.getLinks();
+		var elementoscasos = graph.getElements();
+		var ligacoescasos = graph.getLinks();
+        var elementosclasses = graph2.getElements();
+        var ligacoesclasses = graph2.getLinks();
 		
 		var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
 		//processamento
-		xml += inicioXML;
-		xml += ControladorAmalia._elementosToXML(graph,elementos);
-		xml += ControladorAmalia._ligacoesToXML3(graph,ligacoes);
-		xml += fimXML;
-		
+        xml +='<project>\n';
+        xml +='\t<name>'+projetoNome +'</name>\n';
+        xml +='\t<diagrama_casos_uso>\n';
+		xml += ControladorAmalia._elementosToXML(graph,elementoscasos);
+		xml += ControladorAmalia._ligacoesToXML3(graph,ligacoescasos);
+        xml +='\t</diagrama_casos_uso>\n';
+        xml +='\t<diagrama_classes>\n';
+        xml += ControladorAmalia._elementosToXML(graph2,elementosclasses);
+		xml += ControladorAmalia._ligacoesToXML3(graph2,ligacoesclasses);
+        xml +='\t</diagrama_classes>\n';
+        xml +='</projecto>';
 		return xml;
 		
 		
@@ -706,25 +702,24 @@ ControladorAmalia ={
 	//função interna para obter o xml do elementos
 	_elementosToXML: function (graph, elementos){
 		
-		var xml = "<elementos>\n";
+		var xml = "\t\t<elementos>\n";
 		for (i = 0 ; i < elementos.length ; i++){
 				
-				var el = graph.getCell(elementos[i].id).toJSON();
-
+				var el =graph.getCell(elementos[i].id).toJSON();
 
 				//elementos da barra de ferramentas ignorar
 				//if (el.position.x < 120){ continue;}
 				// restantes elementos
-				xml += '\t<elemento id="' + el.id + '">\n';
+				xml += '\t\t\t<elemento id="' + el.id + '">\n';
 				var tipoElemento = (el.type).split(".")[0];
 				if (tipoElemento == "uml"){
 					xml += ControladorAmalia._classeToXML(el);
 				}else if (tipoElemento == "basic"){
 					xml += ControladorAmalia._casosAtoresToXML(el);
 				}
-				xml += "\t</elemento>\n";
+				xml += "\t\t\t</elemento>\n";
 			}
-		xml += '</elementos>\n';
+		xml += '\t\t</elementos>\n';
 		return xml;
 		
 	},
@@ -732,26 +727,26 @@ ControladorAmalia ={
 	_classeToXML: function(el){
 		var xml ="";
 		if (el.type == "uml.Class"){
-			xml += '\t\t<tipo>Classe</tipo>\n'; 
+			xml += '\t\t\t\t<tipo>Classe</tipo>\n';
 		}else if (el.type == "uml.Abstract"){
-			xml += '\t\t<tipo>Classe Abstrata</tipo>\n'; 
+			xml += '\t\t\t\t<tipo>Classe Abstrata</tipo>\n';
 		}else if (el.type == "uml.Interface"){
-			xml += '\t\t<tipo>Interface</tipo>\n'; 
+			xml += '\t\t\t\t<tipo>Interface</tipo>\n';
 		}
-		xml += '\t\t<nome>' + el.name + "</nome>\n";
+		xml += '\t\t\t\t<nome>' + el.name + "</nome>\n";
 		if (el.attributes){
-			xml += "\t\t<atributos>\n";
+			xml += "\t\t\t\t<atributos>\n";
 			for (j = 0 ; j < (el.attributes).length ; j++){
-				xml += "\t\t\t<atributo>" + el.attributes[j] + "</atributo>\n";
+				xml += "\t\t\t\t\t<atributo>" + el.attributes[j] + "</atributo>\n";
 			}
-			xml += "\t\t</atributos>\n";
+			xml += "\t\t\t\t</atributos>\n";
 		}
 		if (el.methods){
-			xml +="\t\t<metodos>\n";
+			xml +="\t\t\t\t<metodos>\n";
 			for (j = 0 ; j < (el.methods).length ; j++){
-				xml += "\t\t\t<metodo>" + el.methods[j] + "</metodo>\n";
+				xml += "\t\t\t\t\t<metodo>" + el.methods[j] + "</metodo>\n";
 			}
-			xml +="\t\t</metodos>\n";
+			xml +="\t\t\t\t</metodos>\n";
 		}
 		return xml;
 	},
@@ -759,51 +754,81 @@ ControladorAmalia ={
 	_casosAtoresToXML: function (el){
 		var xml = "";
 		if (el.type == "basic.Actor"){
-			xml += '\t\t<tipo>Actor</tipo>\n';
+			xml += '\t\t\t\t<tipo>Actor</tipo>\n';
 			if( el.attrs.text){
-				xml += '\t\t<nome>'+el.attrs.text.text+'</nome>\n';
+				xml += '\t\t\t\t<nome>'+el.attrs.text.text+'</nome>\n';
 			}
 		}else if (el.type == "basic.Circle"){
-			xml += '\t\t<tipo>caso de uso</tipo>\n';
+			xml += '\t\t\t\t<tipo>caso de uso</tipo>\n';
 			if( el.attrs.text){
-				xml += '\t\t<nome>'+el.attrs.text.text+'</nome>\n';
+				xml += '\t\t\t\t<nome>'+el.attrs.text.text+'</nome>\n';
+                for(var a=0; a<listaCasos.length; a++){
+                    console.log(listaCasos[a].id_caso);
+                    if(listaCasos[a].id_caso == el.id){
+                        xml += '\t\t\t\t<operacoes>\n';
+                        for(var j=0; j<listaCasos[a].operacao_caso; j++){
+                        xml +='\t\t\t\t\t<operacao>\n';
+                        if(listaCasos[a].operacao_caso[j] == "l"){
+                        xml += 'List';
+                        }
+                        if(listaCasos[a].operacao_caso[j] == "C"){
+                        xml += 'Create';
+                        }
+                        if(listaCasos[a].operacao_caso[j] == "R"){
+                        xml += 'Read';
+                        }
+                        if(listaCasos[a].operacao_caso[j] == "U"){
+                        xml += 'Update';
+                        }
+                        if(listaCasos[a].operacao_caso[j] == "D"){
+                        xml += 'Delete';
+                        }
+                        xml += '</operacao>\n';
+                        }
+                        xml +='\t\t\t\t</opercacoes>\n';
+                        xml +='\t\t\t\t<entety>'+listaCasos[a].entity_caso+'</entety>\n';
+                        if(listaCasos[a].masterent != ""){
+                        xml +='\t\t\t\t<masterEntety>'+ listaCasos[a].masterent + '</masterEntety>\n';
+                        }
+                    }
+                }
 			}
 		}
 		return xml;
 	},
 	//função interna para obter o xml das ligações
 	_ligacoesToXML : function( graph, ligacoes){
-		var xml="<ligacoes>\n";
+		var xml="\t\t<ligacoes>\n";
 		
 		for (i = 0 ; i < ligacoes.length ; i++ ){
 				
 				var lig = graph.getCell( ligacoes[i].id).toJSON();
-				xml +='\t<ligacao id="' + lig.id + '">\n';
+				xml +='\t\t\t<ligacao id="' + lig.id + '">\n';
 				if (lig.type == "uml.Generalization"){
-					xml +='\t\t<tipo>heranca</tipo>\n';
+					xml +='\t\t\t\t<tipo>heranca</tipo>\n';
 				}else if (lig.type == "uml.Composition"){
-					xml +='\t\t<tipo>composicao</tipo>\n';
+					xml +='\t\t\t\t<tipo>composicao</tipo>\n';
 				}else if (lig.type == "uml.Aggregation"){
-					xml +='\t\t<tipo>agregacao</tipo>\n';
+					xml +='\t\t\t\t<tipo>agregacao</tipo>\n';
 				}else if(lig.type == "uml.Implementation"){
-					xml +='\t\t<tipo>implementacao</tipo>\n';
+					xml +='\t\t\t\t<tipo>implementacao</tipo>\n';
 				}else if(lig.labels){
 					// Ligações entre casos de uso
 					if (lig.labels[0].attrs.text.text == " << include >> "){
-						xml += "\t\t<tipo>include</tipo>\n";
+						xml += "\t\t\t\t<tipo>include</tipo>\n";
 					}else{
-						xml += "\t\t<tipo>extend</tipo>\n";
+						xml += "\t\t\t\t<tipo>extend</tipo>\n";
 					}
 					
 				}else{
-					xml +='\t\t<tipo>associacao</tipo>\n';
+					xml +='\t\t\t\t<tipo>associacao</tipo>\n';
 				}
-				xml +='\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
-				xml +='\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
-				xml +='\t</ligacao>\n';
+				xml +='\t\\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
+				xml +='\t\t\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
+				xml +='\t\t\t</ligacao>\n';
 			}
 		
-		xml += "</ligacoes>\n";
+		xml += "\t\t</ligacoes>\n";
 		return xml;
 	},
 	_ligacoesToXML2 : function(graph,ligacoes){
@@ -866,48 +891,48 @@ ControladorAmalia ={
 		return xml;
 	},
 	_ligacoesToXML3 : function( graph, ligacoes){
-		var xml="<ligacoes>\n";
+		var xml="\t\t<ligacoes>\n";
 		
 		for (i = 0 ; i < ligacoes.length ; i++ ){
 				
 				var lig = graph.getCell( ligacoes[i].id).toJSON();
-				xml +='\t<ligacao id="' + lig.id + '">\n';
+				xml +='\t\t\t<ligacao id="' + lig.id + '">\n';
 				if (lig.type == "uml.Generalization"){
-					xml +='\t\t<tipo>heranca</tipo>\n';
+					xml +='\t\t\t\t<tipo>heranca</tipo>\n';
 				}else if (lig.type == "uml.Composition"){
-					xml +='\t\t<tipo>composicao</tipo>\n';
-					xml +='\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
-					xml +="\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
+					xml +='\t\t\t\t<tipo>composicao</tipo>\n';
+					xml +='\t\t\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
+					xml +="\t\t\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
 				}else if (lig.type == "uml.Aggregation"){
-					xml +='\t\t<tipo>agregacao</tipo>\n';
-					xml +='\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
-					xml +="\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
+					xml +='\t\t\t\t<tipo>agregacao</tipo>\n';
+					xml +='\t\t\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
+					xml +="\t\t\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
 				}else if(lig.type == "uml.Implementation"){
-					xml +='\t\t<tipo>implementacao</tipo>\n';
+					xml +='\t\t\t\t<tipo>implementacao</tipo>\n';
 				}else if(lig.type == "uml.Association"){
 					if (lig.labels){
 						var labelZero = lig.labels[0].attrs.text.text;
 						if (labelZero == " << include >> "){
-							xml +='\t\t<tipo>include</tipo>\n';
+							xml +='\t\t\t\t<tipo>include</tipo>\n';
 
 						}else if (labelZero == " << extend >> "){
-							xml +='\t\t<tipo>extend</tipo>\n';
+							xml +='\t\t\t\t<tipo>extend</tipo>\n';
 
 						}else{
-							xml +='\t\t<tipo>associacao</tipo>\n';
-							xml +='\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
-							xml +="\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
+							xml +='\t\t\t\t<tipo>associacao</tipo>\n';
+							xml +='\t\t\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
+							xml +="\t\t\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
 						}
 					}else{
-						xml +='\t\t<tipo>associacao</tipo>\n';
+						xml +='\t\t\t\t<tipo>associacao</tipo>\n';
 					}
 				}
-				xml +='\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
-				xml +='\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
-				xml +='\t</ligacao>\n';
+				xml +='\t\t\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
+				xml +='\t\t\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
+				xml +='\t\t\t</ligacao>\n';
 			}
 		
-		xml += "</ligacoes>\n";
+		xml += "\t\t</ligacoes>\n";
 		return xml;
 	},
 	//**************************************************

@@ -15,16 +15,9 @@ Caixa dialogo de casos de uso:
 
 apagar projeto
 
-
-
-exportar projeto para o disco (XML)
-
-
 página principal
     
     apresentar os mais recentes seis projetos
-
-    abrir projeto de ficheiro
     
 página de stage
     criar imagem com √≠cones e us√°-los como bot√µes para os diferentes componentes
@@ -56,3 +49,5 @@ floating box do lado direito fica com nomes de classes, casos de uso, etc
     necess√°rio construir:
         create, update, delete;
 guardar projeto em ficheiro (JSON) 
+
+exportar projeto para o disco (XML)
