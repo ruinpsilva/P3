@@ -1,10 +1,19 @@
 $(document).ready(function(){
-    $("#btnGoToIDECasosDeUso").click(function(){
+
+
+	$("#ucfolder").click(function(){
         window.location.href = "casosUso.html";
     });
 
-    $("#btnGoToIDEDiagramaClasses").click(function(){
+	$("#ucText").click(function(){
+        window.location.href = "casosUso.html";
+    });
+
+	$("#dmfolder").click(function(){
         window.location.href = "diagramaClasses.html";
     });
 
+	$("#dmText").click(function(){
+        window.location.href = "diagramaClasses.html";
+    });
 });
