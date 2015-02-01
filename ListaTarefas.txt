@@ -11,13 +11,11 @@ Lista de bugs
 
 - local: página index - botão cancel da cx de diálogo de abertura de projecto por ficheiro não funciona
 
-- local: ide casos de uso - na cx de dialogo do actor, tem um botão CLEAR, não acho necessário, deviamos eliminar?
-
 
 LISTA DE TAREFAS
 
 
-actualizar informação da caixa de dialogo (FALTA)
+actualizar informação da caixa de dialogo (FALTA) RNPS
     
 apagar projeto
 
