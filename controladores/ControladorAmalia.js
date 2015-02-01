@@ -114,19 +114,42 @@ ControladorAmalia ={
 
     //HELP FALTA ACABAR MAS PRIMEIRO TEM DE LER AS VARIÁVEIS GLOBAIS
 	toogleDialogoCasoUso: function(caso){
-		//Muito dependente dos detalhes do html
 		if (caso){
 			var elementoCaso = caso.toJSON();
 			var nomeCaso = elementoCaso.attrs.text.text;
-            console.log(nomeCaso);
+            	console.log(nomeCaso);
+			//clear all checkboxes
+			$("#idlcrud1").prop('checked', false);
+			$("#idlcrud2").prop('checked', false);
+			$("#idlcrud3").prop('checked', false);
+			$("#idlcrud4").prop('checked', false);
+			$("#idlcrud5").prop('checked', false);
             var id = caso.id;
             for(var i = 0; i < listaCasos.length; i++){
                 if(id == listaCasos[i].id_caso){
-                  //  $("#idlcrud") = listaCasos[i].operacao_caso;
+				 // if the use case is not new
+				 for(var j = 0; j < listaCasos[i].operacao_caso.length; j++){
+					 //if LCRUD is set, it will check the corresponding checkboxes
+					 if(listaCasos[i].operacao_caso[j] == 'l'){
+						 $("#idlcrud1").prop('checked', true);
+					 }
+					 if(listaCasos[i].operacao_caso[j] == 'c'){
+						 $("#idlcrud2").prop('checked', true);
+					 }
+					 if(listaCasos[i].operacao_caso[j] == 'r'){
+						 $("#idlcrud3").prop('checked', true);
+					 }
+					 if(listaCasos[i].operacao_caso[j] == 'u'){
+						 $("#idlcrud4").prop('checked', true);
+					 }
+					 if(listaCasos[i].operacao_caso[j] == 'd'){
+						 $("#idlcrud5").prop('checked', true);
+					 }
+				 }
+		  }
                     $("#listaEntidades").val(listaCasos[i].entity_caso);
                     $("#listaEntidadesMaster").val(listaCasos[i].masterent);
                 }
-            }
 			$("#idCaso").val(caso.id);
 			$("#nomeCasoUso").val(nomeCaso);// Colocar o nome actual
 		}

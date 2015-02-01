@@ -22,6 +22,20 @@
 		<script src="controladores/ControladorAmalia.js"></script>
         <script src="ide/stage.js"></script>
 
+        <!-- Right-Click Block-->
+		<script language="javascript">
+			document.onmousedown=disableclick;
+			status="No need for right-click! All options are available by double-click!";
+			function disableclick(event)
+			{
+			  if(event.button==2)
+			   {
+				alert(status);
+				return false;
+			   }
+			}
+		</script>
+
 		<!-- script de controlo dos menus dos botões-->
 		<script type="text/javascript">
 

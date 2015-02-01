@@ -40,7 +40,7 @@
 		<script language="javascript">
 			document.onmousedown=disableclick;
 			status="No need for right-click! All options are available by double-click!";
-			Function disableclick(event)
+			function disableclick(event)
 			{
 			  if(event.button==2)
 			   {
@@ -205,13 +205,13 @@
                                 <datalist id="entityList">
                                      <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>
-                                </p>
-                                <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="l">L
-                                <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="c">C
-                                <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="r">R
-                                <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="u">U
-                                <input id="idlcrud" class="optCheckbox" type="checkbox" name="lcrud" value="d">D
-                                <p></p>
+							  </p>
+							  <input id="idlcrud1" class="optCheckbox" type="checkbox" name="lcrud" value="l" checked="checked">L
+							  <input id="idlcrud2" class="optCheckbox" type="checkbox" name="lcrud" value="c" checked="checked">C
+							  <input id="idlcrud3" class="optCheckbox" type="checkbox" name="lcrud" value="r" checked="checked">R
+							  <input id="idlcrud4" class="optCheckbox" type="checkbox" name="lcrud" value="u" checked="checked">U
+							  <input id="idlcrud5" class="optCheckbox" type="checkbox" name="lcrud" value="d" checked="checked">D
+							  <p></p>
                                 <label for="masterEntityList">Master Entity:</label>
                                 <input list="masterEntityList" id="listaEntidadesMaster"  autocomplete="off"/>
                                 <datalist id="masterEntityList" >
