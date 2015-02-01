@@ -3,7 +3,6 @@ Lista de bugs
 
 -verificar se tudo está em inglês
 
-- nos projetos recentes aparece o "proj_" no nome - eliminar
 
 
 LISTA DE TAREFAS
@@ -12,10 +11,6 @@ LISTA DE TAREFAS
 apagar projeto
 
 seta para (extend/include) no IDE dos Casos de Uso
-
-
-botão de exportar XML no index (80%)
-
 
 
 ***************** Importância a BAIXA de zero  ************************************************
@@ -82,3 +77,7 @@ Main button do stage
 -Save Project in browser precisa de alerta para sucesso da ação
 
 - local: página index - botão cancel da cx de diálogo de abertura de projecto por ficheiro não funciona
+
+- nos projetos recentes aparece o "proj_" no nome - eliminar
+
+-botão de exportar XML no index (80%)
