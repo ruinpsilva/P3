@@ -89,7 +89,7 @@
 						        <td id ="z01" width="194">
 						    	</td>
                                <td class= "black" width="169" rowspan="1" align="center">
-                                    <input width = "110" id="btnCreateProject" type="button" value="New Project" title="Start your new Project Here"/>
+                                    <input id="btnCreateProject" type="button" value="New Project" title="Start your new Project Here"/>
 						        </td>
 
 						        
@@ -100,7 +100,7 @@
 						        <td id ="z02" width="194">
 						    	</td>
 						    	<td  align="center" width="169">
-                        	        <input widt ="110" id="btnOpenProjectFromBrowser" type="button" value="Open Project" title="Load Project from browser" />
+                        	        <input id="btnOpenProjectFromBrowser" type="button" value="Open Project" title="Load Project from browser" />
                                 </td>
 						    </tr>
 						    <tr height ="34">
@@ -108,7 +108,7 @@
 						        <td id ="z03" >
 						    	</td>
 						    	<td align= "center">
-                                    <input width="110" id="btnOpenProjectFile" type="button" value="Open Project File" title="Load Project File" />
+                                    <input id="btnOpenProjectFile" type="button" value="Open Project File" title="Load Project File" />
 
 						    	</td>
 						    </tr>
@@ -118,7 +118,7 @@
 						        <td id ="z04">
 						    	</td>
 						    	<td align="center">
-						        <input width="110" id="btnExportProject" type="button" value="Export Project" title="Export Project From " />
+						        <input id="btnExportProject" type="button" value="Export Project" title="Export Project From " />
 						    	</td>
 						    </tr>
 						    <tr height ="34">
@@ -127,7 +127,7 @@
 						        <td id ="z05">
 						    	</td>
 						        <td class= "black" rowspan="1" align="center">
-						            <input id="btnApagarProjecto" type="button" value="Delet Project" title="Delete Project in Browser"/>
+						            <input id="btnApagarProjecto" type="button" value="Delete Project" title="Delete Project in Browser"/>
 						        </td>
 						    </tr>
 						    <tr height ="34">
@@ -173,15 +173,28 @@
         </div>
     </div>
     <div id="dialogoAbreProjectoDisco">
-				<div>
-					<p> Open Project File</p>
-					<fieldset>
-						<input type="file" id="ficheiroProjecto" />
-					</fieldset>
-					<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancel" />
-				</div>
-			</div>
+		<div>
+			<p> Open Project File</p>
+			<fieldset>
+				<input type="file" id="ficheiroProjecto" />
+			</fieldset>
+			<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancel" />
+		</div>
+	</div>
 
+	<div id="dialogoExportProjet">
+        <div>
+            <p> Export Project to XML </p>
+            <fieldset>
+                <legend> Select Project to export:</legend>
+                <select id="projetosDisponiveisParaExportar">
+                    <!-- Local onde vão ficar os projectos disponiveis -->
+                </select>
+            </fieldset>
+            <input id="btnCancelarExportarProjecto" type="button" value="Cancel"/>
+            <input id="btnExportarProjecto" type="button"  value="Export Project" />
+        </div>
+    </div>
 
 
 	<footer>

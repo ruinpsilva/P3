@@ -3,29 +3,18 @@ Lista de bugs
 
 -verificar se tudo está em inglês
 
--botão Close Project não está a funcionar em ambos os IDE's
-
--botao gravar para ficheiro não funciona no IDE de classes
-
--Save Project in browser precisa de alerta para sucesso da ação
-
-- local: página index - botão cancel da cx de diálogo de abertura de projecto por ficheiro não funciona
+- nos projetos recentes aparece o "proj_" no nome - eliminar
 
 
 LISTA DE TAREFAS
 
-
-actualizar informação da caixa de dialogo (FALTA) RNPS
     
 apagar projeto
 
 seta para (extend/include) no IDE dos Casos de Uso
 
 
-
-Main button do stage
-
-botão de exportar XML no index
+botão de exportar XML no index (80%)
 
 
 
@@ -81,3 +70,15 @@ impedir clique do lado direito **************RNPS
 - cx de dialogo de abrir projecto tem erros ortográficos FIXED
 
     melhorar ícones da toolbar da direita ***********RNPS
+
+actualizar informação da caixa de dialogo (FALTA) RNPS
+
+-botão Close Project não está a funcionar em ambos os IDE's
+
+Main button do stage
+
+-botao gravar para ficheiro não funciona no IDE de classes
+
+-Save Project in browser precisa de alerta para sucesso da ação
+
+- local: página index - botão cancel da cx de diálogo de abertura de projecto por ficheiro não funciona

@@ -54,7 +54,6 @@ ControladorAmalia ={
     //Lê valores do localStorage
     ReadVariaveis : function(){
             projetoNome = localStorage.projectname;
-        alert(projetoNome);
             listaCasos = JSON.parse(localStorage.casos);
             listaAtores = JSON.parse(localStorage.actores);
             classesDIAG = JSON.parse(localStorage.graph2);
@@ -275,6 +274,28 @@ ControladorAmalia ={
         this.toogleDialogo("#dialogoAbreProjeto", false);
     },
 	
+	//RNPS
+    //Dialogo para mostrar os projeto disponiveis em memória para exportar
+    toogleDialogoAbreProjetoParaExportar:function(proj){
+        $("#tipoDeProjetoAbrir").val(proj);
+        $("#projetosDisponiveisParaExportar").empty();
+
+        for(var i = 0; i < localStorage.length; i++){
+            var nome = localStorage.key(i);
+            console.log(nome.substring(0,proj.length));
+            if(nome.substring(0,proj.length) == proj){
+                var opt = $("<option>");
+
+                opt.val(nome);
+                console.log(opt.val());
+                opt.html(nome);
+                $("#projetosDisponiveisParaExportar").append(opt);
+                console.log($("#projetosDisponiveisParaExportar"));
+            }
+        }
+        this.toogleDialogo("#dialogoExportProjet", false);
+    },
+
 	toogleDialogoAbreDiagrama: function (tDia){
 		$("#tipoDeDiagramaAbrir").val(tDia);
 		$("#diagramasDisponíveis").empty();
@@ -1010,9 +1031,11 @@ ControladorAmalia ={
             var prefixo = "proj";
             var teste = JSON.stringify(projecto);
             localStorage.setItem(prefixo + "_" + projetoNome, teste);
+		   alert("Your project has been saved!");
+
         }
         catch(err){
-            alert("não gravou projecto");
+            alert("Error - Please try again!");
         }
 
     },
@@ -1087,6 +1110,26 @@ ControladorAmalia ={
         window.location.href = "stage.html";
 
 },
+
+	abrirProjetoParaExportar:function (){
+        graph.clear();
+        graph2.clear();
+        var nome = $("#projetosDisponiveisParaExportar option:selected").val();
+        var projeto = localStorage.getItem(nome);
+        // fazer o parse para JSON
+        var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
+        projetoNome=projetoS.proj;
+        UCBundle= projetoS.CasosUso;
+        CLBundle= projetoS.Classe;
+        graph.fromJSON(UCBundle.diagCU);
+        listaCasos= UCBundle.listaCU;
+        listaAtores=UCBundle.listaAtores;
+        graph2.fromJSON(CLBundle.diagCL);
+        listaClasses=CLBundle.listaCL;
+        listaInterfaces=CLBundle.listaIT;
+        listaAbstracts=CLBundle.listaABS;
+        this.ActualizaVariaveis();
+    },
 
     //DMMLG
     //Fechar Projecto

@@ -23,4 +23,17 @@ $(document).ready(function(){
     $("header").mouseenter(function () {
         $("#controlStage").slideDown(200);
     });
+
+	//Botao fechar projecto
+    $("#voltarPagPrincipal").click(function(){
+        ControladorAmalia.toogleDialogoFechaProjecto();
+    });
+
+	$("#btnCancelaFecharProjeto").click(function(){
+        ControladorAmalia.toogleDialogoFechaProjecto();
+    });
+    //Confirmaç\ao de que é para fechar o projecto
+    $("#btnFecharProjecto").click(function(){
+        ControladorAmalia.FechaProjecto();
+    });
 });

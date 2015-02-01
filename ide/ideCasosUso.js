@@ -453,6 +453,7 @@ $(document).ready(function () {
         ControladorAmalia.createUseCaseBundle(diagramaCU, listaCasos, listaAtores);
         ControladorAmalia.createClassesBundle(diagramaCL, listaClasses, listaInterfaces, listaAbstracts);
         ControladorAmalia.gravarProjectoNoBrowser();
+
     });
 
     //RNPS

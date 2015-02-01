@@ -279,7 +279,7 @@ function zoomfit(){
 		var elemento = cellView.model;
 		
 		if (elemento instanceof instanceInterface){
-			//window.alert("AHAHAHAHAH");
+
 			ControladorAmalia.toogleDialogoAlteraInterface(elemento);
 		}
 		else
@@ -352,6 +352,19 @@ function zoomfit(){
         ControladorAmalia.ActualizaVariaveis();
         window.location.href ="stage.html";
 	});
+
+	 //Botao fechar projecto
+    $("#btnClose").click(function(){
+        ControladorAmalia.toogleDialogoFechaProjecto();
+    });
+    $("#btnCancelaFecharProjeto").click(function(){
+        ControladorAmalia.toogleDialogoFechaProjecto();
+    });
+    //Confirmaç\ao de que é para fechar o projecto
+    $("#btnFecharProjecto").click(function(){
+        ControladorAmalia.FechaProjecto();
+    });
+
 	$("#btnGuardarDiagramaClasses").click(function (){
 		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
 	});
@@ -365,6 +378,11 @@ function zoomfit(){
 	$("#btnGravarDiagrama").click(function(){
 		ControladorAmalia.gravarDiagramaNoBrowser(graph2);
 	});
+
+	//Gravar para o disco em JSON---> fazer focus do dialogo gravar
+    $("#btnGuardarCasosUsoDisco").click(function () {
+        ControladorAmalia.gravarProjectoNoDisco();
+    });
 
     //RNPS
     //botão para gravar o projecto

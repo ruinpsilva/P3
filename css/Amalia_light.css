@@ -166,7 +166,8 @@ a:hover{
 #dialogoAbreProjeto,
 #dialogoAbreProjectoDisco,
 #dialogoFechaProjecto,
-#dialogoGravaDiaCasosDisco{
+#dialogoGravaDiaCasosDisco,
+#dialogoExportProjet{
      visibility: hidden;
      position: absolute;
      left: 0px;
@@ -197,7 +198,8 @@ a:hover{
 #dialogoAbreProjeto div,
 #dialogoAbreProjectoDisco div,
 #dialogoGravaDiaCasosDisco div,
-#dialogoFechaProjecto div
+#dialogoFechaProjecto div,
+#dialogoExportProjet div
 {
      width:320px;
      margin: 120px auto;
@@ -662,4 +664,24 @@ width: 140px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#btnCreateProject {
+	width: 138px;
+}
+
+#btnOpenProjectFromBrowser {
+	width: 138px;
+}
+
+#btnOpenProjectFile {
+	width: 138px;
+}
+
+#btnExportProject {
+	width: 138px;
+}
+
+#btnApagarProjecto {
+	width: 138px;
 }
