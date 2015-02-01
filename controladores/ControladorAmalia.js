@@ -297,21 +297,19 @@ ControladorAmalia ={
     //RNPS
     //
     toogleDialogoMostraClasses: function (){
-        $("#entityList").empty();
         var todos = [];
         todos = listaClasses.concat(listaAbstracts,listaInterfaces);
         console.log(todos);
         console.log(todos.length);
-        console.log(todos[0]);
+	    $("#entityList").empty();
+	    $("#masterEntityList").empty();
         var html = "";
         if(todos.length != 0){
             for(var i = 0; i < todos.length; i++){
              html += '<option value="' + todos[i] + '">';
             }
-            $("#entityList").empty();
+		   console.log(html);
             $("#entityList").append(html);
-            //Momento do DMMLG
-            $("#masterEntityList").empty();
             $("#masterEntityList").append(html);
         }
     },
