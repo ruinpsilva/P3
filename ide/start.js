@@ -50,7 +50,7 @@ $(document).ready(function(){
 	//RNPS
 	//ligação com a cx de diálogo de eliminar o projecto
 	$("#btnApagarProjecto").click(function(){
-		ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("proj");
+		ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("proj_");
 	});
 
 	//RNPS
