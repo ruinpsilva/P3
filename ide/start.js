@@ -50,6 +50,30 @@ $(document).ready(function(){
 	//botão cancelar do dialogo de exportar projecto
 
 
+	//RNPS
+	//ligação com a cx de diálogo de eliminar o projecto
+	$("#btnApagarProjecto").click(function(){
+		ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("proj");
+	});
+
+	//RNPS
+	//botão cancelar da cx de dialogo de eliminar projecto
+	$("#btnCancelarEliminarProjecto").click(function(){
+		ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("");
+	});
+
+	//RNPS
+	//botão eliminar da cx de dialogo de eliminar projecto
+	$("#btnEliminarProjecto").click(function(){
+		var nome = $("#projetosDisponiveisParaEliminar option:selected").val();
+		try{
+			localStorage.removeItem(nome);
+			alert("Project deleted!");
+		} catch (err){
+			alert("Error - Please try again!");
+			}
+		ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("");
+	});
 
     //DMMLG
     //btnAbrir Projecto

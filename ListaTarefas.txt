@@ -9,7 +9,7 @@ Lista de bugs
 LISTA DE TAREFAS
 
     
-apagar projeto
+
 
 seta para (extend/include) no IDE dos Casos de Uso
 
@@ -82,3 +82,5 @@ Main button do stage
 -Save Project in browser precisa de alerta para sucesso da ação
 
 - local: página index - botão cancel da cx de diálogo de abertura de projecto por ficheiro não funciona
+
+apagar projeto

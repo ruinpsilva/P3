@@ -296,6 +296,28 @@ ControladorAmalia ={
         this.toogleDialogo("#dialogoExportProjet", false);
     },
 
+	//RNPS
+	//Dialogo para mostrar os projectos disponíveis em memória para eliminar
+	toogleDialogoAbreProjetoParaEliminar:function(proj){
+        $("#tipoDeProjetoAbrir").val(proj);
+        $("#projetosDisponiveisParaEliminar").empty();
+
+        for(var i = 0; i < localStorage.length; i++){
+            var nome = localStorage.key(i);
+            console.log(nome.substring(0,proj.length));
+            if(nome.substring(0,proj.length) == proj){
+                var opt = $("<option>");
+
+                opt.val(nome);
+                console.log(opt.val());
+                opt.html(nome);
+                $("#projetosDisponiveisParaEliminar").append(opt);
+                console.log($("#projetosDisponiveisParaEliminar"));
+            }
+        }
+        this.toogleDialogo("#dialogoEraseProjet", false);
+    },
+
 	toogleDialogoAbreDiagrama: function (tDia){
 		$("#tipoDeDiagramaAbrir").val(tDia);
 		$("#diagramasDisponíveis").empty();
