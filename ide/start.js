@@ -34,16 +34,13 @@ $(document).ready(function(){
     //RNPS
     //ligação com a cx de diálogo de abertura de projeto
     $("#btnOpenProjectFromBrowser").click(function(){
-        ControladorAmalia.toogleDialogoAbreProjeto("proj");
+        ControladorAmalia.toogleDialogoAbreProjeto("proj_");
     });
 
 	//RNPS
 	//ligação com a cx de diálogo de exportar o projeto
 	$("#btnExportProject").click(function(){
-		ControladorAmalia.toogleDialogoAbreProjetoParaExportar("proj");
-		ControladorAmalia.abrirProjetoParaExportar();
-		exportToXML();
-
+		ControladorAmalia.toogleDialogoAbreProjetoParaExportar("proj_");
 	});
 
 	//RNPS
@@ -97,31 +94,12 @@ $(document).ready(function(){
 	});
 
 
-	//****************************************
-    //**          Exportar para xml         **
-    //**     N├úo ├® necess├írio para gravar   **
-    //** mas pode ser ├║til para outra coisa **
-    //****************************************
-    function exportToXML () {
-
-        var xml = ControladorAmalia.diagramaToXML();
-        console.log(xml);
-        ControladorAmalia.toogleDialogoMostarXMLCasos(xml);
-
-    };
-
-    $("#btnFecharXMLCasos").click(function () {
-        ControladorAmalia.toogleDialogoMostarXMLCasos("");
+    $("#btnCancelarExportarProjecto").click(function () {
+        ControladorAmalia.toogleDialogo("#dialogoExportProjet",false);
     });
 
-    $("#btnDescarregarXML").click(function () {
-        var xml = $("#xmlCasos").val();
-
-        var blob = new Blob([xml], {
-            type: "text/plain;charset=utf-8"
-        });
-        saveAs(blob, "diagramaCasosUso.xml");
-        ControladorAmalia.toogleDialogoMostarXMLCasos("");
+    $("#btnExportarProjecto").click(function () {
+		ControladorAmalia.abrirProjetoParaExportar();
 
     });
 
@@ -182,8 +160,9 @@ function actualizaFicheiros(){
         }
         if(opt.length>5){
             for(var j=0; j<5;j++){
+                var name = opt[j].slice(5,opt[j].length);
                 var p = document.createElement("P");
-                var text = document.createTextNode(opt[j]);
+                var text = document.createTextNode(name);
                 var idi="#i0"+(j+1)+"";
                 var idZ="#z0"+(j+1)+"";
                 projetoNome = opt[j];
@@ -197,12 +176,12 @@ function actualizaFicheiros(){
             }
         else{
             for(var j=0; j<opt.length;j++){
+                var name = opt[j].slice(5,opt[j].length);
                 var p = document.createElement("P");
-                var text = document.createTextNode(opt[j]);
+                var text = document.createTextNode(name);
                 var idi="#i0"+(j+1)+"";
                 var idZ="#z0"+(j+1)+"";
                 projetoNome = opt[j];
-                console.log(nome);
                 p.appendChild(text);
                 p.addEventListener("click",function(){ControladorAmalia.abreProjecto2()});
                 $(idZ).append(p);

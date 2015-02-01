@@ -263,7 +263,6 @@ ControladorAmalia ={
             console.log(nome.substring(0,proj.length));
             if(nome.substring(0,proj.length) == proj){
                 var opt = $("<option>");
-
                 opt.val(nome);
                 console.log(opt.val());
                 opt.html(nome);
@@ -285,7 +284,6 @@ ControladorAmalia ={
             console.log(nome.substring(0,proj.length));
             if(nome.substring(0,proj.length) == proj){
                 var opt = $("<option>");
-
                 opt.val(nome);
                 console.log(opt.val());
                 opt.html(nome);
@@ -781,9 +779,11 @@ ControladorAmalia ={
 		xml += ControladorAmalia._ligacoesToXML3(graph2,ligacoesclasses);
         xml +='\t</diagrama_classes>\n';
         xml +='</projecto>';
-		return xml;
-		
-		
+        var blob = new Blob([xml], {
+            type: "text/plain;charset=utf-8"
+        });
+        var nome = projetoNome + ".xml";
+        saveAs(blob, nome);
 	},
 	//função interna para obter o xml do elementos
 	_elementosToXML: function (graph, elementos){
@@ -1137,7 +1137,8 @@ ControladorAmalia ={
         graph.clear();
         graph2.clear();
         var nome = $("#projetosDisponiveisParaExportar option:selected").val();
-        var projeto = localStorage.getItem(nome);
+        this.projetoNome= nome;
+        var projeto = localStorage.getItem(projetoNome);
         // fazer o parse para JSON
         var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
         projetoNome=projetoS.proj;
@@ -1150,7 +1151,10 @@ ControladorAmalia ={
         listaClasses=CLBundle.listaCL;
         listaInterfaces=CLBundle.listaIT;
         listaAbstracts=CLBundle.listaABS;
+        ControladorAmalia.ActualizaVariaveis();
         this.ActualizaVariaveis();
+        this.diagramaToXML();
+        this.toogleDialogo("#dialogoExportProjet", false);
     },
 
     //DMMLG
