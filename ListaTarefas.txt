@@ -9,7 +9,9 @@ Lista de bugs
 
 -Save Project in browser precisa de alerta para sucesso da ação
 
-- cx de dialogo de abrir projecto tem erros ortográficos
+- local: página index - botão cancel da cx de diálogo de abertura de projecto por ficheiro não funciona
+
+- local: ide casos de uso - na cx de dialogo do actor, tem um botão CLEAR, não acho necessário, deviamos eliminar?
 
 
 LISTA DE TAREFAS
@@ -21,7 +23,7 @@ apagar projeto
 
 seta para (extend/include) no IDE dos Casos de Uso
 
-tema light, botões selecionados ficam invisiveis ************RNPS
+
 
 Main button do stage
 
@@ -33,9 +35,9 @@ botão de exportar XML no index
 
     multi-language
     
-    melhorar ícones da toolbar da direita ***********RNPS
+
     
-    impedir clique do lado direito **************RNPS
+   
     
 **************** Concluido ***************************************************
 
@@ -73,3 +75,11 @@ p√°gina principal
     
 p√°gina de stage
     criar imagem com ‚àö‚â†cones e us‚àö¬∞-los como bot‚àö¬µes para os diferentes componentes
+    
+tema light, botões selecionados ficam invisiveis ************RNPS
+
+impedir clique do lado direito **************RNPS
+ 
+- cx de dialogo de abrir projecto tem erros ortográficos FIXED
+
+    melhorar ícones da toolbar da direita ***********RNPS

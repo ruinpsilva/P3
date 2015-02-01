@@ -28,26 +28,21 @@
 
 		<!-- funções -->
 		
-
-		<script type="text/javascript">
-		
-			$(document).ready(function(){
-				
-				$("#iCasos").click(function(){
-					
-					window.location.href = "casosUso.html";
-				});
-				
-				$("#iClasses").click(function(){
-					window.location.href = "diagramaClasses.html";
-				});
-
-
-
-
-
-			});
+		<!-- Right-Click Block-->
+		<script language="javascript">
+			document.onmousedown=disableclick;
+			status="No need for right-click! All options are available by double-click!";
+			Function disableclick(event)
+			{
+			  if(event.button==2)
+			   {
+				alert(status);
+				return false;
+			   }
+			}
 		</script>
+
+
 
 
 
@@ -62,7 +57,7 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	</head>
 
-	<body onload="set_style_from_cookie()">
+	<body onload="set_style_from_cookie()" oncontextmenu="return false">
 		<div>
 			<header>
 				<h1 >Amalia Project - Modeling Tools</h1>
@@ -166,7 +161,7 @@
 
     <div id="dialogoAbreProjeto">
         <div>
-            <p> Open Projecto Model from Browser </p>
+            <p> Open Project from Browser </p>
             <fieldset>
                 <legend> Select Project to open:</legend>
                 <select id="projetosDisponiveis">
@@ -174,12 +169,12 @@
                 </select>
             </fieldset>
             <input id="btnCancelarAbrirProjecto" type="button" value="Cancel"/>
-            <input id="btnAbrirProjecto" type="button"  value="Open Projecto" />
+            <input id="btnAbrirProjecto" type="button"  value="Open Project" />
         </div>
     </div>
     <div id="dialogoAbreProjectoDisco">
 				<div>
-					<p> Open Use Case Model from Disk</p>
+					<p> Open Project File</p>
 					<fieldset>
 						<input type="file" id="ficheiroProjecto" />
 					</fieldset>

@@ -65,9 +65,9 @@ input[type=reset],
 #btnCallChat,
 #voltarPagPrincipal
 {
-	background: #374343;
+	background: #f7f7f7;
 	padding:1px 5px;
-	color: white;
+	color: #374343;
 	font-weight: bold;
 	border:1px;
 	border-color:#f7f7f7;
@@ -116,7 +116,7 @@ input[type=reset]:hover,
 {
 	padding: 5px 10px;
 	font-weight: bold;
-	background: #f7f7f7 !important;
+	background: #f7f7f7;
 	color:#374343;
 	font-variant: small-caps;
 	font-size: small;
@@ -130,7 +130,7 @@ input[type=reset]:hover,
 #controlCasosUso input[type=button]:hover,
 #controloDiagramaClasses input[type=button]:hover,
 #controlStage input[type=button]:hover{
-	background: #EBEBEB;
+	background: #374343;
 	color: #f7f7f7;
 }
 
@@ -474,7 +474,7 @@ ol.tree
 .floating-menu{
 	right: 0%;
 	position:fixed;
-	background:#BCBCBC;
+	background:white;
 	border-radius: 0px;
 	width:49px;
 	z-index:100;
@@ -644,4 +644,22 @@ width: 140px;
 
 #controlStage {
 	height: 28px;
+}
+
+#addClassGraph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#addInterfaceGraph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#addAbstractGraph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }

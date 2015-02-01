@@ -6,12 +6,12 @@
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta http-equiv="Default-Style" content="Dark">
+        	<meta http-equiv="Default-Style" content="Dark">
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="joint/joint.css" />
 		<link rel="stylesheet" href="css/Amalia.css" title="Dark"/>
-        <link rel="Alternate stylesheet" href="css/Amalia_light.css" title="Light"/>
+        	<link rel="Alternate stylesheet" href="css/Amalia_light.css" title="Light"/>
 
 
 
@@ -19,7 +19,7 @@
 
 		
 		<!-- Bibliotecas -->
-        <script src="joint/joint.js"></script>
+        	<script src="joint/joint.js"></script>
 		<script src="jQuery/jquery-1.10.2.js"></script>
 		<script src="joint/geometry.js"></script>
 
@@ -35,6 +35,20 @@
 		
 		<!-- ide -->
 		<script src="ide/ideCasosUso.js"></script>
+
+		<!-- Right-Click Block-->
+		<script language="javascript">
+			document.onmousedown=disableclick;
+			status="No need for right-click! All options are available by double-click!";
+			Function disableclick(event)
+			{
+			  if(event.button==2)
+			   {
+				alert(status);
+				return false;
+			   }
+			}
+		</script>
 
 		<!-- script de controlo dos menus dos botões-->
 		<script type="text/javascript">
@@ -97,7 +111,7 @@
 	</head>
 
 <!-- in body tag is insert onload for set the style with cookie-->
-	<body onload="set_style_from_cookie()" >
+	<body onload="set_style_from_cookie()" oncontextmenu="return false">
 			<header>
 				<h1>Use Case Model</h1>
                 <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
@@ -141,13 +155,13 @@
 
 
 
-        <div class="floating-menu" id="floatingMenu">
-				<h3>Toolbox</h3>
-				<input id="addUseCaseGraph" type="image" src="img/UC_toolbar.png" alt="Insert Use Case" width="48" height="48">
-                <input id="addActorGraph" type="image" src="img/Actor_toolbar.png" alt="Insert Actor" width="48" height="48">
-                <input id="makeZoomToFit" type="image" src="img/zoom_fit.png" alt="Zoom To Fit" width="48" height="48">
-                <input id="clearDiagram" type="image" src="img/clearGraph.png" alt="Clear Graph" width="48" height="48">
-			</div>
+        	<div class="floating-menu" id="floatingMenu">
+			<h3>Toolbox</h3>
+			<input id="addUseCaseGraph" type="image" src="img/UC.png" alt="Insert Use Case" width="48" height="48" title="Add Use Case">
+			<input id="addActorGraph" type="image" src="img/actor.png" alt="Insert Actor" width="48" height="48" title="Add Actor">
+			<input id="makeZoomToFit" type="image" src="img/Zoom.png" alt="Zoom To Fit" width="48" height="48" title="Zoom to Fit">
+			<input id="clearDiagram" type="image" src="img/clean.png" alt="Clear Graph" width="48" height="48" title="Clear diagram">
+		</div>
 
             <div class="floating-tree" id="floatingTree">
                 <h3>Project Elements</h3>
