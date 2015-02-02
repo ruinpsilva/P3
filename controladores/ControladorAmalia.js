@@ -452,6 +452,7 @@ ControladorAmalia ={
             {
                 // inserir no array operation, as operações que aquele caso de uso efectua
                 operation.push($(this).val());
+            console.log(operation);
             });
         //console.log(operation);
 		if (nomeCaso && idCaso){
@@ -770,15 +771,15 @@ ControladorAmalia ={
 		//processamento
         xml +='<project>\n';
         xml +='\t<name>'+projetoNome +'</name>\n';
-        xml +='\t<diagrama_casos_uso>\n';
+        xml +='\t<use_case_diagram>\n';
 		xml += ControladorAmalia._elementosToXML(graph,elementoscasos);
 		xml += ControladorAmalia._ligacoesToXML3(graph,ligacoescasos);
-        xml +='\t</diagrama_casos_uso>\n';
-        xml +='\t<diagrama_classes>\n';
+        xml +='\t</use_case_diagram>\n';
+        xml +='\t<domain_model>\n';
         xml += ControladorAmalia._elementosToXML(graph2,elementosclasses);
 		xml += ControladorAmalia._ligacoesToXML3(graph2,ligacoesclasses);
-        xml +='\t</diagrama_classes>\n';
-        xml +='</projecto>';
+        xml +='\t</domain_model>\n';
+        xml +='</project>';
         var blob = new Blob([xml], {
             type: "text/plain;charset=utf-8"
         });
@@ -788,7 +789,7 @@ ControladorAmalia ={
 	//função interna para obter o xml do elementos
 	_elementosToXML: function (graph, elementos){
 		
-		var xml = "\t\t<elementos>\n";
+		var xml = "\t\t<elements>\n";
 		for (i = 0 ; i < elementos.length ; i++){
 				
 				var el =graph.getCell(elementos[i].id).toJSON();
@@ -796,16 +797,16 @@ ControladorAmalia ={
 				//elementos da barra de ferramentas ignorar
 				//if (el.position.x < 120){ continue;}
 				// restantes elementos
-				xml += '\t\t\t<elemento id="' + el.id + '">\n';
+				xml += '\t\t\t<element id="' + el.id + '">\n';
 				var tipoElemento = (el.type).split(".")[0];
 				if (tipoElemento == "uml"){
 					xml += ControladorAmalia._classeToXML(el);
 				}else if (tipoElemento == "basic"){
 					xml += ControladorAmalia._casosAtoresToXML(el);
 				}
-				xml += "\t\t\t</elemento>\n";
+				xml += "\t\t\t</element>\n";
 			}
-		xml += '\t\t</elementos>\n';
+		xml += '\t\t</elements>\n';
 		return xml;
 		
 	},
@@ -813,26 +814,30 @@ ControladorAmalia ={
 	_classeToXML: function(el){
 		var xml ="";
 		if (el.type == "uml.Class"){
-			xml += '\t\t\t\t<tipo>Classe</tipo>\n';
+			xml += '\t\t\t\t<type>Classe</type>\n';
 		}else if (el.type == "uml.Abstract"){
-			xml += '\t\t\t\t<tipo>Classe Abstrata</tipo>\n';
+			xml += '\t\t\t\t<type>Classe Abstrata</type>\n';
 		}else if (el.type == "uml.Interface"){
-			xml += '\t\t\t\t<tipo>Interface</tipo>\n';
+			xml += '\t\t\t\t<type>Interface</type>\n';
 		}
-		xml += '\t\t\t\t<nome>' + el.name + "</nome>\n";
+		xml += '\t\t\t\t<name>' + el.name + "</name>\n";
 		if (el.attributes){
-			xml += "\t\t\t\t<atributos>\n";
+            if((el.attributes).length !=0){
+			xml += "\t\t\t\t<atributes>\n";
 			for (j = 0 ; j < (el.attributes).length ; j++){
-				xml += "\t\t\t\t\t<atributo>" + el.attributes[j] + "</atributo>\n";
+				xml += "\t\t\t\t\t<atribute>" + el.attributes[j] + "</atribute>\n";
 			}
-			xml += "\t\t\t\t</atributos>\n";
+			xml += "\t\t\t\t</atributes>\n";
+            }
 		}
 		if (el.methods){
-			xml +="\t\t\t\t<metodos>\n";
+            if((el.methods).length !=0){
+			xml +="\t\t\t\t<methods>\n";
 			for (j = 0 ; j < (el.methods).length ; j++){
-				xml += "\t\t\t\t\t<metodo>" + el.methods[j] + "</metodo>\n";
+				xml += "\t\t\t\t\t<method>" + el.methods[j] + "</method>\n";
 			}
-			xml +="\t\t\t\t</metodos>\n";
+			xml +="\t\t\t\t</methods>\n";
+            }
 		}
 		return xml;
 	},
@@ -840,39 +845,45 @@ ControladorAmalia ={
 	_casosAtoresToXML: function (el){
 		var xml = "";
 		if (el.type == "basic.Actor"){
-			xml += '\t\t\t\t<tipo>Actor</tipo>\n';
+			xml += '\t\t\t\t<type>Actor</type>\n';
 			if( el.attrs.text){
-				xml += '\t\t\t\t<nome>'+el.attrs.text.text+'</nome>\n';
+				xml += '\t\t\t\t<name>'+el.attrs.text.text+'</name>\n';
 			}
 		}else if (el.type == "basic.Circle"){
-			xml += '\t\t\t\t<tipo>caso de uso</tipo>\n';
+			xml += '\t\t\t\t<type>Use Case</type>\n';
 			if( el.attrs.text){
 				xml += '\t\t\t\t<nome>'+el.attrs.text.text+'</nome>\n';
                 for(var a=0; a<listaCasos.length; a++){
                     console.log(listaCasos[a].id_caso);
                     if(listaCasos[a].id_caso == el.id){
-                        xml += '\t\t\t\t<operacoes>\n';
-                        for(var j=0; j<listaCasos[a].operacao_caso; j++){
-                        xml +='\t\t\t\t\t<operacao>\n';
-                        if(listaCasos[a].operacao_caso[j] == "l"){
+                        if(listaCasos[a].operacao_caso.length!=0){
+                        xml += '\t\t\t\t<operations>\n';
+                        console.log("existem operacoes");
+                        for(var j=0;j<=listaCasos[a].operacao_caso.length; j++){
+                        xml +='\t\t\t\t\t<operation>';
+                        if(listaCasos[a].operacao_caso[j] == 'l'){
                         xml += 'List';
                         }
-                        if(listaCasos[a].operacao_caso[j] == "C"){
+                        if(listaCasos[a].operacao_caso[j] == 'c'){
                         xml += 'Create';
                         }
-                        if(listaCasos[a].operacao_caso[j] == "R"){
+                        if(listaCasos[a].operacao_caso[j] == 'r'){
                         xml += 'Read';
                         }
-                        if(listaCasos[a].operacao_caso[j] == "U"){
+                        if(listaCasos[a].operacao_caso[j] == 'u'){
                         xml += 'Update';
                         }
-                        if(listaCasos[a].operacao_caso[j] == "D"){
+                        if(listaCasos[a].operacao_caso[j] == 'd'){
                         xml += 'Delete';
                         }
-                        xml += '</operacao>\n';
+                        xml += '</operation>\n';
                         }
-                        xml +='\t\t\t\t</opercacoes>\n';
+                        xml +='\t\t\t\t</operations>\n';
+                        }
+                                                if(listaCasos[a].entity_caso != ""){
+
                         xml +='\t\t\t\t<entety>'+listaCasos[a].entity_caso+'</entety>\n';
+                                                }
                         if(listaCasos[a].masterent != ""){
                         xml +='\t\t\t\t<masterEntety>'+ listaCasos[a].masterent + '</masterEntety>\n';
                         }
@@ -884,7 +895,7 @@ ControladorAmalia ={
 	},
 	//função interna para obter o xml das ligações
 	_ligacoesToXML : function( graph, ligacoes){
-		var xml="\t\t<ligacoes>\n";
+		var xml="\t\t<connections>\n";
 		
 		for (i = 0 ; i < ligacoes.length ; i++ ){
 				
@@ -977,7 +988,7 @@ ControladorAmalia ={
 		return xml;
 	},
 	_ligacoesToXML3 : function( graph, ligacoes){
-		var xml="\t\t<ligacoes>\n";
+		var xml="\t\t<connections>\n";
 		
 		for (i = 0 ; i < ligacoes.length ; i++ ){
 				
@@ -1018,7 +1029,7 @@ ControladorAmalia ={
 				xml +='\t\t\t</ligacao>\n';
 			}
 		
-		xml += "\t\t</ligacoes>\n";
+		xml += "\t\t</connections>\n";
 		return xml;
 	},
 	//**************************************************
@@ -1112,10 +1123,9 @@ ControladorAmalia ={
         listaAbstracts=CLBundle.listaABS;
         this.ActualizaVariaveis();
     },
-     abreProjecto2:function(){
-         this.ReadVariaveis();
-         console.log(projetoNome);
-    var projeto = localStorage.getItem(projetoNome);
+     abreProjecto2:function(nomeProjecto){
+         console.log(nomeProjecto);
+    var projeto = localStorage.getItem(nomeProjecto);
         // fazer o parse para JSON
     var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
         projetoNome=projetoS.proj;
@@ -1231,7 +1241,7 @@ ControladorAmalia ={
 
     //RNPS-DMMLG
     //Criacao de estrutura JSON para o segmento de projeto
-    createUseCaseBundle(diagrama,casos,atores){
+    createUseCaseBundle :function(diagrama,casos,atores){
         UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
         var teste = JSON.stringify(UCBundle);
         console.log(UCBundle);

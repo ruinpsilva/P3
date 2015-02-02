@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 
     ControladorAmalia.supportsLocalStorage();
@@ -69,7 +67,10 @@ $(document).ready(function(){
 		} catch (err){
 			alert("Error - Please try again!");
 			}
-		ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("");
+
+            this.actualizaFicheiros();
+    ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("");
+
 	});
 
     //DMMLG
@@ -150,6 +151,7 @@ function readSingleFile(evt) {
 function actualizaFicheiros(){
      var proj ="proj_";
         var opt=[];
+    var nome1 =[];
         for(var i = 0; i < localStorage.length; i++){
             var nome = localStorage.key(i);
             console.log(nome.substring(0,proj.length));
@@ -165,13 +167,13 @@ function actualizaFicheiros(){
                 var text = document.createTextNode(name);
                 var idi="#i0"+(j+1)+"";
                 var idZ="#z0"+(j+1)+"";
-                projetoNome = opt[j];
+                var idia="p0"+(j+1);
+                p.setAttribute("id", idia);
                 p.appendChild(text);
-                p.addEventListener("click",function(){ControladorAmalia.abreProjecto2()});
+                p.addEventListener("click",function(){ControladorAmalia.abreProjecto2($opt[j])});
                 $(idZ).append(p);
                 var htmli="<p>"+(j+1)+"</p>";
                  $(idi).append(htmli);
-                ControladorAmalia.ActualizaVariaveis();
             }
             }
         else{
@@ -181,19 +183,30 @@ function actualizaFicheiros(){
                 var text = document.createTextNode(name);
                 var idi="#i0"+(j+1)+"";
                 var idZ="#z0"+(j+1)+"";
-                projetoNome = opt[j];
+                var idia="p0"+(j+1);
+                nome1.push(opt[j]);
                 p.appendChild(text);
-                p.addEventListener("click",function(){ControladorAmalia.abreProjecto2()});
+                p.setAttribute("id", idia);
+                console.log(opt[j]);
+                console.log(nome);
+//                p.addEventListener("click",function(){ControladorAmalia.abreProjecto2(nome)});
                 $(idZ).append(p);
                 var htmli="<p>"+(j+1)+"</p>";
                  $(idi).append(htmli);
-                ControladorAmalia.ActualizaVariaveis();
             }
         }
 
-
-
-
-
+    if(document.getElementById('p01')){ document.getElementById('p01').addEventListener('click',function(){ ControladorAmalia.abreProjecto2(nome1[0])});}
+    if(document.getElementById('p02')){
+document.getElementById('p02').addEventListener('click',function(){ ControladorAmalia.abreProjecto2(nome1[1])});}
+    if(document.getElementById('p03')){
+    document.getElementById('p03').addEventListener('click',function(){ ControladorAmalia.abreProjecto2(nome1[2])});}
+    if(document.getElementById('p04')){
+    document.getElementById('p04').addEventListener('click',function(){ ControladorAmalia.abreProjecto2(nome1[3])});}
+    if(document.getElementById('p05')){
+ document.getElementById('p05').addEventListener('click',function(){ ControladorAmalia.abreProjecto2(nome1[4])});}
+    if(document.getElementById('p06')){
+   document.getElementById('p06').addEventListener('onclick',function(){ ControladorAmalia.abreProjecto2(nome1[6])});
+    }
 };
 
