@@ -35,5 +35,7 @@ $(document).ready(function(){
     //Confirmaç\ao de que é para fechar o projecto
     $("#btnFecharProjecto").click(function(){
         ControladorAmalia.FechaProjecto();
+        window.location.href = "index.html";
+
     });
 });

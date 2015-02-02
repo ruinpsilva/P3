@@ -68,7 +68,7 @@ $(document).ready(function(){
 			alert("Error - Please try again!");
 			}
 
-            this.actualizaFicheiros();
+            actualizaFicheiros();
     ControladorAmalia.toogleDialogoAbreProjetoParaEliminar("");
 
 	});
@@ -149,8 +149,32 @@ function readSingleFile(evt) {
 });
 
 function actualizaFicheiros(){
-     var proj ="proj_";
-        var opt=[];
+    if(document.getElementById('z01').firstChild){
+        document.getElementById('z01').removeChild(document.getElementById('z01').firstChild);}
+    if(document.getElementById('z02').firstChild){
+        document.getElementById('z02').removeChild(document.getElementById('z02').firstChild);}
+    if(document.getElementById('z03').firstChild){
+        document.getElementById('z03').removeChild(document.getElementById('z03').firstChild);}
+    if(document.getElementById('z04').firstChild){
+        document.getElementById('z04').removeChild(document.getElementById('z04').firstChild);}
+    if(document.getElementById('z05').firstChild){
+        document.getElementById('z05').removeChild(document.getElementById('z05').firstChild);}
+    if(document.getElementById('z06').firstChild){
+        document.getElementById('z06').removeChild(document.getElementById('z06').firstChild);}
+    if(document.getElementById('i01').firstChild){
+        document.getElementById('i01').removeChild(document.getElementById('i01').firstChild);}
+    if(document.getElementById('i02').firstChild){
+        document.getElementById('i02').removeChild(document.getElementById('i02').firstChild);}
+    if(document.getElementById('i03').firstChild){
+        document.getElementById('i03').removeChild(document.getElementById('i03').firstChild);}
+    if(document.getElementById('i04').firstChild){
+        document.getElementById('i04').removeChild(document.getElementById('i04').firstChild);}
+    if(document.getElementById('i05').firstChild){
+        document.getElementById('i05').removeChild(document.getElementById('i05').firstChild);}
+    if(document.getElementById('i06').firstChild){
+        document.getElementById('i06').removeChild(document.getElementById('i06').firstChild);}
+    var proj ="proj_";
+    var opt=[];
     var nome1 =[];
         for(var i = 0; i < localStorage.length; i++){
             var nome = localStorage.key(i);
@@ -173,7 +197,7 @@ function actualizaFicheiros(){
                 p.addEventListener("click",function(){ControladorAmalia.abreProjecto2($opt[j])});
                 $(idZ).append(p);
                 var htmli="<p>"+(j+1)+"</p>";
-                 $(idi).append(htmli);
+                $(idi).append(htmli);
             }
             }
         else{

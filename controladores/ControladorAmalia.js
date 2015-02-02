@@ -40,31 +40,42 @@ ControladorAmalia ={
     //DMMLG
     //Atualiza a informação nas variaveis em memoria do browser
     ActualizaVariaveis: function(){
-        localStorage.classes = JSON.stringify(listaClasses);
-        localStorage.abstract = JSON.stringify(listaAbstracts);
-        localStorage.interface = JSON.stringify(listaInterfaces);
-        localStorage.graph = JSON.stringify(graph);
-        localStorage.graph2 = JSON.stringify(graph2);
-        localStorage.actores = JSON.stringify(listaAtores);
-        localStorage.casos = JSON.stringify(listaCasos);
-        localStorage.projectname = projetoNome;
+        localStorage.setItem("classes", JSON.stringify(listaClasses));
+        localStorage.setItem("abstract", JSON.stringify(listaAbstracts));
+        localStorage.setItem("interface",JSON.stringify(listaInterfaces));
+        localStorage.setItem("graph",JSON.stringify(graph));
+        localStorage.setItem("graph2",JSON.stringify(graph2));
+        localStorage.setItem("actores",JSON.stringify(listaAtores));
+        localStorage.setItem("casos",JSON.stringify(listaCasos));
+        localStorage.setItem("projectname", projetoNome);
     },
 
     //DMMLG
     //Lê valores do localStorage
     ReadVariaveis : function(){
-            projetoNome = localStorage.projectname;
-            listaCasos = JSON.parse(localStorage.casos);
-            listaAtores = JSON.parse(localStorage.actores);
-            classesDIAG = JSON.parse(localStorage.graph2);
-        graph2.fromJSON(classesDIAG);
-            casoUso = JSON.parse(localStorage.graph);
-                graph.fromJSON(casoUso);
-            listaInterfaces = JSON.parse(localStorage.interface);
-            listaAbstracts = JSON.parse(localStorage.abstract);
-            listaClasses = JSON.parse(localStorage.classes);
+            projetoNome = localStorage.getItem("projectname");
+            listaCasos = JSON.parse(localStorage.getItem("casos"));
+            listaAtores = JSON.parse(localStorage.getItem("actores"));
+            classesDIAG = JSON.parse(localStorage.getItem("graph2"));
+            graph2.fromJSON(classesDIAG);
+            casoUso = JSON.parse(localStorage.getItem("graph"));
+            graph.fromJSON(casoUso);
+            listaInterfaces = JSON.parse(localStorage.getItem("interface"));
+            listaAbstracts = JSON.parse(localStorage.getItem("abstract"));
+            listaClasses = JSON.parse(localStorage.getItem("classes"));
 
     },
+    FechaProjecto : function(){
+            localStorage.removeItem("projectname");
+            localStorage.removeItem("casos");
+            localStorage.removeItem("actores");
+            localStorage.removeItem("graph2");
+            localStorage.removeItem("graph");
+            localStorage.removeItem("interface");
+            localStorage.removeItem("abstract");
+            localStorage.removeItem("classes");
+    },
+
 
 	// Aparecer desaparecer dialogos para mudar os atributos dos elementos do diagrama.
 	
@@ -814,11 +825,11 @@ ControladorAmalia ={
 	_classeToXML: function(el){
 		var xml ="";
 		if (el.type == "uml.Class"){
-			xml += '\t\t\t\t<type>Classe</type>\n';
+			xml += '\t\t\t\t<type>class</type>\n';
 		}else if (el.type == "uml.Abstract"){
-			xml += '\t\t\t\t<type>Classe Abstrata</type>\n';
+			xml += '\t\t\t\t<type>abstract class</type>\n';
 		}else if (el.type == "uml.Interface"){
-			xml += '\t\t\t\t<type>Interface</type>\n';
+			xml += '\t\t\t\t<type>interface</type>\n';
 		}
 		xml += '\t\t\t\t<name>' + el.name + "</name>\n";
 		if (el.attributes){
@@ -845,36 +856,34 @@ ControladorAmalia ={
 	_casosAtoresToXML: function (el){
 		var xml = "";
 		if (el.type == "basic.Actor"){
-			xml += '\t\t\t\t<type>Actor</type>\n';
+			xml += '\t\t\t\t<type>actor</type>\n';
 			if( el.attrs.text){
 				xml += '\t\t\t\t<name>'+el.attrs.text.text+'</name>\n';
 			}
 		}else if (el.type == "basic.Circle"){
-			xml += '\t\t\t\t<type>Use Case</type>\n';
+			xml += '\t\t\t\t<type>use case</type>\n';
 			if( el.attrs.text){
-				xml += '\t\t\t\t<nome>'+el.attrs.text.text+'</nome>\n';
+				xml += '\t\t\t\t<name>'+el.attrs.text.text+'</name>\n';
                 for(var a=0; a<listaCasos.length; a++){
-                    console.log(listaCasos[a].id_caso);
                     if(listaCasos[a].id_caso == el.id){
                         if(listaCasos[a].operacao_caso.length!=0){
                         xml += '\t\t\t\t<operations>\n';
-                        console.log("existem operacoes");
                         for(var j=0;j<=listaCasos[a].operacao_caso.length; j++){
                         xml +='\t\t\t\t\t<operation>';
                         if(listaCasos[a].operacao_caso[j] == 'l'){
-                        xml += 'List';
+                        xml += 'list';
                         }
                         if(listaCasos[a].operacao_caso[j] == 'c'){
-                        xml += 'Create';
+                        xml += 'create';
                         }
                         if(listaCasos[a].operacao_caso[j] == 'r'){
-                        xml += 'Read';
+                        xml += 'read';
                         }
                         if(listaCasos[a].operacao_caso[j] == 'u'){
-                        xml += 'Update';
+                        xml += 'update';
                         }
                         if(listaCasos[a].operacao_caso[j] == 'd'){
-                        xml += 'Delete';
+                        xml += 'delete';
                         }
                         xml += '</operation>\n';
                         }
@@ -882,10 +891,10 @@ ControladorAmalia ={
                         }
                                                 if(listaCasos[a].entity_caso != ""){
 
-                        xml +='\t\t\t\t<entety>'+listaCasos[a].entity_caso+'</entety>\n';
+                        xml +='\t\t\t\t<entity>'+listaCasos[a].entity_caso+'</entity>\n';
                                                 }
                         if(listaCasos[a].masterent != ""){
-                        xml +='\t\t\t\t<masterEntety>'+ listaCasos[a].masterent + '</masterEntety>\n';
+                        xml +='\t\t\t\t<masterEntity>'+ listaCasos[a].masterent + '</masterEntity>\n';
                         }
                     }
                 }
@@ -894,139 +903,46 @@ ControladorAmalia ={
 		return xml;
 	},
 	//função interna para obter o xml das ligações
-	_ligacoesToXML : function( graph, ligacoes){
-		var xml="\t\t<connections>\n";
-		
-		for (i = 0 ; i < ligacoes.length ; i++ ){
-				
-				var lig = graph.getCell( ligacoes[i].id).toJSON();
-				xml +='\t\t\t<ligacao id="' + lig.id + '">\n';
-				if (lig.type == "uml.Generalization"){
-					xml +='\t\t\t\t<tipo>heranca</tipo>\n';
-				}else if (lig.type == "uml.Composition"){
-					xml +='\t\t\t\t<tipo>composicao</tipo>\n';
-				}else if (lig.type == "uml.Aggregation"){
-					xml +='\t\t\t\t<tipo>agregacao</tipo>\n';
-				}else if(lig.type == "uml.Implementation"){
-					xml +='\t\t\t\t<tipo>implementacao</tipo>\n';
-				}else if(lig.labels){
-					// Ligações entre casos de uso
-					if (lig.labels[0].attrs.text.text == " << include >> "){
-						xml += "\t\t\t\t<tipo>include</tipo>\n";
-					}else{
-						xml += "\t\t\t\t<tipo>extend</tipo>\n";
-					}
-					
-				}else{
-					xml +='\t\t\t\t<tipo>associacao</tipo>\n';
-				}
-				xml +='\t\\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
-				xml +='\t\t\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
-				xml +='\t\t\t</ligacao>\n';
-			}
-		
-		xml += "\t\t</ligacoes>\n";
-		return xml;
-	},
-	_ligacoesToXML2 : function(graph,ligacoes){
-		var xml="<ligacoes>\n";
-		
-		for (i = 0 ; i < ligacoes.length ; i++ ){
-			var ligObj = graph.getCell(ligacoes[i]);
-			var lig = graph.getCell( ligacoes[i].id).toJSON();
-			xml +='\t<ligacao id="' + lig.id + '">\n';
-			if(lig.type){
-				var tipo = lig.type;
-				console.log(tipo);
-				switch (tipo){
-					case "uml.Generalization":
-						xml +='\t\t<tipo>heranca</tipo>\n';
-						break;
-					case "uml.Composition":
-						xml +='\t\t<tipo>composicao</tipo>\n';
-						break;
-					case "uml.Aggregation":
-						xml +='\t\t<tipo>agregacao</tipo>\n';
-						break;
-					case "uml.Implementation":
-						xml +='\t\t<tipo>implementacao</tipo>\n';
-						break;
-					case "uml.Association":
-						xml +='\t\t<tipo>associacao</tipo>\n';
-						break;
-					case "amaliaLinks.Include":
-						xml +='\t\t<tipo>include</tipo>\n';
-						break;
-					case "amaliaLinks.Extends":
-						xml +='\t\t<tipo>extend</tipo>\n';
-						break;
-					case "amaliaLinks.Composition":
-						xml +='\t\t<tipo>composicao</tipo>\n';
-						xml +='\t\t<cardinalidade>'+ligObj.getCardinalityString()+'</cardinalidade>\n';
-						break;
-					case "amaliaLinks.Association":
-						xml +='\t\t<tipo>associacao</tipo>\n';
-						xml +='\t\t<cardinalidade>'+ligObj.getCardinalityString()+'</cardinalidade>\n';
-						break;
-					case "amaliaLinks.Agregation":
-						xml +='\t\t<tipo>agregacao</tipo>\n';
-						xml +='\t\t<cardinalidade>'+ligObj.getCardinalityString()+'</cardinalidade>\n';
-						break;
-					default:
-						xml +='\t\t<tipo>undefined</tipo>\n';
-						break;
-					
-				}
-				
-			}
-			xml +='\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
-				xml +='\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
-				xml +='\t</ligacao>\n';
-		}
-		
-		xml += "</ligacoes>\n";
-		return xml;
-	},
 	_ligacoesToXML3 : function( graph, ligacoes){
 		var xml="\t\t<connections>\n";
 		
 		for (i = 0 ; i < ligacoes.length ; i++ ){
 				
 				var lig = graph.getCell( ligacoes[i].id).toJSON();
-				xml +='\t\t\t<ligacao id="' + lig.id + '">\n';
+				xml +='\t\t\t<connection id="' + lig.id + '">\n';
 				if (lig.type == "uml.Generalization"){
-					xml +='\t\t\t\t<tipo>heranca</tipo>\n';
+					xml +='\t\t\t\t<type>inheritance</type>\n';
 				}else if (lig.type == "uml.Composition"){
-					xml +='\t\t\t\t<tipo>composicao</tipo>\n';
-					xml +='\t\t\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
-					xml +="\t\t\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
+					xml +='\t\t\t\t<type>composition</type>\n';
+					xml +='\t\t\t\t<cadinalaty_destination>'+lig.labels[0].attrs.text.text+'</cardinalaty_destination>\n';
+					xml +="\t\t\t\t<cardinalaty_source>"+lig.labels[1].attrs.text.text+"</cardinalaty_source>\n";
 				}else if (lig.type == "uml.Aggregation"){
-					xml +='\t\t\t\t<tipo>agregacao</tipo>\n';
-					xml +='\t\t\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
-					xml +="\t\t\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
+					xml +='\t\t\t\t<type>agregation</type>\n';
+					xml +='\t\t\t\t<cardinalaty_destination>'+lig.labels[0].attrs.text.text+'</cardinalaty_destination>\n';
+					xml +="\t\t\t\t<cardinalaty_source>"+lig.labels[1].attrs.text.text+"</cardinalaty_source>\n";
 				}else if(lig.type == "uml.Implementation"){
-					xml +='\t\t\t\t<tipo>implementacao</tipo>\n';
+					xml +='\t\t\t\t<type>implementation</type>\n';
 				}else if(lig.type == "uml.Association"){
 					if (lig.labels){
 						var labelZero = lig.labels[0].attrs.text.text;
 						if (labelZero == " << include >> "){
-							xml +='\t\t\t\t<tipo>include</tipo>\n';
+							xml +='\t\t\t\t<type>include</type>\n';
 
 						}else if (labelZero == " << extend >> "){
-							xml +='\t\t\t\t<tipo>extend</tipo>\n';
+							xml +='\t\t\t\t<type>extend</type>\n';
 
 						}else{
-							xml +='\t\t\t\t<tipo>associacao</tipo>\n';
-							xml +='\t\t\t\t<cardDestino>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
-							xml +="\t\t\t\t<cardOrigem>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
+							xml +='\t\t\t\t<type>association</type>\n';
+							xml +='\t\t\t\t<cardinalaty_destination>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
+							xml +="\t\t\t\t<cardinalaty_source>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
 						}
 					}else{
-						xml +='\t\t\t\t<tipo>associacao</tipo>\n';
+						xml +='\t\t\t\t<type>associacao</type>\n';
 					}
 				}
-				xml +='\t\t\t\t<origem_id>' + lig.source.id+ '</origem_id>\n';
-				xml +='\t\t\t\t<destino_id>' + lig.target.id+ '</destino_id>\n';
-				xml +='\t\t\t</ligacao>\n';
+				xml +='\t\t\t\t<source_id>' + lig.source.id+ '</source_id>\n';
+				xml +='\t\t\t\t<destination_id>' + lig.target.id+ '</destination_id>\n';
+				xml +='\t\t\t</connection>\n';
 			}
 		
 		xml += "\t\t</connections>\n";
@@ -1144,10 +1060,8 @@ ControladorAmalia ={
 },
 
 	abrirProjetoParaExportar:function (){
-        graph.clear();
-        graph2.clear();
         var nome = $("#projetosDisponiveisParaExportar option:selected").val();
-        this.projetoNome= nome;
+        projetoNome= nome;
         var projeto = localStorage.getItem(projetoNome);
         // fazer o parse para JSON
         var projetoS =JSON && JSON.parse(projeto) || $.parseJSON(projeto);
@@ -1161,27 +1075,10 @@ ControladorAmalia ={
         listaClasses=CLBundle.listaCL;
         listaInterfaces=CLBundle.listaIT;
         listaAbstracts=CLBundle.listaABS;
-        ControladorAmalia.ActualizaVariaveis();
         this.ActualizaVariaveis();
         this.diagramaToXML();
         this.toogleDialogo("#dialogoExportProjet", false);
-    },
-
-    //DMMLG
-    //Fechar Projecto
-    FechaProjecto:function(){
-        graph.clear();
-        graph2.clear();
-        projetoNome = null;
-        UCBundle = null;
-        CLBundle = null;
-        listaCasos = [];
-        listaAtores =[];
-        listaClasses =[];
-        listaInterfaces =[];
-        listaAbstracts =[];
-        this.ActualizaVariaveis();
-        window.location.href = "index.html";
+        this.FechaProjecto();
     },
 
 	//***************************

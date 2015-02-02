@@ -396,9 +396,11 @@ $(document).ready(function () {
     $("#btnCancelaFecharProjeto").click(function(){
         ControladorAmalia.toogleDialogoFechaProjecto();
     });
-    //Confirmaç\ao de que é para fechar o projecto
+    //Confirmaçao de que é para fechar o projecto
     $("#btnFecharProjecto").click(function(){
         ControladorAmalia.FechaProjecto();
+        window.location.href = "index.html";
+
     });
     //Gravar o diagrama
     $("#btnGravarDiagrama").click(function () {
