@@ -84,6 +84,62 @@
             // -->
             </script>
 
+            <!-- menu carousel -->
+
+            <script src="js/3dcarousel.js"></script>
+		    <script type="text/javascript">
+				$(document).ready(function(){
+					$('#carousel').carousel3d();
+				});
+			</script>
+
+			<style type="text/css">
+				 #perspective {
+				   margin: 0 auto;
+				   margin-top: 80px;
+				   width: 210px;
+				   height: 140px;
+				   position: relative;
+				   -webkit-perspective: 1100px;
+				   perspective: 1100px;
+					 left: -50px;
+				 }
+
+				 #carousel {
+				   width: 350%;
+				   height: 200%;
+				   position: absolute;
+				   -webkit-transform-style: preserve-3d;
+				   -moz-transform-style: preserve-3d;
+				   -webkit-transform: rotateY(0deg) translateZ(-288px);
+
+				 }
+
+				 #carousel figure {
+				   display: block;
+				   position: absolute;
+				   background: #585858;
+				   width: 316px;
+				   height: 300px;
+				   opacity: 0.8;
+				   margin: 12px;
+				   color: #fff;
+				   cursor: pointer;
+				   -webkit-transition: opacity 1s, -webkit-transform 1s;
+				   -moz-transition: opacity 1s, -moz-transform 1s;
+				   -o-transition: opacity 1s, -o-transform 1s;
+				   transition: opacity 1s, transform 1s;
+				 }
+
+				 #tipo{
+					font-weight: 100;
+				   text-align: center;
+				   position: absolute;
+				   vertical-align: middle;
+				 }
+
+			    </style>
+
 
 
 		<title>Amalia Project - Modeling Tools</title>
@@ -104,6 +160,8 @@
 				<p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 			</header>
 			<p></p>
+
+
 			<div id="controlStage">
 				<ul id="sddm">
 					<li><input id="voltarPagPrincipal" type="button" value="Main Page" />
@@ -124,19 +182,30 @@
 					</li>
                 </ul>
 			</div>
-            <br>
-            <br>
-            <br>
-        <div id="blockIcons">
-           <img id="stage_elipse" src="images/Ellipse-1.png" />
-           <input type="image" id="ucfolder" src="images/UC_folder.png" />
-           <input type="image" id="ucText" value="Use Case Diagram"/>
-           <input type="image" id="dmfolder" src="images/DM_folder.png"/>
-           <input type="image" id="dmText" value="Domain Model"/>
-           <img id="nextfolder" src="images/Next_folder.png"/>
+            <div id="roller">
+            	<div id="perspective">
+			    <div id="carousel">
+			    	 <figure id="tipo">Use Case Diagram<img id="ucfolder" src="img/useCase.png" alt="Use Case Diagram" ></figure>
+				 <figure id="tipo">Domain Model<img  id="dmfolder" src="img/ClassDiag.png" alt="Domain Model" ></figure>
+				 <figure id="tipo">Next Module</figure>
+			    </div>
+			</div>
+		  </div>
+			<script type="text/javascript">
 
+			    var _gaq = _gaq || [];
+			    _gaq.push(['_setAccount', 'UA-36251023-1']);
+			    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+			    _gaq.push(['_trackPageview']);
 
-        </div>
+			    (function() {
+				 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			    })();
+
+			  </script>
+
 
         <div id="dialogoFechaProjecto">
                    <div>
@@ -148,8 +217,8 @@
 
         <div>
             <footer>
-                <p>
-                    AmaliaIDE v1.0 - 2015
+                <p id="foot">
+                    <b>AmaliaIDE v1.0 - 2015</b>
                 </p>
             </footer>
 		</div>

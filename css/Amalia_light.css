@@ -564,19 +564,7 @@ width: 140px;
 	right: 457px;
 }
 
-#ucfolder {
-	position: absolute;
-	display: block;
-	top: 114px;
-	left: 20px;
-	bottom: 183px;
-	right: 436px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
 
-}
 
 #blockIcons {
 	position: relative;
@@ -602,18 +590,7 @@ width: 140px;
 	width: 258px;
 }
 
-#dmfolder {
-	position: absolute;
-	display: block;
-	bottom: 46px;
-	top: 251px;
-	left: 249px;
-	right: 210px;
-	margin-bottom: auto;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-}
+
 
 #dmText {
 	position: absolute;
@@ -686,4 +663,17 @@ width: 140px;
 
 #btnApagarProjecto {
 	width: 138px;
+}
+
+#ucfolder {
+
+}
+
+#ucfolder {
+
+}
+
+#foot {
+	color: black;
+
 }
