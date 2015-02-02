@@ -1231,7 +1231,7 @@ ControladorAmalia ={
 
     //RNPS-DMMLG
     //Criacao de estrutura JSON para o segmento de projeto
-    createUseCaseBundle(diagrama,casos,atores){
+    createUseCaseBundle: function(diagrama,casos,atores){
         UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
         var teste = JSON.stringify(UCBundle);
         console.log(UCBundle);
