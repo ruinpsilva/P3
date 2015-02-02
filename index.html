@@ -62,7 +62,7 @@
 	<body onload="set_style_from_cookie()" oncontextmenu="return false">
 		<div>
 			<header>
-				<h1 >Amalia Project - Modeling Tools</h1>
+				<h1 id="title">Amalia Project - Modeling Tools</h1>
 				<p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 			</header>
 		</div>
@@ -77,7 +77,7 @@
 						<table height ="323" width="419" align="center" >
 							<tr >
 						    	<td id = "td01" colspan="3">
-						        <h1 align="center"  > Welcome Screen </h1>
+						        <h1 id="welcome" align="center"  > Welcome Screen </h1>
 						        </td>
 						    </tr>
 						    <tr  height ="34">
@@ -122,7 +122,7 @@
 						        <td id ="z04">
 						    	</td>
 						    	<td align="center">
-						        <input id="btnExportProject" type="button" value="Export Project" title="Export Project From " />
+						        <input id="btnExportProject" type="button" value="Export Project" title="Export Project From" />
 						    	</td>
 						    </tr>
 						    <tr height ="34">
@@ -153,9 +153,9 @@
     <div>
     <div id="dialogoCriaProjecto">
         <div>
-            <p> Create a New Project</p>
+            <p id="dialogoCriaProjectop">Create a New Project</p>
             <fieldset>
-                <legend> File name</legend>
+                <legend id="dialogoCriaProjectopl"> File name</legend>
                 <input id="nomeProjecto" type="text" name="nomeProjecto" placeholder="Project Name"/>
             </fieldset>
             <input id="btnCancelarCriarProjecto" type="button" value="Cancel"/>
