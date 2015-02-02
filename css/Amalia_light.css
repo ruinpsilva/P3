@@ -602,18 +602,7 @@ width: 140px;
 	width: 258px;
 }
 
-#dmfolder {
-	position: absolute;
-	display: block;
-	bottom: 46px;
-	top: 251px;
-	left: 249px;
-	right: 210px;
-	margin-bottom: auto;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-}
+
 
 #dmText {
 	position: absolute;

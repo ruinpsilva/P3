@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-	$("#ucfolder").click(function(){
+	$("#ucfolder").dblclick(function(){
         window.location.href = "casosUso.html";
     });
 
@@ -9,7 +9,7 @@ $(document).ready(function(){
         window.location.href = "casosUso.html";
     });
 
-	$("#dmfolder").click(function(){
+	$("#dmfolder").dblclick(function(){
         window.location.href = "diagramaClasses.html";
     });
 
