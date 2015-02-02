@@ -363,6 +363,7 @@ function zoomfit(){
     //Confirmaç\ao de que é para fechar o projecto
     $("#btnFecharProjecto").click(function(){
         ControladorAmalia.FechaProjecto();
+        window.location.href = "index.html";
     });
 
 	$("#btnGuardarDiagramaClasses").click(function (){
