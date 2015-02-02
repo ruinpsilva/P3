@@ -587,9 +587,11 @@ width: 140px;
 
 #blockIcons {
 	position: relative;
-	left: 0;
-	right: 0;
+	left: 0px;
+	right: 0px;
 	height: 450px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #ucText {
@@ -606,8 +608,10 @@ width: 140px;
 	margin-left: auto;
 	margin-top: auto;
 	word-wrap: break-word;
-	width: 150px;
+	width: 258px;
+
 }
+
 
 #dmfolder {
 	position: absolute;

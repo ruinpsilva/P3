@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    ControladorAmalia.supportsLocalStorage();
+    //ControladorAmalia.supportsLocalStorage();
     actualizaFicheiros();
 
     //botões provisórios do stage
