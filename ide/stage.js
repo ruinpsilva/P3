@@ -17,7 +17,7 @@ $(document).ready(function(){
         window.location.href = "diagramaClasses.html";
     });
 
-	$("#blockIcons").mouseenter(function () {
+	$("#roller").mouseenter(function () {
         $("#controlStage").slideUp(200);
     });
     $("header").mouseenter(function () {
