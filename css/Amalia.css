@@ -18,6 +18,7 @@ header{
 	background:#3C3F41;
 	padding-left:40px;
 	font-variant: small-caps;
+
 }
 
 #backtable{
@@ -177,7 +178,8 @@ a:hover{
 #dialogoGravaDiaCasosDisco,
 #dialogoExportProjet,
 #dialogoEraseProjet{
-     visibility: hidden;
+/*     visibility: hidden;*/
+	display: none;
      position: absolute;
      left: 0px;
      top: 0px;

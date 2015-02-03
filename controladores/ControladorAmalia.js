@@ -109,10 +109,10 @@ ControladorAmalia ={
 	
 	toogleDialogo: function (dialogoNome, focus){
 		
-		if ($(dialogoNome).css("visibility") == "visible"){
-			$(dialogoNome).css("visibility","hidden");
+		if ($(dialogoNome).css("display") == "block"){
+			$(dialogoNome).css("display","none");
 		}else{
-			$(dialogoNome).css("visibility","visible");
+			$(dialogoNome).css("display","block");
 			if(focus){
 				$(focus).focus();
 			}
@@ -130,10 +130,10 @@ ControladorAmalia ={
 
 	// Provavelmente desnecessario
 	toogleDialogoSemFocus:function(dialogoNome){
-		if ($(dialogoNome).css("visibility") == "visible"){
-			$(dialogoNome).css("visibility","hidden");
+		if ($(dialogoNome).css("display") == "block"){
+			$(dialogoNome).css("display","none");
 		}else{
-			$(dialogoNome).css("visibility","visible");
+			$(dialogoNome).css("display","block");
 		}
 	},
 	// aparecer dialogo para criar projecto
