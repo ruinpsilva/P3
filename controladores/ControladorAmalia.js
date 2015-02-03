@@ -3,6 +3,32 @@
  */
 
 
+$(function () {
+            $.ajax({
+               // url: 'languages/portugues.xml',
+                success: function (xml) {
+                    $(xml).find('text').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).text();
+                        $("#" + id).html(text);
+                    });
+                    $(xml).find('input').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).text();
+                        $("#" + id).prop('placeholder',text);
+                    });
+                    $(xml).find('button').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find('value').text();
+                        console.log(text);
+                        var title= $(this).find('title').text()
+                        $("#" + id).prop('value', text);
+                        $("#" + id).prop('title', title);
+                    });
+                }
+            });
+        });
+
 //Criacao das variaveis de projeto
 var projetoNome; //nome - designacao do projeto
 //DMMLG

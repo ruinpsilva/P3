@@ -24,35 +24,6 @@
     <!-- Controlador -->
     <script src="controladores/ControladorAmalia.js"></script>
 
-    <!-- Language -->
-    <script type="text/javascript" language="javascript">
-        $(function () {
-            $.ajax({
-                url: 'languages/portugues.xml',
-                success: function (xml) {
-                    $(xml).find('text').each(function () {
-                        var id = $(this).attr('id');
-                        var text = $(this).text();
-                        $("#" + id).html(text);
-                    });
-                    $(xml).find('input').each(function () {
-                        var id = $(this).attr('id');
-                        var text = $(this).text();
-                        $("#" + id).prop('placeholder',text);
-                    });
-                    $(xml).find('button').each(function () {
-                        var id = $(this).attr('id');
-                        var text = $(this).find('value').text();
-                        console.log(text);
-                        var title= $(this).find('title').text()
-                        $("#" + id).prop('value', text);
-                        $("#" + id).prop('title', title);
-                    });
-                }
-            });
-        });
-    </script>
-
     <!--IDE -->
     <script src="ide/start.js"></script>
 
@@ -236,7 +207,7 @@
 
 
         <footer>
-            <p>
+            <p id="foot">
                 AmaliaIDE v1.0 - 2015
             </p>
         </footer>

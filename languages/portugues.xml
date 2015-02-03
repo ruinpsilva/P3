@@ -12,6 +12,9 @@
 	<text id="dialogoExportProjetll">Selecione Projeto a Exportar</text>
 	<text id="dialogoEraseProjetp">Apagar Projeto</text>
 	<text id="dialogoEraseProjetl">Selecione Projeto a Apagar</text>
+	<text id="tipop">Diagrama de Casos de Usos</text>
+	<text id="tipo2p">Modelo de dominio</text>
+	<text id="tipo3p">Modelo Seguite</text>
 	<button id="btnCreateProject">
 			<value>Novo Projeto</value>
 			<title>Inicie o seu novo projeto aqui</title>
