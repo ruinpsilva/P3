@@ -6,6 +6,12 @@ body {
     padding:0;
 }
 
+/*
+html{
+	overflow-y: hidden;
+}
+*/
+
 header{
 	text-align:left;
 	color:#f7f7f7;
