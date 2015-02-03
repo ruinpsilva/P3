@@ -1253,7 +1253,6 @@ function get_cookie ( cookie_name )
 
 function removefrom( array, valor){
     var index =array.indexOf(valor);
-
     if(index>=0){
        array.splice(index,1);
 }

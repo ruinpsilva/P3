@@ -1,225 +1,247 @@
 <!DOCTYPE html>
 <html lang="pt">
-	<head>
 
-		<meta charset="utf-8">
+<head>
 
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		
-		<!-- CSS -->
-		<link rel="stylesheet" href="joint/joint.css" />
-		<link rel="stylesheet" href="css/Amalia.css" title="Dark"/>
-        <link rel="Alternate stylesheet" href="css/Amalia_light.css" title="Light"/>
-		
-		<!-- Bibliotecas -->
-		<script src="jQuery/jquery-1.10.2.js"></script>
-		<script src="joint/joint.js"></script>
-		<script src="joint/joint.shapes.uml.js"></script>
-        <script src="Blob.js-master/Blob.js"></script>
-		<script src="FileSaver.js-master/FileSaver.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-        <!-- Controlador -->
-		<script src="controladores/ControladorAmalia.js"></script>
-		
-		<!-- Modelos -->
-		
-		<!--IDE -->
-				<script src="ide/start.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="joint/joint.css" />
+    <link rel="stylesheet" href="css/Amalia.css" title="Dark" />
+    <link rel="Alternate stylesheet" href="css/Amalia_light.css" title="Light" />
 
-		<!-- funções -->
-		
-		<!-- Right-Click Block-->
-		<script language="javascript">
-			document.onmousedown=disableclick;
-			status="No need for right-click! All options are available by double-click!";
-			function disableclick(event)
-			{
-			  if(event.button==2)
-			   {
-				alert(status);
-				return false;
-			   }
-			}
-		</script>
+    <!-- Bibliotecas -->
+    <script src="jQuery/jquery-1.10.2.js"></script>
+    <script src="joint/joint.js"></script>
+    <script src="joint/joint.shapes.uml.js"></script>
+    <script src="Blob.js-master/Blob.js"></script>
+    <script src="FileSaver.js-master/FileSaver.js"></script>
 
+    <!-- Controlador -->
+    <script src="controladores/ControladorAmalia.js"></script>
 
+    <!-- Language -->
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            var language = 'portugues';
+            $.ajax({
+                url: 'language.xml',
+                success: function (xml) {
+                    $(xml).find('text').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find(language).text();
+                        $("#" + id).html(text);
+                    });
+                    $(xml).find('input').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find(language).text();
+                        $("#" + id).html(text);
+                    });
+                    $(xml).find('button').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find(language).find('value').text();
+                        console.log(text);
+                        var title= $(this).find(language).find('title').text()
+                        $("#" + id).prop('value', text);
+                        $("#" + id).prop('title', title);
+                    });
+                }
+            });
+        });
+    </script>
 
+    <!--IDE -->
+    <script src="ide/start.js"></script>
 
+    <!-- funções -->
 
-		<title>Amalia Project - Modeling Tools</title>
-		<meta name="description" content="Amalia Project - Modeling Tools">
-		<meta name="author" content="">
+    <!-- Right-Click Block-->
+    <script language="javascript">
+        document.onmousedown = disableclick;
+        status = "No need for right-click! All options are available by double-click!";
 
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+        function disableclick(event) {
+            if (event.button == 2) {
+                alert(status);
+                return false;
+            }
+        }
+    </script>
+    <title>Amalia Project - Modeling Tools</title>
+    <meta name="description" content="Amalia Project - Modeling Tools">
+    <meta name="author" content="">
 
-		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-	</head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-	<body onload="set_style_from_cookie()" oncontextmenu="return false">
-		<div>
-			<header>
-				<h1 id="title">Amalia Project - Modeling Tools</h1>
-				<p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
-			</header>
-		</div>
-		<div>
-          <table width="100%"   align="center">
-            <tr>
-	            <td height ="15" colspan="3" >
-	            </td>
-            <tr>
-	            <td colspan="3">
-					<div id="backtable">
-						<table height ="323" width="419" align="center" >
-							<tr >
-						    	<td id = "td01" colspan="3">
-						        <h1 id="welcome" align="center"  > Welcome Screen </h1>
-						        </td>
-						    </tr>
-						    <tr  height ="34">
-						    	<td colspan="2">
-						        <h2 id ="h1" align="center"> Recent Projects</h2>
-						        </td>
-							</tr>
-						    <tr height ="34">
-						    	<td id ="i01"  class="icon">
-						        </td>
-						        <td id ="z01" width="194">
-						    	</td>
-                               <td class= "black" width="169" rowspan="1" align="center">
-                                    <input id="btnCreateProject" type="button" value="New Project" title="Start your new Project Here"/>
-						        </td>
+    <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
 
-						        
-						    </tr>
-						    <tr height ="34">
-						    	<td id ="i02" class="icon">
-						        </td>
-						        <td id ="z02" width="194">
-						    	</td>
-						    	<td  align="center" width="169">
-                        	        <input id="btnOpenProjectFromBrowser" type="button" value="Open Project" title="Load Project from browser" />
-                                </td>
-						    </tr>
-						    <tr height ="34">
-						    	<td id ="i03" class="icon">
-
-						    	</td>
-						        <td id ="z03" >
-						    	</td>
-						    	<td align= "center">
-                                    <input id="btnOpenProjectFile" type="button" value="Open Project File" title="Load Project File" />
-
-						    	</td>
-						    </tr>
-						    <tr height ="34">
-						    	<td id ="i04" class="icon">
-						        </td>
-						        <td id ="z04">
-						    	</td>
-						    	<td align="center">
-						        <input id="btnExportProject" type="button" value="Export Project" title="Export Project From" />
-						    	</td>
-						    </tr>
-						    <tr height ="34">
-						    	<td id ="i05" class="icon">
-						        </td>
-						        <td id ="z05">
-						    	</td>
-						        <td class= "black" rowspan="1" align="center">
-						            <input id="btnApagarProjecto" type="button" value="Delete Project" title="Delete Project in Browser"/>
-						        </td>
-						    </tr>
-						    <tr height ="34">
-						    	<td id ="i06" class="icon">
-						        </td>
-						        <td id ="z06">
-						    	</td>
-						    </tr>
-						</table>
-					</div>
-	        	</td>
-        </tr>
-        <tr>
-	        <td height="15" colspan="3">
-	        </td>
-        </tr>
-    </table>
+<body onload="set_style_from_cookie()" oncontextmenu="return false">
+    <div>
+        <header>
+            <h1 id="title"></h1>
+            <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
+        </header>
     </div>
     <div>
-    <div id="dialogoCriaProjecto">
-        <div>
-            <p id="dialogoCriaProjectop">Create a New Project</p>
-            <fieldset>
-                <legend id="dialogoCriaProjectopl"> File name</legend>
-                <input id="nomeProjecto" type="text" name="nomeProjecto" placeholder="Project Name"/>
-            </fieldset>
-            <input id="btnCancelarCriarProjecto" type="button" value="Cancel"/>
-            <input id="btnCriarProjecto" type="button" value="Create"/>
-        </div>
+        <table width="100%" align="center">
+            <tr>
+                <td height="15" colspan="3">
+                </td>
+                <tr>
+                    <td colspan="3">
+                        <div id="backtable">
+                            <table height="323" width="419" align="center">
+                                <tr>
+                                    <td id="td01" colspan="3">
+                                        <h1 id="welcome" align="center">Welcome Screen</h1>
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td colspan="2">
+                                        <h2 id="h1" align="center"> Recent Projects</h2>
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td id="i01" class="icon">
+                                    </td>
+                                    <td id="z01" width="194">
+                                    </td>
+                                    <td class="black" width="169" rowspan="1" align="center">
+                                    <input id="btnCreateProject" type="button" value="" title="" />
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td id="i02" class="icon">
+                                    </td>
+                                    <td id="z02" width="194">
+                                    </td>
+                                    <td align="center" width="169">
+                                        <input id="btnOpenProjectFromBrowser" type="button" value="Open Project" title="Load Project from browser" />
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td id="i03" class="icon">
+
+                                    </td>
+                                    <td id="z03">
+                                    </td>
+                                    <td align="center">
+                                        <input id="btnOpenProjectFile" type="button" value="Open Project File" title="Load Project File" />
+
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td id="i04" class="icon">
+                                    </td>
+                                    <td id="z04">
+                                    </td>
+                                    <td align="center">
+                                        <input id="btnExportProject" type="button" value="Export Project" title="Export Project From" />
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td id="i05" class="icon">
+                                    </td>
+                                    <td id="z05">
+                                    </td>
+                                    <td class="black" rowspan="1" align="center">
+                                        <input id="btnApagarProjecto" type="button" value="Delete Project" title="Delete Project in Browser" />
+                                    </td>
+                                </tr>
+                                <tr height="34">
+                                    <td id="i06" class="icon">
+                                    </td>
+                                    <td id="z06">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="15" colspan="3">
+                    </td>
+                </tr>
+        </table>
     </div>
-
-    <div id="dialogoAbreProjeto">
-        <div>
-            <p> Open Project from Browser </p>
-            <fieldset>
-                <legend> Select Project to open:</legend>
-                <select id="projetosDisponiveis">
-                    <!-- Local onde vão ficar os projectos disponiveis -->
-                </select>
-            </fieldset>
-            <input id="btnCancelarAbrirProjecto" type="button" value="Cancel"/>
-            <input id="btnAbrirProjecto" type="button"  value="Open Project" />
+    <div>
+        <div id="dialogoCriaProjecto">
+            <div>
+                <p id="dialogoCriaProjectop">Create a New Project</p>
+                <fieldset>
+                    <legend id="dialogoCriaProjectopl">File name</legend>
+                    <input id="nomeProjecto" type="text" name="nomeProjecto" placeholder="Project Name" />
+                </fieldset>
+                <input id="btnCancelarCriarProjecto" type="button" value="Cancel" />
+                <input id="btnCriarProjecto" type="button" value="Create" />
+            </div>
         </div>
-    </div>
-    <div id="dialogoAbreProjectoDisco">
-		<div>
-			<p> Open Project File</p>
-			<fieldset>
-				<input type="file" id="ficheiroProjecto" />
-			</fieldset>
-			<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancel" />
-		</div>
-	</div>
 
-	<div id="dialogoExportProjet">
-        <div>
-            <p> Export Project to XML </p>
-            <fieldset>
-                <legend> Select Project to export:</legend>
-                <select id="projetosDisponiveisParaExportar">
-                    <!-- Local onde vão ficar os projectos disponiveis -->
-                </select>
-            </fieldset>
-            <input id="btnCancelarExportarProjecto" type="button" value="Cancel"/>
-            <input id="btnExportarProjecto" type="button"  value="Export Project" />
+        <div id="dialogoAbreProjeto">
+            <div>
+                <p id="dialogoAbreProjetop">Open Project from Browser</p>
+                <fieldset>
+                    <legend id="dialogoAbreProjetol">Select Project to open:</legend>
+                    <select id="projetosDisponiveis">
+                        <!-- Local onde vão ficar os projectos disponiveis -->
+                    </select>
+                </fieldset>
+                <input id="btnCancelarAbrirProjecto" type="button" value="Cancel" />
+                <input id="btnAbrirProjecto" type="button" value="Open Project" />
+            </div>
         </div>
-    </div>
-
-    <div id="dialogoEraseProjet">
-        <div>
-            <p> Delete Project </p>
-            <fieldset>
-                <legend> Select Project to delete:</legend>
-                <select id="projetosDisponiveisParaEliminar">
-                    <!-- Local onde vão ficar os projectos disponiveis -->
-                </select>
-            </fieldset>
-            <input id="btnCancelarEliminarProjecto" type="button" value="Cancel"/>
-            <input id="btnEliminarProjecto" type="button"  value="Delete Project" />
+        <div id="dialogoAbreProjectoDisco">
+            <div>
+                <p id="dialogoAbreProjectoDiscop"></p>
+                <fieldset>
+                    <input type="file" id="ficheiroProjecto" />
+                </fieldset>
+                <input id="btnCancelaAbrirCasosDisco" type="button" value="Cancel" />
+            </div>
         </div>
+
+        <div id="dialogoExportProjet">
+            <div>
+                <p id="dialogoExportProjetp">Export Project to XML</p>
+                <fieldset>
+                    <legend id="dialogoExportProjetl">Select Project to export:</legend>
+                    <select id="projetosDisponiveisParaExportar">
+                        <!-- Local onde vão ficar os projectos disponiveis -->
+                    </select>
+                </fieldset>
+                <input id="btnCancelarExportarProjecto" type="button" value="Cancel" />
+                <input id="btnExportarProjecto" type="button" value="Export Project" />
+            </div>
+        </div>
+
+        <div id="dialogoEraseProjet">
+            <div>
+                <p id="dialogoEraseProjetp">Delete Project</p>
+                <fieldset>
+                    <legend id="dialogoEraseProjetl">Select Project to delete:</legend>
+                    <select id="projetosDisponiveisParaEliminar">
+                        <!-- Local onde vão ficar os projectos disponiveis -->
+                    </select>
+                </fieldset>
+                <input id="btnCancelarEliminarProjecto" type="button" value="Cancel" />
+                <input id="btnEliminarProjecto" type="button" value="Delete Project" />
+            </div>
+        </div>
+
+
+        <footer>
+            <p>
+                AmaliaIDE v1.0 - 2015
+            </p>
+        </footer>
     </div>
+</body>
 
-
-	<footer>
-		<p>
-			AmaliaIDE v1.0 - 2015
-		</p>
-	</footer>
-		</div>
-	</body>
 </html>
