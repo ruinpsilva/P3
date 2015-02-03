@@ -78,10 +78,10 @@
 		header("location: register-form.php");
 		exit();
 	}
-$image = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
+        $image = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
 
 
-	//Se não: inserir novo utilizador
+        //Se não: inserir novo utilizador
 	$qry = "INSERT INTO users(username, nome, apelido, pwd,imagem) VALUES('$login','$fname','$lname','".md5($_POST['password'])."','".$image."')";
 	$result = $link->query($qry);
 

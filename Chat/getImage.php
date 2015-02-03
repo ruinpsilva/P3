@@ -6,10 +6,15 @@
 	if(!$link) {
 		die('Falha na ligacao à BD: ' . mysql_error());
 	}
-
     $sqry="SELECT imagem FROM users WHERE username='".$username."'";
     $query = $link->query($sqry);
     $row = mysqli_fetch_array($query);
     $content = $row['imagem'];
+        if(strlen($content) < 1){
+            $sqry="SELECT imagem FROM users WHERE username='12'";
+            $query = $link->query($sqry);
+         $row = mysqli_fetch_array($query);
+        $content = $row['imagem'];
+        }
     echo $content;
 ?>

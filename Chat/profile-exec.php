@@ -43,7 +43,9 @@
 	}
 
 
-        $image = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
+       $image = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
+        $image= (file_get_contents('perfil.php');
+
        if(empty($image)){
        $qry= "UPDATE users SET nome='$fname',apelido='$lname' WHERE username='$usernameuse'";
         }
