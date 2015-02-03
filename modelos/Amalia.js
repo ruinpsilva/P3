@@ -255,7 +255,7 @@ Amalia = {
 		//Gráfico de uma ligação de tipo include
 		getGrafLigaInclude : function (idCima, idBaixo){
 			
-			var liga = new joint.shapes.uml.Association({source: {id: idCima },target: {id:idBaixo}});
+			var liga = new joint.shapes.uml.Generalization({source: {id: idBaixo },target: {id:idCima}});
 			liga.label(0,{position:.5,
 					attrs:{
 						text:{text:' << include >> '}
@@ -270,7 +270,9 @@ Amalia = {
 		//Gráfico de uma ligação de tipo extend
 		getGrafLigaExtend : function (idCima, idBaixo){
 			
-			var liga = new joint.shapes.uml.Association({source: {id: idCima },target: {id:idBaixo}});
+			var liga = new joint.shapes.uml.Generalization({
+                source: {id: idCima },target: {id:idBaixo}
+                                                        });
 			liga.label(0,{position:.5,
 					attrs:{
 						text:{text:' << extend >> '}

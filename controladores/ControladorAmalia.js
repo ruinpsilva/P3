@@ -911,7 +911,18 @@ ControladorAmalia ={
 				var lig = graph.getCell( ligacoes[i].id).toJSON();
 				xml +='\t\t\t<connection id="' + lig.id + '">\n';
 				if (lig.type == "uml.Generalization"){
+                    if(lig.labels){
+                    	var labelZero = lig.labels[0].attrs.text.text;
+						if (labelZero == " << include >> "){
+							xml +='\t\t\t\t<type>include</type>\n';
+
+						}else if (labelZero == " << extend >> "){
+							xml +='\t\t\t\t<type>extend</type>\n';
+						}
+                }
+                else{
 					xml +='\t\t\t\t<type>inheritance</type>\n';
+                }
 				}else if (lig.type == "uml.Composition"){
 					xml +='\t\t\t\t<type>composition</type>\n';
 					xml +='\t\t\t\t<cadinalaty_destination>'+lig.labels[0].attrs.text.text+'</cardinalaty_destination>\n';
@@ -924,20 +935,11 @@ ControladorAmalia ={
 					xml +='\t\t\t\t<type>implementation</type>\n';
 				}else if(lig.type == "uml.Association"){
 					if (lig.labels){
-						var labelZero = lig.labels[0].attrs.text.text;
-						if (labelZero == " << include >> "){
-							xml +='\t\t\t\t<type>include</type>\n';
-
-						}else if (labelZero == " << extend >> "){
-							xml +='\t\t\t\t<type>extend</type>\n';
-
-						}else{
 							xml +='\t\t\t\t<type>association</type>\n';
 							xml +='\t\t\t\t<cardinalaty_destination>'+lig.labels[0].attrs.text.text+'</cardDestino>\n';
 							xml +="\t\t\t\t<cardinalaty_source>"+lig.labels[1].attrs.text.text+"</cardOrigem>\n";
-						}
 					}else{
-						xml +='\t\t\t\t<type>associacao</type>\n';
+						xml +='\t\t\t\t<type>association</type>\n';
 					}
 				}
 				xml +='\t\t\t\t<source_id>' + lig.source.id+ '</source_id>\n';
