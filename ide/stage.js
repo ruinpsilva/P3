@@ -5,19 +5,23 @@ $(document).ready(function(){
         window.location.href = "casosUso.html";
     });
 
-	$("#ucText").click(function(){
-        window.location.href = "casosUso.html";
-    });
+	$("#ucfolder").on('click touchend', function(){
+		window.location.href = 'casosUso.html';
+	}
+
+
 
 	$("#dmfolder").dblclick(function(){
         window.location.href = "diagramaClasses.html";
     });
 
-	$("#dmText").click(function(){
-        window.location.href = "diagramaClasses.html";
-    });
+	$("#dmfolder").on('click touchend', function(){
+		window.location.href = 'diagramaClasses.html';
+	}
 
-	$("#blockIcons").mouseenter(function () {
+
+
+	$("#roller").mouseenter(function () {
         $("#controlStage").slideUp(200);
     });
     $("header").mouseenter(function () {
@@ -32,7 +36,7 @@ $(document).ready(function(){
 	$("#btnCancelaFecharProjeto").click(function(){
         ControladorAmalia.toogleDialogoFechaProjecto();
     });
-    //Confirmaç\ao de que é para fechar o projecto
+    //Confirmaçao de que e para fechar o projecto
     $("#btnFecharProjecto").click(function(){
         ControladorAmalia.FechaProjecto();
         window.location.href = "index.html";

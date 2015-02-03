@@ -60,6 +60,7 @@ function insertUseCaseOnToGraph() {
 //    graph.addCells([ator]);
 //}
 
+//funcao para inserir ator no paper
 function insertActorOnToGraph() {
     var ator = Amalia.dia.getGrafAtor(positionx_actor, positiony_actor);
     positionx_actor = positionx_actor + 10;
@@ -70,7 +71,7 @@ function insertActorOnToGraph() {
 
 
 
-
+//funcao que atualiza lista de casos de uso na floating box
 function actualizaArvoreUC(){
     $("#atoreslista").empty();
     var htmlatores ="";
