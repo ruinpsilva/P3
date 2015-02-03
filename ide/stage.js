@@ -5,17 +5,21 @@ $(document).ready(function(){
         window.location.href = "casosUso.html";
     });
 
-	$("#ucText").click(function(){
-        window.location.href = "casosUso.html";
-    });
+	$("#ucfolder").on('click touchend', function(){
+		window.location.href = 'casosUso.html';
+	}
+
+
 
 	$("#dmfolder").dblclick(function(){
         window.location.href = "diagramaClasses.html";
     });
 
-	$("#dmText").click(function(){
-        window.location.href = "diagramaClasses.html";
-    });
+	$("#dmfolder").on('click touchend', function(){
+		window.location.href = 'diagramaClasses.html';
+	}
+
+
 
 	$("#roller").mouseenter(function () {
         $("#controlStage").slideUp(200);
