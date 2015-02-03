@@ -51,7 +51,7 @@ ControladorAmalia ={
     },
 
     //DMMLG
-    //Lê valores do localStorage
+    //Le valores do localStorage
     ReadVariaveis : function(){
             projetoNome = localStorage.getItem("projectname");
             listaCasos = JSON.parse(localStorage.getItem("casos"));
@@ -65,6 +65,8 @@ ControladorAmalia ={
             listaClasses = JSON.parse(localStorage.getItem("classes"));
 
     },
+
+	//funcao fechar projeto e remover itens do Local Storage
     FechaProjecto : function(){
             localStorage.removeItem("projectname");
             localStorage.removeItem("casos");
@@ -90,15 +92,17 @@ ControladorAmalia ={
 			}
 		}
 	},
+
+	//funcao para verificacao do browser se suporta Local Storage
     supportsLocalStorage: function () {
         try {
-        return 'localStorage' in window &&              window['localStorage'] !== null;
+        return 'localStorage' in window && window['localStorage'] !== null;
         }     catch (e) {
         return false;
-  }
-},
+	  }
+	},
 
-	// Provavelmente desnecessário
+	// Provavelmente desnecessario
 	toogleDialogoSemFocus:function(dialogoNome){
 		if ($(dialogoNome).css("visibility") == "visible"){
 			$(dialogoNome).css("visibility","hidden");
@@ -113,6 +117,7 @@ ControladorAmalia ={
 
     },
 
+	//aparecer dialogo para alterar o nome do ator
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
@@ -122,7 +127,7 @@ ControladorAmalia ={
 
 	},
 
-    //HELP FALTA ACABAR MAS PRIMEIRO TEM DE LER AS VARIÁVEIS GLOBAIS
+    //aparecer caixa de dialogo do caso de uso
 	toogleDialogoCasoUso: function(caso){
 		if (caso){
 			var elementoCaso = caso.toJSON();
@@ -168,6 +173,7 @@ ControladorAmalia ={
 
 	},
 	
+	//dialogo para associar casos de uso
 	toogleDialogoAssociaCasos: function(elementoCimaId, elementoBaixoId){
 		
 		if( elementoCimaId && elementoBaixoId){
@@ -182,6 +188,7 @@ ControladorAmalia ={
 		
 	},
 	
+	//dialogo para alterar atributos de classes
 	toogleDialogoAlteraClasses: function (classe){
 		
 		if (classe){
@@ -208,7 +215,8 @@ ControladorAmalia ={
 		
 		ControladorAmalia.toogleDialogo("#dialogoAlteraClasse",false);
 	},
-		
+
+	//dialogo para alterar atributos de classes
 	toogleDialogoAlteraInterface: function (classe){
 		
 		if (classe){
@@ -232,6 +240,7 @@ ControladorAmalia ={
 		
 	},
 	
+	//dialogo para associar Classes
 	toogleDialogoAssociaClasses: function(elementoCimaId,elementoBaixoId){
 		
 		if (elementoCimaId && elementoBaixoId){
@@ -253,15 +262,16 @@ ControladorAmalia ={
 
 	},
 	
-	toogleDialogoGravarDiagrama: function(tDia){
-		$("#tipoDeDiagrama").val(tDia);
-		this.toogleDialogo("#dialogoGravarDiagrama", false);
-	},
+//	toogleDialogoGravarDiagrama: function(tDia){
+//		$("#tipoDeDiagrama").val(tDia);
+//		this.toogleDialogo("#dialogoGravarDiagrama", false);
+//	},
+//
+//    toogledialogoAtribuirNomeDiagrama: function(tDia){
+//        $("#tipoDeDiagrama").val(tDia);
+//        this.toogleDialogo("dialogoAtribuirNomeDiagrama", false);
+//    },
 
-    toogledialogoAtribuirNomeDiagrama: function(tDia){
-        $("#tipoDeDiagrama").val(tDia);
-        this.toogleDialogo("dialogoAtribuirNomeDiagrama", false);
-    },
 
     //RNPS
     //Dialogo para mostrar os projeto disponiveis em memória
@@ -327,27 +337,27 @@ ControladorAmalia ={
         this.toogleDialogo("#dialogoEraseProjet", false);
     },
 
-	toogleDialogoAbreDiagrama: function (tDia){
-		$("#tipoDeDiagramaAbrir").val(tDia);
-		$("#diagramasDisponíveis").empty();
-		
-		for (i =0 ; i < localStorage.length; i++){
-			var nome = localStorage.key(i);
-			console.log(nome.substring(0,tDia.length));
-			if(nome.substring(0,tDia.length)== tDia){
-				var opt = $("<option>");
-				opt.val(nome);
-				opt.html(nome);
-				$("#diagramasDisponíveis").append(opt);
-			}
-		}
-		
-		this.toogleDialogo("#dialogoAbreDiagrama",false);
-	},
+//	toogleDialogoAbreDiagrama: function (tDia){
+//		$("#tipoDeDiagramaAbrir").val(tDia);
+//		$("#diagramasDisponíveis").empty();
+//
+//		for (i =0 ; i < localStorage.length; i++){
+//			var nome = localStorage.key(i);
+//			console.log(nome.substring(0,tDia.length));
+//			if(nome.substring(0,tDia.length)== tDia){
+//				var opt = $("<option>");
+//				opt.val(nome);
+//				opt.html(nome);
+//				$("#diagramasDisponíveis").append(opt);
+//			}
+//		}
+//
+//		this.toogleDialogo("#dialogoAbreDiagrama",false);
+//	},
 	
 
     //RNPS
-    //
+    //funcao para mostrar as classes disponiveis na cx de dialogo de casos de uso
     toogleDialogoMostraClasses: function (){
         var todos = [];
         todos = listaClasses.concat(listaAbstracts,listaInterfaces);
@@ -365,34 +375,37 @@ ControladorAmalia ={
             $("#masterEntityList").append(html);
         }
     },
+	
+//	toogleDialogoMostarXMLClasses : function (texto){
+//
+//		$("#xmlClasses").val(texto);
+//		ControladorAmalia.toogleDialogo("#dialogoMostarXMLClasses",false);
+//	},
+//
+//	toogleDialogoMostarXMLCasos : function (texto){
+//
+//		$("#xmlCasos").val(texto);
+//		ControladorAmalia.toogleDialogo("#dialogoMostarXMLCasos",false);
+//	},
+	
+//    toggleDialogoAbreProjectoDisco:function(){
+//        this.toogleDialogo("#dialogoAbreProjectoDisco",false);
+//    },
+//	toggleDialogoAbreDiagramaCasosUsoDisco : function(){
+//		this.toogleDialogo("#toggleDialogoAbreProjectoDisco",false);
+//	},
+//	toggleDialogoAbreDiagramaClassesDisco : function(){
+//		this.toogleDialogo("#dialogoAbreDiagramaClassesDisco",false);
+//	},
+//	toggleDialogoGravaDiaClassesDisco: function(focus){
+//		this.toogleDialogo("#dialogoGravaDiaClassesDisco",focus);
+//	},
 
-	toogleDialogoMostarXMLClasses : function (texto){
-		
-		$("#xmlClasses").val(texto);
-		ControladorAmalia.toogleDialogo("#dialogoMostarXMLClasses",false);
-	},
-	
-	toogleDialogoMostarXMLCasos : function (texto){
-		
-		$("#xmlCasos").val(texto);
-		ControladorAmalia.toogleDialogo("#dialogoMostarXMLCasos",false);
-	},
-    toggleDialogoAbreProjectoDisco:function(){
-        this.toogleDialogo("#dialogoAbreProjectoDisco",false);
-    },
-	toggleDialogoAbreDiagramaCasosUsoDisco : function(){
-		this.toogleDialogo("#toggleDialogoAbreProjectoDisco",false);
-	},
-	toggleDialogoAbreDiagramaClassesDisco : function(){
-		this.toogleDialogo("#dialogoAbreDiagramaClassesDisco",false);
-	},
-	toggleDialogoGravaDiaClassesDisco: function(focus){
-		this.toogleDialogo("#dialogoGravaDiaClassesDisco",focus);
-	},
-	
+	//funcao para chamar cx de dialogo para gravar o projeto
 	toggleDialogoGravaDiaCasosDisco:function(focus){
 		this.toogleDialogo("#dialogoGravaDiaCasosDisco",projetoNome);
 	},
+	//funcao para chamar cx de dialogo para fechar projeto
     toogleDialogoFechaProjecto : function(){
         this.toogleDialogo("#dialogoFechaProjecto",false);
     },
@@ -499,6 +512,7 @@ ControladorAmalia ={
         }
 	},
 
+	// funcao para remover caso de uso de array
     removeCasoUso : function(graph){
         var idCaso = $("#idCaso").val();
         if(idCaso){
@@ -991,6 +1005,7 @@ ControladorAmalia ={
 
     },
 
+	//funcao para gravar o projeto no disco
     gravarProjectoNoDisco: function(){
     try {
             //estrutura JSON para armazenar os dois diagramas
@@ -1010,18 +1025,18 @@ ControladorAmalia ={
         }
     },
 	
-	abirDiagrama:function (graph){
-		
-		graph.clear();
-		var nome = $("#diagramasDisponíveis option:selected").val();
-		var diagrama = localStorage.getItem(nome);
-		graph.fromJSON(JSON.parse(diagrama));
-		this.toogleDialogo("#dialogoAbreDiagrama",false);
-		
-	},
+//	abirDiagrama:function (graph){
+//
+//		graph.clear();
+//		var nome = $("#diagramasDisponíveis option:selected").val();
+//		var diagrama = localStorage.getItem(nome);
+//		graph.fromJSON(JSON.parse(diagrama));
+//		this.toogleDialogo("#dialogoAbreDiagrama",false);
+//
+//	},
 
     //RNPS-DDMLG
-    //Abrir projeto
+    //Abrir projeto atraves da cx de dialogo abre projeto
     abrirProjeto:function (){
         graph.clear();
         graph2.clear();
@@ -1041,6 +1056,7 @@ ControladorAmalia ={
         listaAbstracts=CLBundle.listaABS;
         this.ActualizaVariaveis();
     },
+	//Abrir projeto atraves da lista dos projeto mais recentes
      abreProjecto2:function(nomeProjecto){
          console.log(nomeProjecto);
     var projeto = localStorage.getItem(nomeProjecto);
@@ -1060,7 +1076,7 @@ ControladorAmalia ={
         window.location.href = "stage.html";
 
 },
-
+	//abre projeto para poder exportar (carrega as variaveis globais)
 	abrirProjetoParaExportar:function (){
         var nome = $("#projetosDisponiveisParaExportar option:selected").val();
         projetoNome= nome;

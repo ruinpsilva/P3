@@ -3,15 +3,17 @@ $(document).ready(function(){
     //ControladorAmalia.supportsLocalStorage();
     actualizaFicheiros();
 
-    //botões provisórios do stage
+    //botoes provisórios do stage
     $("#btnCreateProject").click(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();
     });
 
+	//botao para cancelar
     $("#btnCancelarCriarProjecto").click(function(){
         ControladorAmalia.toogleDialogoCriaProjecto();
     });
 
+	//botao para criar projeto
     $("#btnCriarProjecto").click(function(){
         var nomeProjecto ="Projecto";
         if($("#nomeProjecto").val()){
@@ -23,8 +25,9 @@ $(document).ready(function(){
         ControladorAmalia.ActualizaVariaveis();
         window.location.href = "stage.html";
     });
+
     //DMMLG
-    //butão para cancelar ao abri projecto do browser
+    //botão para cancelar ao abrir projecto do browser
     $("#btnCancelarAbrirProjecto").click(function(){
         ControladorAmalia.toogleDialogoAbreProjeto("");
     });
@@ -81,7 +84,7 @@ $(document).ready(function(){
     });
 
     //DMMLG
-    //bot\ao para abrir projecto do ficheiro
+    //botao para abrir projecto do ficheiro
     $("#btnOpenProjectFile").click(function(){
        if (window.File && window.FileReader && window.FileList && window.Blob)   {
         ControladorAmalia.toggleDialogoAbreProjectoDisco();
@@ -94,14 +97,14 @@ $(document).ready(function(){
 		ControladorAmalia.toggleDialogoAbreProjectoDisco();
 	});
 
-
+	//botao cancelar exportar projeto
     $("#btnCancelarExportarProjecto").click(function () {
         ControladorAmalia.toogleDialogo("#dialogoExportProjet",false);
     });
 
+	//botao exportar projeto
     $("#btnExportarProjecto").click(function () {
 		ControladorAmalia.abrirProjetoParaExportar();
-
     });
 
 
@@ -148,6 +151,8 @@ function readSingleFile(evt) {
     document.getElementById('ficheiroProjecto').addEventListener('change', readSingleFile, false);
 });
 
+
+//funcao para atualizar a lista de projetos recentes
 function actualizaFicheiros(){
     if(document.getElementById('z01').firstChild){
         document.getElementById('z01').removeChild(document.getElementById('z01').firstChild);}
