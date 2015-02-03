@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+	<text id="title">Projeto Amália - Ferramentas de Modelação</text>
+	<text id="welcome">Bem-vindo</text>
+	<text id="h1">Projetos Recentes</text>
+	<text id="dialogoCriaProjectop">Criar novo Projeto</text>
+	<text id="dialogoCriaProjectopl">Nome do Ficheiro</text>
+	<text id="dialogoAbreProjetop" >Abrir Projeto do Browser</text>
+	<text id="dialogoAbreProjetol">Selecione projeto a abrir:</text>
+	<text id="dialogoAbreProjectoDiscop">Abrir projeto de ficheiro</text>
+	<text id="dialogoExportProjetp">Exportar projecto para XML</text>
+	<text id="dialogoExportProjetll">Selecione Projeto a Exportar</text>
+	<text id="dialogoEraseProjetp">Apagar Projeto</text>
+	<text id="dialogoEraseProjetl">Selecione Projeto a Apagar</text>
+	<button id="btnCreateProject">
+			<value>Novo Projeto</value>
+			<title>Inicie o seu novo projeto aqui</title>
+	</button>
+	<button id="btnOpenProjectFromBrowser">
+			<value>Abrir Projeto</value>
+			<title>Carregar Projeto de browser</title>
+	</button>
+	<button id="btnOpenProjectFile">
+			<value>Abrir Ficheiro de Projeto</value>
+			<title>Carregar Projeto de Ficheiro</title>
+	</button>
+	<button id="btnExportProject">
+			<value>Exportar Projeto</value>
+			<title>Exportar Projeto de</title>
+	</button>
+	<button id="btnApagarProjecto">
+			<value>Apagar Projeto</value>
+			<title>Apagar Projeto de Browser</title>
+	</button>
+	<button id="btnCancelarCriarProjecto">
+			<value>Cancelar</value>
+			<title></title>
+	</button>
+	<button id ="btnCriarProjecto">
+			<value>Criar</value>
+			<title></title>
+	</button>
+	<button id="btnCancelarAbrirProjecto">
+			<value>Cancelar</value>
+			<title></title>
+	</button>
+	<button id="btnAbrirProjecto">
+			<value>Abrir Projeto</value>
+			<title></title>
+	</button>
+	<button id="btnCancelaAbrirCasosDisco">
+			<value>Cancelar</value>
+			<title></title>
+	</button>
+	<button id="btnCancelarExportarProjecto">
+			<value>Cancelar</value>
+			<title></title>
+	</button>
+	<button id="btnExportarProjecto">
+			<value>Exportar Projeto</value>
+			<title></title>
+	</button>
+	<button id="btnCancelarEliminarProjecto">
+			<value>Cancelar</value>
+			<title></title>
+	</button>
+	<button id="btnEliminarProjecto">
+			<value>Apagar Projeto</value>
+			<title></title>
+	</button>
+	<button id="voltarPagPrincipal">
+            <value>Pagina Principal</value>
+	        <title></title>
+	</button>
+	<button id="btnthemes">
+	    <value>Temas</value>
+	    <title></title>
+	</button>
+	<button id="btnChangeStyleLight>">
+	    <value>Tema claro</value>
+	    <title></title>
+    </button>
+    <button id="btnChangeStyleDark">
+        <value>Tema Escuro</value>
+        <title></title>
+    </button>
+    <button id="btnlanguage">
+        <value>Linguagens</value>
+        <title></title>
+    </button>
+    <button id="lng_english">
+        <value>English</value>
+        <title></title>
+    </button>
+    <button id="lng_portuguese">
+        <value>Português</value>
+        <title></title>
+    </button>
+	<input id="nomeProjecto">Nome do Projeto</input>
+</translations>

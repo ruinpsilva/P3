@@ -27,25 +27,24 @@
     <!-- Language -->
     <script type="text/javascript" language="javascript">
         $(function () {
-            var language = 'portugues';
             $.ajax({
-                url: 'language.xml',
+                url: 'languages/portugues.xml',
                 success: function (xml) {
                     $(xml).find('text').each(function () {
                         var id = $(this).attr('id');
-                        var text = $(this).find(language).text();
+                        var text = $(this).text();
                         $("#" + id).html(text);
                     });
                     $(xml).find('input').each(function () {
                         var id = $(this).attr('id');
-                        var text = $(this).find(language).text();
-                        $("#" + id).html(text);
+                        var text = $(this).text();
+                        $("#" + id).prop('placeholder',text);
                     });
                     $(xml).find('button').each(function () {
                         var id = $(this).attr('id');
-                        var text = $(this).find(language).find('value').text();
+                        var text = $(this).find('value').text();
                         console.log(text);
-                        var title= $(this).find(language).find('title').text()
+                        var title= $(this).find('title').text()
                         $("#" + id).prop('value', text);
                         $("#" + id).prop('title', title);
                     });
@@ -85,7 +84,7 @@
 <body onload="set_style_from_cookie()" oncontextmenu="return false">
     <div>
         <header>
-            <h1 id="title"></h1>
+            <h1 id="title">Amalia Project - Modeling Tools</h1>
             <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
         </header>
     </div>
@@ -114,7 +113,7 @@
                                     <td id="z01" width="194">
                                     </td>
                                     <td class="black" width="169" rowspan="1" align="center">
-                                    <input id="btnCreateProject" type="button" value="" title="" />
+                                    <input id="btnCreateProject" type="button" value="New Project" title="Start your new Project Here" />
                                     </td>
                                 </tr>
                                 <tr height="34">

@@ -2,194 +2,125 @@
 <translations>
 	<text id="title">
 		<english>Amalia Project - Modeling Tools</english>
-		<portugues>Projeto Amália - Ferramentas de Modelação</portugues>
 	</text>
 	<text id="welcome">
 		<english>Welcome Screen</english>
-		<portugues>Bem-vindo</portugues>
 	</text>
 	<text id="h1">
 		<english>Recent Projects</english>
-		<portugues>Projetos Recentes</portugues>
 	</text>
 	<text id="dialogoCriaProjectop">
 		<english>Create a New Project</english>
-		<portugues>Criar novo Projeto</portugues>
 	</text>
 	<text id="dialogoCriaProjectopl">
 		<english>File name</english>
-		<portugues>Nome do Ficheiro</portugues>
 	</text>
 	<text id="dialogoAbreProjetop" >
 		<english> Open Project from Browser</english>
-		<portugues>Abrir Projeto do Browser</portugues>
 	</text>
 	<text id="dialogoAbreProjetol">
 		<english>Select Project to open:</english>
-		<portugues>Selecione projeto a abrir:</portugues>
 	</text>
 	<text id="dialogoAbreProjectoDiscop">
 		<english> Open Project File</english>
-		<portugues>Abrir projeto de ficheiro</portugues>
 	</text>
 	<text id="dialogoExportProjetp">
 		<english>Export Project to XML </english>
-		<portugues>Exportar projecto para XML</portugues>
 	</text>
 	<text id="dialogoExportProjetll">
 		<english>Select Project to export:</english>
-		<portugues>Selecione Projeto a Exportar</portugues>
 	</text>
 	<text id="dialogoEraseProjetp">
 		<english>Delete Project</english>
-		<portugues>Apagar Projeto</portugues>
 	</text>
 	<text id="dialogoEraseProjetl">
 		<english>Select Project to delete:</english>
-		<portugues>Selecione Projeto a Apagar</portugues>
 	</text>
 	<button id="btnCreateProject">
 		<english>
 			<value>New Project</value>
 			<title>Start your new Project Here</title>
 		</english>
-		<portugues>
-			<value>Novo Projeto</value>
-			<title>Inicie o seu novo projeto aqui</title>
-		</portugues>
 	</button>
 	<button id="btnOpenProjectFromBrowser">
 		<english>
 			<value>Open Project</value>
 			<title>Load Project from browser</title>
 		</english>
-		<portugues>
-			<value>Abrir Projeto</value>
-			<title>Carregar Projeto de browser</title>
-		</portugues>
 	</button>
 	<button id="btnOpenProjectFile">
 		<english>
 			<value>Open Project File</value>
 			<title>Load Project File</title>
 			</english>
-		<portugues>
-			<value>Abrir Ficheiro de Projeto</value>
-			<title>Carregar Projeto de Ficheiro</title>
-		</portugues>
 	</button>
 	<button id="btnExportProject">
 		<english>
 			<value>Export Project</value>
 			<title>Export Project From</title>
 		</english>
-		<portugues>
-			<value>Exportar Projeto</value>
-			<title>Exportar Projeto de</title>
-		</portugues>
 	</button>
 	<button id="btnApagarProjecto">
 		<english>
 			<value>Delete Project </value>
 			<title>Delete Project in Browser</title>
 		</english>
-		<portugues>
-			<value>Apagar Projeto</value>
-			<title>Apagar Projeto de Browser</title>
-		</portugues>
 	</button>
 	<button id="btnCancelarCriarProjecto">
 		<english>
 			<value>Cancel</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Cancelar</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id ="btnCriarProjecto">
 		<english>
 			<value>Create</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Criar</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnCancelarAbrirProjecto">
 		<english>
 			<value>Cancel</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Cancelar</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnAbrirProjecto">
 		<english>
 			<value>Open Project</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Abrir Projeto</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnCancelaAbrirCasosDisco">
 		<english>
 			<value>Cancel</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Cancelar</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnCancelarExportarProjecto">
 		<english>
 			<value>Cancel</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Cancelar</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnExportarProjecto">
 		<english>
 			<value>Export Project</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Exportar Projeto</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnCancelarEliminarProjecto">
 		<english>
 			<value>Cancel</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Cancelar</value>
-			<title></title>
-		</portugues>
 	</button>
 	<button id="btnEliminarProjecto">
 		<english>
 			<value>Delete Project</value>
 			<title></title>
 		</english>
-		<portugues>
-			<value>Apagar Projeto</value>
-			<title></title>
-		</portugues>
 	</button>
 	<input id="nomeProjecto">
 		<english>Project Name</english>
-		<portugues>Nome do Projeto</portugues>
 	</input>
 </translations>
