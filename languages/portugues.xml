@@ -14,7 +14,7 @@
 	<text id="dialogoEraseProjetl">Selecione Projeto a Apagar</text>
 	<text id="tipop">Diagrama de Casos de Usos</text>
 	<text id="tipo2p">Modelo de dominio</text>
-	<text id="tipo3p">Modelo Seguite</text>
+	<text id="tipo3p">Modelo Seguinte</text>
 	<text id="dialogoFechaProjectop">Por favor, salve o projeto antes de fechar.Deseja continuar?</text>
 	<text id="idUseCaseH">Modelo de Caso de Uso</text>
 	<text id="floatingTreeh">Elementos do Projeto</text>
@@ -22,15 +22,15 @@
 	<text id="arvoreA">Actores</text>
 	<text id="dialogo_casos_usol"> Caso de Uso:</text>
 	<text id="entityl">Entidade:</text>
-	<text id="masterl">Master Entity:</text>
+	<text id="masterl">Entidade Principal:</text>
 	<text id="dialogo_actorl">Nome do Actor:</text>
-	<text id="modelDomainh">Modelo de Dominío</text>
+	<text id="modelDomainh">Modelo de Domínio</text>
 	<text id="arvoreC">Classe</text>
 	<text id="arvoreAb">Abstrata</text>
 	<text id="arvoreI">Interface</text>
 	<text id="dialogoAlteraClassel">Nome da Classe</text>
 	<text id="atributosClassel"> Atributos</text>
-	<text id="metodosClassel">Metodos</text>
+	<text id="metodosClassel">Métodos</text>
 	<text id="dialogoAlteraInterfacel">Nome da Interface</text>
 	<text id="ligarClassesh"> Herança</text>
 	<text id="ligarClassesc"> Composição</text>
@@ -206,8 +206,8 @@
 	    <title>Adicionar um Actor</title>
 	</graph>
 	<graph id="makeZoomToFit">
-	    <alt></alt>
-	    <title></title>
+	    <alt>Ajustar diagrama</alt>
+	    <title>Ajustar diagrama</title>
 	</graph>
 	<graph id="clearDiagram">
 	    <alt>Limpar o Grafico</alt>
