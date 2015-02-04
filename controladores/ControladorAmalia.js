@@ -2,33 +2,6 @@
  * @author jorge et al.
  */
 
-
-$(function () {
-            $.ajax({
-               // url: 'languages/portugues.xml',
-                success: function (xml) {
-                    $(xml).find('text').each(function () {
-                        var id = $(this).attr('id');
-                        var text = $(this).text();
-                        $("#" + id).html(text);
-                    });
-                    $(xml).find('input').each(function () {
-                        var id = $(this).attr('id');
-                        var text = $(this).text();
-                        $("#" + id).prop('placeholder',text);
-                    });
-                    $(xml).find('button').each(function () {
-                        var id = $(this).attr('id');
-                        var text = $(this).find('value').text();
-                        console.log(text);
-                        var title= $(this).find('title').text()
-                        $("#" + id).prop('value', text);
-                        $("#" + id).prop('title', title);
-                    });
-                }
-            });
-        });
-
 //Criacao das variaveis de projeto
 var projetoNome; //nome - designacao do projeto
 //DMMLG
@@ -57,12 +30,36 @@ var listaAbstracts = [] //arraycom lista de abstracts
 var graph2 = new joint.dia.Graph;   //diagrama de classes
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 var nome;
-
+$(function () {
+            $.ajax({
+                url: {Portugues},
+                success: function (xml) {
+                    $(xml).find('text').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).text();
+                        $("#" + id).html(text);
+                    });
+                    $(xml).find('input').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).text();
+                        $("#" + id).prop('placeholder',text);
+                    });
+                    $(xml).find('button').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find('value').text();
+                        console.log(text);
+                        var title= $(this).find('title').text()
+                        $("#" + id).prop('value', text);
+                        $("#" + id).prop('title', title);
+                    });
+                }
+            });
+        });
 
 
 
 ControladorAmalia ={
-	
+
     //DMMLG
     //Atualiza a informação nas variaveis em memoria do browser
     ActualizaVariaveis: function(){
@@ -224,13 +221,12 @@ ControladorAmalia ={
 			$("#nomeDaClasse").val(classeJSON.name);
 			//atributos
 			var atributos = classeJSON.attributes;
-			for(i = 0 ; i < atributos.length ; i++){
-				        $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
+			for(i = 0 ; i < atributos.length ; i++){      $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("Attribute",atributos[i]));
 			}
 			//metodos
 			var metodos = classeJSON.methods;
 			for(i = 0 ; i < metodos.length ; i++){
-				$("#metodosClasse").append(ControladorAmalia.addAtributoMetodo("metodo",metodos[i]));
+				$("#metodosClasse").append(ControladorAmalia.addAtributoMetodo("Method",metodos[i]));
 			}
 			
 		}else{
@@ -238,8 +234,7 @@ ControladorAmalia ={
 			$("#nomeDaClasse").val("");
 			
 		}
-		
-		ControladorAmalia.toogleDialogo("#dialogoAlteraClasse",false);
+        this.toogleDialogo("#dialogoAlteraClasse",false);
 	},
 
 	//dialogo para alterar atributos de classes
@@ -252,7 +247,7 @@ ControladorAmalia ={
 			//metodos
 			var metodos = classeJSON.methods;
 			for(i = 0 ; i < metodos.length ; i++){
-				$("#metodosInterface").append(ControladorAmalia.addAtributoMetodo("metodo",metodos[i]));
+				$("#metodosInterface").append(ControladorAmalia.addAtributoMetodo("Method",metodos[i]));
 			}
 			
 		}else{
@@ -287,17 +282,6 @@ ControladorAmalia ={
 		ControladorAmalia.toogleDialogo("#dialogoAssociaClasses", false);
 
 	},
-	
-//	toogleDialogoGravarDiagrama: function(tDia){
-//		$("#tipoDeDiagrama").val(tDia);
-//		this.toogleDialogo("#dialogoGravarDiagrama", false);
-//	},
-//
-//    toogledialogoAtribuirNomeDiagrama: function(tDia){
-//        $("#tipoDeDiagrama").val(tDia);
-//        this.toogleDialogo("dialogoAtribuirNomeDiagrama", false);
-//    },
-
 
     //RNPS
     //Dialogo para mostrar os projeto disponiveis em memória
@@ -307,14 +291,11 @@ ControladorAmalia ={
 
         for(var i = 0; i < localStorage.length; i++){
             var nome = localStorage.key(i);
-            console.log(nome.substring(0,proj.length));
             if(nome.substring(0,proj.length) == proj){
                 var opt = $("<option>");
                 opt.val(nome);
-                console.log(opt.val());
                 opt.html(nome);
                 $("#projetosDisponiveis").append(opt);
-                console.log($("#projetosDisponiveis"));
             }
         }
         this.toogleDialogo("#dialogoAbreProjeto", false);
@@ -349,38 +330,15 @@ ControladorAmalia ={
 
         for(var i = 0; i < localStorage.length; i++){
             var nome = localStorage.key(i);
-            console.log(nome.substring(0,proj.length));
             if(nome.substring(0,proj.length) == proj){
                 var opt = $("<option>");
-
                 opt.val(nome);
-                console.log(opt.val());
                 opt.html(nome);
                 $("#projetosDisponiveisParaEliminar").append(opt);
-                console.log($("#projetosDisponiveisParaEliminar"));
             }
         }
         this.toogleDialogo("#dialogoEraseProjet", false);
     },
-
-//	toogleDialogoAbreDiagrama: function (tDia){
-//		$("#tipoDeDiagramaAbrir").val(tDia);
-//		$("#diagramasDisponíveis").empty();
-//
-//		for (i =0 ; i < localStorage.length; i++){
-//			var nome = localStorage.key(i);
-//			console.log(nome.substring(0,tDia.length));
-//			if(nome.substring(0,tDia.length)== tDia){
-//				var opt = $("<option>");
-//				opt.val(nome);
-//				opt.html(nome);
-//				$("#diagramasDisponíveis").append(opt);
-//			}
-//		}
-//
-//		this.toogleDialogo("#dialogoAbreDiagrama",false);
-//	},
-	
 
     //RNPS
     //funcao para mostrar as classes disponiveis na cx de dialogo de casos de uso
@@ -401,31 +359,11 @@ ControladorAmalia ={
             $("#masterEntityList").append(html);
         }
     },
+
 	
-//	toogleDialogoMostarXMLClasses : function (texto){
-//
-//		$("#xmlClasses").val(texto);
-//		ControladorAmalia.toogleDialogo("#dialogoMostarXMLClasses",false);
-//	},
-//
-//	toogleDialogoMostarXMLCasos : function (texto){
-//
-//		$("#xmlCasos").val(texto);
-//		ControladorAmalia.toogleDialogo("#dialogoMostarXMLCasos",false);
-//	},
-	
-//    toggleDialogoAbreProjectoDisco:function(){
-//        this.toogleDialogo("#dialogoAbreProjectoDisco",false);
-//    },
-//	toggleDialogoAbreDiagramaCasosUsoDisco : function(){
-//		this.toogleDialogo("#toggleDialogoAbreProjectoDisco",false);
-//	},
-//	toggleDialogoAbreDiagramaClassesDisco : function(){
-//		this.toogleDialogo("#dialogoAbreDiagramaClassesDisco",false);
-//	},
-//	toggleDialogoGravaDiaClassesDisco: function(focus){
-//		this.toogleDialogo("#dialogoGravaDiaClassesDisco",focus);
-//	},
+    toggleDialogoAbreProjectoDisco:function(){
+        this.toogleDialogo("#dialogoAbreProjectoDisco",false);
+    },
 
 	//funcao para chamar cx de dialogo para gravar o projeto
 	toggleDialogoGravaDiaCasosDisco:function(focus){
@@ -549,8 +487,6 @@ ControladorAmalia ={
                 }
             }
         }},
-
-
 	//Altera as características de uma classe
 	setClasse : function(graph, atributos, metodos){
 		//Obter o nome da classe
@@ -661,7 +597,6 @@ ControladorAmalia ={
 
     //DMMLG
     // funcao que remove a interface do graph
-	
 	removeInterface:function (graph){
      var idInterface = $("#idInterface").val();
         if(idInterface){
@@ -669,7 +604,6 @@ ControladorAmalia ={
             graph.getCell(idInterface).remove();
         }
     },
-	
 	//Estabelecer ligações
 	//AssociarCasos
 	associaCasos : function (graph){
@@ -697,8 +631,6 @@ ControladorAmalia ={
 		}
 		
 	},
-
-
 	//Associar Actor a Caso
 	associaActorAoCaso: function (graph, elementoCimaId, elementoBaixoId){
 		var liga = Amalia.liga.getGrafLigaAssocia(elementoCimaId,elementoBaixoId);
@@ -708,8 +640,6 @@ ControladorAmalia ={
 		graph.addCell(liga);
 		(graph.getCell(elementoCimaId)).translate(150,0);
 	},
-
-
 	//especialização de Actor ou classes quando o elemento de baixo é classe abstrata
 	associaHeranca: function (graph, elementoCimaId, elementoBaixoId){
 		var liga = Amalia.liga.getGrafLigaHeranca(elementoCimaId,elementoBaixoId);
@@ -718,9 +648,6 @@ ControladorAmalia ={
 		graph.addCell(liga);
 		(graph.getCell(elementoCimaId)).translate(0,150);
 	},
-
-
-
 	//ligações entre classes
 	associaClasses: function(graph){
 		var elementoCimaId = $("#elementoCimaId").val();
@@ -990,25 +917,6 @@ ControladorAmalia ={
 		xml += "\t\t</connections>\n";
 		return xml;
 	},
-	//**************************************************
-	// Gravar Diagrama no Browser
-	//**************************************************
-	
-	gravarDiagramaNoBrowser: function(graph){
-		var modeloJSON = graph.toJSON();
-		var diagrama = JSON.stringify(modeloJSON);
-		var perfixo = $("#tipoDeDiagrama").val();
-		var nome = $("#nomeDoDiagrama").val();
-		if(nome){
-			localStorage.setItem(perfixo+"_"+nome, diagrama);
-		}else{
-			localStorage.setItem(perfixo,diagrama);
-		}
-		this.toogleDialogoGravarDiagrama("");
-		
-	},
-
-
     //RNPS-DMMLG
     //Gravar Projecto no Browser
     gravarProjectoNoBrowser: function(){
@@ -1034,7 +942,9 @@ ControladorAmalia ={
 	//funcao para gravar o projeto no disco
     gravarProjectoNoDisco: function(){
     try {
-            //estrutura JSON para armazenar os dois diagramas
+            this.createUseCaseBundle(graph,listaCasos,listaAtores);
+this.createClassesBundle(graph2, listaClasses, listaInterfaces, listaAbstracts);
+        //estrutura JSON para armazenar os dois diagramas
             var projecto = new Object();
             projecto.proj = projetoNome;
             projecto.CasosUso = UCBundle;
@@ -1044,22 +954,13 @@ ControladorAmalia ={
             var blob = new Blob([diagramaCasosJSON], {
                 type: "text/plain;charset=utf-8"
             });
+            console.log(blob);
         var name = projetoNome + ".proj";
             saveAs(blob, name);
         } catch (err) {
             alert("nao gravou projecto");
         }
     },
-	
-//	abirDiagrama:function (graph){
-//
-//		graph.clear();
-//		var nome = $("#diagramasDisponíveis option:selected").val();
-//		var diagrama = localStorage.getItem(nome);
-//		graph.fromJSON(JSON.parse(diagrama));
-//		this.toogleDialogo("#dialogoAbreDiagrama",false);
-//
-//	},
 
     //RNPS-DDMLG
     //Abrir projeto atraves da cx de dialogo abre projeto
@@ -1185,12 +1086,7 @@ ControladorAmalia ={
     createUseCaseBundle :function(diagrama,casos,atores){
         UCBundle = { diagCU : diagrama, listaCU : casos, listaAtores : atores };
         var teste = JSON.stringify(UCBundle);
-        console.log(UCBundle);
-        console.log(teste);
-
     },
-
-
     //RNPS-DMMLG
     //Passar diagrama de Casos de Uso para JSON
     diagramaClassesParaJSON: function(){
@@ -1204,12 +1100,8 @@ ControladorAmalia ={
     //Criação de estrutura JSON para o segmento de projeto
 	createClassesBundle: function(diagrama, classes, interfaces, abstratas){
         CLBundle = {diagCL : diagrama, listaCL: classes, listaIT: interfaces, listaABS: abstratas};
-        console.log(CLBundle);
     }
 };
-
-
-
 
 
 //<<<<<<<<<<<<<<<<<<<<< Change CSS style sheets with cookies >>>>>>>>>>>>>>>>>>>>>>>
@@ -1218,7 +1110,9 @@ ControladorAmalia ={
 // *** TO BE CUSTOMISED ***
 
 var style_cookie_name = "style" ;
+var language_cookie_name ="language";
 var style_cookie_duration = 30 ;
+var language_cookie_duration= 30;
 
 // *** END OF CUSTOMISABLE SECTION ***
 // You do not need to customise anything below this line
@@ -1274,9 +1168,6 @@ function get_cookie ( cookie_name )
     }
     return '' ;
 }
-
-
-
 function removefrom( array, valor){
     var index =array.indexOf(valor);
     if(index>=0){

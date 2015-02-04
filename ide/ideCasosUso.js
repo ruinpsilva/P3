@@ -103,10 +103,6 @@ $(document).ready(function () {
     var instanceActor = joint.shapes.basic.Actor;
     var instanceRect = joint.shapes.basic.Rect;
     // tamanho do paper
-
-
-
-
     var minWidthDiagramPaper = 0;
     //var toolbarAreaWidth = Math.round(screen.availWidth * .95)-120; //determina a largura da toolbar
     var treeAreaWidth = 120;
@@ -362,19 +358,18 @@ $(document).ready(function () {
     $("#btnGravarDiscoDiaCasos").click(function () {
         ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
     });
-
-    //Obter o diagrama do disco JSON
-    $("#btnRestaurarCasosUsoDisco").click(function () {
-        if (window.File && window.FileReader && window.FileList && window.Blob) {
-            //console.log("consigo ler");
-            ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
-        } else {
-            alert("Não é possível abir ficheiros do disco com este browser, utilizar a última versão do firefox(por exemplo) ");
-            console.log("Estou lixado");
-        }
+    //DMMLG
+    //Alteração de linguagem
+	$("#lng_english").click(function () {
+        language ='languages/english.xml';
+        ControladorAmalia.ActualizaVariaveis();
+        location.reload();
     });
-
-
+    $("#lng_portuguese").click(function () {
+        language ='languages/portugues.xml';
+        ControladorAmalia.ActualizaVariaveis();
+        location.reload();
+    });
 
     //Cancelar a abertura do ficheiro
     $("#btnCancelaAbrirCasosDisco").click(function () {
@@ -502,21 +497,6 @@ $(document).ready(function () {
 
     });
 
-    $("#btnFecharXMLCasos").click(function () {
-        ControladorAmalia.toogleDialogoMostarXMLCasos("");
-    });
-
-    $("#btnDescarregarXML").click(function () {
-        var xml = $("#xmlCasos").val();
-
-        var blob = new Blob([xml], {
-            type: "text/plain;charset=utf-8"
-        });
-        saveAs(blob, "diagramaCasosUso.xml");
-        ControladorAmalia.toogleDialogoMostarXMLCasos("");
-
-    });
-
     //***********************************************************
     //** Simplificar o Interface quando a trabalhar no modelo  **
     //***********************************************************
@@ -571,6 +551,6 @@ $(document).ready(function () {
 
 });
 window.setInterval(actualizaArvoreUC,1000);
- window.setInterval(ControladorAmalia.ActualizaVariaveis,1000);
+window.setInterval(ControladorAmalia.ActualizaVariaveis,1000);
 
 

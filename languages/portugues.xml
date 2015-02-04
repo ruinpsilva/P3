@@ -15,6 +15,27 @@
 	<text id="tipop">Diagrama de Casos de Usos</text>
 	<text id="tipo2p">Modelo de dominio</text>
 	<text id="tipo3p">Modelo Seguite</text>
+	<text id="dialogoFechaProjectop">Por favor, salve o projeto antes de fechar.Deseja continuar?</text>
+	<text id="idUseCaseH">Modelo de Caso de Uso</text>
+	<text id="floatingTreeh">Elementos do Projeto</text>
+	<text id="arvoreU">Casos de Uso</text>
+	<text id="arvoreA">Actores</text>
+	<text id="dialogo_casos_usol"> Caso de Uso:</text>
+	<text id="entityl">Entidade:</text>
+	<text id="masterl">Master Entity:</text>
+	<text id="dialogo_actorl">Nome do Actor:</text>
+	<text id="modelDomainh">Modelo de Dominío</text>
+	<text id="arvoreC">Classe</text>
+	<text id="arvoreAb">Abstrata</text>
+	<text id="arvoreI">Interface</text>
+	<text id="dialogoAlteraClassel">Nome da Classe</text>
+	<text id="atributosClassel"> Atributos</text>
+	<text id="metodosClassel">Metodos</text>
+	<text id="dialogoAlteraInterfacel">Nome da Interface</text>
+	<text id="ligarClassesh"> Herança</text>
+	<text id="ligarClassesc"> Composição</text>
+	<text id="ligarClassesa"> Agregação</text>
+	<text id="ligarClassess"> Associação</text>
 	<button id="btnCreateProject">
 			<value>Novo Projeto</value>
 			<title>Inicie o seu novo projeto aqui</title>
@@ -79,7 +100,7 @@
 	    <value>Temas</value>
 	    <title></title>
 	</button>
-	<button id="btnChangeStyleLight>">
+	<button id="btnChangeStyleLight">
 	    <value>Tema claro</value>
 	    <title></title>
     </button>
@@ -99,5 +120,111 @@
         <value>Português</value>
         <title></title>
     </button>
+    <button id="btnCancelaFecharProjeto">
+        <value>Cancelar</value>
+        <title></title>
+    </button>
+    <button id="btnFecharProjecto">
+        <value>Fechar</value>
+        <title></title>
+    </button>
+    <button id="btnClose">
+        <value>Fechar Projeto</value>
+        <title></title>
+    </button>
+    <button id="btnSaveProject">
+        <value>Gravar Projeto</value>
+        <title></title>
+    </button>
+    <button id="btnGravarProjeto">
+        <value>Grava no Browser</value>
+        <title></title>
+    </button>
+    <button id="btnGuardarCasosUsoDisco">
+        <value>Gravar para ficheiro</value>
+        <title></title>
+    </button>
+    <button id="btnDeleteCasoUso">
+        <value>Eliminar</value>
+        <title></title>
+    </button>
+    <button id="btnDeleteActor">
+        <value>Eliminar</value>
+        <title></title>
+    </button>
+    <button id="cancelaLigacao">
+        <value>Cancelar</value>
+        <title></title>
+    </button>
+    <button id="ligacaoCasos">
+        <value> Associar Casos de Uso</value>
+        <title></title>
+    </button>
+    <button id="btnCancelarAlteraClasse">
+        <value>Cancelar</value>
+        <title></title>
+    </button>
+    <button id="btnAceitarAlterarClasse">
+        <value>OK</value>
+        <title></title>
+    </button>
+    <button id="btnEleminarAlterarClasse">
+        <value>Eliminar</value>
+        <title></title>
+    </button>
+    <button id="btnCancelarAlteraInterface">
+        <value>Cancelar</value>
+        <title></title>
+    </button>
+    <button id="btnCancelarAlteraInterface">
+        <value>OK</value>
+        <title></title>
+    </button>
+    <button id="btnEleminarAlterarInterface">
+        <value>Eliminar</value>
+        <title></title>
+    </button>
+    <button id="btnCancelaLigacaoClasses">
+        <value>Cancelar</value>
+        <title></title>
+    </button>
+    <button id="btnLigaClasses">
+        <value>Associa Classes</value>
+        <title></title>
+    </button>
 	<input id="nomeProjecto">Nome do Projeto</input>
+	<input id="nomeCasoUso">Nome do Caso de Uso</input>
+	<input id="nomeActor">Nome do Actor</input>
+	<input id="nomeDaClasse">Nome da Classe</input>
+	<input id="nomeDaInterface">Nome da Classe</input>
+	<graph id="addUseCaseGraph">
+	    <alt>Iserir um Caso de Uso</alt>
+	    <title>Adicionar um Caso de Uso</title>
+	</graph>
+	<graph id="addActorGraph">
+	    <alt>Inserir um Actor</alt>
+	    <title>Adicionar um Actor</title>
+	</graph>
+	<graph id="makeZoomToFit">
+	    <alt></alt>
+	    <title></title>
+	</graph>
+	<graph id="clearDiagram">
+	    <alt>Limpar o Grafico</alt>
+	    <title>Limpar o diagrama</title>
+	</graph>
+		<graph id="addClassGraph">
+	    <alt>Inserir uma Classe</alt>
+	    <title>Adicionar uma Classe</title>
+	</graph>
+	<graph id="addInterfaceGraph">
+	    <alt>Inserir uma Interface</alt>
+	    <title>Adicionar uma Interface</title>
+	</graph>
+	<graph id="addAbstractGraph">
+	    <alt>Inserir uma Abstrata</alt>
+	    <title>Adicionar uma Abstrata</title>
+	</graph>
+
+
 </translations>

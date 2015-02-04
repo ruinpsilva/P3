@@ -20,7 +20,9 @@
 		<script src="joint/joint.shapes.uml.js"></script>
 		<script src="Blob.js-master/Blob.js"></script>
 		<script src="FileSaver.js-master/FileSaver.js"></script>
-		
+		<!--linguagens files-->
+		<link id ="languages "rel="languages" href="/languages/english.xml" title="English"/>
+		<link rel="languages" href="/languages/portugues.xml" title="Portugues"/>
 		<!-- Modelos -->
 		<script src="modelos/Amalia.js"></script>
 		
@@ -107,7 +109,7 @@
 <!-- in body tag is insert onload for set the style with cookie-->
 	<body onload="set_style_from_cookie()" oncontextmenu="return false">
 			<header>
-				<h1>Use Case Model</h1>
+				<h1 id="idUseCaseH">Use Case Model</h1>
                 <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 			</header>
 			<p></p>
@@ -155,16 +157,16 @@
 		</div>
 
             <div class="floating-tree" id="floatingTree">
-                <h3>Project Elements</h3>
+                <h3 id="floatingTreeh">Project Elements</h3>
                 <ol class="tree">
 							<li class="arvore">
-								<label for="folder1">Use Cases</label> <input type="checkbox" id="folder1" />
+								<label id="arvoreU" for="folder1">Use Cases</label> <input type="checkbox" id="folder1" />
 								<ol id="casoslista">
 								</ol>
 							</li>
 							<p></p>
 							<li class="arvore">
-								<label for="folder2">Actors</label> <input type="checkbox" id="folder2" />
+								<label id="arvoreA" for="folder2">Actors</label> <input type="checkbox" id="folder2" />
 								<ol id =atoreslista>
 								</ol>
 							</li>
@@ -181,14 +183,13 @@
 			<div id="dialogo_casos_uso">
      			<div>
           			<form id="caso_uso">
-
           				<p>
           					<fieldset>
-          						<legend>Use Case:</legend>
-                                <input id="nomeCasoUso" name="nomeCasoUso" type="text" placeholder="Nome do Caso de Uso" />
+          						<legend id="dialogo_casos_usol">Use Case:</legend>
+                                <input id="nomeCasoUso" name="nomeCasoUso" type="text" placeholder="Name of Use Case" />
                                 <input id="idCaso" type="hidden" value="" />
                                 </p>
-                                <label for="entity">Entity:</label>
+                                <label id="entityl" for="entity">Entity:</label>
                                 <input list="entityList" id="listaEntidades"  autocomplete="on"/>
                                 <datalist id="entityList">
                                      <!-- Local onde vai ficar a lista de classes disponíveis -->
@@ -200,7 +201,7 @@
 							  <input id="idlcrud4" class="optCheckbox" type="checkbox" name="lcrud" value="u" checked="checked">U
 							  <input id="idlcrud5" class="optCheckbox" type="checkbox" name="lcrud" value="d" checked="checked">D
 							  <p></p>
-                                <label for="masterEntityList">Master Entity:</label>
+                                <label id="masterl" for="masterEntityList">Master Entity:</label>
                                 <input list="masterEntityList" id="listaEntidadesMaster" autocomplete="on" />
                                 <datalist id="masterEntityList" >
                                       <!-- Local onde vai ficar a lista de classes disponíveis -->
@@ -216,16 +217,15 @@
           			
     			 </div>
 			</div>
-			
-			
+
 			<!-- Dialogo para mudar o nome do ator -->
 			<div id="dialogo_actor">
      			<div>
      				<form id="ator_nome">
 
      					<fieldset>
-          						<legend>Actor name:</legend>
-     						<input id="nomeActor" name="nomeActor" type="text" placeholder="Name" />
+          						<legend id="dialogo_actorl">Actor name:</legend>
+     						<input id="nomeActor" name="nomeActor" type="text" placeholder="Name of Actor" />
      						<input id="idActor" type="hidden" value="" />
      					</fieldset>
      					<p>
@@ -250,103 +250,14 @@
 					</p>
     			 </div>
 			</div>
-			
-			<!-- dialogo para Mostrar o XMLgerado -->
-			<div id="dialogoMostarXMLCasos">
-				<div>
-					<p>
-						<textarea id="xmlCasos"></textarea>
-					</p>
-					<input id="btnFecharXMLCasos" type="button" value="Close" />
-					<input id="btnDescarregarXML" type="button" value="Download" />
-				</div>
-			</div>
-			
-			<!-- Dialogo para atribuir nome ao diagrama -->
-			<div id="dialogoGravarDiagrama">
-				<div>
-					<p>Save Model in Browser</p>
-					<fieldset>
-						<legend>Name:</legend>
-						<input id="nomeDoDiagrama" type="text" name="nomeDoDiagrama" placeholder="Diagram Name" />
-					</fieldset>
-					<p>
-						<input id="btnCancelaGravarDiagrama" type="button" value="Cancel" />
-						<input id="btnGravarDiagrama" type="button"  value="Save Diagram" />
-						<input id="tipoDeDiagrama" type="hidden" name="tipoDiagrama" value="" />
-					</p>
-				</div>
-			</div>
-
-            <!-- RNPS -->
-            <!-- Dialog box to give a name to the diagram in the paper -->
-            <!-- Arrangements must be made to ensure that this only appers when there's more than zero elements in paper -->
-        <div id="dialogoAtribuirNomeDiagrama">
-            <div>
-					<p>Save Model</p>
-					<fieldset>
-						<legend>Name:</legend>
-						<input id="nomeDiagrama" type="text" name="nomeDiagrama" placeholder="Diagram Name" />
-					</fieldset>
-					<p>
-						<input id="btnCancelaGravarDiagrama" type="button" value="Discard Diagram" />
-						<input id="btnGravarDiagramaAuto" type="button"  value="Save Diagram" />
-						<input id="tipoDeDiagrama" type="hidden" name="tipoDiagrama" value="" />
-					</p>
-				</div>
-        </div>
-			
-			<!-- Dialogo para recuperar um diagrama -->
-			<div id="dialogoAbreDiagrama">
-				<div>
-					<p>Open Use Case Model from Browser</p>
-					<fieldset>
-						<legend>Select Model to open:</legend>
-					<select id="diagramasDisponíveis">
-						<!-- Local onde vão ficar os diagramas disponíveis -->
-					</select>
-					</fieldset>
-					
-					<p>
-						<input id="btnCancelaAbrirDiagrama" type="button" value="Cancel" />
-						<input id="btnAbrirDiagrama" type="button"  value="Open Diagram" />
-						<input id="tipoDeDiagramaAbrir" type="hidden" name="tipoDiagrama" value="" />
-					</p>
-					
-				</div>
-			</div>
-			<!-- Dialogo para gravar ficheiro no disco -->
-			<div id="dialogoGravaDiaCasosDisco">
-				<div>
-					<p>Save Use Case Model in disk</p>
-					<fieldset>
-						<legend>File name</legend>
-						<input id="nomeDiaCasosDisco" type="text" name="nomeDiaParaDisco" placeholder="Diagram Name" />
-					</fieldset>
-					<input id="btnCancelarGravarDiscoDiaCasos" type="button" value="Cancel"/>
-					<input id="btnGravarDiscoDiaCasos" type="button" value="Save" />
-				</div>
-			</div>
-			
-			<!-- Dialogo para recuperar ficheiro do disco -->
-			<div id="dialogoAbreDiagramaCasosDisco">
-				<div>
-					<p> Open Use Case Model from Disk</p>
-					<fieldset>
-						<input type="file" id="ficheiroDiagrama" />
-					</fieldset>
-					<input id="btnCancelaAbrirCasosDisco" type="button" value="Cancel" />
-				</div>
-			</div>
 
             <div id="dialogoFechaProjecto">
                    <div>
-                    <p> Please save the project before closing. Do you wish to continue? </p>
+                    <p id="dialogoFechaProjectop"> Please save the project before closing. Do you wish to continue? </p>
                         <input id="btnCancelaFecharProjeto" type="button" value="Cancel"/>
                         <input id="btnFecharProjecto" type="button" value="Close"/>
                 </div>
             </div>
-
 
 			<footer>
 

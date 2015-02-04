@@ -131,7 +131,7 @@
 	<body oncontextmenu="return false">
 		<div>
 			<header>
-				<h1>Domain Model</h1>
+				<h1 id="modelDomainh">Domain Model</h1>
 				             <p id="p0h"><b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools</p>
 
 			</header>
@@ -169,8 +169,6 @@
                 </ul>
 			</div>
 
-
-
         <div class="floating-menu" id="floatingMenu">
 				<h3>Toolbox</h3>
 				<input id="addClassGraph" type="image" src="img/Class.png" alt="Insert Class" width="39" height="48" title="Add Class">
@@ -182,22 +180,22 @@
 				
 
 			     <div class="floating-tree" id="floatingTree">
-                <h3>Project Elements</h3>
+                <h3 id="floatingTreeh">Project Elements</h3>
                 <ol class="tree">
 							<li class="arvore">
-								<label for="folder1">Class</label> <input type="checkbox" id="folder1" />
+								<label id="arvoreC" for="folder1">Class</label> <input type="checkbox" id="folder1" />
 								<ol id="classeslista">
 								</ol>
 							</li>
 							<p></p>
 							<li class="arvore">
-								<label for="folder2">Abstract</label> <input type="checkbox" id="folder2" />
+								<label id="arvoreAb" for="folder2">Abstract</label> <input type="checkbox" id="folder2" />
 								<ol id ="abstractlista">
 								</ol>
 							</li>
                             <p></p>
 				            <li class="arvore">
-								<label for="folder3">Interface</label> <input type="checkbox" id="folder3" />
+								<label id="arvoreI" for="folder3">Interface</label> <input type="checkbox" id="folder3" />
 								<ol id ="interfacelista">
 								</ol>
 							</li>
@@ -217,14 +215,14 @@
 					<p>
 						<!--<label for="nomeDaClasse">Nome: </label>-->
 						<fieldset class="dialogo">
-							<legend>Class name</legend>
+							<legend id="dialogoAlteraClassel">Class name</legend>
 						<input id="nomeDaClasse" type="text" name="nomeDaClasse" placeholder="Nome da Classe" />
 						<input id="btnLimparNome" type="button" value="x" />
 						<input id="idClasse" type="hidden" value="" />
 						</fieldset>
 					</p>
 					<fieldset id="atributosClasse">
-						<legend>Attributes <input id="btnAddAtributo" type="button" value="+" /> </legend>
+                        <legend>Attributes<input id="btnAddAtributo" type="button" value="+" /> </legend>
 						
 					</fieldset>
 					<fieldset id="metodosClasse">
@@ -246,24 +244,23 @@
 					<p>
 						<!--<label for="nomeDaInterface">Nome: </label>-->
 						<fieldset class="dialogo">
-							<legend>Interface name</legend>
-						<input id="nomeDaInterface" type="text" name="nomeDaClasse" placeholder="Nome da Classe" />
+							<legend id= "dialogoAlteraInterfacel">Interface name</legend>
+						<input id="nomeDaInterface" type="text" name="nomeDaClasse" placeholder="Name of Class" />
 						<input id="btnLimparNomeInt" type="button" value="x" />
 						<input id="idInterface" type="hidden" value="" />
 						</fieldset>
 					</p>
 					<fieldset id="metodosInterface">
-						<legend>Methods  <input id="btnAddMetodoInt" type="button" value="+" /></legend>
+						<legend>Methods <input id="btnAddMetodoInt" type="button" value="+" /></legend>
 						
 					</fieldset>
 					<p>
-						<input id="btnCancelarAlteraInterface" type="button" value="Cancelar" />
-						<input id="btnAceitarAlterarInterface" type="button" value="Alterar" />
-						<input id="btnEleminarAlterarInterface" type="button" value="Eleminar"/>
+						<input id="btnCancelarAlteraInterface" type="button" value="Cancel" />
+						<input id="btnAceitarAlterarInterface" type="button" value="OK" />
+						<input id="btnEleminarAlterarInterface" type="button" value="Delete"/>
 					</p>
 				</div>			
 			</div>
-			
 			<!-- Dialogo para associações de classes -->
 			<div id="dialogoAssociaClasses">
 				<div>
@@ -276,10 +273,10 @@
 						<option value="1..*">1..*</option>
 					</select>
 					<select id="ligarClasses">
-						<option value="h">Inheritance</option>
-						<option value="c">Composition</option>
-						<option value="a">Aggregation</option>
-						<option value="s">Association</option>
+						<option id="ligarClassesh" value="h">Inheritance</option>
+						<option id="ligarClassesc" value="c">Composition</option>
+						<option id="ligarClassesa" value="a">Aggregation</option>
+						<option id="ligarClassess" value="s">Association</option>
 					</select>
 					<select id="cardBaixo">
 						<!--<option value=""></option>-->
@@ -290,86 +287,18 @@
 					</select>
 					
 					</p>
-
 					<input id="elementoCimaId" type="hidden" name="elementoCimaId" value="" />
 					<input id="elementoBaixoId" type="hidden" name="elementoBaixoId" value="" /> 
 					<p>
-						<input id="btnCancelaLigacaoClasses" type="button" value="Cancelar" />
-						<input id="btnLigaClasses" type="button"  value="Associar Classes" />
+						<input id="btnCancelaLigacaoClasses" type="button" value="Cancel" />
+						<input id="btnLigaClasses" type="button"  value="Class Associate" />
 					</p>
-				</div>
-			</div>
-			<!-- Mostar xml muma caixa de texto -->
-			<div id="dialogoMostarXMLClasses">
-				<div>
-					<p>
-						<textarea id="xmlClasses"></textarea>
-					</p>
-					<input id="btnFecharXMLClasses" type="button" value="Fechar Dialogo" />
-					<input id="btnDescarregarXML" type="button" value="Descarregar"/>
-				</div>	
-			</div>
-			<!-- Dialogo para atribuir nome ao diagrama -->
-			<div id="dialogoGravarDiagrama">
-				<div>
-					<p>Save Domain Model in Browser</p>
-					<fieldset>
-						<legend>Name:</legend>
-						 <input id="nomeDoDiagrama" type="text" name="nomeDoDiagrama" placeholder="Nome do Diagrama" />
-					</fieldset>
-					<p>
-						<input id="btnCancelaGravarDiagrama" type="button" value="Cancelar" />
-						<input id="btnGravarDiagrama" type="button"  value="Gravar Diagrama" />
-						<input id="tipoDeDiagrama" type="hidden" name="tipoDiagrama" value="" />
-					</p>
-				</div>
-			</div>
-			<!-- Dialogo para recuperar um diagrama -->
-			<div id="dialogoAbreDiagrama">
-				<div>
-					<p>Open Domain Model From Browser</p>
-					
-					<fieldset>
-						<legend>Select model to open:</legend>
-						<select id="diagramasDisponíveis">
-						<!-- Local onde vão ficar os diagramas disponíveis -->
-					</select>
-					</fieldset>
-					<p>
-						<input id="btnCancelaAbrirDiagrama" type="button" value="Cancelar" />
-						<input id="btnAbrirDiagrama" type="button"  value="Abrir Diagrama" />
-						<input id="tipoDeDiagramaAbrir" type="hidden" name="tipoDiagrama" value="" />
-					</p>
-					
-				</div>
-			</div>
-			<!-- Dialogo para gravar ficheiro no disco -->
-			<div id="dialogoGravaDiaClassesDisco">
-				<div>
-					<p>Save Domain Model in Disk</p>
-					<fieldset>
-						<legend>File name</legend>
-						<input id="nomeDiaClassesDisco" type="text" name="nomeDiaParaDisco" placeholder="Nome para o Diagrama" />
-					</fieldset>
-					<input id="btnCancelarGravarDiscoDiaClasses" type="button" value="Cancelar"/>
-					<input id="btnGravarDiscoDiaClasses" type="button" value="Gravar" />
-				</div>
-			</div>
-			
-			<!-- Dialogo para recuperar ficheiro do disco -->
-			<div id="dialogoAbreDiagramaClassesDisco">
-				<div>
-					<p> Open Domain Model from Disk</p>
-					<fieldset>
-						<input type="file" id="ficheiroDiagramaClasses" />
-					</fieldset>
-					<input id="btnCancelaAbrirClassesDisco" type="button" value="Cancelar" />
 				</div>
 			</div>
 
 			<div id="dialogoFechaProjecto">
                    <div>
-                    <p> Please save the project before closing. Do you wish to continue? </p>
+                    <p id="dialogoFechaProjectop"> Please save the project before closing. Do you wish to continue? </p>
                         <input id="btnCancelaFecharProjeto" type="button" value="Cancel"/>
                         <input id="btnFecharProjecto" type="button" value="Close"/>
                 </div>
