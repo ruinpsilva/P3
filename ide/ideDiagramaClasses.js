@@ -314,10 +314,8 @@ function zoomfit(){
 
     //Clear Diagram
     $("#clearDiagram").click(function(e){
-        graph2.clear();
-        listaClasses.length = 0;
-        listaInterfaces.length = 0;
-        listaAbstracts.length = 0;
+	    ControladorAmalia.toogleDialogoLimpaDiagrama();
+
     });
 
 
@@ -360,6 +358,20 @@ function zoomfit(){
     $("#btnCancelaFecharProjeto").click(function(){
         ControladorAmalia.toogleDialogoFechaProjecto();
     });
+
+	//Botões de cx de dialogo de limpar diagrama
+	$("#btnCancelaFecharProjeto").click(function(){
+		ControladorAmalia.toogleLimpaDiagrama();
+	});
+
+	$("#btnLimpar").click(function(){
+		ControladorAmalia.toogleLimpaDiagrama();
+		graph2.clear();
+        	listaClasses.length = 0;
+        	listaInterfaces.length = 0;
+        	listaAbstracts.length = 0;
+	});
+
     //Confirmaç\ao de que é para fechar o projecto
     $("#btnFecharProjecto").click(function(){
         ControladorAmalia.FechaProjecto();

@@ -32,7 +32,7 @@ var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 var nome;
 $(function () {
             $.ajax({
-                url: {Portugues},
+                url: 'languages/Portugues.xml',
                 success: function (xml) {
                     $(xml).find('text').each(function () {
                         var id = $(this).attr('id');
@@ -374,6 +374,11 @@ ControladorAmalia ={
         this.toogleDialogo("#dialogoFechaProjecto",false);
     },
 	
+	//funcao para chamar cx de dialogo para fechar projeto
+    toogleDialogoLimpaDiagrama : function(){
+        this.toogleDialogo("#dialogoLimpaDiagrama",false);
+    },
+
 
     //DMMLG
     //Função para criar e guardar as variaveis de um projecto
