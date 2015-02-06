@@ -5,6 +5,9 @@ Lista de bugs
 
 Testem globalmente a aplicação nos dois temas e nas duas linguas (4 combinações...).
 
+Falta a acabar as cx de mensagens de confirmação de apagar o paper (SORRY)
+
+
 mudar imagens de casos de uso nas classes
 
 fazer projecto bonito para a apresentação
