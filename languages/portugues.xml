@@ -13,7 +13,7 @@
 	<text id="dialogoEraseProjetp">Apagar Projeto</text>
 	<text id="dialogoEraseProjetl">Selecione Projeto a Apagar</text>
 	<text id="tipop">Diagrama de Casos de Usos</text>
-	<text id="tipo2p">Modelo de dominio</text>
+	<text id="tipo2p">Modelo de Domínio</text>
 	<text id="tipo3p">Modelo Seguinte</text>
 	<text id="dialogoFechaProjectop">Por favor, salve o projeto antes de fechar.Deseja continuar?</text>
 	<text id="idUseCaseH">Modelo de Caso de Uso</text>
@@ -26,7 +26,7 @@
 	<text id="dialogo_actorl">Nome do Actor:</text>
 	<text id="modelDomainh">Modelo de Domínio</text>
 	<text id="arvoreC">Classe</text>
-	<text id="arvoreAb">Abstrata</text>
+	<text id="arvoreAb">Classe Abstrata</text>
 	<text id="arvoreI">Interface</text>
 	<text id="dialogoAlteraClassel">Nome da Classe</text>
 	<text id="atributosClassel"> Atributos</text>
@@ -125,7 +125,7 @@
         <title></title>
     </button>
     <button id="btnFecharProjecto">
-        <value>Fechar</value>
+        <value>Continuar</value>
         <title></title>
     </button>
     <button id="btnClose">

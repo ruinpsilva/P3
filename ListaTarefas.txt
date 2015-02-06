@@ -3,34 +3,18 @@ Lista de bugs
 
 -verificar se tudo está em inglês
 
-Opção de Menu "Main Page", e "Close Project", e provavelmente outras..., não funciona no tema Light (não abre a janela de confirmação, nem sai para a main page).
-
-Janela de confirmação quando se sai do Projeto (Close Project) ou se vai para a main page tem opções Cancel e Close. Ficava mais claro se fosse, Cancel e Continue.
-
 Testem globalmente a aplicação nos dois temas e nas duas linguas (4 combinações...).
 
-Carrocel do Inicio deve ter o "Domain Model" virado para a frente inicialmente.
-
-No Domain Model, a barra dos project elements à esquerda deve ter "Abstract Class" em vez de "Abstract".
-
-Ao fazer include ou extend, é colocado um caso de uso abaixo de outro. Neste caso, o caso de uso de baixo pode ficar fora da folha de edição do modelo, e a folha não é expandida...
-
-O tema muda para preto, ao selecionar o Domain Model
 
 
 
 LISTA DE TAREFAS
 
-    
-
-
-
-
-
+   
 ***************** Importância a BAIXA de zero  ************************************************
 
     multi-language
-    
+   
 
     
    
@@ -101,3 +85,18 @@ apagar projeto
 
 
 seta para (extend/include) no IDE dos Casos de Uso
+
+
+---- BUGS do PROF -------
+
+Opção de Menu "Main Page", e "Close Project", e provavelmente outras..., não funciona no tema Light (não abre a janela de confirmação, nem sai para a main page).
+
+Janela de confirmação quando se sai do Projeto (Close Project) ou se vai para a main page tem opções Cancel e Close. Ficava mais claro se fosse, Cancel e Continue.
+
+Carrocel do Inicio deve ter o "Domain Model" virado para a frente inicialmente.
+
+No Domain Model, a barra dos project elements à esquerda deve ter "Abstract Class" em vez de "Abstract".
+
+O tema muda para preto, ao selecionar o Domain Model
+
+Ao fazer include ou extend, é colocado um caso de uso abaixo de outro. Neste caso, o caso de uso de baixo pode ficar fora da folha de edição do modelo, e a folha não é expandida...

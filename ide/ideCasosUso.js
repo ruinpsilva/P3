@@ -208,6 +208,7 @@ $(document).ready(function () {
                     //ControladorAmalia.associaCasos(graph)
                     ControladorAmalia.toogleDialogoAssociaCasos(elementoCima.id, elementoBaixo.id);
 
+
                 }
                 // Um caso de uso ├® colocado sobre um ator. O ator participa no caso de uso.
                 if (elementoBaixo instanceof instanceActor && elementoCima instanceof instanceCasoUso) {
@@ -220,15 +221,14 @@ $(document).ready(function () {
 
                     ControladorAmalia.associaHeranca(graph, elementoCima.id, elementoBaixo.id);
                 }
+
             }
 
-            //RNPS
-            //Every element that is mouse down can be removed
-            //Objective: create an floating area in paper in the bottom left corner that when an element is over it, it will be removed
+
 
         }
 
-
+	zoomfit();
     });
 
     //Duplos clicks para mudar os momes dos objectos e alterar o tamanho dos casos de uso.
@@ -279,6 +279,7 @@ $(document).ready(function () {
     //Clear Diagram
     $("#clearDiagram").click(function (e) {
         graph.clear();
+	    zoomfit();
         listaAtores = [];
         listaCasos = [];
     });
@@ -332,6 +333,7 @@ $(document).ready(function () {
     $("#ligacaoCasos").click(function () {
         ControladorAmalia.associaCasos(graph);
         ControladorAmalia.toogleDialogoAssociaCasos("", "");
+	    zoomfit();
     });
     //Cancelar Associação entre casos de uso
     $("#cancelaLigacao").click(function () {

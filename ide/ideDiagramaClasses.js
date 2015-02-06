@@ -270,7 +270,7 @@ function zoomfit(){
 				
 			}
 		}
-		
+		zoomfit();
 	});
 	
 		//Duplos clicks para mudar os momes dos objectos e alterar os seus atributos.
@@ -314,8 +314,9 @@ function zoomfit(){
 
     //Clear Diagram
     $("#clearDiagram").click(function(e){
-	    ControladorAmalia.toogleDialogoLimpaDiagrama();
-
+	    //ControladorAmalia.toogleDialogoLimpaDiagrama();
+	    graph.clear();
+	    zoomfit();
     });
 
 
