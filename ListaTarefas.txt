@@ -5,7 +5,15 @@ Lista de bugs
 
 Testem globalmente a aplicação nos dois temas e nas duas linguas (4 combinações...).
 
+mudar imagens de casos de uso nas classes
 
+fazer projecto bonito para a apresentação
+
+fazer Poster
+
+fazer PPT para a apresentação (diagrama)
+
+fazer conversão do Chat para versão de sala aberta
 
 
 LISTA DE TAREFAS
