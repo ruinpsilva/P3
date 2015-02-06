@@ -447,7 +447,7 @@ function zoomfit(){
 	});
 	//--------------------------Botão Add Atributo
 	$("#btnAddAtributo").click(function(){
-		$("#atributosClasse").append(addAtributoMetodo("atributo"));
+		$("#atributosClasse").append(addAtributoMetodo("atributhe"));
 	});
 	//--------------------------Botão para Apagar atributo
 	$("#atributosClasse").on("click",".btnApaga",function(){
@@ -455,7 +455,7 @@ function zoomfit(){
 	});
 	//---------------------------Botão add Método -- btnAddMetodo
 	$("#btnAddMetodo").click(function(){
-		$("#metodosClasse").append(addAtributoMetodo("metodo"));
+		$("#metodosClasse").append(addAtributoMetodo("method"));
 	});
 	//--------------------------Botão para Apagar método
 	$("#metodosClasse").on("click",".btnApaga",function(){
@@ -499,7 +499,7 @@ function zoomfit(){
 	});
 	//---------------------------Botão add Método -- btnAddMetodoInt
 	$("#btnAddMetodoInt").click(function(){
-		$("#metodosInterface").append(addMetodoInterface("metodo"));
+		$("#metodosInterface").append(addMetodoInterface("method"));
 	});
 	//--------------------------Botão para Apagar método
 	$("#metodosInterface").on("click",".btnApaga",function(){
