@@ -320,28 +320,6 @@ function zoomfit(){
     });
 
 
-	
-	//ideia para alterar as dimensões do paper mas a coisa é muito lenta
-	
-	/*
-	graph2.on('change:position', function(cell){
-		console.log ("Estou a mexer coisas no paper");
-		//var paperBox = paper.getContentBBox();
-		var cellBox = cell.getBBox();
-		
-		//console.log("boxCell-"+cellBox.corner());
-		if (minSizePaper.containsPoint(cellBox.corner())){
-			console.log("Ainda não saiu do paper");
-		}else{
-			console.log("OOps!");
-			//paper.fitToContent(1, 1, 0);
-		}
-		
-	});
-	*/
-
-
-
 
 
 	//////////>>>>>>>>>>>>>>>>>>>>>>>>>>Eventos do IDE diagrama de classes e dialogos
