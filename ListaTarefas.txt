@@ -10,14 +10,13 @@ LISTA DE TAREFAS
 Testem globalmente a aplicação nos dois temas e nas duas linguas (4 combinações...).
 
 
-mudar imagens de casos de uso no stage-> falar com o paulo a ver se tem o feicheito do photoshop que assim só é preciso por uma seta
+
 
 fazer projecto bonito para a apresentação
 
-fazer Poster
 
-fazer PPT para a apresentação (diagrama)-> não percebi o que é para fazer aqui
 
+fazer PPT para a apresentação (diagrama) - 50%
 
    
 
@@ -113,3 +112,8 @@ fazer conversão do Chat para versão de sala aberta
 Duas Linguagens Finalizar -> estao finalizadas falta por o cokie a funcionar
 
 Falta a acabar as cx de mensagens de confirmação de apagar o paper (SORRY) -> feito
+
+
+mudar imagens de casos de uso no stage-> falar com o paulo a ver se tem o feicheito do photoshop que assim só é preciso por uma seta
+
+fazer Poster
