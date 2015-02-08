@@ -71,7 +71,7 @@ function addAtributoMetodo(classe){
 	//Campo de texto para o atributo
 	var nomeAtributo = $("<input />").addClass("nome_"+classe);
 	nomeAtributo.attr ("type", "text");
-	nomeAtributo.attr ("placeholder", classe);
+	//nomeAtributo.attr ("placeholder", classe);
 	
 	//botão para apagar atributo
 	var btnApaga = $("<input />").addClass("btnApaga");
@@ -91,7 +91,7 @@ function addMetodoInterface(interf){
 	//Campo de texto para o atributo
 	var nomeMetodo = $("<input />").addClass("nome_"+interf);
 	nomeMetodo.attr ("type", "text");
-	nomeMetodo.attr ("placeholder", interf);
+	//nomeMetodo.attr ("placeholder", interf);
 	
 	//botão para apagar metodo
 	var btnApaga = $("<input />").addClass("btnApaga");
@@ -461,7 +461,7 @@ function zoomfit(){
 	});
 
     //DMMLG
-    //butão eleminar classe
+    //botão eliminar classe
 	 $("#btnEleminarAlterarClasse").click(function (){
         ControladorAmalia.removeClasse(graph2);
 		ControladorAmalia.toogleDialogoAlteraClasses("");

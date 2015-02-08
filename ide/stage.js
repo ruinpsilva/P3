@@ -42,12 +42,14 @@ $(document).ready(function(){
 	$("#lng_english").click(function(){
 		ControladorAmalia.MudaParaEN();
 		ControladorAmalia.SetCookie("lang", "en");
+		location.reload();
 	});
 
 	//Botao para mudar a linguagem para Portugues
 	$("#lng_portuguese").click(function(){
 		ControladorAmalia.MudaParaPT();
 		ControladorAmalia.SetCookie("lang", "pt");
+		location.reload();
 	});
 
 	ControladorAmalia.ApplyCookie();

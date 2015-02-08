@@ -184,7 +184,7 @@
 			<value>Cancel</value>
         <title></title>
     </button>
-    <button id="btnCancelarAlteraInterface">
+    <button id="btnAceitarAlterarInterface">
         <value>OK</value>
         <title></title>
     </button>
