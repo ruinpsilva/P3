@@ -31,10 +31,7 @@ var graph2 = new joint.dia.Graph;   //diagrama de classes
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 var nome;
 var language="languages/english.xml";
-$(function () {
-	  //ControladorAmalia.ApplyCookie();
 
-});
 
 
 
