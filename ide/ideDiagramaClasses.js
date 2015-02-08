@@ -370,8 +370,7 @@ function zoomfit(){
         ControladorAmalia.createClassesBundle(diagramaCL, listaClasses, listaInterfaces, listaAbstracts);
         ControladorAmalia.gravarProjectoNoBrowser();
     });
-	
-<<<<<<< HEAD
+
 	//Botao para mudar a linguagem para Ingles
 	$("#lng_english").click(function(){
 		ControladorAmalia.MudaParaEN();
@@ -404,10 +403,7 @@ function zoomfit(){
 		graph2.clear();
 		iniciarDiagrama(graph2);
 	});
-=======
 
-
->>>>>>> origin/master
 	//--------------------------Botão cancelar do dialogoAlteraClasses
 	$("#btnCancelarAlteraClasse").click(function(){
 		

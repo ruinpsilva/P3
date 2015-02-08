@@ -32,7 +32,6 @@ var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 var nome;
 var language="languages/english.xml";
 $(function () {
-<<<<<<< HEAD
 	  //ControladorAmalia.ApplyCookie();
 
 });
@@ -83,11 +82,8 @@ ControladorAmalia ={
 
 	MudaParaEN: function(){
 		$.ajax({
-                url: 'languages/english.xml',
-=======
             $.ajax({
                 url: language,
->>>>>>> origin/master
                 success: function (xml) {
                     $(xml).find('text').each(function () {
                         var id = $(this).attr('id');
@@ -102,10 +98,6 @@ ControladorAmalia ={
                     $(xml).find('button').each(function () {
                         var id = $(this).attr('id');
                         var text = $(this).find('value').text();
-<<<<<<< HEAD
-                        //console.log(text);
-=======
->>>>>>> origin/master
                         var title= $(this).find('title').text()
                         $("#" + id).prop('value', text);
                         $("#" + id).prop('title', title);

@@ -360,7 +360,6 @@ $(document).ready(function () {
     //DMMLG
     //Alteração de linguagem
 	$("#lng_english").click(function () {
-<<<<<<< HEAD
 		  ControladorAmalia.MudaParaEN();
 		  ControladorAmalia.SetCookie("lang", "en");
         //language ='languages/english.xml';
@@ -373,11 +372,6 @@ $(document).ready(function () {
         //language ='languages/portugues.xml';
         //ControladorAmalia.ActualizaVariaveis();
         //location.reload();
-=======
-        language ='languages/english.xml';
-    });
-    $("#lng_portuguese").click(function () {
-        language ='languages/portugues.xml';
     });
     $("#btnLimpar").click(function(){
 		ControladorAmalia.toogleDialogoLimpaDiagrama();
@@ -387,7 +381,6 @@ $(document).ready(function () {
 	});
     $("#btnCancelaLimpar").click(function(){
 		ControladorAmalia.toogleDialogoLimpaDiagrama();
->>>>>>> origin/master
     });
 
     //Cancelar a abertura do ficheiro
