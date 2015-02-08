@@ -36,12 +36,12 @@
 	<text id="ligarClassesc"> Composição</text>
 	<text id="ligarClassesa"> Agregação</text>
 	<text id="ligarClassess"> Associação</text>
-<!--	<text id="tipop3">Porjecto Amália</text>-->
-<!--	<text id="texto1">Amália Project é um projecto de R&D a ter lugar na Escola Superior de Tecnologia e Gestão do Instituto Politécnico de Viana do Castelo</text>-->
-<!--	<text id="texto2">Amália significab>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools </text>-->
-<!--	<text id="texto3">Mais Informações:</text>-->
-<!--	<text id="texto4">Desenvolvido por : Rui Silva e Domingos Gomes</text>-->
-<!--	<text id="texto5">V1.0, Fevereiro 2015</text>-->
+	<text id="tipop3">Projecto Amália</text>
+	<text id="texto1">Amália Project é um projecto de P&amp;D a ter lugar na Escola Superior de Tecnologia e Gestão do Instituto Politécnico de Viana do Castelo</text>
+	<text id="texto2">Amália significa <b>A</b>gile <b>M</b>odel-driven <b>A</b>pp<b>LI</b>c<b>A</b>tion Development Method and Tools </text>
+ <text id="texto3">Informações adicionais:</text>
+	<text id="texto4">Desenvolvido por : Domingos Gomes e Rui Silva</text>
+	<text id="texto5">V1.0, Fevereiro 2015</text>
 	<text id="dialogoLimpaDiagramap"> Esta ação vai remover todos o elementos. Pretende Continuar?</text>
 
 	<button id="btnCreateProject">
