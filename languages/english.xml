@@ -43,7 +43,9 @@
 	<text id="texto5">V1.0, Fevereiro 2015</text>
 
 	<text id="dialogoLimpaDiagramap">  This action will remove all elements. Do you wish to continue?</text>
-
+    <text id="atributosClasseb">Attributes</text>
+	<text id="metodosClasseb">Methods</text>
+    <text id="metodosInterfaceb">Methods</text>
 	<button id="btnCreateProject">
 			<value>New Project</value>
 			<title>Start your new Project Here</title>

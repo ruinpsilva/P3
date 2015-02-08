@@ -134,6 +134,13 @@ ControladorAmalia ={
                         $("#" + id).prop('value', text);
                         $("#" + id).prop('title', title);
                     });
+                     $(xml).find('graph').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find('alt').text();
+                        var title= $(this).find('title').text()
+                        $("#" + id).prop('alt', text);
+                        $("#" + id).prop('title', title);
+                    });
                 }
             });
 	},
@@ -1011,11 +1018,18 @@ ControladorAmalia ={
             var prefixo = "proj";
             var teste = JSON.stringify(projecto);
             localStorage.setItem(prefixo + "_" + projetoNome, teste);
-		   alert("Your project has been saved!");
-
+		      if(ControladorAmalia.GetCookie("lang") == "pt"){
+				alert("O seu projecto foi guardado!");
+              } else {
+                alert("Your project have been saved!");
+              }
         }
         catch(err){
-            alert("Error - Please try again!");
+            if(ControladorAmalia.GetCookie("lang") == "pt"){
+				alert("Erro - Por favor tente outra vez!");
+              } else {
+                alert("Error - Please try again!");
+              }
         }
 
     },
@@ -1039,7 +1053,11 @@ this.createClassesBundle(graph2, listaClasses, listaInterfaces, listaAbstracts);
         var name = projetoNome + ".proj";
             saveAs(blob, name);
         } catch (err) {
-            alert("nao gravou projecto");
+            if(ControladorAmalia.GetCookie("lang") == "pt"){
+				alert("Erro - Não gravou o projecto!");
+              } else {
+                alert("Error - Project has not been save!");
+              }
         }
     },
 

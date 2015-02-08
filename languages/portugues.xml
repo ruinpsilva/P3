@@ -9,7 +9,7 @@
 	<text id="dialogoAbreProjetol">Selecione projeto a abrir:</text>
 	<text id="dialogoAbreProjectoDiscop">Abrir projeto de ficheiro</text>
 	<text id="dialogoExportProjetp">Exportar projecto para XML</text>
-	<text id="dialogoExportProjetll">Selecione Projeto a Exportar</text>
+	<text id="dialogoExportProjetl">Selecione Projeto a Exportar</text>
 	<text id="dialogoEraseProjetp">Apagar Projeto</text>
 	<text id="dialogoEraseProjetl">Selecione Projeto a Apagar</text>
 	<text id="tipop">Diagrama de Casos de Usos</text>
@@ -43,9 +43,9 @@
 	<text id="texto4">Desenvolvido por : Domingos Gomes e Rui Silva</text>
 	<text id="texto5">V1.0, Fevereiro 2015</text>
 	<text id="dialogoLimpaDiagramap"> Esta ação vai remover todos o elementos. Pretende Continuar?</text>
-	<text id="atributosClasseb"> atributos</text>
-	<text id="metodosClasseb">metodos</text>
-    <text id="metodosInterfaceb">metodos</text>
+	<text id="atributosClasseb"> Atributos</text>
+	<text id="metodosClasseb">Métodos</text>
+    <text id="metodosInterfaceb">Métodos</text>
 	<button id="btnCreateProject">
 			<value>Novo Projeto</value>
 			<title>Inicie o seu novo projeto aqui</title>
@@ -199,7 +199,7 @@
         <title></title>
     </button>
     <button id="btnLigaClasses">
-        <value>Associa Classes</value>
+        <value>Associar Classes</value>
         <title></title>
     </button>
     <button id="btnCancelaLimpar">

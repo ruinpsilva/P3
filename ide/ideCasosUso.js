@@ -152,11 +152,6 @@ $(document).ready(function () {
 
     });
 
-
-    document.addEventListener('click:down', function (evt) {
-        alert("teste");
-    });
-
     //mouse up para estabelecer ligações entre os elementos na área de desenho
     paper.on('cell:pointerup', function (cellView, evt, x, y) {
 
@@ -426,36 +421,6 @@ $(document).ready(function () {
         ControladorAmalia.toggleDialogoGravaDiaCasosDisco(false);
     });
 
-    //Obter o diagrama do disco JSON
-    $("#btnRestaurarCasosUsoDisco").click(function () {
-        if (window.File && window.FileReader && window.FileList && window.Blob) {
-            //console.log("consigo ler");
-            ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
-        } else {
-            alert("Não é possível abir ficheiros do disco com este browser, utilizar a última versão do firefox(por exemplo) ");
-        }
-    });
-
-
-
-    //Cancelar a abertura do ficheiro
-    $("#btnCancelaAbrirCasosDisco").click(function () {
-        ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
-    });
-    //Cancelar a Gravação
-
-    $("#btnCancelaGravarDiagrama").click(function () {
-        ControladorAmalia.toogleDialogoGravarDiagrama("");
-    });
-    // Voltar ao inicío
-    $("#btnVoltarInicio").click(function () {
-        window.location.href = "stage.html";
-    });
-
-    //Gravar o diagrama
-    $("#btnGravarDiagrama").click(function () {
-        ControladorAmalia.gravarDiagramaNoBrowser(graph);
-    });
 
     //RNPS
     //botão para gravar o projecto
@@ -520,47 +485,6 @@ $(document).ready(function () {
     $("header").mouseenter(function () {
         $("#controlCasosUso").slideDown(200);
     });
-
-
-
-    //Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
-    function readSingleFile(evt) {
-        //Retrieve the first (and only!) File from the FileList object
-        var f = evt.target.files[0];
-
-        if (f) {
-            var r = new FileReader();
-            r.onload = function (e) {
-                var diagrama = e.target.result;
-                //console.log(diagrama);
-                console.log((f.name).split(".").pop());
-
-                //só consigo saber se o conteúdo é de um diagrama ou qualquer coisa feita com o joint.js
-                //eventualmente colocar no início do ficheiro um id qq
-                if ((f.name).split(".").pop() == "dcu") {
-                    if (diagrama.substr(0, diagrama.indexOf(":")) == '{"cells"') {
-                        //console.log("é um ficheiro com um modelo");
-                        graph.clear();
-                        graph.fromJSON(JSON.parse(diagrama));
-                        ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
-                    } else {
-                        alert("Ficheiro inválido");
-                        ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
-                    }
-                } else {
-                    //console.log("Ficheiro inválido");
-                    alert("Ficheiro inválido");
-                    ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
-                }
-                //console.log(  "conteudo: " + contents.substr(0,contents.indexOf(":")));
-            };
-            r.readAsText(f);
-        } else {
-            alert("Não foi possível abir o ficheiro");
-        }
-    }
-
-    //window.onbeforeunload = confirmExit;
 
 
 });
