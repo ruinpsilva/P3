@@ -30,9 +30,10 @@ var listaAbstracts = [] //arraycom lista de abstracts
 var graph2 = new joint.dia.Graph;   //diagrama de classes
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 var nome;
+var language="languages/english.xml";
 $(function () {
             $.ajax({
-                url: 'languages/Portugues.xml',
+                url: language,
                 success: function (xml) {
                     $(xml).find('text').each(function () {
                         var id = $(this).attr('id');
@@ -47,9 +48,15 @@ $(function () {
                     $(xml).find('button').each(function () {
                         var id = $(this).attr('id');
                         var text = $(this).find('value').text();
-                        console.log(text);
                         var title= $(this).find('title').text()
                         $("#" + id).prop('value', text);
+                        $("#" + id).prop('title', title);
+                    });
+                     $(xml).find('graph').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find('alt').text();
+                        var title= $(this).find('title').text()
+                        $("#" + id).prop('alt', text);
                         $("#" + id).prop('title', title);
                     });
                 }
@@ -144,7 +151,9 @@ ControladorAmalia ={
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
-		$("#nomeActor").val(""); // ir buscar o nome atual ao modelo
+        var actor = graph.getCell(actorId);
+        var nome = actor.attr({ text });
+		$("#nomeActor").val(nome); // ir buscar o nome atual ao modelo
 		
 		ControladorAmalia.toogleDialogo("#dialogo_actor","#nomeActor");
 
@@ -221,12 +230,12 @@ ControladorAmalia ={
 			$("#nomeDaClasse").val(classeJSON.name);
 			//atributos
 			var atributos = classeJSON.attributes;
-			for(i = 0 ; i < atributos.length ; i++){      $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("Attribute",atributos[i]));
+			for(i = 0 ; i < atributos.length ; i++){                                         $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
 			}
 			//metodos
 			var metodos = classeJSON.methods;
 			for(i = 0 ; i < metodos.length ; i++){
-				$("#metodosClasse").append(ControladorAmalia.addAtributoMetodo("Method",metodos[i]));
+				$("#metodosClasse").append(ControladorAmalia.addAtributoMetodo("metodo",metodos[i]));
 			}
 			
 		}else{
@@ -247,7 +256,7 @@ ControladorAmalia ={
 			//metodos
 			var metodos = classeJSON.methods;
 			for(i = 0 ; i < metodos.length ; i++){
-				$("#metodosInterface").append(ControladorAmalia.addAtributoMetodo("Method",metodos[i]));
+				$("#metodosInterface").append(ControladorAmalia.addAtributoMetodo("metodo",metodos[i]));
 			}
 			
 		}else{
@@ -566,10 +575,6 @@ ControladorAmalia ={
 		//Definir a largura
 		var largura = nomeInterface.length;
 		//Descobrir qual a string mais comprida
-	//	for (i = 0 ; i < atributos.length ; i++){
-	//		var t = atributos[i].length;
-	//		if(t > largura) {largura = t;}
-	//	}
 		for ( i = 0 ; i < metodosInt.length ; i++ ){
 			var t = metodosInt[i].length;
 			if ( t > largura ) { largura = t;}

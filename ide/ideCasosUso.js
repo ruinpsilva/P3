@@ -278,10 +278,7 @@ $(document).ready(function () {
 
     //Clear Diagram
     $("#clearDiagram").click(function (e) {
-        graph.clear();
-	    zoomfit();
-        listaAtores = [];
-        listaCasos = [];
+        ControladorAmalia.toogleDialogoLimpaDiagrama();
     });
 
 
@@ -364,13 +361,18 @@ $(document).ready(function () {
     //Alteração de linguagem
 	$("#lng_english").click(function () {
         language ='languages/english.xml';
-        ControladorAmalia.ActualizaVariaveis();
-        location.reload();
     });
     $("#lng_portuguese").click(function () {
         language ='languages/portugues.xml';
-        ControladorAmalia.ActualizaVariaveis();
-        location.reload();
+    });
+    $("#btnLimpar").click(function(){
+		ControladorAmalia.toogleDialogoLimpaDiagrama();
+		graph2.clear();
+        listaAtores = [];
+        listaCasos = [];
+	});
+    $("#btnCancelaLimpar").click(function(){
+		ControladorAmalia.toogleDialogoLimpaDiagrama();
     });
 
     //Cancelar a abertura do ficheiro
