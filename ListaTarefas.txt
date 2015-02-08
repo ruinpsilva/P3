@@ -9,9 +9,6 @@ LISTA DE TAREFAS
 
 Testem globalmente a aplicação nos dois temas e nas duas linguas (4 combinações...).
 
-Duas Linguagens Finalizar -> estao finalizadas falta por o cokie a funcionar
-
-Falta a acabar as cx de mensagens de confirmação de apagar o paper (SORRY) -> feito
 
 mudar imagens de casos de uso no stage-> falar com o paulo a ver se tem o feicheito do photoshop que assim só é preciso por uma seta
 
@@ -23,12 +20,8 @@ fazer PPT para a apresentação (diagrama)-> não percebi o que é para fazer aq
 
 
    
-***************** Importância a BAIXA de zero  ************************************************
 
-    multi-language
-   
 
-    
    
     
 **************** Concluido ***************************************************
@@ -116,3 +109,7 @@ Ao fazer include ou extend, é colocado um caso de uso abaixo de outro. Neste ca
 ---------------------------------------
 
 fazer conversão do Chat para versão de sala aberta
+
+Duas Linguagens Finalizar -> estao finalizadas falta por o cokie a funcionar
+
+Falta a acabar as cx de mensagens de confirmação de apagar o paper (SORRY) -> feito

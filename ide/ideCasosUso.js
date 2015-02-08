@@ -20,6 +20,9 @@ var scrolltop = $(document).scrollTop();
 
 
 ControladorAmalia.ReadVariaveis();
+
+ControladorAmalia.ApplyCookie();
+
 //var b  =  element.scrollHeight - element.clientHeight;
 //var c  =  element.scrollWidth - element.clientWidth;
 
@@ -360,10 +363,18 @@ $(document).ready(function () {
     //DMMLG
     //Alteração de linguagem
 	$("#lng_english").click(function () {
-        language ='languages/english.xml';
+		  ControladorAmalia.MudaParaEN();
+		  ControladorAmalia.SetCookie("lang", "en");
+        //language ='languages/english.xml';
+        //ControladorAmalia.ActualizaVariaveis();
+        //location.reload();
     });
     $("#lng_portuguese").click(function () {
-        language ='languages/portugues.xml';
+			ControladorAmalia.MudaParaPT();
+			ControladorAmalia.SetCookie("lang", "pt");
+        //language ='languages/portugues.xml';
+        //ControladorAmalia.ActualizaVariaveis();
+        //location.reload();
     });
     $("#btnLimpar").click(function(){
 		ControladorAmalia.toogleDialogoLimpaDiagrama();
@@ -422,7 +433,6 @@ $(document).ready(function () {
             ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
         } else {
             alert("Não é possível abir ficheiros do disco com este browser, utilizar a última versão do firefox(por exemplo) ");
-            console.log("Estou lixado");
         }
     });
 

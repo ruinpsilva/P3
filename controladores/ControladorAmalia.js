@@ -30,9 +30,57 @@ var listaAbstracts = [] //arraycom lista de abstracts
 var graph2 = new joint.dia.Graph;   //diagrama de classes
 var CLBundle;   // conjunto de elementos que constituem o IDE de classes
 var nome;
-var language="languages/english.xml";
-$(function () {
-            $.ajax({
+var language = "languages/english.xml";
+
+
+ControladorAmalia ={
+
+	  SetCookie: function(cname, cvalue){
+			 var d = new Date();
+			 d.setTime(d.getTime() + (30*24*60*60*1000));
+			 var expires = "expires=" + d.toUTCString();
+		    var cPlace = "path=/";
+			 document.cookie = cname + "=" + cvalue + "; " + expires + "; " + cPlace;
+			 console.log(cname + " " + cvalue + " " + cPlace);
+			 console.log("Cookie Set - OK! para " + cvalue);
+	  },
+
+	  GetCookie: function (cname) {
+			var name = cname + "=";
+		  console.log("NOME DO COOKIE:"+name);
+		  var ca = "";
+			var ca = document.cookie.split(';');
+		  console.log("ca = " + ca);
+			for(var i=0; i<ca.length; i++) {
+				 var c = ca[i];
+				 while (c.charAt(0)==' ') c = c.substring(1);
+				 if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return "";
+	  },
+
+	  ApplyCookie: function (){
+			var lang = ControladorAmalia.GetCookie("lang");
+			 console.log(lang);
+			 if(lang == ""){
+					console.log("NÂO ESTÀ DEFINIDO O COOKIE");
+					ControladorAmalia.MudaParaEN();
+					ControladorAmalia.SetCookie("lang", "en");
+			 } else {
+				  if(ControladorAmalia.GetCookie("lang") == "pt"){
+						 ControladorAmalia.MudaParaPT();
+						 ControladorAmalia.SetCookie("lang", "pt");
+						 console.log("mudou para PT");
+				  } else {
+						 ControladorAmalia.MudaParaEN();
+						 ControladorAmalia.SetCookie("lang", "en");
+						 console.log("mudou para EN");
+				  }
+			 }
+	  },
+
+	MudaParaEN: function(){
+		$.ajax({
                 url: language,
                 success: function (xml) {
                     $(xml).find('text').each(function () {
@@ -61,11 +109,35 @@ $(function () {
                     });
                 }
             });
-        });
+	},
+
+	MudaParaPT: function(){
+		$.ajax({
+                url: 'languages/portugues.xml',
+                success: function (xml) {
+                    $(xml).find('text').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).text();
+                        $("#" + id).html(text);
+                    });
+                    $(xml).find('input').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).text();
+                        $("#" + id).prop('placeholder',text);
+                    });
+                    $(xml).find('button').each(function () {
+                        var id = $(this).attr('id');
+                        var text = $(this).find('value').text();
+                        //console.log(text);
+                        var title= $(this).find('title').text()
+                        $("#" + id).prop('value', text);
+                        $("#" + id).prop('title', title);
+                    });
+                }
+            });
+	},
 
 
-
-ControladorAmalia ={
 
     //DMMLG
     //Atualiza a informação nas variaveis em memoria do browser
@@ -151,9 +223,7 @@ ControladorAmalia ={
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
-        var actor = graph.getCell(actorId);
-        var nome = actor.attr({ text });
-		$("#nomeActor").val(nome); // ir buscar o nome atual ao modelo
+		$("#nomeActor").val(""); // ir buscar o nome atual ao modelo
 		
 		ControladorAmalia.toogleDialogo("#dialogo_actor","#nomeActor");
 
@@ -1120,9 +1190,9 @@ this.createClassesBundle(graph2, listaClasses, listaInterfaces, listaAbstracts);
 // *** TO BE CUSTOMISED ***
 
 var style_cookie_name = "style" ;
-var language_cookie_name ="language";
+//var language_cookie_name ="language";
 var style_cookie_duration = 30 ;
-var language_cookie_duration= 30;
+//var language_cookie_duration= 30;
 
 // *** END OF CUSTOMISABLE SECTION ***
 // You do not need to customise anything below this line
@@ -1160,28 +1230,45 @@ function set_cookie ( cookie_name, cookie_value,
     var domain_string = valid_domain ?
                        ("; domain=" + valid_domain) : '' ;
     document.cookie = cookie_name +
-                       "=" + encodeURIComponent( cookie_value ) +
+                       "=" + cookie_value +
                        "; max-age=" + 60 * 60 *
                        24 * lifespan_in_days +
                        "; path=/" + domain_string ;
 }
 function get_cookie ( cookie_name )
 {
-    // http://www.thesitewizard.com/javascripts/cookies.shtml
-    var cookie_string = document.cookie ;
-    if (cookie_string.length != 0) {
-        var cookie_value = cookie_string.match (
-                        '(^|;)[\s]*' +
-                        cookie_name +
-                        '=([^;]*)' );
-        return decodeURIComponent ( cookie_value[2] ) ;
-    }
-    return '' ;
+//    // http://www.thesitewizard.com/javascripts/cookies.shtml
+//    var cookie_string = document.cookie ;
+//	console.log(cookie_name);
+//	console.log(cookie_string);
+//    if (cookie_string.length != 0) {
+//        var cookie_value = cookie_string.match (
+//                        '(^|;)[\s]*' +
+//                        cookie_name +
+//                        '=([^;]*)' );
+//        return decodeURIComponent ( cookie_value[2] ) ;
+//    }
+//    return '' ;
+
+	var name = cookie_name + "=";
+		  console.log("NOME DO COOKIE:"+cookie_name);
+		  var ca = "";
+			var ca = document.cookie.split(';');
+		  console.log("ca = " + ca);
+			for(var i=0; i<ca.length; i++) {
+				 var c = ca[i];
+				 while (c.charAt(0)==' ') c = c.substring(1);
+				 if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return "";
 }
+
+
+
+
 function removefrom( array, valor){
     var index =array.indexOf(valor);
     if(index>=0){
        array.splice(index,1);
 }
 }
-
