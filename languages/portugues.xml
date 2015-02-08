@@ -43,7 +43,9 @@
 	<text id="texto4">Desenvolvido por : Domingos Gomes e Rui Silva</text>
 	<text id="texto5">V1.0, Fevereiro 2015</text>
 	<text id="dialogoLimpaDiagramap"> Esta ação vai remover todos o elementos. Pretende Continuar?</text>
-
+	<text id="atributosClasseb"> atributos</text>
+	<text id="metodosClasseb">metodos</text>
+    <text id="metodosInterfaceb">metodos</text>
 	<button id="btnCreateProject">
 			<value>Novo Projeto</value>
 			<title>Inicie o seu novo projeto aqui</title>
