@@ -36,7 +36,7 @@ var language="languages/english.xml";
 
 ControladorAmalia ={
 
-	  SetCookie: function(cname, cvalue){
+    SetCookie: function(cname, cvalue){
 			 var d = new Date();
 			 d.setTime(d.getTime() + (30*24*60*60*1000));
 			 var expires = "expires=" + d.toUTCString();
@@ -46,7 +46,7 @@ ControladorAmalia ={
 			 console.log("Cookie Set - OK! para " + cvalue);
 	  },
 
-	  GetCookie: function (cname) {
+    GetCookie: function (cname) {
 			var name = cname + "=";
 		  console.log("NOME DO COOKIE:"+name);
 		  var ca = "";
@@ -60,7 +60,7 @@ ControladorAmalia ={
 			return "";
 	  },
 
-	  ApplyCookie: function (){
+    ApplyCookie: function (){
 			var lang = ControladorAmalia.GetCookie("lang");
 			 console.log(lang);
 			 if(lang == ""){
@@ -308,7 +308,10 @@ ControladorAmalia ={
 			$("#nomeDaClasse").val(classeJSON.name);
 			//atributos
 			var atributos = classeJSON.attributes;
-			for(i = 0 ; i < atributos.length ; i++){                                         $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
+			for(i = 0 ; i < atributos.length ; i++){
+
+                    $("#atributosClasse").append(ControladorAmalia.addAtributoMetodo("atributo",atributos[i]));
+
 			}
 			//metodos
 			var metodos = classeJSON.methods;
@@ -1136,7 +1139,7 @@ this.createClassesBundle(graph2, listaClasses, listaInterfaces, listaAbstracts);
 		//Campo de texto para o atributo
 		var nomeAtributo = $("<input />").addClass("nome_"+classe);
 		nomeAtributo.attr ("type", "text");
-		nomeAtributo.attr ("placeholder", classe);
+		//nomeAtributo.attr ("placeholder", classe);
 		nomeAtributo.val(valor);
 	
 		//botão para apagar atributo
