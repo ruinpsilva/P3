@@ -20,6 +20,9 @@ var scrolltop = $(document).scrollTop();
 
 
 ControladorAmalia.ReadVariaveis();
+
+ControladorAmalia.ApplyCookie();
+
 //var b  =  element.scrollHeight - element.clientHeight;
 //var c  =  element.scrollWidth - element.clientWidth;
 

@@ -44,14 +44,18 @@ ControladorAmalia ={
 			 var d = new Date();
 			 d.setTime(d.getTime() + (30*24*60*60*1000));
 			 var expires = "expires=" + d.toUTCString();
-			 document.cookie = cname + "=" + cvalue + "; " + expires;
-			 console.log(cname + " " + cvalue);
+		    var cPlace = "path=/";
+			 document.cookie = cname + "=" + cvalue + "; " + expires + "; " + cPlace;
+			 console.log(cname + " " + cvalue + " " + cPlace);
 			 console.log("Cookie Set - OK! para " + cvalue);
 	  },
 
 	  GetCookie: function (cname) {
 			var name = cname + "=";
+		  console.log("NOME DO COOKIE:"+name);
+		  var ca = "";
 			var ca = document.cookie.split(';');
+		  console.log("ca = " + ca);
 			for(var i=0; i<ca.length; i++) {
 				 var c = ca[i];
 				 while (c.charAt(0)==' ') c = c.substring(1);
@@ -63,7 +67,7 @@ ControladorAmalia ={
 	  ApplyCookie: function (){
 			var lang = ControladorAmalia.GetCookie("lang");
 			 console.log(lang);
-			 if(lang != ""){
+			 if(lang == ""){
 					console.log("NÂO ESTÀ DEFINIDO O COOKIE");
 					ControladorAmalia.MudaParaEN();
 					ControladorAmalia.SetCookie("lang", "en");
@@ -82,7 +86,6 @@ ControladorAmalia ={
 
 	MudaParaEN: function(){
 		$.ajax({
-            $.ajax({
                 url: language,
                 success: function (xml) {
                     $(xml).find('text').each(function () {
@@ -1234,23 +1237,37 @@ function set_cookie ( cookie_name, cookie_value,
     var domain_string = valid_domain ?
                        ("; domain=" + valid_domain) : '' ;
     document.cookie = cookie_name +
-                       "=" + encodeURIComponent( cookie_value ) +
+                       "=" + cookie_value +
                        "; max-age=" + 60 * 60 *
                        24 * lifespan_in_days +
                        "; path=/" + domain_string ;
 }
 function get_cookie ( cookie_name )
 {
-    // http://www.thesitewizard.com/javascripts/cookies.shtml
-    var cookie_string = document.cookie ;
-    if (cookie_string.length != 0) {
-        var cookie_value = cookie_string.match (
-                        '(^|;)[\s]*' +
-                        cookie_name +
-                        '=([^;]*)' );
-        return decodeURIComponent ( cookie_value[2] ) ;
-    }
-    return '' ;
+//    // http://www.thesitewizard.com/javascripts/cookies.shtml
+//    var cookie_string = document.cookie ;
+//	console.log(cookie_name);
+//	console.log(cookie_string);
+//    if (cookie_string.length != 0) {
+//        var cookie_value = cookie_string.match (
+//                        '(^|;)[\s]*' +
+//                        cookie_name +
+//                        '=([^;]*)' );
+//        return decodeURIComponent ( cookie_value[2] ) ;
+//    }
+//    return '' ;
+
+	var name = cookie_name + "=";
+		  console.log("NOME DO COOKIE:"+cookie_name);
+		  var ca = "";
+			var ca = document.cookie.split(';');
+		  console.log("ca = " + ca);
+			for(var i=0; i<ca.length; i++) {
+				 var c = ca[i];
+				 while (c.charAt(0)==' ') c = c.substring(1);
+				 if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return "";
 }
 
 

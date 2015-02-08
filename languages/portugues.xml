@@ -42,7 +42,7 @@
 <!--	<text id="texto3">Mais Informações:</text>-->
 <!--	<text id="texto4">Desenvolvido por : Rui Silva e Domingos Gomes</text>-->
 <!--	<text id="texto5">V1.0, Fevereiro 2015</text>-->
-	<text id="dialogoLimpaDiagramap"> Esta acção vai remover todos o elementos.Pretende Continuar?</text>
+	<text id="dialogoLimpaDiagramap"> Esta ação vai remover todos o elementos. Pretende Continuar?</text>
 
 	<button id="btnCreateProject">
 			<value>Novo Projeto</value>
@@ -53,7 +53,7 @@
 			<title>Carregar Projeto de browser</title>
 	</button>
 	<button id="btnOpenProjectFile">
-			<value>Abrir Ficheiro de Projeto</value>
+			<value>Abrir Ficheiro</value>
 			<title>Carregar Projeto de Ficheiro</title>
 	</button>
 	<button id="btnExportProject">
@@ -141,15 +141,15 @@
         <title></title>
     </button>
     <button id="btnSaveProject">
-        <value>Gravar Projeto</value>
+        <value>Guardar Projeto</value>
         <title></title>
     </button>
     <button id="btnGravarProjeto">
-        <value>Grava no Browser</value>
+        <value>Guardar no Browser</value>
         <title></title>
     </button>
     <button id="btnGuardarCasosUsoDisco">
-        <value>Gravar para ficheiro</value>
+        <value>Guardar em ficheiro</value>
         <title></title>
     </button>
     <button id="btnDeleteCasoUso">
