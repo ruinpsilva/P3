@@ -363,14 +363,18 @@ $(document).ready(function () {
     //DMMLG
     //Alteração de linguagem
 	$("#lng_english").click(function () {
-        language ='languages/english.xml';
-        ControladorAmalia.ActualizaVariaveis();
-        location.reload();
+		  ControladorAmalia.MudaParaEN();
+		  ControladorAmalia.SetCookie("lang", "en");
+        //language ='languages/english.xml';
+        //ControladorAmalia.ActualizaVariaveis();
+        //location.reload();
     });
     $("#lng_portuguese").click(function () {
-        language ='languages/portugues.xml';
-        ControladorAmalia.ActualizaVariaveis();
-        location.reload();
+			ControladorAmalia.MudaParaPT();
+			ControladorAmalia.SetCookie("lang", "pt");
+        //language ='languages/portugues.xml';
+        //ControladorAmalia.ActualizaVariaveis();
+        //location.reload();
     });
 
     //Cancelar a abertura do ficheiro

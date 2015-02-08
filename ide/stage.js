@@ -1,13 +1,13 @@
 $(document).ready(function(){
-        $("#ucfolder").on('click touchend', function(){
-            if(mobilecheck==true){
-		window.location.href = 'casosUso.html';}
-	});
-        $("#dmfolder").on('click touchend', function(){
-            if(mobilecheck==true){
-		window.location.href = 'diagramaClasses.html';
-            }
-	});
+//        $("#ucfolder").on('click touchend', function(){
+//            if(mobilecheck==true){
+//		window.location.href = 'casosUso.html';}
+//	});
+//        $("#dmfolder").on('click touchend', function(){
+//            if(mobilecheck==true){
+//		window.location.href = 'diagramaClasses.html';
+//            }
+//	});
 	$("#ucfolder").dblclick(function(){
         window.location.href = "casosUso.html";
     });
@@ -37,4 +37,18 @@ $(document).ready(function(){
         window.location.href = "index.html";
 
     });
+
+	//Botao para mudar a linguagem para Ingles
+	$("#lng_english").click(function(){
+		ControladorAmalia.MudaParaEN();
+		ControladorAmalia.SetCookie("lang", "en");
+	});
+
+	//Botao para mudar a linguagem para Portugues
+	$("#lng_portuguese").click(function(){
+		ControladorAmalia.MudaParaPT();
+		ControladorAmalia.SetCookie("lang", "pt");
+	});
+
+	ControladorAmalia.ApplyCookie();
 });

@@ -25,6 +25,8 @@ var scrolltop = $(document).scrollTop();
 
 ControladorAmalia.ReadVariaveis();
 
+ControladorAmalia.ApplyCookie();
+
 //DMMLG
 // Função para inserir classes no grafico
 function insertClassOnToGraph(){
@@ -386,6 +388,18 @@ function zoomfit(){
         ControladorAmalia.gravarProjectoNoBrowser();
     });
 	
+	//Botao para mudar a linguagem para Ingles
+	$("#lng_english").click(function(){
+		ControladorAmalia.MudaParaEN();
+		ControladorAmalia.SetCookie("lang", "en");
+	});
+
+	//Botao para mudar a linguagem para Portugues
+	$("#lng_portuguese").click(function(){
+		ControladorAmalia.MudaParaPT();
+		ControladorAmalia.SetCookie("lang", "pt");
+	});
+
 	
 	//Experiência repor
 	$("#btnRestaurarDiagramaClasses").click(function () {	
