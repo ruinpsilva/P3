@@ -34,7 +34,6 @@ var language="languages/english.xml";
 
 
 
-
 ControladorAmalia ={
 
 	  SetCookie: function(cname, cvalue){
@@ -225,9 +224,7 @@ ControladorAmalia ={
 	toogleDialogoAtor: function (actorId){
 		
 		$("#idActor").val(actorId);
-        var actor = graph.getCell(actorId);
-        var nome = actor.attr({ text });
-		$("#nomeActor").val(nome); // ir buscar o nome atual ao modelo
+		$("#nomeActor").val(""); // ir buscar o nome atual ao modelo
 		
 		ControladorAmalia.toogleDialogo("#dialogo_actor","#nomeActor");
 
@@ -1276,7 +1273,3 @@ function removefrom( array, valor){
        array.splice(index,1);
 }
 }
-
-
-
-

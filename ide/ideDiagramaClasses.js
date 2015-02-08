@@ -371,6 +371,7 @@ function zoomfit(){
         ControladorAmalia.gravarProjectoNoBrowser();
     });
 
+
 	//Botao para mudar a linguagem para Ingles
 	$("#lng_english").click(function(){
 		ControladorAmalia.MudaParaEN();
@@ -383,26 +384,6 @@ function zoomfit(){
 		ControladorAmalia.SetCookie("lang", "pt");
 	});
 
-	
-	//Experiência repor
-	$("#btnRestaurarDiagramaClasses").click(function () {	
-		ControladorAmalia.toogleDialogoAbreDiagrama("diagramaClasses");
-	});
-	
-	//btnCancelaAbrirDiagrama
-	$("#btnCancelaAbrirDiagrama").click(function(){
-		ControladorAmalia.toogleDialogoAbreDiagrama("");
-	});
-	
-	//btnAbrirDiagrama ---- Abrir o Diagrama
-	$("#btnAbrirDiagrama").click(function(){
-		ControladorAmalia.abirDiagrama(graph2);
-	});
-	//--------------------------Botão apagarDiagrama
-	$("#btnApagarDiagrama").click(function(){
-		graph2.clear();
-		iniciarDiagrama(graph2);
-	});
 
 	//--------------------------Botão cancelar do dialogoAlteraClasses
 	$("#btnCancelarAlteraClasse").click(function(){

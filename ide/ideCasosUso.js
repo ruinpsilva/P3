@@ -433,7 +433,6 @@ $(document).ready(function () {
             ControladorAmalia.toggleDialogoAbreDiagramaCasosUsoDisco();
         } else {
             alert("Não é possível abir ficheiros do disco com este browser, utilizar a última versão do firefox(por exemplo) ");
-            console.log("Estou lixado");
         }
     });
 
