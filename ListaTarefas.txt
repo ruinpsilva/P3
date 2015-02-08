@@ -5,21 +5,21 @@ Lista de bugs
 
 LISTA DE TAREFAS
 
--verificar se tudo está em inglês
+-verificar se tudo está em inglês-> feito(no dialogo de classes nao se pode alterar o que aparece quando cria, cracha tudo depois)
 
 Testem globalmente a aplicação nos dois temas e nas duas linguas (4 combinações...).
 
-Duas Linguagens Finalizar
+Duas Linguagens Finalizar -> estao finalizadas falta por o cokie a funcionar
 
-Falta a acabar as cx de mensagens de confirmação de apagar o paper (SORRY)
+Falta a acabar as cx de mensagens de confirmação de apagar o paper (SORRY) -> feito
 
-mudar imagens de casos de uso no stage
+mudar imagens de casos de uso no stage-> falar com o paulo a ver se tem o feicheito do photoshop que assim só é preciso por uma seta
 
 fazer projecto bonito para a apresentação
 
 fazer Poster
 
-fazer PPT para a apresentação (diagrama)
+fazer PPT para a apresentação (diagrama)-> não percebi o que é para fazer aqui
 
 
    

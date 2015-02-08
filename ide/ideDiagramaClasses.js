@@ -276,7 +276,7 @@ function zoomfit(){
 	});
 	
 		//Duplos clicks para mudar os momes dos objectos e alterar os seus atributos.
-		paper.on('cell:pointerdblclick',function(cellView,evt, x, y){
+    paper.on('cell:pointerdblclick',function(cellView,evt, x, y){
 			
 		var elemento = cellView.model;
 		
@@ -316,9 +316,7 @@ function zoomfit(){
 
     //Clear Diagram
     $("#clearDiagram").click(function(e){
-	    //ControladorAmalia.toogleDialogoLimpaDiagrama();
-	    graph.clear();
-	    zoomfit();
+	    ControladorAmalia.toogleDialogoLimpaDiagrama();
     });
 
 
@@ -346,36 +344,21 @@ function zoomfit(){
 	});
 
 	$("#btnLimpar").click(function(){
-		ControladorAmalia.toogleLimpaDiagrama();
+		ControladorAmalia.toogleDialogoLimpaDiagrama();
 		graph2.clear();
-        	listaClasses.length = 0;
-        	listaInterfaces.length = 0;
-        	listaAbstracts.length = 0;
+        listaClasses.length = 0;
+        listaInterfaces.length = 0;
+        listaAbstracts.length = 0;
 	});
+    $("#btnCancelaLimpar").click(function(){
+		ControladorAmalia.toogleDialogoLimpaDiagrama();
+    });
+
 
     //Confirmaç\ao de que é para fechar o projecto
     $("#btnFecharProjecto").click(function(){
         ControladorAmalia.FechaProjecto();
         window.location.href = "index.html";
-    });
-
-	$("#btnGuardarDiagramaClasses").click(function (){
-		ControladorAmalia.toogleDialogoGravarDiagrama("diagramaClasses");
-	});
-	//Cancelar a Gravação
-
-
-	$("#btnCancelaGravarDiagrama").click(function(){
-		ControladorAmalia.toogleDialogoGravarDiagrama("");
-	});
-	//Gravar o diagrama
-	$("#btnGravarDiagrama").click(function(){
-		ControladorAmalia.gravarDiagramaNoBrowser(graph2);
-	});
-
-	//Gravar para o disco em JSON---> fazer focus do dialogo gravar
-    $("#btnGuardarCasosUsoDisco").click(function () {
-        ControladorAmalia.gravarProjectoNoDisco();
     });
 
     //RNPS
@@ -388,6 +371,7 @@ function zoomfit(){
         ControladorAmalia.gravarProjectoNoBrowser();
     });
 	
+<<<<<<< HEAD
 	//Botao para mudar a linguagem para Ingles
 	$("#lng_english").click(function(){
 		ControladorAmalia.MudaParaEN();
@@ -420,6 +404,10 @@ function zoomfit(){
 		graph2.clear();
 		iniciarDiagrama(graph2);
 	});
+=======
+
+
+>>>>>>> origin/master
 	//--------------------------Botão cancelar do dialogoAlteraClasses
 	$("#btnCancelarAlteraClasse").click(function(){
 		
@@ -461,7 +449,7 @@ function zoomfit(){
 	});
 	//--------------------------Botão Add Atributo
 	$("#btnAddAtributo").click(function(){
-		$("#atributosClasse").append(addAtributoMetodo("atributhe"));
+		$("#atributosClasse").append(addAtributoMetodo("atributo"));
 	});
 	//--------------------------Botão para Apagar atributo
 	$("#atributosClasse").on("click",".btnApaga",function(){
@@ -469,7 +457,7 @@ function zoomfit(){
 	});
 	//---------------------------Botão add Método -- btnAddMetodo
 	$("#btnAddMetodo").click(function(){
-		$("#metodosClasse").append(addAtributoMetodo("method"));
+		$("#metodosClasse").append(addAtributoMetodo("metodo"));
 	});
 	//--------------------------Botão para Apagar método
 	$("#metodosClasse").on("click",".btnApaga",function(){
@@ -513,7 +501,7 @@ function zoomfit(){
 	});
 	//---------------------------Botão add Método -- btnAddMetodoInt
 	$("#btnAddMetodoInt").click(function(){
-		$("#metodosInterface").append(addMetodoInterface("method"));
+		$("#metodosInterface").append(addMetodoInterface("metodo"));
 	});
 	//--------------------------Botão para Apagar método
 	$("#metodosInterface").on("click",".btnApaga",function(){
@@ -562,14 +550,7 @@ function zoomfit(){
 		$("#controloDiagramaClasses").slideDown(200);
 
 	});
-	
-	//****************************************
-	//  Fazer desaparecer o  blackHole DMMLG
-	// ***************************************
-//	$("#blackHole").mouseenter(function(){
-//		$("#blackHole").hide();
-//		$("#blackHole").delay(1000).fadeIn();
-//	});
+
 	
 	//****************************************
 	//**          Exportar para xml         **

@@ -278,10 +278,7 @@ $(document).ready(function () {
 
     //Clear Diagram
     $("#clearDiagram").click(function (e) {
-        graph.clear();
-	    zoomfit();
-        listaAtores = [];
-        listaCasos = [];
+        ControladorAmalia.toogleDialogoLimpaDiagrama();
     });
 
 
@@ -363,6 +360,7 @@ $(document).ready(function () {
     //DMMLG
     //Alteração de linguagem
 	$("#lng_english").click(function () {
+<<<<<<< HEAD
 		  ControladorAmalia.MudaParaEN();
 		  ControladorAmalia.SetCookie("lang", "en");
         //language ='languages/english.xml';
@@ -375,6 +373,21 @@ $(document).ready(function () {
         //language ='languages/portugues.xml';
         //ControladorAmalia.ActualizaVariaveis();
         //location.reload();
+=======
+        language ='languages/english.xml';
+    });
+    $("#lng_portuguese").click(function () {
+        language ='languages/portugues.xml';
+    });
+    $("#btnLimpar").click(function(){
+		ControladorAmalia.toogleDialogoLimpaDiagrama();
+		graph2.clear();
+        listaAtores = [];
+        listaCasos = [];
+	});
+    $("#btnCancelaLimpar").click(function(){
+		ControladorAmalia.toogleDialogoLimpaDiagrama();
+>>>>>>> origin/master
     });
 
     //Cancelar a abertura do ficheiro

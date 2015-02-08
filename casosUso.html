@@ -190,7 +190,7 @@
                                 <input id="idCaso" type="hidden" value="" />
                                 </p>
                                 <label id="entityl" for="entity">Entity:</label>
-                                <input list="entityList" id="listaEntidades"  autocomplete="on"/>
+                                <input list="entityList" id="listaEntidades"  />
                                 <datalist id="entityList">
                                      <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>
@@ -202,7 +202,7 @@
 							  <input id="idlcrud5" class="optCheckbox" type="checkbox" name="lcrud" value="d" checked="checked">D
 							  <p></p>
                                 <label id="masterl" for="masterEntityList">Master Entity:</label>
-                                <input list="masterEntityList" id="listaEntidadesMaster" autocomplete="on" />
+                                <input list="masterEntityList" id="listaEntidadesMaster" autocomplete="of" />
                                 <datalist id="masterEntityList" >
                                       <!-- Local onde vai ficar a lista de classes disponíveis -->
                                 </datalist>
@@ -258,7 +258,14 @@
                         <input id="btnFecharProjecto" type="button" value="Continue"/>
                 </div>
             </div>
-
+            <!--Dialo para ter a certeza que o utilizador quer limpar o paper-->
+            <div id="dialogoLimpaDiagrama">
+                   <div>
+                    <p id="dialogoLimpaDiagramap"> This action will remove all elements. Do you wish to continue? </p>
+                        <input id="btnCancelaLimpar" type="button" value="No"/>
+                        <input id="btnLimpar" type="button" value="Yes"/>
+                </div>
+                </div>
 			<footer>
 
 				<p id="foot">
