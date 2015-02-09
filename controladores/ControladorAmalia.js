@@ -38,10 +38,10 @@ var language="languages/english.xml";
 ControladorAmalia ={
 
 	VerificaTutorial1st: function(){
-		if(ControladorAmalia.GetCookie("tutorial") == "notWatched"){
+		if(ControladorAmalia.GetCookie("tutorial") == ""){
 			console.log("VAMOS VER O TUTORIAL");
 			ControladorAmalia.toogleDialogo("#dialogoPrimeiraUtilizacao", false);
-			ControladorAmalia.SetCookieForever("tutorial","notWatched");
+			ControladorAmalia.SetCookieForever("tutorial","watched");
 		}
 	},
 
