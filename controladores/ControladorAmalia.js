@@ -37,6 +37,14 @@ var language="languages/english.xml";
 
 ControladorAmalia ={
 
+	VerificaTutorial1st: function(){
+		if(ControladorAmalia.GetCookie("tutorial") == "notWatched"){
+			console.log("VAMOS VER O TUTORIAL");
+			ControladorAmalia.toogleDialogo("#dialogoPrimeiraUtilizacao", false);
+			ControladorAmalia.SetCookieForever("tutorial","notWatched");
+		}
+	},
+
     SetCookie: function(cname, cvalue){
 			 var d = new Date();
 			 d.setTime(d.getTime() + (30*24*60*60*1000));
@@ -46,6 +54,13 @@ ControladorAmalia ={
 			 console.log(cname + " " + cvalue + " " + cPlace);
 			 console.log("Cookie Set - OK! para " + cvalue);
 	  },
+
+	SetCookieForever:function(cname, cvalue){
+		 var cPlace = "path=/";
+		 document.cookie = cname + "=" + cvalue + "; " + cPlace;
+		 console.log(cname + " " + cvalue + " " + cPlace);
+		 console.log("Cookie Set - OK! para " + cvalue);
+	},
 
     GetCookie: function (cname) {
 			var name = cname + "=";

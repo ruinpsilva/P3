@@ -1,8 +1,12 @@
 $(document).ready(function(){
 
+
+
+
     //ControladorAmalia.supportsLocalStorage();
     actualizaFicheiros();
 	ControladorAmalia.ApplyCookie();
+	ControladorAmalia.VerificaTutorial1st();
 
     //botoes provisórios do stage
     $("#btnCreateProject").click(function(){
