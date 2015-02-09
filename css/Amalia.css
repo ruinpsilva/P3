@@ -178,7 +178,8 @@ a:hover{
 #dialogoGravaDiaCasosDisco,
 #dialogoExportProjet,
 #dialogoEraseProjet,
-#dialogoLimpaDiagrama{
+#dialogoLimpaDiagrama,
+#dialogoPrimeiraUtilizacao{
 /*     visibility: hidden;*/
 	display: none;
      position: absolute;
@@ -213,7 +214,8 @@ a:hover{
 #dialogoFechaProjecto div,
 #dialogoExportProjet div,
 #dialogoEraseProjet div,
-#dialogoLimpaDiagrama div
+#dialogoLimpaDiagrama div,
+#dialogoPrimeiraUtilizacao div
 {
      width:320px;
      margin: 120px auto;

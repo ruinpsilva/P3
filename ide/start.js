@@ -108,7 +108,9 @@ $(document).ready(function(){
 		ControladorAmalia.abrirProjetoParaExportar();
     });
 
-
+    $("#btnBack").click(function(){
+        ControladorAmalia.toogleDialogo("#dialogoPrimeiraUtilizacao",false);
+    });
 
     //Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
 function readSingleFile(evt) {
