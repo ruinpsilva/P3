@@ -815,3 +815,12 @@ ul{
 #i02 p, #z02 p, #i04 p, #z04 p, #p02, #p04 {
 	color: white;
 }
+
+#idTutorialBox {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+#textTutorial {
+	font-size: 15px;
+}
