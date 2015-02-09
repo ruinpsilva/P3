@@ -24,6 +24,78 @@
 
     <!-- Controlador -->
     <script src="controladores/ControladorAmalia.js"></script>
+     <!-- video -->
+        <link rel="stylesheet" href="index_videolb/videolightbox.css" type="text/css" />
+
+			<link rel="stylesheet" type="text/css" href="index_videolb/overlay-minimal.css"/>
+			<script src="index_videolb/jquery.js" type="text/javascript"></script>
+			<script src="index_videolb/swfobject.js" type="text/javascript"></script>
+       <script src="index_videolb/jquery.tools.min.js" type="text/javascript"></script>
+			<script src="index_videolb/videolightbox.js" type="text/javascript"></script>
+
+
+        <!-- Right-Click Block-->
+		<script language="javascript">
+			document.onmousedown=disableclick;
+			status="No need for right-click! All options are available by double-click!";
+			function disableclick(event)
+			{
+			  if(event.button==2)
+			   {
+				alert(status);
+				return false;
+			   }
+			}
+		</script>
+
+		<!-- script de controlo dos menus dos botões-->
+		<script type="text/javascript">
+
+            var timeout         = 500;
+            var closetimer		= 0;
+            var ddmenuitem      = 0;
+
+            // open hidden layer
+            function mopen(id)
+            {
+                // cancel close timer
+                mcancelclosetime();
+
+                // close old layer
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+                // get new layer and show it
+                ddmenuitem = document.getElementById(id);
+                ddmenuitem.style.visibility = 'visible';
+
+            }
+            // close showed layer
+            function mclose()
+            {
+                if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+            }
+
+            // go close timer
+            function mclosetime()
+            {
+                closetimer = window.setTimeout(mclose, timeout);
+            }
+
+            // cancel close timer
+            function mcancelclosetime()
+            {
+                if(closetimer)
+                {
+                    window.clearTimeout(closetimer);
+                    closetimer = null;
+                }
+            }
+
+            // close layer when click-out
+            document.onclick = mclose;
+            // -->
+            </script>
+
 
     <!--IDE -->
     <script src="ide/start.js"></script>
@@ -215,7 +287,7 @@
                 <p id="textTutorial">If you want, you can play the tutorial now, or later,you can do it in the About Section.</p>
                 </fieldset>
                 <input id="btnBack" value="Back to Main Page"/>
-                <input id="btnPlay" value="Play toturial"/>
+                <input id="btnPlay" value="Play toturial" class ="voverlay" href='http://www.youtube.com/v/JgqgxZSOq7I?autoplay=1&rel=0&enablejsapi=1&playerapiid=ytplayer'/>
             </div>
         </div>
         <footer>
