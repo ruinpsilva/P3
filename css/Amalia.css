@@ -178,8 +178,7 @@ a:hover{
 #dialogoGravaDiaCasosDisco,
 #dialogoExportProjet,
 #dialogoEraseProjet,
-#dialogoLimpaDiagrama,
-#dialogoPrimeiraUtilizacao{
+#dialogoLimpaDiagrama{
 /*     visibility: hidden;*/
 	display: none;
      position: absolute;
@@ -187,6 +186,18 @@ a:hover{
      top: 0px;
      width:100%;
      height:70%;
+     text-align:center;
+     z-index: 1000;
+     background-color: transparent;
+}
+
+#dialogoPrimeiraUtilizacao{
+	display: none;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
      text-align:center;
      z-index: 1000;
      background-color: transparent;
@@ -214,8 +225,7 @@ a:hover{
 #dialogoFechaProjecto div,
 #dialogoExportProjet div,
 #dialogoEraseProjet div,
-#dialogoLimpaDiagrama div,
-#dialogoPrimeiraUtilizacao div
+#dialogoLimpaDiagrama div
 {
      width:320px;
      margin: 120px auto;
@@ -227,6 +237,21 @@ a:hover{
      text-align:center;
 
 }
+
+#dialogoPrimeiraUtilizacao div
+{
+     width:400px;
+     margin: 120px auto;
+	  height: 250px;
+     background-color: #fff;
+     border:1px solid #000;
+     border-radius: 5px;
+     box-shadow: 5px 5px 5px #374343;
+     padding:15px;
+     text-align:center;
+
+}
+
 #dialogoMostarXMLClasses div,
 #dialogoMostarXMLCasos div{
 	 width:800px;
@@ -819,8 +844,13 @@ ul{
 #idTutorialBox {
 	font-size: 20px;
 	font-weight: bolder;
+
 }
 
 #textTutorial {
 	font-size: 15px;
+}
+
+#fieldTutorial {
+	height: 85%;
 }
