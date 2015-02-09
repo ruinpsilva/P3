@@ -18,6 +18,7 @@ function criaActor(id,nome){
     this.name = nome;
     this.id = id;
 };
+
 var listaCasos=[];    //array com lista de nomes de casos de uso
 var listaAtores=[];   //array com lista de nomes de atores
 var graph = new joint.dia.Graph;    //diagrama de casos de uso
