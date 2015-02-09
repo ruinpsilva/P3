@@ -266,7 +266,7 @@ function zoomfit(){
 				}else if (!(elementoBaixo instanceof instanceAbstract || elementoBaixo instanceof instanceInterface)
 					&&!(elementoCima instanceof instanceAbstract || elementoCima instanceof instanceInterface)){
 						
-						ControladorAmalia.toogleDialogoAssociaClasses(elementoCima.id,elementoBaixo.id);						
+						ControladorAmalia.toogleDialogoAssociaClasses(elementoCima.id,elementoBaixo.id);
 	
 				}
 				
@@ -500,6 +500,7 @@ function zoomfit(){
 	$("#btnLigaClasses").click(function(){
 		ControladorAmalia.associaClasses(graph2);
 		ControladorAmalia.toogleDialogoAssociaClasses("","");
+		zoomfit();
 	});
 	
 	//*************************************************
@@ -513,6 +514,7 @@ function zoomfit(){
 			$("#cardCima").show();
 			$("#cardBaixo").show();
 		}
+
 	});
 	
 	//***********************************************************
