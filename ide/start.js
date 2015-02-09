@@ -112,6 +112,8 @@ $(document).ready(function(){
         ControladorAmalia.toogleDialogo("#dialogoPrimeiraUtilizacao",false);
     });
 
+    $("#btnPlay").click(function
+
     //Função para ler ficheiros exp obtida de http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=nRJ-e_eoFaY
 function readSingleFile(evt) {
   //Retrieve the first (and only!) File from the FileList object
