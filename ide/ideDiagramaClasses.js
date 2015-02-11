@@ -403,7 +403,7 @@ function zoomfit(){
 		ControladorAmalia.toogleDialogoAlteraClasses("");
 	});
 	//---------------------------Botão alterar do dialogoAlteraClasses
-	$("#btnAceitarAlterarClasse").click(function(){
+	$("#classeMostra").submit(function(e){
 		var atributosArray = new Array();
 		var metodosArray = new Array();
 		
@@ -425,6 +425,7 @@ function zoomfit(){
 
 		ControladorAmalia.setClasse(graph2,atributosArray,metodosArray);
 		ControladorAmalia.toogleDialogoAlteraClasses("");
+        e.preventDefault();
 	});
 	//--------------------------Botão Limpar Nome
 	$("#btnLimparNome").click(function(){
@@ -463,7 +464,7 @@ function zoomfit(){
 		ControladorAmalia.toogleDialogoAlteraInterface("");
 	});
 	//---------------------------Botão alterar do dialogoAlteraInterface
-	$("#btnAceitarAlterarInterface").click(function(){
+	$("#classes").submit(function(e){
 		var metodosArray = new Array();
 		
 		//Capturar os métodos
@@ -474,9 +475,10 @@ function zoomfit(){
 		});
 		var idInterface = $("#idInterface").val();
 		var elemento = graph2.getCell(idInterface);
-
 		ControladorAmalia.setInterface(graph2,metodosArray);
 		ControladorAmalia.toogleDialogoAlteraInterface("");
+        e.preventDefault();
+
 	});
 	//--------------------------Botão Limpar Nome
 	$("#btnLimparNomeInt").click(function(){

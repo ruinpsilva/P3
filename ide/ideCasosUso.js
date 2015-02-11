@@ -286,11 +286,11 @@ $(document).ready(function () {
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Eventos dos dialogos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<//
     //Alterar o nome do Caso de Uso
-    $("#caso_uso").submit(function (e) {
+    $("#caso_uso").submit(function () {
 
         ControladorAmalia.setNomeCaso(graph);
         ControladorAmalia.toogleDialogoCasoUso("");
-        e.preventDefault();
+        //e.preventDefault();
 
     });
     //Remover Caos de uso do paper
