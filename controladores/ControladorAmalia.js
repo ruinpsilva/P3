@@ -238,7 +238,7 @@ ControladorAmalia ={
 	},
 	// aparecer dialogo para criar projecto
     toogleDialogoCriaProjecto:function(){
-    ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", false);
+    ControladorAmalia.toogleDialogo("#dialogoCriaProjecto", "#nomeProjecto");
     this.ActualizaVariaveis();
 
     },

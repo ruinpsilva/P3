@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
 
 	//botao para criar projeto
-    $("#btnCriarProjecto").click(function(){
+    $("#CriaProjecto").submit(function(e){
         var nomeProjecto ="Projecto";
         if($("#nomeProjecto").val()){
             nomeProjecto = $("#nomeProjecto").val();
@@ -29,6 +29,7 @@ $(document).ready(function(){
         projetoNome = nomeProjecto;
         ControladorAmalia.ActualizaVariaveis();
         window.location.href = "stage.html";
+        e.preventDefault();
     });
 
     //DMMLG
