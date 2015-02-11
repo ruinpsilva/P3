@@ -330,6 +330,12 @@ function zoomfit(){
         window.location.href ="stage.html";
 	});
 
+
+	//Gravar para o Disco em JSON
+	$("#btnGuardarCasosUsoDisco").click(function(){
+		ControladorAmalia.gravarProjectoNoDisco();
+	});
+
 	 //Botao fechar projecto
     $("#btnClose").click(function(){
         ControladorAmalia.toogleDialogoFechaProjecto();
