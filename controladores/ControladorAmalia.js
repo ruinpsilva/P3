@@ -347,7 +347,7 @@ ControladorAmalia ={
 			$("#nomeDaClasse").val("");
 			
 		}
-        this.toogleDialogo("#dialogoAlteraClasse",false);
+        this.toogleDialogo("#dialogoAlteraClasse","#nomeDaClasse");
 	},
 
 	//dialogo para alterar atributos de classes
@@ -369,7 +369,7 @@ ControladorAmalia ={
 			
 		}
 		
-		ControladorAmalia.toogleDialogo("#dialogoAlteraInterface",false);
+		ControladorAmalia.toogleDialogo("#dialogoAlteraInterface","#nomeDaInterface");
 		
 		
 	},

@@ -199,6 +199,7 @@
 			<!--dialogo para alterar os atributos da classe -->
 			<div id="dialogoAlteraClasse">
      			<div>
+     			<form id=classeMostra>
 					<p>
 						<!--<label for="nomeDaClasse">Nome: </label>-->
 						<fieldset class="dialogo">
@@ -216,20 +217,22 @@
 					</fieldset>
 					<p>
 						<input id="btnCancelarAlteraClasse" type="button" value="Cancel" />
-						<input id="btnAceitarAlterarClasse" type="button" value="OK" />
+						<input type="submit" value="OK" />
 						<input id="btnEleminarAlterarClasse" type="button" value="Delete"/>
 					</p>
+					</form>
 				</div>			
 			</div>
 			
 			<!--dialogo para alterar a interface -->
 			<div id="dialogoAlteraInterface">
      			<div>
+     			<form id="classes">
 					<p>
 						<!--<label for="nomeDaInterface">Nome: </label>-->
 						<fieldset class="dialogo">
 							<legend id= "dialogoAlteraInterfacel">Interface name</legend>
-						<input id="nomeDaInterface" type="text" name="nomeDaClasse" placeholder="Name of Class" />
+						<input id="nomeDaInterface" type="text" name="nomeDaClasse" placeholder="Name of Class" focus/>
 						<input id="btnLimparNomeInt" type="button" value="x" />
 						<input id="idInterface" type="hidden" value="" />
 						</fieldset>
@@ -240,9 +243,10 @@
 					</fieldset>
 					<p>
 						<input id="btnCancelarAlteraInterface" type="button" value="Cancel" />
-						<input id="btnAceitarAlterarInterface" type="button" value="OK" />
+						<input type="submit" value="OK" />
 						<input id="btnEleminarAlterarInterface" type="button" value="Delete"/>
 					</p>
+					</form>
 				</div>			
 			</div>
 			<!-- Dialogo para associações de classes -->
