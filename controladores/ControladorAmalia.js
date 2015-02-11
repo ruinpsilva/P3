@@ -257,6 +257,7 @@ ControladorAmalia ={
 	toogleDialogoCasoUso: function(caso){
 		if (caso){
 			var elementoCaso = caso.toJSON();
+            var existe = false;
 			var nomeCaso = elementoCaso.attrs.text.text;
             	console.log(nomeCaso);
 			//clear all checkboxes
@@ -286,11 +287,17 @@ ControladorAmalia ={
 					 if(listaCasos[i].operacao_caso[j] == 'd'){
 						 $("#idlcrud5").prop('checked', true);
 					 }
-				 }
-		  }
+                 }
+
                     $("#listaEntidades").val(listaCasos[i].entity_caso);
                     $("#listaEntidadesMaster").val(listaCasos[i].masterent);
+                    existe=true;
                 }
+                }
+            if(!existe){
+                $("#listaEntidades").val("");
+                $("#listaEntidadesMaster").val("");
+            }
 			$("#idCaso").val(caso.id);
 			$("#nomeCasoUso").val(nomeCaso);// Colocar o nome actual
 		}
@@ -463,6 +470,7 @@ ControladorAmalia ={
 		   console.log(html);
             $("#entityList").append(html);
             $("#masterEntityList").append(html);
+
         }
     },
 
