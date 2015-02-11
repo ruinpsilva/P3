@@ -806,3 +806,7 @@ ul{
 #i02, #z02, #i04, #z04 {
 	color: #3C3F41;
 }
+
+#dialogoPrimeiraUtilizacao {
+	display: none;
+}
