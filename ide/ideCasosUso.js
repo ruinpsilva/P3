@@ -373,7 +373,7 @@ $(document).ready(function () {
     });
     $("#btnLimpar").click(function(){
 		ControladorAmalia.toogleDialogoLimpaDiagrama();
-		graph2.clear();
+		graph.clear();
         listaAtores = [];
         listaCasos = [];
 	});
